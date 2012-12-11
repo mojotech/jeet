@@ -1,0 +1,81 @@
+@import 'normalize.css'
+// Enable/disable bootstrap elements in bootstrap/index.styl
+@import bootstrap
+@import typography
+@import elements
+
+bs()
+    -moz-box-sizing border-box
+    -webkit-box-sizing border-box
+    box-sizing border-box
+    *behavior url(js/vendor/boxsizing.htc)
+*
+    bs()
+html
+    overflow-y scroll
+    overflow-x hidden
+    font-family Arial, "Helvetica Neue", Helvetica, sans-serif
+input, textarea
+    color #000
+.placeholder
+    color #aaa
+img, video, audio, embed, object, input
+    max-width 100%
+
+/////////////////
+// Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
+/////////////////
+
+// Defaults which you can freely override
+column-width = 30px
+gutter-width = 30px
+columns = 24
+max_width = 1410px
+mobile_width = 705px
+
+// Utility variable — you should never need to modify this
+_gridsystem-width = (column-width + gutter-width) * columns
+
+// Set @total-width to 100% for a fluid layout
+total-width = 100%
+
+// Correcting percentage-to-pixel rounding errors in IE6 & 7
+// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
+// Override @min with the minimum width of your layout
+min-width = max_width
+correction = (((0.5 / min-width) * 100) * 1%)
+
+cf()
+    *zoom 1
+    &:before, &:after
+        content ""
+        display table
+    &:after
+        clear both
+body
+    width 100%
+    cf()
+row(columns = columns)
+    display block
+    width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
+    margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
+    *width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
+    *margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
+col(x, columns = columns)
+    display inline
+    float left
+    cf()
+    width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
+    margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+    *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
+    *margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+offset(offset = 1)
+    margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
+
+// Custom
+center()
+    max-width max_width
+    margin 0 auto
+    cf()
+.center
+    center()

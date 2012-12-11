@@ -1,0 +1,55 @@
+@import framework
+
+html
+    background url(../img/bg.png)
+
+#header
+    background #fff
+    padding 15px 30px
+    #logo
+        col(6)
+    #nav
+        col(12)
+        float right
+        margin-top 45px
+        nav
+            row(12)
+            a
+                col(6, 12)
+                background #eee
+                font-weight bold
+                text-decoration none
+                text-align center
+                padding 10px
+                border-radius 10px
+
+#page
+    padding 30px
+    .center
+        background #fff
+        padding 30px
+        border-radius 10px
+
+// Mobile
+unquote("@media screen and (max-width: " + mobile_width + "), (max-device-width: " + mobile_width + ") {")
+
+#header
+    #logo
+        col(24)
+    #page
+        col(24)
+
+// Forgot to make buttons full-width  <:X
+#header
+    #logo
+        margin-bottom 10px
+    #nav
+        col(24)
+        nav
+            col(24)
+            a
+                col(24)
+                margin-bottom 10px
+        
+
+unquote("}")
