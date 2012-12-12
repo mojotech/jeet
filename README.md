@@ -21,7 +21,7 @@ Quick Start
 Features
 =
 
-- IE8+
+- IE7+
 - One breakpoint
 - Fluid
 - Lightweight
