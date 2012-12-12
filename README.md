@@ -1,4 +1,6 @@
-![alt text](https://raw.github.com/CorySimmons/jeet/master/demo/img/logo.png "Jeet Framework")
+![alt text](https://raw.github.com/CorySimmons/jeet/master/jeet_logo.jpg "Jeet CSS Framework")
+
+&nbsp;
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework.
 
