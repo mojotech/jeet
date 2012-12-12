@@ -1,4 +1,4 @@
-[logo]: https://raw.github.com/CorySimmons/jeet/master/demo/img/logo.png "Jeet Framework"
+![alt text](https://raw.github.com/CorySimmons/jeet/master/demo/img/logo.png "Jeet Framework")
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework.
 
@@ -36,3 +36,10 @@ Moving Parts
 - [placeholder.js](https://github.com/mathiasbynens/jquery-placeholder) (gives you cross-browser access to placeholder attributes in inputs)
 - [boxsizing.htc](https://github.com/Schepp/box-sizing-polyfill) (so Box-Sizing works in IE browsers)
 - [Bootstrap](http://twitter.github.com/bootstrap/) (if you'd like, feel free to omit it completely)
+
+FAQ
+=
+
+**Q** Why "Jeet"?
+
+**A** Named after Bruce Lee's, Jeet Kune Do. Mr. Lee combined the best of every martial art into his own fighting style. Jeet Framework does the same by taking the best parts and leaving out the bloat.
