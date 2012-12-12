@@ -5,6 +5,7 @@ Jeet takes the best of the open source HTML5/CSS3 World and combines it into a l
 
 [View the Demo](http://www.screenr.com/gyh7) - A responsive website from scratch in 3 minutes served with "Black Coffee".
 
+I don't have any friends. [Follow me on Twitter! @ccccory](https://twitter.com/ccccory)
 
 Quick Start
 =
