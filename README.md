@@ -69,3 +69,4 @@ ToDo
 - Button mixins
 - Generic styling for Chrome Frame
 - Figure out the non-semantic superfluous row container problem https://github.com/twigkit/semantic.gs/issues/80
+- Consider making span()'s that rely on padding rather than margin. Might be able to bypass with a simple inline-block
