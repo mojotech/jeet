@@ -59,3 +59,13 @@ FAQ
 ...would render a #5a3e51 gradient button that was 40px tall and had 5px border-radius.
 
 I'd like to make mixins for really high-quality typography and such as well. Everything just depends on if there's interest in this framework or not.
+
+
+ToDo
+=
+
+- Port to SASS, SCSS, and LESS
+- Typography mixins
+- Button mixins
+- Generic styling for Chrome Frame
+- Figure out the non-semantic superfluous row container problem https://github.com/twigkit/semantic.gs/issues/80
