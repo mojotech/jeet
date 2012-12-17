@@ -3,7 +3,6 @@
 @import bootstrap
 @import nib
 @import typography
-@import elements
 
 bs()
     -moz-box-sizing border-box
@@ -32,6 +31,7 @@ column-width = 30px
 gutter-width = 30px
 columns = 24
 max_width = 1410px
+max_width_padding = 15px
 mobile_width = 705px
 
 // Utility variable — you should never need to modify this
@@ -70,6 +70,7 @@ col(x, columns = columns)
     margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
     *margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+    overflow hidden
 offset(offset = 1)
     margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
 
@@ -78,5 +79,16 @@ center()
     max-width max_width
     margin 0 auto
     cf()
+    padding 0 max_width_padding
 .center
     center()
+span(x, columns = columns)
+    display inline
+    float left
+    cf()
+    width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
+    padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+    *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
+    *padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+    overflow hidden
+    box-sizing(content-box)
