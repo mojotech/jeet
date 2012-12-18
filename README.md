@@ -68,4 +68,3 @@ ToDo
 - Typography mixins
 - Button mixins
 - Generic styling for Chrome Frame
-- Figure out the non-semantic superfluous row container problem https://github.com/twigkit/semantic.gs/issues/80
