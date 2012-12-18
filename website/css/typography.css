@@ -1,0 +1,10 @@
+html {
+  font-size: 13px;
+  line-height: 1.6;
+}
+html a {
+  color: #4a689a;
+}
+html a:hover {
+  color: #3b537b;
+}
