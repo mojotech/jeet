@@ -67,4 +67,3 @@ ToDo
 - Port to SASS, SCSS, and LESS
 - Typography mixins
 - Button mixins
-- Generic styling for Chrome Frame
