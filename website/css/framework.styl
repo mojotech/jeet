@@ -1,6 +1,6 @@
 @import 'normalize.css'
 // Enable/disable bootstrap elements in bootstrap/index.styl
-@import bootstrap
+// @import bootstrap
 @import nib
 @import typography
 
@@ -24,6 +24,7 @@ img, video, audio, embed, object, input, iframe
 
 /////////////////
 // Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
+// Heavily customized for Jeet Framework
 /////////////////
 
 // Defaults which you can freely override
@@ -56,32 +57,21 @@ cf()
 body
     width 100%
     cf()
-row(columns = columns)
-    display block
-    width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)
-    margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)
-    *width total-width * ((gutter-width + _gridsystem-width ) / _gridsystem-width)-correction
-    *margin 0 total-width * (((gutter-width * 0.5) / _gridsystem-width ) * - 1)-correction
 col(x, columns = columns)
     display inline
     float left
     cf()
-    width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-    margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+    width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / (_gridsystem-width - gutter-width))
+    margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
-    *margin 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
-    overflow hidden
+    *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
 offset(offset = 1)
-    margin-left total-width*(((gutter-width+column-width)*offset + (gutter-width*0.5))/_gridsystem-width)
-
-// Custom
+    margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
 center()
     max-width max_width
     margin 0 auto
     cf()
     padding 0 max_width_padding
-.center
-    center()
 span(x, columns = columns)
     display inline
     float left
@@ -90,5 +80,7 @@ span(x, columns = columns)
     padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
     *padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
-    overflow hidden
     box-sizing(content-box)
+last()
+    margin-right 0
+    float right
