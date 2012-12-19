@@ -1,4 +1,4 @@
-@import 'normalize.css'
+@import 'jeet/normalize.css'
 @import 'nib/gradients'
 @import 'nib/vendor'
 
@@ -65,11 +65,6 @@ col(x, columns = columns)
     *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
 offset(offset = 1)
     margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
-center()
-    max-width max_width
-    margin 0 auto
-    cf()
-    padding 0 max_width_padding
 span(x, columns = columns)
     display inline
     float left
@@ -81,4 +76,10 @@ span(x, columns = columns)
     box-sizing(content-box)
 last()
     margin-right 0
-    float right
+*:last-child
+    last()
+center()
+    max-width max_width
+    margin 0 auto !important
+    cf()
+    padding 0 max_width_padding
