@@ -78,8 +78,15 @@ last()
     margin-right 0
 *:last-child
     last()
-center()
-    max-width max_width
+center(width = max_width)
+    max-width width
     margin 0 auto !important
     cf()
     padding 0 max_width_padding
+vc()
+    display -webkit-flex
+    display flex
+    -webkit-justify-content center
+    justify-content center
+    -webkit-align-items center
+    align-items center
