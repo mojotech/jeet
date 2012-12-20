@@ -19,6 +19,8 @@ input, textarea
     color #aaa
 img, video, audio, embed, object, input, iframe
     max-width 100%
+last()
+    margin-right 0
 
 /////////////////
 // Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
@@ -63,9 +65,11 @@ col(x, center = false, columns = columns)
     margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
     *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
+    &:last-child
+        last()
     if (center == c)
         float none
-        display block
+        display inline-block
         margin-right auto
         margin auto
         *margin-right auto
@@ -83,13 +87,9 @@ span(x, center = false, columns = columns)
     box-sizing(content-box)
     if (center == c)
         float none
-        display block
+        display inline-block
         margin auto
         *margin auto
-last()
-    margin-right 0
-*:last-child
-    last()
 center(width = max_width)
     max-width width
     margin 0 auto !important
