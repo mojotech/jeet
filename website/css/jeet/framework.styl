@@ -55,7 +55,7 @@ cf()
 body
     width 100%
     cf()
-col(x, columns = columns)
+col(x, center = false, columns = columns)
     display inline
     float left
     cf()
@@ -63,9 +63,16 @@ col(x, columns = columns)
     margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
     *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
+    if (center == c)
+        float none
+        display block
+        margin-right auto
+        margin auto
+        *margin-right auto
+        *margin auto
 offset(offset = 1)
     margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
-span(x, columns = columns)
+span(x, center = false, columns = columns)
     display inline
     float left
     cf()
@@ -74,6 +81,11 @@ span(x, columns = columns)
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
     *padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
     box-sizing(content-box)
+    if (center == c)
+        float none
+        display block
+        margin auto
+        *margin auto
 last()
     margin-right 0
 *:last-child
