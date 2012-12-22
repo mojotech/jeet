@@ -82,9 +82,11 @@ span(x, center = false, columns = columns)
     float left
     cf()
     width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
-    padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+    padding-left total-width * ( (gutter-width * 0.5) / _gridsystem-width)
+    padding-right total-width * ( (gutter-width * 0.5) / _gridsystem-width)
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
-    *padding 0 total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+    *padding-left total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
+    *padding-right total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
     box-sizing(content-box)
     if (center == c)
         float none
