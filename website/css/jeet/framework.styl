@@ -69,12 +69,11 @@ col(x, center = false, columns = columns)
         last()
     if (center == c)
         float none
-        display inline-block
-        *display inline
-        margin-right auto
-        margin auto
-        *margin-right auto
-        *margin auto
+        display block
+        margin-right auto !important
+        margin-left auto !important
+        *margin-right auto !important
+        *margin-left auto !important
 offset(offset = 1)
     margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
 span(x, center = false, columns = columns)
