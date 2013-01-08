@@ -1,0 +1,17 @@
+// Settings
+link_color = #4a689a
+base_font_size = 14px
+
+
+// Generic Typography
+typo()
+    font-size base_font_size
+    line-height 1.5
+    a
+        color link_color
+        &:hover
+            color darken(link_color, 20%)
+
+// Activate
+html
+    typo()

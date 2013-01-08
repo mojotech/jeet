@@ -1,0 +1,28 @@
+@import 'jeet/framework'
+@import 'jeet/elements'
+@import 'jeet/typography'
+
+
+section
+    center()
+    background #eee
+article
+    col(18)
+    background #ddd
+aside
+    col(6)
+    background #ddd
+    
+
+
+// Mobile
+unquote("@media screen and (max-width: " + mobile_width + "), (max-device-width: " + mobile_width + ") {")
+
+article
+    col(24)
+    background none
+aside
+    col(24)
+    background none
+
+unquote("}")
