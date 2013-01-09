@@ -89,15 +89,15 @@ span(x, center = false, columns = columns)
     box-sizing(content-box)
     if (center == c)
         float none
-        display inline-block
-        *display inline
+        display block
         margin auto
         *margin auto
 center(width = max_width)
     max-width width
-    margin 0 auto !important
+    margin 0 auto
     cf()
-    padding 0 max_width_padding
+    padding-left max_width_padding
+    padding-right max_width_padding
 vc()
     display -webkit-flex
     display flex
@@ -105,3 +105,10 @@ vc()
     justify-content center
     -webkit-align-items center
     align-items center
+stack()
+    display block
+    width 100%
+    margin-left auto
+    margin-right auto
+    margin-bottom 2%
+    text-align center
