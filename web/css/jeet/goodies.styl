@@ -51,3 +51,12 @@ shadow(w = 90%, args...)
         width w
         height 0
         box-shadow(args)
+
+// Vertical (and Horizontal) Centering for Chrome, Opera, Maxthon as of 1/13
+vc()
+    display -webkit-flex
+    display flex
+    -webkit-justify-content center
+    justify-content center
+    -webkit-align-items center
+    align-items center

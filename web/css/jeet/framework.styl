@@ -21,6 +21,8 @@ img, video, audio, embed, object, input, iframe
     max-width 100%
 last()
     margin-right 0
+.last
+    last()
 
 /////////////////
 // Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
@@ -98,13 +100,8 @@ center(width = max_width)
     cf()
     padding-left max_width_padding
     padding-right max_width_padding
-vc()
-    display -webkit-flex
-    display flex
-    -webkit-justify-content center
-    justify-content center
-    -webkit-align-items center
-    align-items center
+.center
+    center()
 stack()
     display block
     width 100%
