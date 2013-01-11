@@ -136,7 +136,9 @@ aside:after {
 aside:last-child {
   margin-right: 0;
 }
-@media screen and (max-width: 705px), (max-device-width: 705px) {
+html {
+  background: #00f;
+}
 article {
   display: inline;
   float: left;
@@ -178,5 +180,4 @@ aside:after {
 }
 aside:last-child {
   margin-right: 0;
-}
 }

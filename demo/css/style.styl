@@ -14,15 +14,14 @@ aside
     background #ddd
     
 
-
 // Mobile
-unquote("@media screen and (max-width: " + mobile_width + "), (max-device-width: " + mobile_width + ") {")
-
+bp(900px)
+html
+    background blue
 article
     col(24)
     background none
 aside
     col(24)
     background none
-
-unquote("}")
+endbp()

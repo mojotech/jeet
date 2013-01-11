@@ -2,11 +2,45 @@
 @import 'jeet/goodies'
 @import 'jeet/typography'
 
-
-
-
+#header
+    center()
+#logo
+    col(5)
+    background #aaa
+nav
+    col(12)
+    offset(7)
+    background #ccc
+    a
+        span(6)
+        text-align center
+section
+    center()
+    > div
+        col(9)
+        background #bbb
+    .box
+        col(12)
+        background #999
+aside
+    col(6)
+    shadow()
+    background #ddd
+.btn
+    btn(#c37b1d, 5px, glossy)
+    padding 10px 40px
 
 // Mobile
-unquote("@media screen and (max-width: " + mobile_width + "), (max-device-width: " + mobile_width + ") {")
+bp()
+#logo, img
+nav, nav a
+section > div
+aside
+    stack()
+endbp()
 
-unquote("}")
+// Fun
+bp(1000px)
+html
+    background red
+endbp()

@@ -1,20 +1,16 @@
 @import 'jeet/normalize.css'
 @import 'nib/gradients'
 @import 'nib/vendor'
+@import 'jeet/settings'
 
 bs()
-    -moz-box-sizing border-box
-    -webkit-box-sizing border-box
-    box-sizing border-box
+    box-sizing(border-box)
     *behavior url(js/vendor/boxsizing.htc)
 *
     bs()
 html
     overflow-y scroll
     overflow-x hidden
-    font-family Arial, "Helvetica Neue", Helvetica, sans-serif
-input, textarea
-    color #000
 .placeholder
     color #aaa
 img, video, audio, embed, object, input, iframe
@@ -24,18 +20,7 @@ last()
 .last
     last()
 
-/////////////////
-// Semantic.gs // for Stylus: http://learnboost.github.com/stylus/
-// Heavily customized for Jeet Framework
-/////////////////
-
-// Defaults which you can freely override
-column-width = 30px
-gutter-width = 30px
-columns = 24
-max_width = 1410px
-max_width_padding = 15px
-mobile_width = 705px
+settings()
 
 // Utility variable — you should never need to modify this
 _gridsystem-width = (column-width + gutter-width) * columns
@@ -76,8 +61,6 @@ col(x, center = false, columns = columns)
         margin-left auto !important
         *margin-right auto !important
         *margin-left auto !important
-offset(offset = 1)
-    margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
 span(x, center = false, columns = columns)
     display inline
     float left
@@ -89,23 +72,38 @@ span(x, center = false, columns = columns)
     *padding-left total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
     *padding-right total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction
     box-sizing(content-box)
+    *behavior url(js/vendor/boxsizing.htc)
     if (center == c)
         float none
         display block
-        margin auto
-        *margin auto
-center(width = max_width)
-    max-width width
-    margin 0 auto
+        margin-right auto !important
+        margin-left auto !important
+        *margin-right auto !important
+        *margin-left auto !important
+offset(offset = 1)
+    margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
+center(mw = max_width, p = max_width_padding)
     cf()
-    padding-left max_width_padding
-    padding-right max_width_padding
+    max-width mw
+    margin-left auto
+    margin-right auto
+    padding-left p
+    padding-right p
 .center
     center()
-stack()
+stack(align = c)
     display block
     width 100%
     margin-left auto
     margin-right auto
     margin-bottom 2%
-    text-align center
+    if (align == c)
+        text-align center
+    if (align == l)
+        text-align left
+    if (align == r)
+        text-align right
+bp(w = 705px)
+    unquote("@media screen and (max-width: " + w + "), (max-device-width: " + w + ") {")
+endbp()
+    unquote("}")
