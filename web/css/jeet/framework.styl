@@ -19,21 +19,11 @@ last()
     margin-right 0
 .last
     last()
-
 settings()
-
-// Utility variable — you should never need to modify this
 _gridsystem-width = (column-width + gutter-width) * columns
-
-// Set @total-width to 100% for a fluid layout
 total-width = 100%
-
-// Correcting percentage-to-pixel rounding errors in IE6 & 7
-// See http://tylertate.com/blog/2012/01/05/subpixel-rounding.html
-// Override @min with the minimum width of your layout
 min-width = max_width
 correction = (((0.5 / min-width) * 100) * 1%)
-
 cf()
     *zoom 1
     &:before, &:after
@@ -42,12 +32,12 @@ cf()
     &:after
         clear both
 body
-    width 100%
     cf()
-col(x, center = false, columns = columns)
+    width 100%
+col(x, center = f, last = l)
+    cf()
     display inline
     float left
-    cf()
     width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / (_gridsystem-width - gutter-width))
     margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
     *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
@@ -61,10 +51,14 @@ col(x, center = false, columns = columns)
         margin-left auto !important
         *margin-right auto !important
         *margin-left auto !important
-span(x, center = false, columns = columns)
+    if (last == f)
+        &:last-child
+            margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
+            *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
+span(x, center = f)
+    cf()
     display inline
     float left
-    cf()
     width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)
     padding-left total-width * ( (gutter-width * 0.5) / _gridsystem-width)
     padding-right total-width * ( (gutter-width * 0.5) / _gridsystem-width)
