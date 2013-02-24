@@ -3,26 +3,34 @@
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework.
 
-[View the Demo](http://www.screenr.com/gyh7) - A responsive website from scratch in 3 minutes served with "Black Coffee".
+[Check out demos and screencasts at http://jeetframework.com](http://jeetframework.com/)
 
-I don't have any friends. [Follow me on Twitter! @ccccory](https://twitter.com/ccccory)
+[Watch Jeet develop an entire IE7+ responsive website in 3 minutes while dramatically improving code quality.](http://www.screenr.com/u3c7)
+
+[Follow me on Twitter! @ccccory](https://twitter.com/ccccory)
+[Follow my company on Twitter! @PressedWeb](https://twitter.com/PressedWeb)
+
 
 Quick Start
 =
 
-- Install [Stylus](http://learnboost.github.com/stylus/)
-- Install [nib](http://visionmedia.github.com/nib/)
-- Navigate to your /css directory
+- Install [nodejs](http://nodejs.org)
+- Install [Stylus](http://learnboost.github.com/stylus/) globally (npm install stylus -g)
+- Install [nib](http://visionmedia.github.com/nib/) globally (npm install nib -g)
+- Navigate to your /css directory via terminal
 - Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
 
-    stylus -u nib -w style.styl -c
+    stylus -u nib -w -c
 
 
 Features
 =
 
+- Responsive
+- Lightweight
+- Semantic
+- Highly customizable
 - IE7+
-- One breakpoint
 - Fluid
 - Lightweight
 
@@ -38,6 +46,8 @@ Moving Parts
 - [placeholder.js](https://github.com/mathiasbynens/jquery-placeholder) (gives you cross-browser access to placeholder attributes in inputs)
 - [boxsizing.htc](https://github.com/Schepp/box-sizing-polyfill) (so Box-Sizing works in IE browsers)
 - [Bootstrap](http://twitter.github.com/bootstrap/) (if you'd like, feel free to omit it completely)
+- Much more heavily customized stuff to make it all work seamlessly together.
+
 
 FAQ
 =
@@ -48,22 +58,14 @@ FAQ
 
 **Q** Do you have plans to port this to LESS and SASS?
 
-**A** It depends on the popularity. If there's interest, I'll port it. If not, I'll continue using sweet, sweet, Stylus.
+**A** Yes definitely. In the meantime, try it out on Stylus. Stylus is incredibly underrated.
 
 **Q** Goals for this project?
 
-**A** I'd like to make it 100% semantic by adding mixins for elements like buttons and such. For instance:
-
-    btn(#5a3e51, 40px, 5px)
-
-...would render a #5a3e51 gradient button that was 40px tall and had 5px border-radius.
-
-I'd like to make mixins for really high-quality typography and such as well. Everything just depends on if there's interest in this framework or not.
+**A** I'd like to continue fixing bugs as they pop up, and implement as many feature requests as possible until this framework rules them all. Leave suggestions in the [issue tracker](https://github.com/CorySimmons/jeet/issues).
 
 
-ToDo
+To Do
 =
 
 - Port to SASS, SCSS, and LESS
-- Typography mixins
-- Button mixins
