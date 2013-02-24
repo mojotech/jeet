@@ -3,7 +3,7 @@
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework.
 
-[Check out demos and screencasts at http://jeetframework.com](http://jeetframework.com/)
+[Check out demos, documentation, and screencasts at http://jeetframework.com](http://jeetframework.com/)
 
 [Watch Jeet develop an entire IE7+ responsive website in 3 minutes while dramatically improving code quality.](http://www.screenr.com/u3c7)
 
