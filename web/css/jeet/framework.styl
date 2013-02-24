@@ -40,7 +40,7 @@ col(x, center = f, last = l)
     float left
     width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / (_gridsystem-width - gutter-width))
     margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
-    *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width)-correction
+    *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width) - (correction * 2)
     *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
     &:last-child
         last()
