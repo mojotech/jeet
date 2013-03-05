@@ -20,10 +20,10 @@ last()
 .last
     last()
 settings()
-_gridsystem-width = (column-width + gutter-width) * columns
-total-width = 100%
-min-width = max_width
-correction = (((0.5 / min-width) * 100) * 1%)
+gridsystem_width = (column_width + gutter_width) * columns
+total_width = 100%
+min_width = max_width
+correction = (((0.5 / min_width) * 100) * 1%)
 cf()
     *zoom 1
     &:before, &:after
@@ -38,10 +38,10 @@ col(x, center = f, last = l)
     cf()
     display inline
     float left
-    width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / (_gridsystem-width - gutter-width))
-    margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
-    *width total-width * ((((gutter-width + column-width ) * x) - gutter-width) / _gridsystem-width) - (correction * 2)
-    *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
+    width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
+    margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
+    *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
+    *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
     &:last-child
         last()
     if (center == c)
@@ -53,14 +53,14 @@ col(x, center = f, last = l)
         *margin-left auto !important
     if (last == f)
         &:last-child
-            margin-right (total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 2
-            *margin-right (total-width * ( (gutter-width * 0.5) / _gridsystem-width)-correction) * 2
+            margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
+            *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
 span(x, center = f)
     cf()
     display inline
     float left
-    width total-width * ((((gutter-width + column-width ) * x)) / _gridsystem-width)
-    *width total-width * ((((gutter-width + column-width ) * x)) / _gridsystem-width)-correction
+    width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
+    *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)-correction
     *behavior url(js/vendor/boxsizing.htc)
     if (center == c)
         float none
@@ -70,7 +70,7 @@ span(x, center = f)
         *margin-right auto !important
         *margin-left auto !important
 offset(offset = 1)
-    margin-left ((total-width * ( (gutter-width * 0.5) / (_gridsystem-width - gutter-width))) * 4) * offset
+    margin-left ((total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 4) * offset
 center(mw = max_width, p = max_width_padding)
     cf()
     max-width mw
