@@ -19,7 +19,6 @@ last()
     margin-right 0
 .last
     last()
-settings()
 gridsystem_width = (column_width + gutter_width) * columns
 total_width = 100%
 min_width = max_width
@@ -55,6 +54,7 @@ col(x, center = f, last = l)
         &:last-child
             margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
             *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
+unit = (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
 span(x, center = f)
     cf()
     display inline
