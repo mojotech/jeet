@@ -92,7 +92,10 @@ stack(align = c)
         text-align left
     if (align == r)
         text-align right
-bp(w = 705px)
-    unquote("@media screen and (max-width: " + w + "), (max-device-width: " + w + ") {")
+bp(w = 705px, mobile_first = false)
+    if (mobile_first == mf)
+        unquote("@media all and (min-width: " + w + ") {")
+    else
+        unquote("@media all and (max-width: " + w + ") {")
 endbp()
     unquote("}")
