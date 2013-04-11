@@ -16,14 +16,20 @@ Jeet takes the best of the open source HTML5/CSS3 World and combines it into a l
 Quick Start
 =
 
-- Install [nodejs](http://nodejs.org)
-- Install [Stylus](http://learnboost.github.com/stylus/) globally (npm install stylus -g)
-- Install [nib](http://visionmedia.github.com/nib/) globally (npm install nib -g)
-- Navigate to your /css directory via terminal
-- Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
+#### Stylus
+  - Install [nodejs](http://nodejs.org)
+  - Install [Stylus](http://learnboost.github.com/stylus/) globally (npm install stylus -g)
+  - Install [nib](http://visionmedia.github.com/nib/) globally (npm install nib -g)
+  - Navigate to your /css directory via terminal
+  - Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
 
     stylus -u nib -w -c
 
+#### Compass
+  - Install [Compass](http://compass-style.org/install/)
+  - Navigate to your [/css] directory via terminal
+  - Run this command to have Compass watch your file for changes `compass watch`
+  - Edit [/css/config.rb] to *compress* or *expand* css output
 
 Features
 =
