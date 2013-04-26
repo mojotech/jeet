@@ -1,6 +1,5 @@
 ![alt text](https://raw.github.com/CorySimmons/jeet/master/jeet_logo.jpg "Jeet CSS Framework")
 
-**Important Release Note:** After [ozamorowski](https://github.com/ozamorowski)'s port to SCSS the directory tree got kind of cluttered (with Stylus and SCSS files all sitting side-by-side) so I updated the directory structure to have common css files (normalize.css and whatever else you'd like to add) in their own folder (css/common/); Stylus Jeet in it's own folder (css/styl/); and the SCSS port in it's own folder (css/scss/). You still "watch" the directory your style.styl or style.scss file is in, but be sure to update your index.html's stylesheet link **if** you're using SCSS so it points to css/scss/style.css instead of css/styl/style.css (the default).
 
 -
 
@@ -21,16 +20,16 @@ Quick Start
   - Install [nodejs](http://nodejs.org)
   - Install [Stylus](http://learnboost.github.com/stylus/) globally (npm install stylus -g)
   - Install [nib](http://visionmedia.github.com/nib/) globally (npm install nib -g)
-  - Navigate to your /css directory via terminal
+  - Navigate to your [/css/styl] directory via terminal
   - Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
 
-    stylus -u nib -w -c
+    stylus -u nib -w -c -o ../
 
 #### SCSS
   - Install [Compass](http://compass-style.org/install/)
-  - Navigate to your [/css] directory via terminal
+  - Navigate to your [/css/scss] directory via terminal
   - Run this command to have Compass watch your file for changes `compass watch`
-  - Edit [/css/config.rb] to *compress* or *expand* css output
+  - Edit [/css/scss/config.rb] to *compress* or *expand* css output
 
 Features
 =
