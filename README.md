@@ -24,7 +24,7 @@ Quick Start
   - Navigate to your /css directory via terminal
   - Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
 
-    stylus -u nib -w -c
+    stylus -u nib -w -c ../
 
 #### SCSS
   - Install [Compass](http://compass-style.org/install/)
