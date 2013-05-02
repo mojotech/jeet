@@ -1,9 +1,8 @@
 ![alt text](https://raw.github.com/CorySimmons/jeet/master/jeet_logo.jpg "Jeet CSS Framework")
 
-
 -
 
-Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework.
+Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework. You can use Stylus, or SCSS, **OR BOTH!**
 
 [Check out demos, documentation, and screencasts at http://jeetframework.com](http://jeetframework.com/)
 
@@ -42,7 +41,6 @@ Features
 - Fluid
 - Lightweight
 
-
 Moving Parts
 =
 
@@ -55,6 +53,13 @@ Moving Parts
 - [boxsizing.htc](https://github.com/Schepp/box-sizing-polyfill) (so Box-Sizing works in IE browsers)
 - Heavy customization stuff to make it all work seamlessly together
 
+Troubleshooting
+=
+
+**My SCSS is being overwritten by my Stylus!** Swap these two lines in your index.html
+
+    <link rel="stylesheet" href="css/style_scss.css">
+    <link rel="stylesheet" href="css/style_styl.css">
 
 FAQ
 =
