@@ -30,6 +30,9 @@ Quick Start
   - Run this command to have Compass watch your file for changes `compass watch`
   - Edit [/css/scss/config.rb] to *compress* or *expand* css output
 
+#### Use Both!
+  - You can easily use both by watching their folders in two different Terminal (Command Prompt on Windows) tabs
+
 Features
 =
 
@@ -56,7 +59,9 @@ Moving Parts
 Troubleshooting
 =
 
-**My SCSS is being overwritten by my Stylus!** Swap these two lines in your index.html
+**My SCSS is being overwritten by my Stylus!**
+
+Swap these two lines in your index.html
 
     <link rel="stylesheet" href="css/style_scss.css">
     <link rel="stylesheet" href="css/style_styl.css">
