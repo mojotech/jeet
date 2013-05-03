@@ -1,50 +1,46 @@
-@import '../common/normalize.css';
 @import 'compass';
 @import 'jeet/settings';
 
-@mixin bs{
+@mixin bs {
     box-sizing: border-box;
     *behavior: url(js/vendor/boxsizing.htc);
 }
-*{
+* {
     @include bs;
 }
-html{
+html {
     overflow-y: scroll;
     overflow-x: hidden; 
 }
-.placeholder{
+.placeholder {
     color: #aaa;
 }
-img, video, audio, embed, object, input, iframe{
+img, video, audio, embed, object, input, iframe {
     max-width: 100%;
 }
-@mixin last{
+@mixin last {
     margin-right: 0;
-}
-.last{
-    @include last;
 }
 $gridsystem_width: ($column_width + $gutter_width) * $columns;
 $total_width: 100%;
 $min_width: $max_width;
 $correction: ( 0.5 / $min-width * 100px * 1%);
-@mixin cf{
+@mixin cf {
     *zoom: 1;
-    &:before, &:after{
+    &:before, &:after {
         content: "";
         display: table;
     }
-    &:after{
+    &:after {
         clear: both;
     }
 }
-body{
+body {
     @include cf;
     width: 100%;
 }
 
-@mixin col($x, $center: f, $last: l){
+@mixin col($x, $center: f, $last: l) {
     @include cf;
     display: inline;
     float: left;
@@ -52,7 +48,7 @@ body{
     margin-right: ($total_width * (( $gutter_width * 0.5 ) / ($gridsystem_width - $gutter_width))) * 2;
     *width: $total_width * (((($gutter_width + $column_width ) * $x) - $gutter_width) / $gridsystem_width) - ($correction * 2);
     *margin-right: ($total_width * (( $gutter_width * 0.5 ) / $gridsystem_width) - $correction) * 2;
-    &:last-child{
+    &:last-child {
         @include last;
     }
     @if $center == c {
@@ -64,14 +60,14 @@ body{
         *margin-left: auto !important;
     }
     @if $last == f {
-        &:last-child{
+        &:last-child {
             margin-right: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
             *margin-right: ($total_width * ( ($gutter_width * 0.5) / $gridsystem_width) - $correction) * 2;
         }
     }
 }
 $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
-@mixin span($x, $center: f){
+@mixin span($x, $center: f) {
     @include cf;
     display: inline;
     float: left;
@@ -87,10 +83,10 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
         *margin-left: auto !important;
     }
 }
-@mixin offset($offset: 1){
+@mixin offset($offset: 1) {
     margin-left: (($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 4) * $offset;
 }
-@mixin center($mw: $max_width, $p: $max_width_padding){
+@mixin center($mw: $max_width, $p: $max_width_padding) {
     @include cf;
     max-width: $mw;
     margin-left: auto;
@@ -98,10 +94,7 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
     padding-left: $p;
     padding-right: $p;
 }
-.center{
-    @include center;
-}
-@mixin stack($align: c){
+@mixin stack($align: c) {
     display: block;
     width: 100%;
     margin-left: auto;
@@ -118,11 +111,11 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
     }
 }
 
-@mixin bp($w: 705px, $mobile_first: false){
+@mixin bp($w: 705px, $mobile_first: false) {
     @if $mobile_first == mf {
         @media all and (min-width: $w){@content};
     }
-    @else{
+    @else {
         @media all and (min-width: $w){@content};
     }
 }

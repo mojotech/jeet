@@ -35,27 +35,6 @@
   }
 }
 
-// Shadow
-@mixin shadow($w: 50%, $args: 0 -4em 4em 4em rgba(0,0,0,.3)){
-  position: relative;
-  &:before, &:after{
-    content: '';
-    position: absolute;
-    z-index: -1;
-  }
-  &:before{
-    display: block !important;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    border-radius: 999px;
-    width: $w;
-    height: 0;
-    box-shadow: $args;
-  }
-}
-
 // ChromeFrame
 .chromeframe{
   width: 100%;

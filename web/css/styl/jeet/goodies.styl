@@ -28,27 +28,6 @@ btn(bg_color = #eee, radius = 10px, style = flat)
         if light(bg_color)
             color darken(bg_color, 80%)
 
-// Shadow
-shadow(w = 50%, args...)
-    position relative
-    &:before, &:after
-        content ''
-        position absolute
-        z-index -1
-    &:before
-        display block !important
-        bottom 0
-        left 0
-        right 0
-        margin auto
-        border-radius 999px
-        width w
-        height 0
-        box-shadow(0 -4em 4em 4em rgba(0,0,0,.3))
-        if (args)
-            box-shadow(args)
-            border-bottom 10px solid blue
-
 // ChromeFrame for IE6, 7, 8 
 .chromeframe
     width 100%
