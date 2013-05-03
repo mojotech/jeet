@@ -22,7 +22,7 @@ Quick Start
   - Navigate to your [/css/styl] directory via terminal
   - Run this line to have [Stylus](http://learnboost.github.com/stylus/docs/executable.html) *use* nib, *watch* your .styl file, and *compress* it
 
-    stylus -u nib -w -c -o ../
+    stylus -u nib -w -c
 
 #### SCSS
   - Install [Compass](http://compass-style.org/install/)
@@ -63,8 +63,8 @@ Troubleshooting
 
 Swap these two lines in your index.html
 
-    <link rel="stylesheet" href="css/style_scss.css">
-    <link rel="stylesheet" href="css/style_styl.css">
+    <link rel="stylesheet" href="css/scss/style_scss.css">
+    <link rel="stylesheet" href="css/styl/style_styl.css">
 
 FAQ
 =

@@ -1,5 +1,3 @@
-// cf mixin is already in framework file...
-
 // Buttons
 @mixin btn($bg_color: #eee, $radius: 10px, $style: flat){
   @include bs;
