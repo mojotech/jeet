@@ -16,6 +16,7 @@ img, video, audio, embed, object, input, iframe
     max-width 100%
 last()
     margin-right 0
+    float right
 gridsystem_width = (column_width + gutter_width) * columns
 total_width = 100%
 min_width = max_width
@@ -40,6 +41,8 @@ col(x, center = f, last = l)
     *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
     &:last-child
         last()
+    &:first-child
+        float left
     if (center == c)
         float none
         display block
