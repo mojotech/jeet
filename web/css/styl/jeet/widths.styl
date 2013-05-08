@@ -13,8 +13,6 @@ width(numerator = 1, denominator = 1, span = f, center = f, last = l)
     *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
     &:last-child
         last()
-    &:first-child
-        float left
     if (span = span)
         width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
         *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)-correction
