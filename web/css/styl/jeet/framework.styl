@@ -94,7 +94,7 @@ bp(w = 705px, mobile_first = false)
         unquote("@media all and (max-width: " + w + ") {")
 endbp()
     unquote("}")
-w(numerator = 1, denominator = 1, span = f, center = f, last = l)
+w(numerator = 1, denominator = 1, span = f, center = f last = l)
     x = (numerator / denominator) * columns
     cf()
     display inline
@@ -105,7 +105,7 @@ w(numerator = 1, denominator = 1, span = f, center = f, last = l)
     *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
     &:last-child
         last()
-    if (span = span)
+    if (span == s)
         width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
         *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)-correction
         *behavior url(js/vendor/boxsizing.htc)
