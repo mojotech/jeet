@@ -113,6 +113,22 @@ Use `span()` to specify you don't want gutters applied to this element. This is 
 
 ---
 
+### offset(offset = 1)
+
+Offset is used to add a mathematically generated margin-left to the element. In this way, you can put accurate space between elements in the same container and row.
+
+`offset = 1` [any number] - By default `offset()` will create a margin-left of the same size as `col(1)`.
+
+**Usage:**
+
+    #sidebar
+        col(6)
+    #content
+        col(16)
+        offset(2)
+
+---
+
 ### w(numerator = 1, denominator = 1, span = f, center = f last = l)
 
 `w()` is one of the coolest features of Jeet. I took this idea from how [Harry Roberts](http://csswizardry.com/) specifies column delegation in his framework [InuitCSS](https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss). The only difference is
