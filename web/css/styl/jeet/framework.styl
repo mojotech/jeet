@@ -97,26 +97,29 @@ endbp()
 w(numerator = 1, denominator = 1, span = f, center = f last = l)
     x = (numerator / denominator) * columns
     cf()
-    display inline
-    float left
-    width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
-    margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-    *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
-    *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
+    if (span == f) (center == f)
+        margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
+        *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
     &:last-child
         last()
     if (span == s)
         width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
-        *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)-correction
+        *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width) - correction
         *behavior url(js/vendor/boxsizing.htc)
         margin-right 0 
+    else
+        width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
+        *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
     if (center == c)
-        float none !important
-        display block !important
-        margin-right auto !important
-        margin-left auto !important
-        *margin-right auto !important
-        *margin-left auto !important
+        float none
+        display block
+        margin-right auto
+        margin-left auto 
+        *margin-right auto 
+        *margin-left auto 
+    else
+        float left
+        display inline
     if (last == f)
         &:last-child
             margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
