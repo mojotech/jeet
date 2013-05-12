@@ -129,7 +129,7 @@ Offset is used to add a mathematically generated margin-left to the element. In 
 
 ---
 
-### w(numerator = 1, denominator = 1, span = f, center = f last = l)
+### w(numerator = 1, denominator = 1, span = f, center = f, last = l)
 
 `w()` is one of the coolest features of Jeet. I took this idea from how [Harry Roberts](http://csswizardry.com/) specifies column delegation in his framework [InuitCSS](https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss). The only difference is
 Jeet will accept any integered parameters whereas with Inuit you only get a few to work with. It effectively takes the place of `col()` and `span()` and lets you specify a fraction of the containing element's width to use. It accepts any numbers - floated or not.

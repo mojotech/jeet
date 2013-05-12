@@ -146,10 +146,10 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
     @if $center == c {
         float: none;
         display: block;
-        margin-right: auto;
-        margin-left: auto;
-        *margin-right: auto;
-        *margin-left: auto;
+        margin-right: auto !important;
+        margin-left: auto !important;
+        *margin-right: auto !important;
+        *margin-left: auto !important;
     }
     @else {
         float: left;
