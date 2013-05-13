@@ -36,7 +36,7 @@ Features
 - Highly customizable
 - IE7+
 - Fluid
-- Lightweight
+- Blazing fast
 
 Moving Parts
 =
