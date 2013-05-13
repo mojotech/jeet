@@ -151,7 +151,7 @@ Jeet will accept any integered parameters whereas with Inuit you only get a few 
         #content
             w(3, 5)
 
-I know that I rail against presentational classes all the time, but I went ahead and ahead some presentational classes for `w()` (up to `.twelfth`) almost specifically for use in forms.
+I know that I rail against presentational classes all the time, but I went ahead and added some presentational classes for `w()` (up to `.twelfth`) almost specifically for use in forms.
 
 **Form Example:**
 
