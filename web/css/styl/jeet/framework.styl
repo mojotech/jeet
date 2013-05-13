@@ -1,5 +1,4 @@
-@import 'nib/gradients'
-@import 'nib/vendor'
+@import 'nib'
 @import 'jeet/settings'
 
 bs()
@@ -87,14 +86,14 @@ stack(align = c)
         text-align left
     if (align == r)
         text-align right
-bp(w = 705px, mobile_first = false)
+bp(w = 705px, mobile_first = f)
     if (mobile_first == mf)
         unquote("@media all and (min-width: " + w + ") {")
     else
         unquote("@media all and (max-width: " + w + ") {")
 endbp()
     unquote("}")
-w(numerator = 1, denominator = 1, span = f, center = f last = l)
+w(numerator = 1, denominator = 1, span = f, center = f, last = l)
     x = (numerator / denominator) * columns
     cf()
     if (span == f) (center == f)
@@ -113,10 +112,10 @@ w(numerator = 1, denominator = 1, span = f, center = f last = l)
     if (center == c)
         float none
         display block
-        margin-right auto
-        margin-left auto 
-        *margin-right auto 
-        *margin-left auto 
+        margin-right auto !important
+        margin-left auto !important
+        *margin-right auto !important
+        *margin-left auto !important
     else
         float left
         display inline
