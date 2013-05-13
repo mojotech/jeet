@@ -16,7 +16,7 @@ Quick Start
 - Install [NodeJS](http://nodejs.org/)
 - Install [Ruby](http://rubyinstaller.org) (if you're on Windows)
 - Install [Compass](http://compass-style.org/install/)
-- Install [LiveReload Browser Extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) of your choice. Right click on the button it added > Manage Extensions
+- Install [LiveReload Browser Extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) of your choice. Right click on the button it added > Manage Extensions > Find the LiveReload extension and check "Allow Access to File URLs"
 - Open up a terminal and type `npm install -g jeet`
 - Type `jeet -h`
 - Navigate to any directory you want, type `jeet create JeetProject`

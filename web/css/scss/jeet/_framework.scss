@@ -116,7 +116,7 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
         @media all and (min-width: $w){@content};
     }
     @else {
-        @media all and (min-width: $w){@content};
+        @media all and (max-width: $w){@content};
     }
 }
 
