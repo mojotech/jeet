@@ -105,7 +105,7 @@ w(numerator = 1, denominator = 1, span = f, center = f, last = l)
         width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
         *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width) - correction
         *behavior url(js/vendor/boxsizing.htc)
-        margin-right 0 
+        margin-right 0
     else
         width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
         *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
@@ -137,7 +137,8 @@ w(numerator = 1, denominator = 1, span = f, center = f, last = l)
     w(1, 6)
 .seventh
     w(1, 7)
-.eigth
+.eighth,
+.eigth // This is a typo. Leaving it here for backwards compatibility.
     w(1, 8)
 .ninth
     w(1, 9)
