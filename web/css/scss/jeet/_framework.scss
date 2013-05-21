@@ -1,113 +1,112 @@
 @import 'compass';
-@import 'jeet/settings';
+/*  Syntax quick reference
+ *  ----------------------
+ *  gutter[gut, g] = 1[float between 0 and 1]
+ *  center(max_width = 1410px, max_width_padding = 15px)
+ *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
+ *  span(numerator = 1, denominator = 1)
+ *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
+ *  get(numerator = 1, denominator = 1, col_or_span = column[col, c, span, s])
+ *  bp(w = 705px, mobile_first = false[mf])
+ *  endbp()
+ *  stack(align = center[c, left, l, right, r])
+ *  cf() - clearfix compass mixin
+ */
 
-@mixin bs {
-    box-sizing: border-box;
-    *behavior: url(js/vendor/boxsizing.htc);
-}
-* {
-    @include bs;
-}
-html {
-    overflow-y: scroll;
-    overflow-x: hidden; 
-}
-.placeholder {
-    color: #aaa;
-}
-img, video, audio, embed, object, input, iframe {
-    max-width: 100%;
-}
-@mixin last {
-    margin-right: 0;
-}
-$gridsystem_width: ($column_width + $gutter_width) * $columns;
-$total_width: 100%;
-$min_width: $max_width;
-$correction: ( 0.5 / $min-width * 100px * 1%);
-@mixin cf {
-    *zoom: 1;
-    &:before, &:after {
-        content: "";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-body {
+$gutter: 1;
+
+
+@mixin center($max_width: 1410px, $max_width_padding: 15px) {
     @include cf;
-    width: 100%;
+    max-width: $max_width;
+    float: none !important;
+    display: block;
+    padding-left: $max_width_padding;
+    padding-right: $max_width_padding;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    *margin-right: auto !important;
+    *margin-left: auto !important;
 }
 
-@mixin col($x, $center: f, $last: l) {
+@mixin column($numerator: 1, $denominator: 1, $number_of_nested_columns: 0) {
     @include cf;
-    display: inline;
     float: left;
-    width: $total_width * (((($gutter_width + $column_width ) * $x) - $gutter_width) / ($gridsystem_width - $gutter_width));
-    margin-right: ($total_width * (( $gutter_width * 0.5 ) / ($gridsystem_width - $gutter_width))) * 2;
-    *width: $total_width * (((($gutter_width + $column_width ) * $x) - $gutter_width) / $gridsystem_width) - ($correction * 2);
-    *margin-right: ($total_width * (( $gutter_width * 0.5 ) / $gridsystem_width) - $correction) * 2;
-    &:last-child {
-        @include last;
-    }
-    @if $center == c {
-        float: none;
-        display: block;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        *margin-right: auto !important;
-        *margin-left: auto !important;
-    }
-    @if $last == f {
+    @if $number_of_nested_columns !=0 {
+        width: ((100 - ($g * 2) * $g * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
+        margin-left: $g + unquote("%");
+        margin-right:  $g + unquote("%");
+        &:first-child {
+            float: left;
+            margin-left: 0;
+        }
         &:last-child {
-            margin-right: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
-            *margin-right: ($total_width * ( ($gutter_width * 0.5) / $gridsystem_width) - $correction) * 2;
+            float: none;
+            overflow: hidden;
+            width: auto;
+            min-width: ((100 - ($g * 2) * $g * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
+            margin-right: 0;
+        }
+    } @else {
+        width: ((($numerator / $denominator) * 100) - ($g * 2)) + unquote("%");
+        margin-left: $g + unquote("%");
+        margin-right: $g + unquote("%");
+        &:first-child {
+            float: left;
         }
     }
 }
-$unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
-@mixin span($x, $center: f) {
+
+@mixin span($numerator: 1, $denominator: 1) {
     @include cf;
-    display: inline;
     float: left;
-    width: $total_width * (((($gutter_width + $column_width ) * $x)) / $gridsystem_width);
-    *width: $total_width * (((($gutter_width + $column_width ) * $x)) / $gridsystem_width)-$correction;
-    *behavior: url(js/vendor/boxsizing.htc);
-    @if $center == c {
+    width: (($numerator / $denominator) * 100) + unquote("%");
+    margin-left: 0;
+    margin-right: 0;
+    &:last-child {
         float: none;
-        display: block;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        *margin-right: auto !important;
-        *margin-left: auto !important;
+        overflow: hidden;
+        width: auto;
+        min-width: (($numerator / $denominator) * 100) + unquote("%");
+    }
+    &:first-child {
+        float: left;
+        overflow: auto;
+        width: (($numerator / $denominator) * 100) + unquote("%");
+        min-width: inherit;
     }
 }
-@mixin offset($offset: 1) {
-    margin-left: (($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 4) * $offset;
-}
-@mixin center($mw: $max_width, $p: $max_width_padding) {
-    @include cf;
-    max-width: $mw;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: $p;
-    padding-right: $p;
-}
-@mixin stack($align: c) {
-    display: block;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2%;
-    @if $align == c {
-        text-align: center;
+
+@mixin offset($numerator: 0, $denominator: 0, $left_or_right: left, $col_or_span: column) {
+    $n: $numerator;
+    $d: $denominator;
+    $span: (($n/$d) * 100);
+    $col: (($n/$d) * 100) + ($g);
+    @if $col_or_span == span or $col_or_span == s {
+        @if $left_or_right == right or $left_or_right == r {
+            margin-right: $span + unquote("%");
+        } @else {
+            margin-left: $span + unquote("%");
+        }
     }
-    @if $align == l {
-        text-align: left;
+    @if $col_or_span == column or $col_or_span == col or $col_or_span == c {
+        @if $left_or_right == right or $left_or_right == r {
+            margin-right: $col + unquote("%");
+        } @else {
+            margin-left: $col + unquote("%");
+        }
     }
-    @if $align == r {
-        text-align: right;
+}
+
+@function get($numerator: 1, $denominator: 1, $col_or_span: column) {
+    $n: $numerator;
+    $d: $denominator;
+    $span: (($n/$d) * 100);
+    $col: (($n/$d) * 100) - ($g * 2);
+    @if $col_or_span == span or $col_or_span == s {
+        @return $span + unquote("%")
+    } @else {
+        @return $col + unquote("%")
     }
 }
 
@@ -120,83 +119,49 @@ $unit: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_wi
     }
 }
 
-@mixin w($numerator: 1, $denominator: 1, $span: f, $center: f, $last: l) {
-    $x: ($numerator / $denominator) * $columns;
+@mixin stack($align: c) {
+    display: block;
+    width: 100%;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: $g + unquote("%");
+    @if $align == left or $align == l{
+        text-align: left;
+    } @else if $align == right or $align == r {
+        text-align: right;
+    } @else {
+        text-align: center;
+    }
+}
+
+// aliases
+$g: $gutter;
+$gut: $gutter;
+@mixin col($args...) {
+    @include column($args...)
+}
+@mixin off($args...) {
+    @include offset($args...)
+}
+// compass mixin
+@mixin cf{
+    @include pie-clearfix;
+}
+* {
+    box-sizing: border-box;
+    *behavior: url(js/vendor/boxsizing.htc);
+}
+html {
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+body {
     @include cf;
-    @if $span == f and $center == f {
-        margin-right: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
-        *margin-right: ($total_width * (( $gutter_width * 0.5 ) / $gridsystem_width) - $correction) * 2;
-    }
-    
-    &:last-child {
-        @include last;
-    }
-
-    @if $span == s {
-        width: $total_width * (((($gutter_width + $column_width ) * $x)) / $gridsystem_width);
-        *width: $total_width * (((($gutter_width + $column_width ) * $x)) / $gridsystem_width)-$correction;
-        *behavior: url(js/vendor/boxsizing.htc);
-        margin-right: 0;
-    }
-    @else {
-        width: $total_width * (((($gutter_width + $column_width ) * $x) - $gutter_width) / ($gridsystem_width - $gutter_width));
-        *width: $total_width * (((($gutter_width + $column_width ) * $x) - $gutter_width) / $gridsystem_width) - ($correction * 2);
-    }
-
-    @if $center == c {
-        float: none;
-        display: block;
-        margin-right: auto !important;
-        margin-left: auto !important;
-        *margin-right: auto !important;
-        *margin-left: auto !important;
-    }
-    @else {
-        float: left;
-        display: inline;
-    }
-
-    @if $last == f {
-        &:last-child {
-            margin-right: ($total_width * ( ($gutter_width * 0.5) / ($gridsystem_width - $gutter_width))) * 2;
-            *margin-right: ($total_width * ( ($gutter_width * 0.5) / $gridsystem_width)-$correction) * 2;
-        }
-    }
+    width: 100%;
 }
-
-.full {
-    @include w();
+img, video, audio, embed, object, input, iframe {
+    max-width: 100%;
 }
-.half {
-    @include w(1, 2);
-}
-.third {
-    @include w(1, 3);
-}
-.fourth {
-    @include w(1, 4);
-}
-.fifth {
-    @include w(1, 5);
-}
-.sixth {
-    @include w(1, 6);
-}
-.seventh {
-    @include w(1, 7);
-}
-.eigth {
-    @include w(1, 8);
-}
-.ninth {
-    @include w(1, 9);
-}
-.tenth {
-    @include w(1, 10);
-}
-.eleventh {
-    @include w(1, 11);
-}
-.twelfth {
-    @include w(1, 12);
+.placeholder {
+    color: #aaa;
 }
