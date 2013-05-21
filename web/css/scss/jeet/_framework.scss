@@ -2,7 +2,7 @@
 /*  Syntax quick reference
  *  ----------------------
  *  gutter[gut, g] = 1[float between 0 and 1]
- *  center(max_width = 1410px, max_width_padding = 15px)
+ *  center(max_width = 1410px)
  *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
  *  span(numerator = 1, denominator = 1)
  *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
@@ -10,7 +10,7 @@
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
  *  stack(align = center[c, left, l, right, r])
- *  cf() - clearfix compass mixin
+ *  cf() - clearfix
  */
 
 $gutter: 1;
