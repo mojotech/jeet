@@ -1,21 +1,27 @@
 ![alt text](https://raw.github.com/CorySimmons/jeet/master/jeet_logo.jpg "Jeet CSS Framework")
 
+Version 2
 -
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework. You can use Stylus, or SCSS, **OR BOTH!**
 
-[Check out demos, documentation, and screencasts at http://jeetframework.com](http://jeetframework.com/)
+[Check out demos and screencasts at http://jeetframework.com](http://jeetframework.com/)
 
-[Watch Jeet develop an entire IE7+ responsive website in 3 minutes while dramatically improving code quality.](http://www.screenr.com/u3c7)
-
-[Watch the very popular webdesign.tutsplus.com screencast tutorial on Jeet](http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/working-with-jeet-an-alternative-responsive-framework/)
 
 Quick Start
 =
 
-- Install [NodeJS](http://nodejs.org/)
 - Install [Ruby](http://rubyinstaller.org) (if you're on Windows)
+- Add Ruby to your PATH if you're on Windows
+    - Find the folder Ruby/bin folder (usually under C:/), copy this path
+    - Right click on "My Computer", "Properties"
+    - Advanced System Settings
+    - Environment Variables
+    - Global
+    - Path
+    - Append a semi-colon and the path to Ruby/bin
 - Install [Compass](http://compass-style.org/install/)
+- Install [NodeJS](http://nodejs.org/)
 - Install [LiveReload Browser Extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) of your choice
 - Open up a terminal and type `npm install -g jeet`
 - Type `jeet -h`
@@ -55,17 +61,14 @@ Docs
 
 *Note*: Since Jeet works with either Stylus or SCSS I'll be refering to their respective directories as "preprocessor" and their extensions as "ext". In the function definitions **I'll be using Stylus syntax**, but it's pretty identical to SCSS.
 
-Everything in Jeet is sized in percentages. To use the grid, go into `css/preprocessor/jeet/settings.ext` and set some initial settings. They're pretty self-explanatory. Now go into `css/preprocessor/style_ext.ext` and add any styling you want. Open a Terminal, cd to your project directory, and type `jeet watch`.
+Everything in Jeet is sized in percentages. Go into `css/preprocessor/style_ext.ext` and add any styling you want. Open a Terminal, cd to your project directory, and type `jeet watch`.
 This will compile both preprocessors. Your changes should be reflected in your page.
 
-### center(mw = max_width, p = max_width_padding)
+### center(max_width = 1410px)
 
 `center()` allows you to create a wrapping container that centers everything inside it on your page.
 
-`mw` - The default `max_width` is specified in your settings and just sets the maximum width of your container. You can change this on the fly like so: `center(980px)`.
-
-`p` - `max_width_padding` is set in your settings file and sets how much space appears on both sides of your `center()`'d elements. This basically keeps your container from ever touching the edges of your window (making text hard to read and generally being ugly).
-You can override this setting in the settings file or on the fly with: `center(980px, 0)`. Setting this to 0 is great if you're making an admin panel or something where you actually want things to touch the edges.
+`max_width` - The default `max_width` is specified in your framework files and just sets the maximum width of your container. You can change this on the fly like so: `center(980px)`.
 
 **Usage:**
 
@@ -76,114 +79,71 @@ You can override this setting in the settings file or on the fly with: `center(9
 
 ---
 
-### col(x, center = f, last = l)
+### column(numerator = 1, denominator = 1, number_of_nested_columns = 0) [column, col]
 
-Use this to specify the number of columns you'd like to span and apply a gutter to the end of the element.
+The `column()` and `span()` functions have been completely rewritten. Specify a fraction of your containing element, for instance applying `col(1, 2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them.
 
+If you are nesting elements inside another element, you should specify how many elements you will be nesting.
 
-`x` - number of columns to span
+`numerator, denominator` - specify a fraction here, for instance `col(3, 4)`. Any float number will also work so you have as much control as you want. The math is easier if you maintain a common denominator between your elements (see usage), but you don't have to.
 
-`center` [f, c] - whether you want this element horizontally centered in it's container
-
-`last` [l, f] - By default a gutter will be applied to the right side of every element except the last element in a container - which gets a margin-right of 0. Setting `last` to `f` (false) explicitly tells Jeet to give this element a gutter even if it's the last element.
-
-*Note*: As you nest items, their container resets, so setting `col(6)` means that nested elements can use 24 columns (by default) again. This is made easy by just knowing you always have 24 columns to work with (unless you modify the number of columns in your settings file).
+`number_of_nested_columns` - this will remove the left gutter from the first element, and the right gutter from the last element.
 
 **Usage:**
         
-    #ad_banner
-        col(4, c)
+    aside
+        col(1, 5)
+    article
+        col(4, 5)
 
 ---
 
-### span(x, center = f)
+### span(numerator = 1, denominator = 1)
 
 Use `span()` to specify you don't want gutters applied to this element. This is great for things like horizontal navigation buttons or anything that you want to sit side-by-side.
 
-`x` - number of columns to span
-
-`center` [f, c] - whether you want this element horizontally centered in it's container
+`numerator, denominator` - specify a fraction here
 
 **Usage:**
     
-    #navigation
-        col(8)
-        a
-            span(6)
+    #navigation a
+        span(1, 6)
 
 ---
 
-### offset(offset = 1)
+### offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column) [off]
 
-Offset is used to add a mathematically generated margin-left to the element. In this way, you can put accurate space between elements in the same container and row.
+Offset is used to add a mathematically generated `margin-left` or `margin-right` to the element. In this way, you can put accurate space between elements by pushing off of them with any element.
 
-`offset = 1` [any number] - By default `offset()` will create a margin-left of the same size as `col(1)`.
+`numerator, denominator` - specify a fraction here
+
+`left_or_right` [left, right, l, r] - decides if the element will have a margin-left or right
+
+`col_or_span` [column, col, c, span, s] - decides whether you want your margin to have spacing with gutters added to it or not. Typically set this to whatever elements are surrounding it. For instance, if you have a few `div`s sized with `column()` then you would set your `offset()` to something like: `offset(1, 4, r, c)`. If the surrounding elements are `span()` then your syntax would be `offset(1, 4, r, s)`. Be mindful to make your fractions leave you with space to apply offsets without tossing elements to the next row down. For instance:
+
 
 **Usage:**
 
-    #sidebar
-        col(6)
-    #content
-        col(16)
-        offset(2)
+    #list_of_three_blocks
+        div
+            col(1, 4)
+        div.second
+            offset(1, 4)
 
 ---
 
-### w(numerator = 1, denominator = 1, span = f, center = f, last = l)
+### get(numerator = 1, denominator = 1, col_or_span = column)
 
-`w()` is one of the coolest features of Jeet. I took this idea from how [Harry Roberts](http://csswizardry.com/) specifies column delegation in his framework [InuitCSS](https://github.com/csswizardry/inuit.css/blob/master/objects/_grids.scss). The only difference is
-Jeet will accept any integered parameters whereas with Inuit you only get a few to work with. It effectively takes the place of `col()` and `span()` and lets you specify a fraction of the containing element's width to use. It accepts any numbers - floated or not.
+You can now return percentage sizes for use anywhere in your styles. Specify a fraction then pick whether you want the gutter included sizing or not. This has limited uses, but nevertheless, it's available to you if you should need it. This is also good if you don't trust `col()` or `span()` for whatever reason and want to set floats and such independent of a framework.
 
-`numerator` and `denominator` - https://www.khanacademy.org/math/arithmetic/fractions
+`numerator, denominator` - specify a fraction here
 
-`span` [f, s] - This determines whether you want this element to span (like the `span()` mixin above). Use like so: `w(1, 4, s)`
-
-`center` [f, c] - whether you want this element horizontally centered in it's container
-
-`last` [l, f] - By default a gutter will be applied to the right side of every element except the last element in a container - which gets a margin-right of 0. Setting `last` to `f` (false) explicitly tells Jeet to give this element a gutter even if it's the last element.
+`col_or_span` [column, col, c, span, s] - do you want gutter widths included in your returned value
 
 **Usage:** 
 
-    #container
-        center()
-        #sidebar
-            w(2, 5)
-        #content
-            w(3, 5)
-
-I know that I rail against presentational classes all the time, but I went ahead and added some presentational classes for `w()` (up to `.twelfth`) almost specifically for use in forms.
-
-**Form Example:**
-
-    <form>
-        <div class="half">
-            <label>Username</label>
-            <input type="text">
-        </div>
-        <div class="half">
-            <label>Password</label>
-            <input type="password">
-        </div>
-    </form>
-
-Or you could code something like this on your own:
-
-    <form>
-        <div class="halves">
-            <div>
-                <label>Username</label>
-                <input type="text">
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password">
-            </div>
-        </div>
-    </form>
-    
-    // Stylus
-    .halves div
-        w(1, 2)
+    .post img
+        width get(1, 3, s)
 
 ---
 
@@ -239,6 +199,17 @@ This mixin lets you quickly specify an element to be "stacked". It effectively s
         btn(blue)
         color #fff
 
+---
+
+### edit()
+
+`edit()` mode sets:
+
+    *
+        transition 200ms ease all
+
+Why? Because when you're editing with LiveReload and hit save, you'll see blocks fly into position like [Isotope](http://isotope.metafizzy.co/) or something.
+
 
 Troubleshooting
 =
@@ -253,6 +224,10 @@ Troubleshooting
 
     <link rel="stylesheet" href="css/scss/style_scss.css">
     <link rel="stylesheet" href="css/styl/style_styl.css">
+
+**Q** I get SCSS compilation errors on `jeet watch`
+
+**A** I'll bet my soul you don't have Ruby installed and in your PATH, or you don't have Compass. Test these by typing `ruby` in your Command Prompt and then `compass`. If these don't throw errors and Jeet still is having problems, submit a bug in the Issue tracker.
 
 FAQ
 =
@@ -272,4 +247,4 @@ FAQ
 
 **Q** Goals for this project?
 
-**A** I'd like to continue fixing bugs as they pop up, and implement as many feature requests as possible until this framework rules them all. Leave suggestions in the [issue tracker](https://github.com/CorySimmons/jeet/issues).
+**A** I'd like to continue fixing bugs as they pop up, and implement as many feature requests as possible until this framework rules them all. The next big update are really flexible styling functions. Think the `btn()` command, on crack, for typography, form styling, buttons, tables, etc. Leave suggestions in the [issue tracker](https://github.com/CorySimmons/jeet/issues).

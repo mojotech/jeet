@@ -84,8 +84,11 @@ function update(){
 		window.clearTimeout(resizetimeout);
 	}
 	resizetimeout = window.setTimeout(function(){
-		restore();
-		init();
+		try{
+			restore();
+			init();
+		}
+		catch(e){}
 		resizetimeout = null;
 	},100);
 }

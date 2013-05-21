@@ -1,149 +1,131 @@
 @import 'nib'
-@import 'jeet/settings'
 
-bs()
-    box-sizing(border-box)
-    *behavior url(js/vendor/boxsizing.htc)
-*
-    bs()
-html
-    overflow-y scroll
-    overflow-x hidden
-.placeholder
-    color #aaa
-img, video, audio, embed, object, input, iframe
-    max-width 100%
-last()
-    margin-right 0
-gridsystem_width = (column_width + gutter_width) * columns
-total_width = 100%
-min_width = max_width
-correction = (((0.5 / min_width) * 100) * 1%)
-cf()
-    *zoom 1
-    &:before, &:after
-        content ""
-        display table
-    &:after
-        clear both
-body
+/*  Syntax quick reference
+ *  ----------------------
+ *  gutter[gut, g] = 1[float between 0 and 1]
+ *  center(max_width = 1410px)
+ *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
+ *  span(numerator = 1, denominator = 1)
+ *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
+ *  get(numerator = 1, denominator = 1, col_or_span = column[col, c, span, s])
+ *  bp(w = 705px, mobile_first = false[mf])
+ *  endbp()
+ *  stack(align = center[c, left, l, right, r])
+ *  cf() - clearfix
+ */
+
+gutter = 1
+
+center(max_width = 1410px)
     cf()
-    width 100%
-col(x, center = f, last = l)
-    cf()
-    display inline
-    float left
-    width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
-    margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-    *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
-    *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
-    &:last-child
-        last()
-    if (center == c)
-        float none
-        display block
-        margin-right auto !important
-        margin-left auto !important
-        *margin-right auto !important
-        *margin-left auto !important
-    if (last == f)
-        &:last-child
-            margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-            *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
-unit = (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-span(x, center = f)
-    cf()
-    display inline
-    float left
-    width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
-    *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)-correction
-    *behavior url(js/vendor/boxsizing.htc)
-    if (center == c)
-        float none
-        display block
-        margin-right auto !important
-        margin-left auto !important
-        *margin-right auto !important
-        *margin-left auto !important
-offset(offset = 1)
-    margin-left ((total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 4) * offset
-center(mw = max_width, p = max_width_padding)
-    cf()
-    max-width mw
-    margin-left auto
-    margin-right auto
-    padding-left p
-    padding-right p
-stack(align = c)
+    max-width max_width
+    float none !important
     display block
-    width 100%
-    margin-left auto
-    margin-right auto
-    margin-bottom 2%
-    if (align == c)
-        text-align center
-    if (align == l)
-        text-align left
-    if (align == r)
-        text-align right
-bp(w = 705px, mobile_first = f)
+    margin-right auto !important
+    margin-left auto !important
+    *margin-right auto !important
+    *margin-left auto !important
+
+column(numerator = 1, denominator = 1, number_of_nested_columns = 0)
+    cf()
+    float left
+    if (number_of_nested_columns != 0)
+        width ( (100 - (g*2) * g * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
+        margin-left (g)%
+        margin-right (g)%
+        &:first-child
+            float left
+            margin-left 0
+        &:last-child
+            float none
+            overflow hidden
+            width auto
+            min-width ( (100 - (g*2) * g * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks Barney Carroll from StackOverflow
+            margin-right 0
+    else
+        width (((numerator/denominator)*100) - (g*2))%
+        margin-left (g)%
+        margin-right (g)%
+        &:first-child
+            float left
+
+span(numerator = 1, denominator = 1)
+    cf()
+    float left
+    width ((numerator/denominator)*100)%
+    margin-left 0
+    margin-right 0
+    &:last-child
+        overflow hidden
+        width auto
+        min-width ((numerator/denominator)*100)%
+    &:first-child
+        float left
+        overflow auto
+        width ((numerator/denominator)*100)%
+        min-width inherit
+
+offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column)
+    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
+        if (left_or_right == left) or (left_or_right == l)
+            margin-left (((numerator/denominator)*100) + (g))%
+        if (left_or_right == right) or (left_or_right == r)
+            margin-right (((numerator/denominator)*100) + (g))%
+    if (col_or_span == span) or (col_or_span == s)
+        if (left_or_right == left) or (left_or_right == l)
+            margin-left ((numerator/denominator)*100)%
+        if (left_or_right == right) or (left_or_right == r)
+            margin-right ((numerator/denominator)*100)%
+
+get(numerator = 1, denominator = 1, col_or_span = column)
+    if (col_or_span == span) or (col_or_span == s)
+        return ((numerator/denominator)*100)%
+    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
+        return (((numerator/denominator)*100) - (g*2))%
+
+bp(w = 705px, mobile_first = false)
     if (mobile_first == mf)
         unquote("@media all and (min-width: " + w + ") {")
     else
         unquote("@media all and (max-width: " + w + ") {")
 endbp()
     unquote("}")
-w(numerator = 1, denominator = 1, span = f, center = f, last = l)
-    x = (numerator / denominator) * columns
+
+stack(align = center)
+    display block
+    width 100%
+    margin-left auto !important
+    margin-right auto !important
+    margin-bottom (g * 3)%
+    if (align == center) or (align == c)
+        text-align center
+    if (align == l) or (align == l)
+        text-align left
+    if (align == r) or (align == r)
+        text-align right
+
+// Function aliases
+g = gutter
+gut = gutter
+col = column
+off = offset
+cf = clearfix
+
+// Config junk
+*
+    box-sizing(border-box)
+    *behavior url(js/vendor/boxsizing.htc)
+edit()
+    body *
+        transition 200ms ease all
+        background rgba(#000, .15)
+html
+    overflow-y scroll
+    overflow-x hidden
+body
     cf()
-    if (span == f) (center == f)
-        margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-        *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
-    &:last-child
-        last()
-    if (span == s)
-        width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width)
-        *width total_width * ((((gutter_width + column_width ) * x)) / gridsystem_width) - correction
-        *behavior url(js/vendor/boxsizing.htc)
-        margin-right 0 
-    else
-        width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / (gridsystem_width - gutter_width))
-        *width total_width * ((((gutter_width + column_width ) * x) - gutter_width) / gridsystem_width) - (correction * 2)
-    if (center == c)
-        float none
-        display block
-        margin-right auto !important
-        margin-left auto !important
-        *margin-right auto !important
-        *margin-left auto !important
-    else
-        float left
-        display inline
-    if (last == f)
-        &:last-child
-            margin-right (total_width * ( (gutter_width * 0.5) / (gridsystem_width - gutter_width))) * 2
-            *margin-right (total_width * ( (gutter_width * 0.5) / gridsystem_width)-correction) * 2
-.full
-    w()
-.half
-    w(1, 2)
-.third
-    w(1, 3)
-.fourth
-    w(1, 4)
-.fifth
-    w(1, 5)
-.sixth
-    w(1, 6)
-.seventh
-    w(1, 7)
-.eigth
-    w(1, 8)
-.ninth
-    w(1, 9)
-.tenth
-    w(1, 10)
-.eleventh
-    w(1, 11)
-.twelfth
-    w(1, 12)
+    width 100%
+img, video, audio, embed, object, input, iframe
+    max-width 100%
+.placeholder
+    color #aaa
