@@ -64,14 +64,11 @@ Docs
 Everything in Jeet is sized in percentages. Go into `css/preprocessor/style_ext.ext` and add any styling you want. Open a Terminal, cd to your project directory, and type `jeet watch`.
 This will compile both preprocessors. Your changes should be reflected in your page.
 
-### center(max_width = 1410px, max_width_padding = 15px)
+### center(max_width = 1410px)
 
 `center()` allows you to create a wrapping container that centers everything inside it on your page.
 
 `max_width` - The default `max_width` is specified in your framework files and just sets the maximum width of your container. You can change this on the fly like so: `center(980px)`.
-
-`p` - `max_width_padding` is set in your settings file and sets how much space appears on both sides of your `center()`'d elements. This basically keeps your container from ever touching the edges of your window (making text hard to read and generally being ugly). This needs to be a fixed value or else Chrome will flip out and start tossing elements to the next row down when you contract/expand your browser.
-You can override this setting in the settings file or on the fly with: `center(980px, 0)`. Setting this to 0 is great if you're making an admin panel or something where you actually want things to touch the edges.
 
 **Usage:**
 

@@ -16,13 +16,11 @@
 $gutter: 1;
 
 
-@mixin center($max_width: 1410px, $max_width_padding: 15px) {
+@mixin center($max_width: 1410px) {
     @include cf;
     max-width: $max_width;
     float: none !important;
     display: block;
-    padding-left: $max_width_padding;
-    padding-right: $max_width_padding;
     margin-right: auto !important;
     margin-left: auto !important;
     *margin-right: auto !important;
