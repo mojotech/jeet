@@ -34,7 +34,7 @@ column(numerator = 1, denominator = 1, number_of_nested_columns = 0)
         margin-left (g)%
         margin-right (g)%
         &:first-child
-            float: left
+            float left
             margin-left 0
         &:last-child
             float none
@@ -47,7 +47,7 @@ column(numerator = 1, denominator = 1, number_of_nested_columns = 0)
         margin-left (g)%
         margin-right (g)%
         &:first-child
-            float: left
+            float left
 
 span(numerator = 1, denominator = 1)
     cf()
@@ -55,6 +55,16 @@ span(numerator = 1, denominator = 1)
     width ((numerator/denominator)*100)%
     margin-left 0
     margin-right 0
+    &:last-child
+        float none
+        overflow hidden
+        width auto
+        min-width ((numerator/denominator)*100)%
+    &:first-child
+        float left
+        overflow auto
+        width ((numerator/denominator)*100)%
+        min-width inherit
 
 offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column)
     if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
