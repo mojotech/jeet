@@ -34,17 +34,6 @@ $gutter: 1;
         width: ((100 - ($g * 2) * $g * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
         margin-left: $g + unquote("%");
         margin-right:  $g + unquote("%");
-        &:first-child {
-            float: left;
-            margin-left: 0;
-        }
-        &:last-child {
-            float: none;
-            overflow: hidden;
-            width: auto;
-            min-width: ((100 - ($g * 2) * $g * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
-            margin-right: 0;
-        }
     } @else {
         width: ((($numerator / $denominator) * 100) - ($g * 2)) + unquote("%");
         margin-left: $g + unquote("%");

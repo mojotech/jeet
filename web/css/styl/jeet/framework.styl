@@ -33,14 +33,6 @@ column(numerator = 1, denominator = 1, number_of_nested_columns = 0)
         width ( (100 - (g*2) * g * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
         margin-left (g)%
         margin-right (g)%
-        &:first-child
-            float left
-            margin-left 0
-        &:last-child
-            overflow hidden
-            width auto
-            min-width ( (100 - (g*2) * g * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks Barney Carroll from StackOverflow
-            margin-right 0
     else
         width (((numerator/denominator)*100) - (g*2))%
         margin-left (g)%
