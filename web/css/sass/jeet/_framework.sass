@@ -40,8 +40,6 @@ $gutter: 1
     width: $numerator / $denominator * 100 - $g * 2 + unquote("%")
     margin-left: $g + unquote("%")
     margin-right: $g + unquote("%")
-    &:first-child
-      float: left
 
 =span($numerator: 1, $denominator: 1)
   +cf
@@ -49,16 +47,6 @@ $gutter: 1
   width: $numerator / $denominator * 100 + unquote("%")
   margin-left: 0
   margin-right: 0
-  &:last-child
-    float: none
-    overflow: hidden
-    width: auto
-    min-width: $numerator / $denominator * 100 + unquote("%")
-  &:first-child
-    float: left
-    overflow: auto
-    width: $numerator / $denominator * 100 + unquote("%")
-    min-width: inherit
 
 =offset($numerator: 0, $denominator: 0, $left_or_right: left, $col_or_span: column)
   $n: $numerator
