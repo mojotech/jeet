@@ -149,7 +149,7 @@ You can now return percentage sizes for use anywhere in your styles. Specify a f
 
 ---
 
-### bp(w = 705px, mobile_first = f) *and* endbp()
+### bp(w = 705px, mobile_first = false) *and* endbp()
 
 `bp()` specifies a display breakpoint. This basically opens a media query on the fly for you that you must close with `endbp()`. You can add as many `bp()` calls as you want anywhere in your code.
 
