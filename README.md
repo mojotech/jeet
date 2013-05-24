@@ -79,7 +79,7 @@ This will compile both preprocessors. Your changes should be reflected in your p
 
 ---
 
-### column(numerator = 1, denominator = 1, number_of_nested_columns = 0) [column, col]
+### column(numerator = 1, denominator = 1, number_of_nested_columns = 0, g = gutter) [column, col]
 
 The `column()` and `span()` functions have been completely rewritten. Specify a fraction of your containing element, for instance applying `col(1, 2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them.
 
@@ -88,6 +88,8 @@ If you are nesting elements inside another element, you should specify how many 
 `numerator, denominator` - specify a fraction here, for instance `col(3, 4)`. Any float number will also work so you have as much control as you want. The math is easier if you maintain a common denominator between your elements (see usage), but you don't have to.
 
 `number_of_nested_columns` - this will remove the left gutter from the first element, and the right gutter from the last element.
+
+`g` - allows you to create custom-sized gutters
 
 **Usage:**
         
