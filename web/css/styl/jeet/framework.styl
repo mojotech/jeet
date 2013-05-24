@@ -30,7 +30,7 @@ column(numerator = 1, denominator = 1, number_of_nested_columns = 0, g = gutter)
     cf()
     float left
     if (number_of_nested_columns != 0)
-        width ( (100 - (g*2) * g * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
+        width ( (100 - (g*2) * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
         margin-left (g)%
         margin-right (g)%
         &:first-child

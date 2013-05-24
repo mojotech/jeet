@@ -31,7 +31,7 @@ $gutter: 1;
     @include cf;
     float: left;
     @if $number_of_nested_columns !=0 {
-        width: ((100 - ($g * 2) * $g * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
+        width: ((100 - ($g * 2) * ($number_of_nested_columns - 1)) / $number_of_nested_columns) + unquote("%");
         margin-left: $g + unquote("%");
         margin-right:  $g + unquote("%");
         &:first-child {
