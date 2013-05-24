@@ -50,15 +50,6 @@ span(numerator = 1, denominator = 1)
     width ((numerator/denominator)*100)%
     margin-left 0
     margin-right 0
-    &:last-child
-        overflow hidden
-        width auto
-        min-width ((numerator/denominator)*100)%
-    &:first-child
-        float left
-        overflow auto
-        width ((numerator/denominator)*100)%
-        min-width inherit
 
 offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column)
     if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
