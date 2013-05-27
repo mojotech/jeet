@@ -5,8 +5,9 @@ Version 2
 
 Jeet takes the best of the open source HTML5/CSS3 World and combines it into a lightweight, semantic, responsive, and blazing fast framework. You can use Stylus, or SCSS, **OR BOTH!**
 
-[Check out demos and screencasts at http://jeetframework.com](http://jeetframework.com/)
+[Check out mini-demos at http://jeetframework.com](http://jeetframework.com/)
 
+[Watch a screencast on Jeet 2](http://www.youtube.com/watch?v=mf-XRFTMI7M)
 
 Quick Start
 =
@@ -210,8 +211,21 @@ This mixin lets you quickly specify an element to be "stacked". It effectively s
     *
         transition 200ms ease all
 
-Why? Because when you're editing with LiveReload and hit save, you'll see blocks fly into position like [Isotope](http://isotope.metafizzy.co/) or something.
+Why? Because when you're editing with LiveReload and hit save, you'll see blocks fly into position like [Isotope](http://isotope.metafizzy.co/) which is totally sweet and helps visualize the structure of your site.
 
+---
+
+### pxfix()
+
+Safari and Opera like to round percentages down. As a result, 33.333333% turns into 33%. Mathematically this is correct, but in the web world, this results in missing pixels here and there. Usually at the end of a row of elements. `pxfix()` cures this with Nicole Sullivan's fix for last elements in a row.
+
+**Warning** This will cause the last element in a container to take up the remaining width of the container. `pxfix()` works best when applied to the last element in a row.
+
+**Usage:**
+
+    .row
+        &:last-child
+            pxfix()
 
 Troubleshooting
 =

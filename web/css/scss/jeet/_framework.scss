@@ -2,6 +2,7 @@
 /*  Syntax quick reference
  *  ----------------------
  *  gutter[gut, g] = 1[float between 0 and 1]
+ *  cf() - clearfix
  *  center(max_width = 1410px)
  *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
  *  span(numerator = 1, denominator = 1)
@@ -10,7 +11,7 @@
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
  *  stack(align = center[c, left, l, right, r])
- *  cf() - clearfix
+ *  pxfix()
  */
 
 $gutter: 1;
@@ -110,6 +111,12 @@ $gutter: 1;
     } @else {
         text-align: center;
     }
+}
+
+@mixin pxfix() { // http://stackoverflow.com/a/12371926/1242079
+    float: none;
+    overflow: hidden;
+    width: auto;
 }
 
 // aliases
