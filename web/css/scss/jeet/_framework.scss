@@ -133,7 +133,7 @@ $gut: $gutter;
     @include pie-clearfix;
 }
 * {
-    box-sizing: border-box;
+    @include box-sizing(border-box);
     *behavior: url(js/vendor/boxsizing.htc);
 }
 html {
