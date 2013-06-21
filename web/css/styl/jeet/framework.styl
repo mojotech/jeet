@@ -70,7 +70,7 @@ get(numerator = 1, denominator = 1, col_or_span = column)
         return (((numerator/denominator)*100) - (g*2))%
 
 bp(w = 705px, mobile_first = false)
-    if (mobile_first == mf)
+    if (mobile_first == mf || mobile_first == true)
         unquote("@media all and (min-width: " + w + ") {")
     else
         unquote("@media all and (max-width: " + w + ") {")

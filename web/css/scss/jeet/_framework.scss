@@ -90,7 +90,7 @@ $gutter: 1;
 }
 
 @mixin bp($w: 705px, $mobile_first: false) {
-    @if $mobile_first == mf {
+    @if $mobile_first == mf or $mobile_first == true {
         @media all and (min-width: $w){@content};
     }
     @else {
@@ -138,7 +138,7 @@ $gut: $gutter;
 }
 html {
     overflow-y: scroll;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 body {
     @include cf;
