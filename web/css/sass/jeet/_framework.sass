@@ -76,7 +76,7 @@ $gutter: 1
     @return $col + unquote("%")
 
 =bp($w: 705px, $mobile_first: false)
-  @if $mobile_first == mf
+  @if $mobile_first == mf or $mobile_first == true
     @media all and (min-width: $w)
       @content
   @else
