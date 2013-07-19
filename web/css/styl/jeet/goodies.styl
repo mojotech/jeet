@@ -1,32 +1,65 @@
-// Buttons - Note: This buttons are horrible and are just used to show you how you, yourself, can extend Jeet!
-btn(bg_color = #eee, radius = 10px, style = flat)
+// Colors
+turquoise = #1abc9c
+emerald = #2ecc71
+peter_river = #3498db
+amethyst = #9b59b6
+wet_asphalt = #34495e
+green_sea = #16a085
+nephritis = #27ae60
+belize_hole = #2980b9
+wisteria = #8e44ad
+midnight_blue = #2c3e50
+sun_flower = #f1c40f
+carrot = #e67e22
+alizarin = #e74c3c
+clouds = #ecf0f1
+concrete = #95a5a6
+orange = #f39c12
+pumpkin = #d35400
+pomegranate = #c0392b
+silver = #bdc3c7
+asbestos = #7f8c8d
+
+// Buttons
+btn(bg_color = #eee, shading = light, style = flat, radius = 5px)
     bs()
+    padding 9px 30px
     display inline-block
     background bg_color
     border-radius(radius)
     cursor pointer
     text-align center
     text-decoration none
-    if dark(bg_color)
+    transition 200ms ease all
+    if shading is light
         box-shadow inset 0 1px 0 rgba(255,255,255,.2)
         border 1px solid saturate(darken(bg_color, 15%), 15%)
         color saturate(lighten(bg_color, 85%), 5%)
-        text-shadow 0 1px 0 saturate(darken(bg_color, 20%), 30%)
-    if light(bg_color)
-        box-shadow inset 0 1px 0 rgba(255,255,255,.5)
-        border 1px solid saturate(darken(bg_color, 30%), 20%)
+        text-shadow 0 1px 0 saturate(darken(bg_color, 30%), 30%)
+    else
+        box-shadow inset 0 1px 0 rgba(255,255,255,.2)
+        border 1px solid saturate(darken(bg_color, 10%), 20%)
         color saturate(darken(bg_color, 60%), 10%)
-        text-shadow 0 1px 0 saturate(lighten(bg_color, 55%), 90%)
+        text-shadow 0 1px 0 saturate(lighten(bg_color, 20%), 90%)
     if style is flat
-        background linear-gradient(top, lighten(bg_color, 10%) 10%, darken(bg_color, 10%) 90%)
+        border 0
+        background bg_color
+        text-shadow none
+        box-shadow none
+    if style is light
+        background linear-gradient(top, lighten(bg_color, 10%) 8%, darken(bg_color, 8%) 90%)
     if style is glossy
         background linear-gradient(top, lighten(bg_color, 8%) 50%, darken(bg_color, 8%) 50%)
     &:hover
         opacity(.9)
-        if dark(bg_color)
+        if shading is light
             color lighten(bg_color, 90%)
-        if light(bg_color)
+        else
             color darken(bg_color, 80%)
+    &:active
+        opacity(1)
+        position relative
+        top 1px 
 
 // ChromeFrame for IE6, 7, 8 - Style this to suit your color scheme
 .chromeframe
@@ -45,3 +78,37 @@ btn(bg_color = #eee, radius = 10px, style = flat)
         margin-bottom 0
         a
             color #3a95fb
+
+// Forms
+form(border_color = #ccc, focus_color = #85c1e9, radius = 3px)
+    cf()
+    > div
+        cf()
+    label
+        font-weight bold
+        p
+            margin-top 5px
+            margin-bottom 10px
+            font-weight normal
+            color darken(border_color, 10%)
+            font-size 12px  
+    input, textarea
+        padding 10px
+        outline none
+        border 1px solid border_color
+        border-radius radius
+        width 100%
+        &:focus
+            border-color focus_color
+        &.error
+            box-shadow inset 0 0 0 1px lighten(#ec7063, 30%)
+            background lighten(#EC7063, 90%)
+            border-color lighten(#ec7063, 30%)
+    textarea
+        resize vertical
+    > div
+        margin-bottom (g*2)%
+    button, input[type="submit"]
+        float left
+        clear both
+        -webkit-font-smoothing antialiased
