@@ -5,10 +5,10 @@
  *  gutter[gut, g] = 1[float between 0 and 1]
  *  cf() - clearfix
  *  center(max_width = 1410px)
- *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
- *  span(numerator = 1, denominator = 1)
- *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
- *  get(numerator = 1, denominator = 1, col_or_span = column[col, c, span, s])
+ *  column[col](ratio = 1, nested = false, parent_ratio = 1, g = gutter)
+ *  span(ratio = 1)
+ *  offset[off](ratio = 1, nested = false, left_or_right = left[right], col_or_span = column[col, c, span, s], g = gutter)
+ *  get(ratio = 1, nested = false, col_or_span = column[col, c, span, s], g = gutter)
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
  *  stack(align = center[c, left, l, right, r])
@@ -28,46 +28,52 @@ center(max_width = 1410px)
     *margin-right auto !important
     *margin-left auto !important
 
-column(numerator = 1, denominator = 1, number_of_nested_columns = 0, g = gutter)
+column(ratio = 1, nested = false, parent_ratio = 1, g = gutter)
     cf()
     float left
-    if (number_of_nested_columns != 0)
-        width ( (100 - (g*2) * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
-        margin-left (g)%
-        margin-right (g)%
+    parent_ratio = get(parent_ratio, nested) / 100 // Get the true parent ratio
+    g = g / parent_ratio // Use the ratio to get the new gutter
+    width (get(ratio, nested, g: g))%
+    total_gutter = (g*2) / ratio
+    if (nested == true)
         &:first-child
             margin-left 0
         &:last-child
             margin-right 0
-    else
-        width (((numerator/denominator)*100) - (g*2))%
-        margin-left (g)%
-        margin-right (g)%
+    margin-left (g)%
+    margin-right (g)%
 
-span(numerator = 1, denominator = 1)
+span(ratio = 1)
     cf()
     float left
-    width ((numerator/denominator)*100)%
+    width (get(ratio, col_or_span: span))%
     margin-left 0
     margin-right 0
 
-offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column)
+offset(ratio = 0, nested = false, parent_ratio = 1, left_or_right = left, col_or_span = column, g = gutter)
     if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
+        parent_ratio = get(parent_ratio, nested) / 100 // Get the precise parent ratio
+        g = g / parent_ratio // Use the ratio to get the new gutter
+        margin = get(ratio, nested, g: g) + (g*3)
         if (left_or_right == left) or (left_or_right == l)
-            margin-left (((numerator/denominator)*100) + (g))%
+            margin-left (margin)%
         if (left_or_right == right) or (left_or_right == r)
-            margin-right (((numerator/denominator)*100) + (g))%
+            margin-right (margin)%
     if (col_or_span == span) or (col_or_span == s)
+        margin = get(ratio, col_or_span: span)
         if (left_or_right == left) or (left_or_right == l)
-            margin-left ((numerator/denominator)*100)%
+            margin-left (margin)%
         if (left_or_right == right) or (left_or_right == r)
-            margin-right ((numerator/denominator)*100)%
+            margin-right (margin)%
 
-get(numerator = 1, denominator = 1, col_or_span = column)
+get(ratio = 1, nested = false, col_or_span = column, g = gutter)
     if (col_or_span == span) or (col_or_span == s)
-        return ((numerator/denominator)*100)%
+        return (ratio*100)
     if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
-        return (((numerator/denominator)*100) - (g*2))%
+        total_gutter = (g*2) / ratio
+        if (nested == true)
+            total_gutter = total_gutter - g * 2
+        return ((100 - total_gutter) * ratio)
 
 bp(w = 705px, mobile_first = false)
     if (mobile_first == mf || mobile_first == true)

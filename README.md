@@ -80,73 +80,101 @@ This will compile both preprocessors. Your changes should be reflected in your p
 
 ---
 
-### column(numerator = 1, denominator = 1, number_of_nested_columns = 0, g = gutter) [column, col]
+### column(ratio = 1, nested = false, parent_ratio = 1, g = gutter) [column, col]
 
-The `column()` and `span()` functions have been completely rewritten. Specify a fraction of your containing element, for instance applying `col(1, 2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them.
+The `column()` and `span()` functions have been completely rewritten. Specify a fraction of your containing element, for instance applying `col(1/2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them.
 
-If you are nesting elements inside another element, you should specify how many elements you will be nesting.
+If you are nesting elements inside another element, you should set `nested` to `true`.
 
-`numerator, denominator` - specify a fraction here, for instance `col(3, 4)`. Any float number will also work so you have as much control as you want. The math is easier if you maintain a common denominator between your elements (see usage), but you don't have to.
+`ratio` - specify a fraction here, for instance `col(3/4)` or `col(0.75)`. Any float number will also work so you have as much control as you want. The math is easier if you maintain a common denominator between your elements (see usage), but you don't have to.
 
-`number_of_nested_columns` - this will remove the left gutter from the first element, and the right gutter from the last element.
+`nested` - setting this to `true` will remove the left gutter from the first element, and the right gutter from the last element.
+
+`parent_ratio` - when specified it will create equidistant nested column gutters. If the column is nested multiple times you'll need to multiply all the parent ratios until you get back to the root (see usage).
 
 `g` - allows you to create custom-sized gutters
 
 **Usage:**
         
     aside
-        col(1, 5)
+        col(1/5)
     article
-        col(4, 5)
+        col(4/5)
+
+
+    header
+        a
+            col(1/4)
+        nav
+            col(3/4)
+            a
+                col(1/2, nested: true, 3/4)
+            div
+                col(1/2, nested: true, 3/4)
+                a
+                    col(1/3, nested: true, 3/4*1/2) //Both parent's ratios are multiplied
 
 ---
 
-### span(numerator = 1, denominator = 1)
+### span(ratio = 1)
 
 Use `span()` to specify you don't want gutters applied to this element. This is great for things like horizontal navigation buttons or anything that you want to sit side-by-side.
 
-`numerator, denominator` - specify a fraction here
+`ratio` - specify a fraction here, for instance `span(1/3)`.
 
 **Usage:**
     
     #navigation a
-        span(1, 6)
+        span(1/6)
 
 ---
 
-### offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column) [off]
+### offset(ratio = 0, nested = false, parent_ratio = 1, left_or_right = left, col_or_span = column, g = gutter) [off]
 
 Offset is used to add a mathematically generated `margin-left` or `margin-right` to the element. In this way, you can put accurate space between elements by pushing off of them with any element.
 
-`numerator, denominator` - specify a fraction here
+`ratio` - specify a fraction here.
+
+`nested` - set this to `true` if you're offsetting a nested column.
+
+`parent_ratio` - set this when you're offsetting a nested column, this works the same way as the `parent_ratio` argument for `col()`.
+
 
 `left_or_right` [left, right, l, r] - decides if the element will have a margin-left or right
 
-`col_or_span` [column, col, c, span, s] - decides whether you want your margin to have spacing with gutters added to it or not. Typically set this to whatever elements are surrounding it. For instance, if you have a few `div`s sized with `column()` then you would set your `offset()` to something like: `offset(1, 4, r, c)`. If the surrounding elements are `span()` then your syntax would be `offset(1, 4, r, s)`. Be mindful to make your fractions leave you with space to apply offsets without tossing elements to the next row down. For instance:
+`col_or_span` [column, col, c, span, s] - decides whether you want your margin to have spacing with gutters added to it or not. Typically set this to whatever elements are surrounding it. For instance, if you have a few `div`s sized with `column()` then you would set your `offset()` to something like: `offset(1/4, left_or_right: r, col_or_span: c)`. If the surrounding elements are `span()` then your syntax would be `offset(1/4, left_or_right: r, col_or_span: s)`.
+
+`g` - use this to set the gutter if you've used a custom gutter amount for the other elements in the row.
+
+Be mindful to make your fractions leave you with space to apply offsets without tossing elements to the next row down. For instance:
 
 
 **Usage:**
 
     #list_of_three_blocks
         div
-            col(1, 4)
+            col(1/4)
         div.second
-            offset(1, 4)
+            offset(1/4)
 
 ---
 
-### get(numerator = 1, denominator = 1, col_or_span = column)
+### get(ratio = 1, nested = false, col_or_span = column, g = gutter)
 
 You can now return percentage sizes for use anywhere in your styles. Specify a fraction then pick whether you want the gutter included sizing or not. This has limited uses, but nevertheless, it's available to you if you should need it. This is also good if you don't trust `col()` or `span()` for whatever reason and want to set floats and such independent of a framework.
 
-`numerator, denominator` - specify a fraction here
+`ratio` - specify a fraction here
+
+`nested` - set to `true` if you're calculating widths for nested elements.
 
 `col_or_span` [column, col, c, span, s] - do you want gutter widths included in your returned value
+
+`g` - set a custom gutter size for this calculation.
 
 **Usage:** 
 
     .post img
-        width get(1, 3, s)
+        width get(1/3, col_or_span: s)
 
 ---
 
