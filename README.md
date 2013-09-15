@@ -9,30 +9,126 @@ Jeet takes the best of the open source HTML5/CSS3 World and combines it into a l
 
 [Watch a screencast on Jeet 2](http://www.youtube.com/watch?v=mf-XRFTMI7M)
 
-Quick Start
+Quick Install
 =
 
-- Install [Ruby](http://rubyinstaller.org) (if you're on Windows)
-- Add Ruby to your PATH if you're on Windows
-    - Find the folder Ruby/bin folder (usually under C:/), copy this path
-    - Right click on "My Computer", "Properties"
-    - Advanced System Settings
-    - Environment Variables
-    - Global
-    - Path
-    - Append a semi-colon and the path to Ruby/bin
-- Install [Compass](http://compass-style.org/install/)
-- Install [NodeJS](http://nodejs.org/)
-- Install [LiveReload Browser Extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) of your choice
-- Open up a terminal and type `npm install -g jeet`
-- Type `jeet -h`
-- Navigate to any directory you want, type `jeet create JeetProject`
-- `cd JeetProject`
-- `jeet watch`
-- Open `index.html` in the browser of your choice and activate LiveReload by opening Settings > Tools > Extensions and checking `Allow access to file URLs` then clicking the icon (the dot in the middle should be dark)
-- Edit either `css/scss/style_scss.scss` or `css/styl/style_styl.styl`
-- Enjoy
+Install [Ruby](http://rubyinstaller.org) (if you're on Windows).
 
+Add Ruby to your `PATH` if you're on Windows:
+
+1. Find the Ruby/bin folder (usually under C:/), copy this path
+2. Right click on *My Computer* and select *Properties*
+3. Click *Advanced System Settings* on the left
+4. Click *Environment Variables...*
+5. Under *System variables* select *Path* then click the *Edit...* button below
+7. Append a semi-colon to the *Variable value* and then add the copied Ruby/bin path 
+
+Install [Compass](http://compass-style.org/install/), [NodeJS](http://nodejs.org/) and the [LiveReload Browser Extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-) of your choice.
+
+Open up a terminal and type: 
+```
+npm install -g jeet
+```
+Then `cd` to where you want your new Jeet project and run:
+```
+jeet create JeetProject
+```
+Now `cd` to the newly created project directory and run:
+```
+jeet watch
+```
+Jeet is now watching for changes to your Stylus and SCSS stylesheets and will automatically compile them to CSS files.
+
+Finally, open `index.html` in the browser of your choice and activate LiveReload by opening *Settings > Tools > Extensions* and checking *Allow access to file URLs*. Then back looking at `index.html`, click the LiveReload icon (the dot in the middle should turn dark).
+
+Now start editing either `css/scss/style_scss.scss` or `css/styl/style_styl.styl` and your changes will appear almost instantly.
+
+If you need any help with the Jeet installation, open your terminal and run:
+```
+jeet -h
+```
+Enjoy.
+
+Getting Started
+=
+Let's say we wanted to create a simnple header with some navigational links. So first we'll open `index.html` and create some basic markup:
+```html
+<header>
+    <a class="logo" href="#"><img src="logo.png"></a>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+```
+Next we'll get started with the styling, open `css/scss/style_scss.scss` or `css/styl/style_styl.styl` depending on whether you'll be using SCSS or Stylus. For this example I'll be using Stylus though SCSS is fairly similar. So first off we want to center the header, to do this we use the `center()` mixin. I'm also using the optional `max_width` argument to set the max width for the header:
+```css
+header
+    center(1000px)
+```
+Now that the header is centered we'll want to create some structure for its content. Say we want the logo to take up 1/3 of the header and the nav to take up the remaining 2/3, for this we can use the `column()` mixin. Let's add it to our style sheet:
+```css
+header
+    center(1000px)
+    .logo
+        column(1/3)
+    nav
+        column(2/3)
+```
+That was pretty easy, but maybe we only want the nav element to take up 1/2 of the header and use the leftover 1/6 as a space it and the logo. To do this we use `column()`'s optional argument `offset` like so:
+```css
+header
+    center(1000px)
+    .logo
+        column(1/3)
+    nav
+        column(1/2, offset: 1/6)
+```
+Because `offset` is the second argument, the above may have also been called as `column(1/2, 1/6)`. Now we want to style the nav buttons, let's make them 1/3 each. When we're creating nested columns we need to also specify the parent column's ratio to get proper nesting with equidistant gutters. To supply parent ratios, the first argument should be a space separated list like this (notice the lack of commas in the last column call):
+```css
+header
+    center(1000px)
+    .logo
+        column(1/3)
+    nav
+        column(1/2, 1/6)
+        a
+            column(1/3 1/2)
+```
+When nesting, supply the new ratio first then all of it's parent ratios until you're back at the base column, in this case we only needed to add the `nav` element's ratio to the list.
+
+Finally let's make the layout responsive, to do this we can use the `bp()`, `endbp()` and `stack()` mixins. `bp()` signals the start of the breakpoint code and `endbp()` closes it off. `bp()` also accepts an argument `w` which is the width the breakpoint occurs. So we'll add a breakpoint for when the width gets below 600px:
+```css
+header
+    center(1000px)
+    .logo
+        column(1/3)
+    nav
+        column(1/2, 1/6)
+        a
+            column(1/3 1/2)
+
+bp(600px)
+endbp()
+```
+So far this does nothing but setup the point at which our layout will change, this is where `stack()` is useful. `stack()` does what it sounds like, removes the element's width and margin settings and stacks them on top of each other. Let's stack all our elements:
+```css
+header
+    center(1000px)
+    .logo
+        column(1/3)
+    nav
+        column(1/2, 1/6)
+        a
+            column(1/3 1/2)
+
+bp(600px)
+header .logo, header nav, header nav a
+    stack()
+endbp()
+```
+And just like that we've got a styled responsive albiet simple header with navigation and clean, semantic html. This is a basic start but the framework offers great flexibility for more complicated layouts, try it out! For more thorough information on the mixins, check out the Docs section.
 
 Features
 =
@@ -65,33 +161,22 @@ Docs
 Everything in Jeet is sized in percentages. Go into `css/preprocessor/style_ext.ext` and add any styling you want. Open a Terminal, cd to your project directory, and type `jeet watch`.
 This will compile both preprocessors. Your changes should be reflected in your page.
 
-### center(max_width = 1410px)
+### center
+```
+center(max_width)
+```
 
 `center()` allows you to create a wrapping container that centers everything inside it on your page.
 
 `max_width` - The default `max_width` is specified in your framework files and just sets the maximum width of your container. You can change this on the fly like so: `center(980px)`.
 
 **Usage:**
-
-    #full_width_header
-        background blue
-        > div
-            center()
-
----
-### layout_direction = LTR
-
-This global setting specifies the layout direction for all the columns and spans. Setting `layout_direction` to `RTL` will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
-
----
-### parent_first = false
-
-This global setting specifies whether when using `column()`, `shift()` and `getColumn()` if you'll supply the parent ratios first or last.
-
----
-### gutter = 1
-
-The global gutter variable. Change this if you want to make site wide changes to your gutter.
+```
+#full_width_header
+    background blue
+    > div
+        center()
+```
 
 ---
 ### column(ratios = 1, offset = false, g = gutter) [column, col]
@@ -105,28 +190,31 @@ The `column()` function has been substantially changed. Specify a fraction of yo
 `g` - allows you to create custom-sized gutters
 
 **Usage:**
-    
-    // Simple usage
-    aside
-        col(1/5)
-    article
-        col(4/5)
-
-    // Nested columns with equidistant gutters
-    header
+```
+// Simple usage
+aside
+    col(1/5)
+article
+    col(4/5)
+```
+```
+// Nested columns with equidistant gutters
+header
+    a
+        col(1/4)
+    nav
+        col(3/4)
         a
-            col(1/4)
-        nav
-            col(3/4)
-            a
-                col(1/2 3/4) // Column ratio followed by the parent's column ratio.
-   
-    // Offsetting a column
-    header
-        a
-            col(1/4)
-        nav
-            col(2/4, offset: 1/4) // Column is offset by 1/4
+            col(1/2 3/4) // Column ratio followed by the parent's column ratio.
+```
+```
+// Offsetting a column
+header
+    a
+        col(1/4)
+    nav
+        col(2/4, offset: 1/4) // Column is offset by 1/4
+```
 
 ---
 
@@ -292,6 +380,21 @@ Safari and Opera like to round percentages down. As a result, 33.333333% turns i
     .row
         &:last-child
             pxfix()
+
+---
+### layout_direction = LTR
+
+This global setting specifies the layout direction for all the columns and spans. Setting `layout_direction` to `RTL` will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
+
+---
+### parent_first = false
+
+This global setting specifies whether when using `column()`, `shift()` and `getColumn()` if you'll supply the parent ratios first or last.
+
+---
+### gutter = 1
+
+The global gutter variable. Change this if you want to make site wide changes to your gutter.
 
 Troubleshooting
 =
