@@ -2,13 +2,15 @@
 
 /*  Syntax quick reference
  *  ----------------------
- *  gutter[gut, g] = 1[float between 0 and 1]
+ *  gutter[gut, g] = 1
  *  cf() - clearfix
  *  center(max_width = 1410px)
- *  column[col](ratio = 1, nested = false, parent_ratio = 1, g = gutter)
- *  span(ratio = 1)
- *  offset[off](ratio = 1, nested = false, left_or_right = left[right], col_or_span = column[col, c, span, s], g = gutter)
- *  get(ratio = 1, nested = false, col_or_span = column[col, c, span, s], g = gutter)
+ *  column[col](ratios = 1, offset = false, g = gutter)
+ *  span(ratio = 1, offset = false)
+ *  shift(ratios = 0, g = gutter)
+ *  unshift()
+ *  getSpan(ratio)
+ *  getColumn(ratios = 1, g = gutter, nested = false)
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
  *  stack(align = center[c, left, l, right, r])
@@ -17,63 +19,102 @@
  */
 
 gutter = 1
+parent_first = false
+layout_direction = LTR
 
 center(max_width = 1410px)
     cf()
     max-width max_width
-    float none !important
+    float none
     display block
-    margin-right auto !important
-    margin-left auto !important
-    *margin-right auto !important
-    *margin-left auto !important
+    margin-right auto
+    margin-left auto
+    *margin-right auto
+    *margin-left auto
 
-column(ratio = 1, nested = false, parent_ratio = 1, g = gutter)
+column(ratios = 1, offset = false, g = gutter)
+    // Gather Information
+    side = margin_side = getLayoutDirection()
+    widths = getColumn(ratios, g)
+    margin_l = margin_r = widths[1]
+    margin_l_n = margin_r_n = 0
+    length(ratios) > 1 ? nested = true : nested = false
+    // Calculate Offset
+    unless offset is false
+        edge = offset[1]
+        edge is true ? gutter_mult = 2 : gutter_mult = 3
+        offset = offset[0]
+        if offset < 0
+            offset *= -1
+            offset = getColumn(offset, widths[1], nested)[0]
+            margin_r = margin_r_n = offset + widths[1] * gutter_mult
+        else
+            offset = getColumn(offset, widths[1], nested)[0]
+            margin_l = margin_l_n = offset + widths[1] * gutter_mult
+    // Mixin
     cf()
-    float left
-    parent_ratio = get(parent_ratio, nested) / 100 // Get the true parent ratio
-    g = g / parent_ratio // Use the ratio to get the new gutter
-    width (get(ratio, nested, g: g))%
-    total_gutter = (g*2) / ratio
-    if (nested == true)
+    float side
+    width (widths[0])%
+    margin-{margin_side} (margin_l)%
+    margin-{opposite-position(margin_side)} (margin_r)%
+    if nested is true
         &:first-child
-            margin-left 0
+            margin-{margin_side} (margin_l_n)%
         &:last-child
-            margin-right 0
-    margin-left (g)%
-    margin-right (g)%
+            margin-{opposite-position(margin_side)} (margin_r_n)%
 
-span(ratio = 1)
+span(ratio = 1, offset = false)
+    // Gather Information
+    side = getLayoutDirection()
+    width = getSpan(ratio)
+    margin_l = margin_r = 0
+    // Calculate Offset
+    unless offset is false
+        if offset < 0
+            offset *= -1
+            margin_r = getSpan(offset)
+        else
+            margin_l = getSpan(offset)
+    // Mixin
     cf()
-    float left
-    width (get(ratio, col_or_span: span))%
-    margin-left 0
-    margin-right 0
+    float side
+    width (width)%
+    margin-{side} (margin_l)%
+    margin-{opposite-position(side)} (margin_r)%
 
-offset(ratio = 0, nested = false, parent_ratio = 1, left_or_right = left, col_or_span = column, g = gutter)
-    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
-        parent_ratio = get(parent_ratio, nested) / 100 // Get the precise parent ratio
-        g = g / parent_ratio // Use the ratio to get the new gutter
-        margin = get(ratio, nested, g: g) + (g*3)
-        if (left_or_right == left) or (left_or_right == l)
-            margin-left (margin)%
-        if (left_or_right == right) or (left_or_right == r)
-            margin-right (margin)%
-    if (col_or_span == span) or (col_or_span == s)
-        margin = get(ratio, col_or_span: span)
-        if (left_or_right == left) or (left_or_right == l)
-            margin-left (margin)%
-        if (left_or_right == right) or (left_or_right == r)
-            margin-right (margin)%
+shift(ratios = 0, g = gutter)
+    // Get direction information
+    side = getLayoutDirection()
+    if side == right
+        ratios = replace-nth(ratios, 0, ratios[0] * -1)
+    widths = getColumn(ratios, g)
+    translate = widths[0] + widths[1] * 2
+    // Shift
+    position relative
+    left (translate)%
 
-get(ratio = 1, nested = false, col_or_span = column, g = gutter)
-    if (col_or_span == span) or (col_or_span == s)
-        return (ratio*100)
-    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
-        total_gutter = (g*2) / ratio
-        if (nested == true)
-            total_gutter = total_gutter - g * 2
-        return ((100 - total_gutter) * ratio)
+unshift()
+    position static
+    left 0
+
+getSpan(ratio)
+    // Returns the width of a span
+    return ratio * 100
+
+getColumn(ratios = 1, g = gutter, nested = false)
+    // Returns the width and gutter for a column
+    ratios = reverse(ratios) unless parent_first is true
+    w = 100
+    for ratio, i in ratios
+        g = g / w * 100
+        w = 100 * ratio - 2 * g
+        if i != 0 or nested == true
+            w = w + 2 * ratio * g
+    return w g
+
+getLayoutDirection()
+    layout_direction == RTL ? result = right : result = left
+    return result
 
 bp(w = 705px, mobile_first = false)
     if (mobile_first == mf || mobile_first == true)
@@ -86,8 +127,8 @@ endbp()
 stack(align = center)
     display block
     width 100%
-    margin-left auto !important
-    margin-right auto !important
+    margin-left auto
+    margin-right auto
     margin-bottom (g * 3)%
     if (align == center) or (align == c)
         text-align center
@@ -105,6 +146,31 @@ pxfix() // http://stackoverflow.com/a/12371926/1242079
     float none
     overflow hidden
     width auto
+
+// List functions
+replace-nth(list, index, value)
+    result = ()
+    index = length(list) + index if index < 0
+    for i in (0..(length(list) - 1))
+        if i == index
+            append(result, value)
+        else
+            append(result, list[i])
+    return result
+
+remove-nth(list, index)
+    result = ()
+    index = length(list) + index if index < 0  
+    for i in (0..(length(list) - 1))
+        if i != index 
+            append(result, list[i])
+    return result
+
+reverse(list)
+    result = ()
+    for item in list
+        prepend(result, item)
+    return result
 
 // Function aliases
 g = gutter
