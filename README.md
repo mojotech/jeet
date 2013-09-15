@@ -79,7 +79,21 @@ This will compile both preprocessors. Your changes should be reflected in your p
             center()
 
 ---
+### layout_direction = LTR
 
+This global setting specifies the layout direction for all the columns and spans. Setting layout_direction will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
+
+---
+### parent_first = false
+
+This global setting specifies whether when using `column()`, `shift()` and `getColumn()` if you'll supply the parent ratios first or last.
+
+---
+### gutter = 1
+
+The global gutter variable. Change this if you want to make site wide changes to your gutter.
+
+---
 ### column(ratios = 1, offset = false, g = gutter) [column, col]
 
 The `column()` function has been substantially changed. Specify a fraction of your containing element, for instance applying `col(1/2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them. Equidistant nested gutters has also been added.
