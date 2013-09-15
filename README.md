@@ -81,7 +81,7 @@ This will compile both preprocessors. Your changes should be reflected in your p
 ---
 ### layout_direction = LTR
 
-This global setting specifies the layout direction for all the columns and spans. Setting layout_direction will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
+This global setting specifies the layout direction for all the columns and spans. Setting `layout_direction` to `RTL` will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
 
 ---
 ### parent_first = false
