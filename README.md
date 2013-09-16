@@ -9,12 +9,21 @@ Jeet takes the best of the open source HTML5/CSS3 World and combines it into a l
 
 [Watch a screencast on Jeet 2](http://www.youtube.com/watch?v=mf-XRFTMI7M)
 
+Features
+=
+
+- Responsive
+- Lightweight
+- Semantic
+- Highly customizable
+- IE7+
+- Fluid
+- Blazing fast
+
 Quick Install
 =
 
-Install [Ruby](http://rubyinstaller.org) (if you're on Windows).
-
-Add Ruby to your `PATH` if you're on Windows:
+Install [Ruby](http://rubyinstaller.org) (if you're on Windows). Some users have experiened pathing issues with Ruby on Windows, if you're having issues, follow these steps to add Ruby to your `PATH`:
 
 1. Find the Ruby/bin folder (usually under C:/), copy this path
 2. Right click on *My Computer* and select *Properties*
@@ -33,15 +42,16 @@ Then `cd` to where you want your new Jeet project and run:
 ```
 jeet create JeetProject
 ```
-Now `cd` to the newly created project directory and run:
+Now `cd` to the newly created project and tell Jeet to watch like this:
 ```
+cd JeetProject
 jeet watch
 ```
 Jeet is now watching for changes to your Stylus and SCSS stylesheets and will automatically compile them to CSS files.
 
-Finally, open `index.html` in the browser of your choice and activate LiveReload by opening *Settings > Tools > Extensions* and checking *Allow access to file URLs*. Then back looking at `index.html`, click the LiveReload icon (the dot in the middle should turn dark).
+Finally, open `index.html` in the browser of your choice and activate LiveReload by opening *Settings > Tools > Extensions* and checking *Allow access to file URLs*. Now looking at `index.html`, click the LiveReload icon (the dot in the middle should turn dark).
 
-Now start editing either `css/scss/style_scss.scss` or `css/styl/style_styl.styl` and your changes will appear almost instantly.
+Start editing either `css/scss/style_scss.scss` or `css/styl/style_styl.styl` and your changes will appear almost instantly.
 
 If you need any help with the Jeet installation, open your terminal and run:
 ```
@@ -51,7 +61,7 @@ Enjoy.
 
 Getting Started
 =
-Let's say we wanted to create a simnple header with some navigational links. So first we'll open `index.html` and create some basic markup:
+Let's say we wanted to create a simple header with some navigational links. So first we'll open `index.html` and create some basic markup in between the `<body>` tags:
 ```html
 <header>
     <a class="logo" href="#"><img src="logo.png"></a>
@@ -76,7 +86,7 @@ header
     nav
         column(2/3)
 ```
-That was pretty easy, but maybe we only want the nav element to take up 1/2 of the header and use the leftover 1/6 as a space it and the logo. To do this we use `column()`'s optional argument `offset` like so:
+That was pretty easy, but maybe we only want the nav element to take up 1/2 of the header and use the leftover 1/6 as a space between the nav and the logo. To do this we use `column()`'s optional argument `offset` like so:
 ```css
 header
     center(1000px)
@@ -96,7 +106,7 @@ header
         a
             column(1/3 1/2)
 ```
-When nesting, supply the new ratio first then all of it's parent ratios until you're back at the base column, in this case we only needed to add the `nav` element's ratio to the list.
+When nesting, supply the new ratio first then all of it's parent container ratios until you're back at the base column, in this case we only needed to add the nav element's ratio to the list.
 
 Finally let's make the layout responsive, to do this we can use the `bp()`, `endbp()` and `stack()` mixins. `bp()` signals the start of the breakpoint code and `endbp()` closes it off. `bp()` also accepts an argument `w` which is the width the breakpoint occurs. So we'll add a breakpoint for when the width gets below 600px:
 ```css
@@ -128,18 +138,7 @@ header .logo, header nav, header nav a
     stack()
 endbp()
 ```
-And just like that we've got a styled responsive albiet simple header with navigation and clean, semantic html. This is a basic start but the framework offers great flexibility for more complicated layouts, try it out! For more thorough information on the mixins, check out the Docs section.
-
-Features
-=
-
-- Responsive
-- Lightweight
-- Semantic
-- Highly customizable
-- IE7+
-- Fluid
-- Blazing fast
+And just like that we've created a responsive albiet simple header with navigation and clean, semantic html. This is a basic start but the framework offers great flexibility for more complicated layouts, try it out! For more thorough information on the mixins, check out the [Docs](#docs) section.
 
 Moving Parts
 =
@@ -161,16 +160,24 @@ Docs
 Everything in Jeet is sized in percentages. Go into `css/preprocessor/style_ext.ext` and add any styling you want. Open a Terminal, cd to your project directory, and type `jeet watch`.
 This will compile both preprocessors. Your changes should be reflected in your page.
 
+Mixins
+-
+
 ### center
+
 ```
 center(max_width)
 ```
+Creates a wrapping container that centers everything inside it on your page.
 
-`center()` allows you to create a wrapping container that centers everything inside it on your page.
+```
+max_width
+  type: number (positive, unit)
+  default: 1410px
+```
+- Sets the `max-width` property for the container.
 
-`max_width` - The default `max_width` is specified in your framework files and just sets the maximum width of your container. You can change this on the fly like so: `center(980px)`.
-
-**Usage:**
+**Usage**
 ```
 #full_width_header
     background blue
@@ -178,223 +185,391 @@ center(max_width)
         center()
 ```
 
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L25)/[SCSS](/web/css/scss/jeet/_framework.scss#L26)
+
 ---
-### column(ratios = 1, offset = false, g = gutter) [column, col]
+### column [col]
 
-The `column()` function has been substantially changed. Specify a fraction of your containing element, for instance applying `col(1/2)` to 2 `divs` in a container will set them to 48% width with a 1% gutter on each side of them. Equidistant nested gutters has also been added.
-
-`ratios` - accepts a single fraction or a space separated list of fractions, for instance `col(3/4)` or `col(1/2 3/4)`. Providing a space separated list of fractions creates equidistant gutters and automatically nests the columns (see usage). The list should go from child to parent until you reach the topmost parent (unless you change the `parent_first` global variable to `true`).
-
-`offset` - accepts a single fraction or a fraction and a boolean separated by a space, for instance `col(1/2, offset:1/4)` or `col(1/2, offset:1/4 true)`. The fraction specifies how much you want the column offset by and the optional boolean should be set to `true` if you're offsetting a column away from a nested edge. The fraction can be positive or negative to change the direction.
-
-`g` - allows you to create custom-sized gutters
-
-**Usage:**
 ```
-// Simple usage
-aside
-    col(1/5)
-article
-    col(4/5)
+column(ratios, offset, g)
 ```
+Creates a column from the current element. Jeet is based on fractions, so if you wanted the column to take up half of its container you'd simply call `column(1/2)`. Calling `column(0.5)` is equivalent and valid, but most of the time using the fractions is more readable, especially in cases like: `column(1/3)` vs `column(0.3333...)`. If the column is nested you should also supply the parent column's ratio.
+
 ```
-// Nested columns with equidistant gutters
+ratios
+  type: list (space-separated)
+  list item type: number (positive, unitless)
+  default: 1
+```
+- The ratio of the container that this element will occupy.
+    - If the column is nested you should also supply the parent column's ratio. So `column(1/2 3/4)` is saying, "Create a column that's 1/2 of its container, and that container is 3/4 of the base layout".
+
+```
+offset
+  type: list (space-separated, max length of 2)
+  first item type: number (unitless)
+  second item type: boolean
+  default: 0 false
+```
+- The amount the column is to be offset and whether the column is being offset from a nested edge.
+    - The second item is optional and defaults to `false`
+    - Negative values reverse the direction of the offset.
+
+```
+g
+  type: number (positive, unitless)
+  default: 1
+```
+- The gutter size in percent for the column.
+
+**Usage**
+```
 header
     a
         col(1/4)
     nav
-        col(3/4)
+        col(2/4, offset: 1/4)
         a
-            col(1/2 3/4) // Column ratio followed by the parent's column ratio.
+            col(1/3 2/4) // Column ratio followed by the parent's column ratio.
 ```
-```
-// Offsetting a column
-header
-    a
-        col(1/4)
-    nav
-        col(2/4, offset: 1/4) // Column is offset by 1/4
-```
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L35)/[SCSS](/web/css/scss/jeet/_framework.scss#L37)
 
 ---
 
-### span(ratio = 1, offset = false)
+### span
 
+```
+span(ratio, offset)
+```
 Use `span()` to specify you don't want gutters applied to this element. This is great for things like horizontal navigation buttons or anything that you want to sit side-by-side.
 
-`ratio` - specify a fraction here, for instance `span(1/3)`.
+```
+ratio
+  type: number (positive, unitless)
+  default: 1
+```
+- The ratio of the container that this element will occupy.
 
-`offset` - specify a fraction here if you want the span offset, for example `span(1/3, offset: 1/3)`.
+```
+offset
+  type: number (unitless)
+  default: 1
+```
+- The amount the span will be offset.
+    - Negative values reverse the direction of the offset.
 
-**Usage:**
-    
-    #navigation a
-        span(1/6)
+**Usage**
+```
+#navigation a
+    span(1/6)
+```
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L66)/[SCSS](/web/css/scss/jeet/_framework.scss#L82)
 
 ---
 
-### shift(ratios = 0, g = gutter)
+### shift
 
+```
+shift(ratios, g)
+```
 The `shift()` function can be used for content reordering.
 
-`ratios` - similar to the `column()` function, this argument accepts a space separated list of fractions.
+```
+ratios
+  type: list (space-separated)
+  list item type: number (positive, unitless)
+  default: 1
+```
+- Similar to the `column()` function, this argument accepts a space separated list of fractions.
 
-`g` - set a custom gutter size for this calculation.
+```
+g
+  type: number (positive, unitless)
+  default: 1
+```
+- The gutter size for the column you are shifting.
 
-**Usage:** 
-    
-    // Content reordering
-    #linkOne
-        shift(1/2)
-    #linkTwo
-        shift(-1/2)
+**Usage**
+```
+#linkOne
+    shift(1/2)
+#linkTwo
+    shift(-1/2)
+```
 
-    // Nested shift
-    a
-        col(1/4)
-    nav
-        col(3/4)
-        a
-            col(1/2 3/4)
-            shift(1/4 3/4) // Specify parent fractions for accurate results
-
----
-
-### unshift()
-
-Used for removing `shift()` from selectors, this is useful when you want the shift to reset for mobile breakpoints.
-
-**Usage:** 
-
-    // Remove shift
-    #linkOne, #linkTwo
-        unshift()
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L85)/[SCSS](/web/css/scss/jeet/_framework.scss#L105)
 
 ---
 
-### getSpan(ratio)
+### unshift
+```
+unshift()
+```
 
-Used for calculating percentage widths for spans without actually applying them, returns you a width which you can use anywhere in your style.
+Removes `shift()` from selectors, this is useful when you want to reset the shift for mobile breakpoints.
 
-`ratio` - specify a fraction here.
+**Usage** 
+```
+#linkOne, #linkTwo
+    unshift()
+```
 
-**Usage:** 
-
-    .post img
-        width getSpan(1/3)
-
----
-
-### getColumn(ratios = 1, g = gutter, nested = false)
-
-Used for calculating percentage widths for columns without actually applying them, returns you a width and a gutter which you can use anywhere in your style.
-
-`ratios` - the same as the `column()` function, supply a single fraction or a space separated list of fractions.
-
-`g` - set a custom gutter size for this calculation.
-
-`nested` - set to `true` if you want to calculate a single fraction as if it's nested, otherwise leave alone.
-
-**Usage:** 
-
-    .post img
-        custom = getColumn(1/3 3/4)
-        width custom[0]
-        margin-left custom[1]
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L96)/[SCSS](/web/css/scss/jeet/_framework.scss#L118)
 
 ---
 
-### bp(w = 705px, mobile_first = false) *and* endbp()
+### bp *and* endbp
 
-`bp()` specifies a display breakpoint. This basically opens a media query on the fly for you that you must close with `endbp()`. You can add as many `bp()` calls as you want anywhere in your code.
+```
+bp(w, mobile_first)
+endbp()
+```
+The `bp()` mixin specifies a display breakpoint. This basically opens a media query on the fly for you that you must close with `endbp()`. You can add as many `bp()` calls as you want anywhere in your code.
 
-`w` - Accepts a specified width. By default this is 705px but it's recommended you manually contract your browser width to see when things start breaking and specify a `bp()` at a few pixels above the browsers breaking width.
+```
+w
+  type: number (positive, unit)
+  default: 705px
+```
+- The screen width at which the breakpoint occurs.
 
-`mobile_first` [f, mf] - If you set `mobile_first` to `mf` like so `bp(705px, mf)` then this will change your media query from `max-width` to `min-width` effectively giving you the tools to design for mobile first.
+```
+mobile_first
+  type: boolean
+  default: false
+```
+- Changes the media query from `max-width` to `min-width`, effectively giving you the tools to design for mobile first.
 
-`endbp()` - Accepts no parameters, it just closes your media queries and is required anytime you use `bp()`.
+**Usage**
+```
+bp()
+#nav, #masthead, #article
+    stack()
+endbp()
+```
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L119)/[SCSS](/web/css/scss/jeet/_framework.scss#L149)
 
 ---
 
-### stack(align = c)
+### stack
 
+```
+stack(align)
+```
 This mixin lets you quickly specify an element to be "stacked". It effectively sets the width of the element to 100% and gives it a margin-bottom of 2%. If you don't want margin-bottom, you can overwrite that after your `stack()` call, but it generally looks good.
 
-`align` [c, l, r] - Sets the text alignment of the element to center, left, or right, depending on your needs. Defaults to centered text which reads well on mobile.
+```
+align
+  type: string
+  default: c
+```
+- Sets the text alignment of the stacked elements.
+    - `c` sets the text alignment to center.
+    - `l` sets the text alignment to left.
+    - `r` sets the text alignment to right.
 
-**Usage:**
+**Usage**
+```
+bp()
+#nav, #masthead, #article
+    stack()
+endbp()
+```
 
-    bp()
-    #nav, #masthead, #article
-        stack()
-    endbp()
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L127)/[SCSS](/web/css/scss/jeet/_framework.scss#L158)
 
 ---
 
-### btn(bg_color = #eee, radius = 10px, style = flat)
+### btn
 
-`btn()` was added as an example to show users how to quickly create custom reusable elements. If you end up making some cool, reusable elements, please [submit them](https://github.com/CorySimmons/jeet/pulls) and we can add them.
+```
+btn(bg_color, radius, style)
+```
+The `btn()` mixin was added as an example to show users how to quickly create custom reusable elements. If you end up making some cool, reusable elements, please [submit them](https://github.com/CorySimmons/jeet/pulls) and we can add them.
 
-`btn()` effectively lets you create custom [Bootstrap-like buttons](http://twitter.github.io/bootstrap/base-css.html#buttons) on the fly.
+```
+bg_color
+  type: hex, rgb or hsl
+  default: #eee
+```
+- Specify the color of the button.
 
-`bg_color = #eee` [hex, rgb, or hsl value] - Specify whatever color you'd like your button to be.
+```
+radius
+  type: number (positive, unit)
+  default: 10px
+```
+- Set the border radius.
 
-`radius = 10px` [any size] - Set the border radius.
+```
+style
+  type: string
+  default: flat
+```
+- Set the style of button.
+    - `flat` creates a very subtle gradient.
+    - `glossy` creates a sharp gradient.
 
-`style = flat` [flat, glossy] - Set the style of button you want. Flat creates a very subtle gradient whereas glossy creates a sharp gradient.
-
-**Usage:**
-
-    button
-        btn(yellow, 3px, glossy)
+**Usage**
+```
+button
+    btn(yellow, 3px, glossy)
+```
 
 *Note*: Color math in programming is pretty complicated so sometimes you'll get some screwy text color associated with your button (try `btn(blue)` for an example). If this happens, just overwrite it with the color you want. It's not optimal, but color math is a whole *thing*. Feel free to go the extra mile, fix this, and submit a pull request.
 
-**Example:**
+**Example**
+```
+button
+    btn(blue)
+    color #fff
+```
 
-    button
-        btn(blue)
-        color #fff
+View source: [Stylus](/web/css/styl/jeet/goodies.styl#L24)/[SCSS](/web/css/scss/jeet/_goodies.scss#L2)
 
 ---
 
-### edit()
+### edit
 
-`edit()` mode sets:
+```
+edit()
+```
+
+The `edit()` mixin sets:
 
     *
         transition 200ms ease all
 
 Why? Because when you're editing with LiveReload and hit save, you'll see blocks fly into position like [Isotope](http://isotope.metafizzy.co/) which is totally sweet and helps visualize the structure of your site.
 
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L140)/[SCSS](/web/css/scss/jeet/_framework.scss#L173)
+
 ---
 
-### pxfix()
+pxfix
 
+```
+pxfix()
+```
 Safari and Opera like to round percentages down. As a result, 33.333333% turns into 33%. Mathematically this is correct, but in the web world, this results in missing pixels here and there. Usually at the end of a row of elements. `pxfix()` cures this with Nicole Sullivan's fix for last elements in a row.
 
 **Warning** This will cause the last element in a container to take up the remaining width of the container. `pxfix()` works best when applied to the last element in a row.
 
-**Usage:**
+**Usage**
+```
+.row
+    &:last-child
+        pxfix()
+```
 
-    .row
-        &:last-child
-            pxfix()
-
----
-### layout_direction = LTR
-
-This global setting specifies the layout direction for all the columns and spans. Setting `layout_direction` to `RTL` will flip everything including offsets and shifts. It is also possible to set the layout to different directions in different parts of your site.
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L145)/[SCSS](/web/css/scss/jeet/_framework.scss#L180)
 
 ---
-### parent_first = false
+Variables
+-
+### layout_direction
 
-This global setting specifies whether when using `column()`, `shift()` and `getColumn()` if you'll supply the parent ratios first or last.
+```
+layout_direction
+  type: string
+  default: LTR
+```
+- Sets the global layout direction
+    - `LTR` makes the columns go from left to right.
+    - `RTL` makes the columns go from right to left.
 
 ---
-### gutter = 1
+### parent_first
 
-The global gutter variable. Change this if you want to make site wide changes to your gutter.
+```
+parent_first
+  type: boolean
+  default: false
+```
+- Sets whether when using `column()`, `shift()` and `getColumn()` if you'll supply the parent ratios first or last.
+
+---
+### gutter [gut, g]
+
+```
+gutter
+  type: number (positive, unitless)
+  default: 1
+```
+- The global gutter amount. Change this if you want to make site wide changes to your gutter.
+
+---
+
+Functions
+-
+
+### getSpan
+
+```
+getSpan(ratio)
+```
+Used for calculating percentage widths for spans without actually applying them, returns you a width which you can use anywhere in your style.
+
+```
+ratio
+  type: number(positive, unitless)
+  default: 1
+```
+- Specify a fraction to calculate.
+
+**Usage** 
+```
+.post img
+    width getSpan(1/3)
+```
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L100)/[SCSS](/web/css/scss/jeet/_framework.scss#L123)
+
+---
+
+### getColumn
+
+```
+getColumn(ratios, g, nested)
+```
+Used for calculating percentage widths for columns without actually applying them, returns you a width and a gutter which you can use anywhere in your style.
+
+```
+ratios
+  type: list (space-separated)
+  list item type: number (positive, unitless)
+  default: 1
+```
+- The same as the `column()` function, supply a single fraction or a space separated list of fractions.
+
+```
+g
+  type: number (positive, unitless)
+  default: 1
+```
+- Set a custom gutter size for this calculation.
+
+```
+nested
+  type: boolean
+  default: false
+```
+- Set to `true` to calculate a single fraction as if it's nested, otherwise leave alone.
+
+**Usage** 
+```
+.post img
+    custom = getColumn(1/3 3/4)
+    width custom[0]
+    margin-left custom[1]
+```
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L104)/[SCSS](/web/css/scss/jeet/_framework.scss#L128)
+
+---
 
 Troubleshooting
 =
