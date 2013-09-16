@@ -571,6 +571,17 @@ View source: [Stylus](/web/css/styl/jeet/framework.styl#L104)/[SCSS](/web/css/sc
 
 ---
 
+### getLayoutDirection
+
+```
+getLayoutDirection()
+```
+Returns the side corresponding to the current layout direction. `LTR` returns `left` and `RTL` returns `right`.
+
+View source: [Stylus](/web/css/styl/jeet/framework.styl#L115)/[SCSS](/web/css/scss/jeet/_framework.scss#L144)
+
+---
+
 Troubleshooting
 =
 
