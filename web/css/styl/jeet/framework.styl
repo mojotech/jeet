@@ -91,12 +91,12 @@ span(ratio = 1/2, offset = 0)
     margin-{side} (margin_l)%
     margin-{opposite-position(side)} (margin_r)%
 
-shift(ratios = 0, g = gutter, col_or_span = col)
+shift(ratios = 0, g = gutter, type = col)
     // Get direction information
     side = getLayoutDirection()
     if side == right
         ratios = replace-nth(ratios, 0, ratios[0] * -1)
-    if col_or_span == colomn or col_or_span == col or col_or_span == c
+    if type == colomn or type == col or type == c
         widths = getColumn(ratios, g)
         translate = widths[0] + widths[1] * 2
     else
