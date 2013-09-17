@@ -96,7 +96,7 @@ shift(ratios = 0, g = gutter, type = col)
     side = getLayoutDirection()
     if side == right
         ratios = replace-nth(ratios, 0, ratios[0] * -1)
-    if type == colomn or type == col or type == c
+    if type == column or type == col or type == c
         widths = getColumn(ratios, g)
         translate = widths[0] + widths[1] * 2
     else
