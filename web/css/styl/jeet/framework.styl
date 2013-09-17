@@ -32,15 +32,14 @@ center(max_width = 1410px)
     *margin-right auto
     *margin-left auto
 
-column(ratios = 1, offset = false, g = gutter)
+column(ratios = 1/2, offset = 0, g = gutter, cycle = 0, uncycle = 0)
     // Gather Information
     side = margin_side = getLayoutDirection()
     widths = getColumn(ratios, g)
     margin_l = margin_r = widths[1]
     margin_l_n = margin_r_n = 0
-    length(ratios) > 1 ? nested = true : nested = false
     // Calculate Offset
-    unless offset is false
+    unless offset == 0
         edge = offset[1]
         edge is true ? gutter_mult = 2 : gutter_mult = 3
         offset = offset[0]
@@ -57,19 +56,29 @@ column(ratios = 1, offset = false, g = gutter)
     width (widths[0])%
     margin-{margin_side} (margin_l)%
     margin-{opposite-position(margin_side)} (margin_r)%
-    if nested is true
+    if uncycle != 0
+        &:nth-child({uncycle}n + 1)
+            margin-{margin_side} (margin_l)%
+        &:nth-child({uncycle}n)
+            margin-{opposite-position(margin_side)} (margin_r)%
+    if cycle != 0
+        &:nth-child({cycle}n + 1)
+            margin-{margin_side} (margin_l_n)%
+        &:nth-child({cycle}n)
+            margin-{opposite-position(margin_side)} (margin_r_n)%
+    else
         &:first-child
             margin-{margin_side} (margin_l_n)%
         &:last-child
             margin-{opposite-position(margin_side)} (margin_r_n)%
 
-span(ratio = 1, offset = false)
+span(ratio = 1/2, offset = 0)
     // Gather Information
     side = getLayoutDirection()
     width = getSpan(ratio)
     margin_l = margin_r = 0
     // Calculate Offset
-    unless offset is false
+    unless offset == 0
         if offset < 0
             offset *= -1
             margin_r = getSpan(offset)
@@ -97,19 +106,17 @@ unshift()
     position static
     left 0
 
-getSpan(ratio)
+getSpan(ratio = 1/2)
     // Returns the width of a span
     return ratio * 100
 
-getColumn(ratios = 1, g = gutter, nested = false)
+getColumn(ratios = 1/2, g = gutter)
     // Returns the width and gutter for a column
     ratios = reverse(ratios) unless parent_first is true
     w = 100
-    for ratio, i in ratios
+    for ratio in ratios
         g = g / w * 100
-        w = 100 * ratio - 2 * g
-        if i != 0 or nested == true
-            w = w + 2 * ratio * g
+        w = 100 * ratio - 2 * g + 2 * ratio * g
     return w g
 
 getLayoutDirection()
@@ -125,11 +132,16 @@ endbp()
     unquote("}")
 
 stack(align = center)
+    margin_side = getLayoutDirection()
     display block
     width 100%
     margin-left auto
     margin-right auto
     margin-bottom (g * 3)%
+    &:first-child
+        margin-{margin_side} auto
+    &:last-child
+        margin-{opposite-position(margin_side)} auto
     if (align == center) or (align == c)
         text-align center
     if (align == l) or (align == l)
