@@ -33,28 +33,33 @@ container(ratios = null, g = gutter)
     side = getLayoutDirection()
     if ratios != null
         margin = getGutter(ratios, g)
+        margin_inside = getColumn(1 ratios, g)[1]
     else
         margin = g
+        margin_inside = getColumn(1, g)[1]
     margin-{side} (-(margin))%
     &:before
-        {side} (margin)%
+        {side} (margin_inside)%
 
-column(ratios = 1, offset = 0, g = gutter)
+column(ratios = 1, offset = 0, g = gutter, cont = false)
     // Gather Information
     side = getLayoutDirection()
-    widths = getColumn(ratios, g)
-    width = widths[0]
-    margin = widths[1]
+    if cont is false
+        widths = getColumn(ratios, g)
+        width = widths[0]
+        margin = widths[1]
+    else
+        width = ratios[0] * 100
+        margin = 0
     // Calculate Offset
     unless offset == 0
         if offset < 0
             offset *= -1
-            offset = getColumn(offset, margin)[0]
-            margin_opp = offset + margin
+            margin_opp = offset * 100
             margin-{opposite-position(side)} (margin_opp)%
         else
-            offset = getColumn(offset, margin)[0]
-            margin = offset + margin * 2
+            offset = offset * 100
+            margin = offset + margin
     // Mixin
     @extends $clearfix
     float side
@@ -113,7 +118,7 @@ getColumn(ratios = 1, g = gutter)
     ratios = reverse(ratios) unless parent_first is true
     w = 100
     for ratio in ratios
-        g = g / w * 100
+        g = g / (w + g) * 100
         w = 100 * ratio - g
     return w g
 
@@ -122,7 +127,7 @@ getGutter(ratios = 1, g = gutter)
     ratios = reverse(ratios) unless parent_first is true
     for ratio in ratios
         w = 100 * ratio - g
-        g = g / w * 100
+        g = g / (w + g) * 100
     return g
 
 getSpan(ratio = 1)
@@ -213,6 +218,7 @@ $containerbase
     overflow hidden
     position relative
     &:before
+        background blue
         content: ''
         width: 100%
         height: 100%
