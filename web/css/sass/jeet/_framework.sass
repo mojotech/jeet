@@ -2,78 +2,126 @@
 
 /*  Syntax quick reference
  *  ----------------------
- *  gutter[gut, g] = 1[float between 0 and 1]
+ *  gutter[gut, g] = 1
  *  cf() - clearfix
  *  center(max_width = 1410px)
- *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
- *  span(numerator = 1, denominator = 1)
- *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
- *  get(numerator = 1, denominator = 1, col_or_span = column[col, c, span, s])
+ *  column[col](ratios = 1, offset = false, g = gutter)
+ *  span(ratio = 1, offset = false)
+ *  shift(ratios = 0, g = gutter)
+ *  unshift()
+ *  getSpan(ratio)
+ *  getColumn(ratios = 1, g = gutter, nested = false)
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
  *  stack(align = center[c, left, l, right, r])
+ *  edit()
  *  pxfix()
+ */
 
 $gutter: 1
+$parent_first: false
+$layout_direction: LTR
 
 =center($max_width: 1410px)
   +cf
   max-width: $max_width
-  float: none !important
+  float: none
   display: block
-  margin-right: auto !important
-  margin-left: auto !important
-  *margin-right: auto !important
-  *margin-left: auto !important
+  margin-right: auto
+  margin-left: auto
+  *margin-right: auto
+  *margin-left: auto
 
-=column($numerator: 1, $denominator: 1, $number_of_nested_columns: 0, $g: $gutter)
-  +cf
-  float: left
-  @if $number_of_nested_columns != 0
-    width: (100 - ($g * 2) * ($number_of_nested_columns - 1)) / $number_of_nested_columns + unquote("%")
-    margin-left: $g + unquote("%")
-    margin-right: $g + unquote("%")
-    &:first-child
-      margin-left: 0
-    &:last-child
-      margin-right: 0
-  @else
-    width: $numerator / $denominator * 100 - $g * 2 + unquote("%")
-    margin-left: $g + unquote("%")
-    margin-right: $g + unquote("%")
-
-=span($numerator: 1, $denominator: 1)
-  +cf
-  float: left
-  width: $numerator / $denominator * 100 + unquote("%")
-  margin-left: 0
-  margin-right: 0
-
-=offset($numerator: 0, $denominator: 0, $left_or_right: left, $col_or_span: column)
-  $n: $numerator
-  $d: $denominator
-  $span: $n / $d * 100
-  $col: $n / $d * 100 + $g
-  @if $col_or_span == span or $col_or_span == s
-    @if $left_or_right == right or $left_or_right == r
-      margin-right: $span + unquote("%")
+=column($ratio: 1, $offset: false, $g: $gutter)
+  // Gather Information
+  $side: getLayoutDirection()
+  $margin_side: $side
+  $widths: getColumn($ratios, $g)
+  $margin_l: nth($widths, 2)
+  $margin_r: $margin_l
+  $margin_l_n: 0
+  $margin_r_n: 0
+  $nested: if(length($ratios) > 1, true, false)
+  // Calculate Offset
+  @if $offset != false
+    $edge: false
+    @if length($offset) > 1
+      $edge: nth($offset, 2)
+    $gutter_mult: if($edge == true, 2, 3)
+    $offset: nth($offset, 1)
+    @if $offset < 0
+      $offset: $offset * -1
+      $offset: nth(getColumn($offset, nth($widths, 2), $nested), 1)
+      $margin_r: $offset + nth($widths, 2) * $gutter_mult
+      $margin_r_n: $margin_r
     @else
-      margin-left: $span + unquote("%")
-  @if $col_or_span == column or $col_or_span == col or $col_or_span == c
-    @if $left_or_right == right or $left_or_right == r
-      margin-right: $col + unquote("%")
-    @else
-      margin-left: $col + unquote("%")
+      $offset: nth(getColumn($offset, nth($widths, 2), $nested), 1)
+      $margin_l: $offset + nth($widths, 2) * $gutter_mult
+      $margin_l_n: $margin_l
+  // Mixin
+  +cf
+  float: $side
+  width: nth($widths, 1) + unquote("%")
+    margin-#{$margin_side}: $margin_l + unquote("%")
+    margin-#{opposite-position($margin_side)}: $margin_r + unquote("%")
+    @if $nested == true
+      &:first-child
+        margin-#{$margin_side}: $margin_l_n + unquote("%")
+      &:last-child
+        margin-#{opposite-position($margin_side)}: $margin_r_n + unquote("%")
 
-@function get($numerator: 1, $denominator: 1, $col_or_span: column)
-  $n: $numerator
-  $d: $denominator
-  $span: $n / $d * 100
-  $col: $n / $d * 100 - $g * 2
-  @if $col_or_span == span or $col_or_span == s
-    @return $span + unquote("%")
-  @else
-    @return $col + unquote("%")
+=span($ratio: 1, $offset: false)
+  // Gather Information
+  $side: getLayoutDirection()
+  $width: getSpan($ratio)
+  $margin_l: 0
+  $margin_r: 0
+  // Calculate Offset
+  @if $offset != false
+    @if $offset < 0
+      $offset: $offset * -1
+      $margin_r: getSpan($offset)
+    @else
+      $margin_l: getSpan($offset)
+  // Mixin
+  +cf
+  float: $side
+  width: $width + unquote("%")
+  margin-#{$side}: $margin_l + unquote("%")
+  margin-#{opposite-position($side)}: $margin_r + unquote("%")
+
+=shift($ratios: 0, $g: $gutter) 
+  // Get direction information
+  $side: getLayoutDirection()
+  @if $side == right
+    $ratios: replace-nth($ratios, 1, nth($ratios, 1) * -1)
+  $widths: getColumn($ratios, $g)
+  $translate: nth($widths, 1) + nth($widths, 2) * 2
+  // Shift
+  position: relative
+  left: $translate + unquote("%")
+
+=unshift()
+  position: static
+  left: 0
+
+@function getSpan($ratio: 1)
+  // Returns the width of a span
+  @return $ratio * 100
+
+@function getColumn($ratios: 1, $g: $gutter, $nested: false)
+  // Returns the width and gutter for a column
+  @if $parent_first != true
+    $ratios: reverse($ratios)
+  $w: 100
+  $i: 0
+  @each $ratio in $ratios
+    $g: $g / $w * 100
+    $w: 100 * $ratio - 2 * $g
+    @if $i != 0 or $nested == true
+      $w: $w + 2 * $ratio * $g
+    $i: $i + 1
+  @return $w $g
 
 =bp($w: 705px, $mobile_first: false)
   @if $mobile_first == mf or $mobile_first == true
@@ -86,8 +134,8 @@ $gutter: 1
 =stack($align: c)
   display: block
   width: 100%
-  margin-left: auto !important
-  margin-right: auto !important
+  margin-left: auto
+  margin-right: auto
   margin-bottom: $g + unquote("%")
   @if $align == left or $align == l
     text-align: left
@@ -95,6 +143,11 @@ $gutter: 1
     text-align: right
   @else
     text-align: center
+
+=edit()
+  body *
+    transition: 200ms ease all
+    background: rgba(#000, .15)
 
 =pxfix()
   float: none
@@ -107,9 +160,6 @@ $gut: $gutter
 
 =col($args...)
   +column($args...)
-
-=off($args...)
-  +offset($args...)
 
 // compass mixin
 =cf

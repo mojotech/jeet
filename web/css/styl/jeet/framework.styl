@@ -1,73 +1,96 @@
-@import 'nib'
+@import 'axis'
 
 /*  Syntax quick reference
  *  ----------------------
- *  gutter[gut, g] = 1[float between 0 and 1]
- *  cf() - clearfix
+ *  gutter[g] = 1
  *  center(max_width = 1410px)
- *  column[col](numerator = 1, denominator = 1, number_of_nested_columns = 0)
- *  span(numerator = 1, denominator = 1)
- *  offset[off](numerator = 0, denominator = 0, col_or_span = column[col, c, span, s], left_or_right = left[right])
- *  get(numerator = 1, denominator = 1, col_or_span = column[col, c, span, s])
+ *  column[col](ratios = 1, offset = false)
+ *  span(ratio = 1, offset = false)
+ *  shift(ratios = 0)
+ *  unshift()
  *  bp(w = 705px, mobile_first = false[mf])
  *  endbp()
- *  stack(align = center[c, left, l, right, r])
+ *  stack(padding = 0, align = center[c, left, l, right, r])
  *  edit()
- *  pxfix()
+ *  cf() = clearfix
  */
 
-gutter = 1
+// Settings
+gutter = 3
+parent_first = false
+layout_direction = LTR
 
+// Mixins
 center(max_width = 1410px)
-    cf()
+    @extends $cf
     max-width max_width
-    float none !important
+    float none
     display block
-    margin-right auto !important
-    margin-left auto !important
-    *margin-right auto !important
-    *margin-left auto !important
+    margin-right auto
+    margin-left auto
 
-column(numerator = 1, denominator = 1, number_of_nested_columns = 0, g = gutter)
-    cf()
-    float left
-    if (number_of_nested_columns != 0)
-        width ( (100 - (g*2) * (number_of_nested_columns - 1)) / number_of_nested_columns )% // Thanks flebron from #math
-        margin-left (g)%
-        margin-right (g)%
-        &:first-child
-            margin-left 0
-        &:last-child
-            margin-right 0
+column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
+    side = get_layout_direction()
+    widths = get_column(ratios)
+    margin_l = margin_last = 0
+    margin_r = widths[1]
+    unless offset == 0
+        if offset < 0
+            offset *= -1
+            offset = get_column(offset, widths[1])[0]
+            margin_r = margin_last = offset + widths[1] * 2
+        else
+            offset = get_column(offset, widths[1])[0]
+            margin_l = offset + widths[1]
+            
+    @extends $cf
+    float side
+    width (widths[0])%
+    margin-{side} (margin_l)%
+    margin-{opposite-position(side)} (margin_r)%
+    if uncycle != 0
+        &:nth-child({uncycle}n)
+            margin-{opposite-position(side)} (margin_r)%
+            float side
+    if cycle != 0
+        &:nth-child({cycle}n)
+            margin-{opposite-position(side)} (margin_last)%
+            float opposite-position(side)
     else
-        width (((numerator/denominator)*100) - (g*2))%
-        margin-left (g)%
-        margin-right (g)%
+        &:last-child
+            margin-{opposite-position(side)} (margin_last)%
 
-span(numerator = 1, denominator = 1)
-    cf()
-    float left
-    width ((numerator/denominator)*100)%
-    margin-left 0
-    margin-right 0
+span(ratio = 1, offset = 0)
+    side = get_layout_direction()
+    width = get_span(ratio)
+    margin_l = margin_r = 0
+    unless offset == 0
+        if offset < 0
+            offset *= -1
+            margin_r = get_span(offset)
+        else
+            margin_l = get_span(offset)
+    @extends $cf
+    float side
+    width (width)%
+    margin-{side} (margin_l)%
+    margin-{opposite-position(side)} (margin_r)%
 
-offset(numerator = 0, denominator = 0, left_or_right = left, col_or_span = column)
-    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
-        if (left_or_right == left) or (left_or_right == l)
-            margin-left (((numerator/denominator)*100) + (g))%
-        if (left_or_right == right) or (left_or_right == r)
-            margin-right (((numerator/denominator)*100) + (g))%
-    if (col_or_span == span) or (col_or_span == s)
-        if (left_or_right == left) or (left_or_right == l)
-            margin-left ((numerator/denominator)*100)%
-        if (left_or_right == right) or (left_or_right == r)
-            margin-right ((numerator/denominator)*100)%
+shift(ratios = 0, col_or_span = column)
+    side = get_layout_direction()
+    if side == right
+        ratios = replace_nth(ratios, 0, ratios[0] * -1)
+    if col_or_span == column or col_or_span == col or col_or_span == c
+        widths = get_column(ratios)
+        translate = widths[0] + widths[1]
+    else
+        translate = get_span(ratios)
+    position relative
+    left (translate)%
 
-get(numerator = 1, denominator = 1, col_or_span = column)
-    if (col_or_span == span) or (col_or_span == s)
-        return ((numerator/denominator)*100)%
-    if (col_or_span == column) or (col_or_span == col) or (col_or_span == c)
-        return (((numerator/denominator)*100) - (g*2))%
+unshift()
+    position static
+    left 0
 
 bp(w = 705px, mobile_first = false)
     if (mobile_first == mf || mobile_first == true)
@@ -77,12 +100,20 @@ bp(w = 705px, mobile_first = false)
 endbp()
     unquote("}")
 
-stack(align = center)
+stack(padding = 0, align = center)
+    side = get_layout_direction()
     display block
+    float none
     width 100%
-    margin-left auto !important
-    margin-right auto !important
-    margin-bottom (g * 3)%
+    margin-left auto
+    margin-right auto
+    if padding != 0
+        padding-left padding
+        padding-right padding  
+    &:first-child
+        margin-{side} auto
+    &:last-child
+        margin-{opposite-position(side)} auto
     if (align == center) or (align == c)
         text-align center
     if (align == l) or (align == l)
@@ -95,19 +126,50 @@ edit()
         transition 200ms ease all
         background rgba(#000, .15)
 
-pxfix() // http://stackoverflow.com/a/12371926/1242079
-    float none
-    overflow hidden
-    width auto
+// Grid utilities
+get_span(ratio = 1)
+    return ratio * 100
+
+get_column(ratios = 1, g = gutter)
+    ratios = reverse(ratios) unless parent_first is true
+    w = 100
+    for ratio in ratios
+        g = g / w * 100
+        w = 100 * ratio - g + ratio * g
+    return w g
+
+get_layout_direction()
+    layout_direction == RTL ? result = right : result = left
+    return result
+
+replace_nth(list, index, value)
+    result = ()
+    index = length(list) + index if index < 0
+    for i in (0..(length(list) - 1))
+        if i == index
+            append(result, value)
+        else
+            append(result, list[i])
+    return result
+
+reverse(list)
+    result = ()
+    for item in list
+        prepend(result, item)
+    return result
 
 // Function aliases
 g = gutter
-gut = gutter
 col = column
-off = offset
 cf = clearfix
 
+// Placeholders
+$cf
+    cf()
+
 // Config junk
+global-reset()
+base()
 *
     box-sizing(border-box)
     *behavior url(js/vendor/boxsizing.htc)
@@ -115,9 +177,25 @@ html
     overflow-y scroll
     overflow-x hidden
 body
-    cf()
+    @extends $cf
     width 100%
 img, video, audio, embed, object, input, iframe
     max-width 100%
-.placeholder
-    color #aaa
+.cf
+    @extends $cf
+.chromeframe
+    width 100%
+    background #fff
+    background linear-gradient(top, #fff, #eee)
+    border-bottom 1px solid #ddd
+    box-shadow inset 0 -1px 0 #fff
+    text-shadow 0 1px 0 #fff
+    p
+        center()
+        padding 15px 0
+        margin-top 0
+        margin-bottom 0
+        text-align center
+        margin-bottom 0
+        a
+            color #3a95fb
