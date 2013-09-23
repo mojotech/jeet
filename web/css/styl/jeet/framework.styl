@@ -38,10 +38,11 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
         if offset < 0
             offset *= -1
             offset = get_column(offset, widths[1])[0]
-            margin_l = offset + widths[1]
+            margin_r = margin_last = offset + widths[1] * 2
         else
             offset = get_column(offset, widths[1])[0]
-            margin_r = margin_last = offset + widths[1] * 2
+            margin_l = offset + widths[1]
+            
     @extends $cf
     float side
     width (widths[0])%
@@ -66,9 +67,9 @@ span(ratio = 1, offset = 0)
     unless offset == 0
         if offset < 0
             offset *= -1
-            margin_l = get_span(offset)
-        else
             margin_r = get_span(offset)
+        else
+            margin_l = get_span(offset)
     @extends $cf
     float side
     width (width)%
