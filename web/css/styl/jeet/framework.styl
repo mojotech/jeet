@@ -35,16 +35,13 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
     margin_l = margin_last = 0
     margin_r = widths[1]
     unless offset == 0
-        edge = offset[1]
-        edge is true ? gutter_mult = 1 : gutter_mult = 2
-        offset = offset[0]
         if offset < 0
             offset *= -1
             offset = get_column(offset, widths[1])[0]
-            margin_l = offset + widths[1] * gutter_mult
+            margin_l = offset + widths[1]
         else
             offset = get_column(offset, widths[1])[0]
-            margin_r = margin_last = offset + widths[1] * gutter_mult
+            margin_r = margin_last = offset + widths[1] * 2
     @extends $cf
     float side
     width (widths[0])%
