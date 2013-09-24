@@ -10,7 +10,7 @@ Installation
 1. `npm install -g stylus axis-css`
 1. `cd ~/your_empty_project_directory`
 1. `git clone https://github.com/CorySimmons/jeet.git .`
-1. `stylus -u axis-css -w -c css/custom.styl`
+1. `./watch`
 1. Hack away at `index.html` and `css/custom.styl`
 
 Note
