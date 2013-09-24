@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+stylus -u axis-css -w -c css/custom.styl
