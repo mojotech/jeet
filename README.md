@@ -8,10 +8,9 @@ Installation
 
 1. Install [NodeJS](http://nodejs.org)
 1. `npm install -g stylus axis-css`
-1. Clone Jeet 3 repo to a project directory
 1. `cd ~/your_project_directory`
-1. `cd css`
-1. `stylus -u axis-css -w -c custom.styl`
+1. `git clone https://github.com/CorySimmons/jeet.git .`
+1. `stylus -u axis-css -w -c css/custom.styl`
 1. Hack away at `index.html` and `css/custom.styl`
 
 Note
