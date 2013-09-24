@@ -16,15 +16,21 @@
  *  cf()
  */
 
+// 
 // Settings
+// 
+
 gutter = 3
 parent_first = false
 layout_direction = LTR
 img-path = '../img/'
 
+// 
 // Mixins
+// 
+
 center(max_width = 1410px, padding = 15px)
-    @extends $cf
+    clearfix()
     max-width max_width
     float none
     display block
@@ -47,7 +53,7 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
             offset = get_column(offset, widths[1])[0]
             margin_l = offset + widths[1]
             
-    @extends $cf
+    clearfix()
     float side
     width (widths[0])%
     margin-{side} (margin_l)%
@@ -74,7 +80,7 @@ span(ratio = 1, offset = 0)
             margin_r = get_span(offset)
         else
             margin_l = get_span(offset)
-    @extends $cf
+    clearfix()
     float side
     width (width)%
     margin-{side} (margin_l)%
@@ -170,7 +176,10 @@ align(direction = both) // IE10+
         -ms-flex-pack center
         justify-content center
 
+// 
 // Grid utilities
+// 
+
 get_span(ratio = 1)
     return ratio * 100
 
@@ -202,16 +211,18 @@ reverse(list)
         prepend(result, item)
     return result
 
+// 
 // Function aliases
+// 
+
 g = gutter
 col = column
 cf = clearfix
 
-// Placeholders
-$cf
-    cf()
-
+// 
 // Resets and defaults
+// 
+
 global-reset()
 base()
 *
@@ -221,12 +232,12 @@ html
     overflow-y scroll
     overflow-x hidden
 body
-    @extends $cf
+    clearfix()
     width 100%
 img, video, audio, embed, object, input, iframe
     max-width 100%
 .cf
-    @extends $cf
+    clearfix()
 .chromeframe
     width 100%
     background #fff
