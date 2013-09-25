@@ -13,7 +13,7 @@
  *  stack(padding = 0, align = center[c, left, l, right, r])
  *  edit()
  *  align(direction = both[b, vertical, v, horizontal, h])
- *  hamburger(bg = #222, style = normal[flat], t = 5px, r = 5px, radius = 3px, menu = white[black])
+ *  hamburger(bg = #222, style = normal[flat], t = 0, r = 0, radius = 3px, menu = white[black], bp = 705px)
  *  cf()
  */
 
@@ -171,18 +171,18 @@ align(direction = both) // IE10+
         -ms-flex-pack center
         justify-content center
 
-hamburger(bg = #222, style = normal, t = 0, r = 0, radius = 3px, menu = white)
+hamburger(bg = #222, style = normal, t = 0, r = 0, radius = 3px, menu = white, bp = 705px)
     @extend $cf
     position relative
     > button
         display none
-        padding 0 
-    bp()
+        padding 0
+    bp(bp)
     > nav
         position absolute
         right 0
         top 120%
-        width 100% 
+        width 100%
         display none
         a
             float none
