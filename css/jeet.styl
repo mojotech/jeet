@@ -171,16 +171,17 @@ align(direction = both) // IE10+
         -ms-flex-pack center
         justify-content center
 
-hamburger(bg = #222, style = normal, t = 5px, r = 5px, radius = 3px, menu = white)
+hamburger(bg = #222, style = normal, t = 0, r = 0, radius = 3px, menu = white)
     @extend $cf
     position relative
     > button
         display none
+        padding 0 
     bp()
     > nav
         position absolute
         right 0
-        top 100%
+        top 120%
         width 100% 
         display none
         a
@@ -189,16 +190,24 @@ hamburger(bg = #222, style = normal, t = 5px, r = 5px, radius = 3px, menu = whit
             width 100%
             text-align left
             margin 0
+            border-radius 0
             border 0
             fs(16px)
             if (menu == white)
                 color #FFF
+                &:hover, &:active, &:focus
+                    color #FFF 
             if (menu == black)
-                color #000  
+                color #000
+                &:hover, &:active, &:focus
+                    color #000
             background bg
             padding 20px
             &:hover, &:active, &:focus
                 background darken(bg, 10%)
+            &:first-child
+                border-top-left-radius radius
+                border-top-right-radius radius
             &:last-child
                 border-bottom-left-radius radius
                 border-bottom-right-radius radius
@@ -208,8 +217,8 @@ hamburger(bg = #222, style = normal, t = 5px, r = 5px, radius = 3px, menu = whit
         background none
         border none
         text-indent -9999px
-        height 0
-        width 0
+        height 34px
+        width 34px
         position relative
         cursor pointer
         &:after
