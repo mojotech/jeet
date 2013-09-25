@@ -13,6 +13,7 @@
  *  stack(padding = 0, align = center[c, left, l, right, r])
  *  edit()
  *  align(direction = both[b, vertical, v, horizontal, h])
+ *  hamburger(bg = #222, style = normal[flat], t = 5px, r = 5px, radius = 3px, menu = white[black])
  *  cf()
  */
 
@@ -169,6 +170,65 @@ align(direction = both) // IE10+
         -webkit-justify-content center
         -ms-flex-pack center
         justify-content center
+
+hamburger(bg = #222, style = normal, t = 5px, r = 5px, radius = 3px, menu = white)
+    @extend $cf
+    position relative
+    > button
+        display none
+    bp()
+    > nav
+        position absolute
+        right 0
+        top 100%
+        width 100% 
+        display none
+        a
+            float none
+            cursor pointer
+            width 100%
+            text-align left
+            margin 0
+            border 0
+            fs(16px)
+            if (menu == white)
+                color #FFF
+            if (menu == black)
+                color #000  
+            background bg
+            padding 20px
+            &:hover, &:active, &:focus
+                background darken(bg, 10%)
+            &:last-child
+                border-bottom-left-radius radius
+                border-bottom-right-radius radius
+    > button
+        display block
+        float right
+        background none
+        border none
+        text-indent -9999px
+        height 0
+        width 0
+        position relative
+        cursor pointer
+        &:after
+            if (style == normal)
+                button(bg)
+            if (style == flat)
+                simple-button(bg)
+            position absolute
+            top t
+            right r
+            content ''
+            if (menu == white)
+                background bg url(../img/menu_white.png) center no-repeat
+            if (menu == black)
+                background bg url(../img/menu_black.png) center no-repeat
+            width 20px
+            height 20px
+            padding 7px
+    endbp()
 
 // Grid utilities
 get_span(ratio = 1)
