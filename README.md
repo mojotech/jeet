@@ -7,11 +7,25 @@ Installation
 ---
 
 1. Install [NodeJS](http://nodejs.org)
-1. `npm install -g stylus axis-css`
-1. `cd ~/your_empty_project_directory`
-1. `git clone https://github.com/CorySimmons/jeet.git .`
-1. `./watch`
-1. Hack away at `index.html` and `css/custom.styl`
+2. `npm install -g stylus axis-css`
+3. `cd ~/your_empty_project_directory`
+4. `git clone https://github.com/CorySimmons/jeet.git .`
+5. `./watch`
+6. Hack away at `index.html` and `css/custom.styl`
+
+Usage with Roots
+---
+
+[Roots](http://roots.cx) is a static site compiler that cooperates nicely with jeet. It makes creating and watching your project a smoother and less manual process, and adds loads of features you can take advantage of like precompiled templates, a variety of supported languages (jade, coffeescript, etc.), dynamic content for buulding things like blogs, and livereload in development. To install roots and the roots jeet template follow the steps below:
+
+- `npm install roots -g`
+- `roots template add jeet https://github.com/jenius/jeet-template`
+
+Now to create a new roots project with the jeet template and grid, follow these steps:
+
+- `roots new your_project_name --jeet`
+- `cd your_project_name`
+- `roots watch`
 
 Note
 ---
