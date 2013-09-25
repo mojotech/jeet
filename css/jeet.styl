@@ -13,7 +13,7 @@
  *  stack(padding = 0, align = center[c, left, l, right, r])
  *  edit()
  *  align(direction = both[b, vertical, v, horizontal, h])
- *  hamburger(bg = #222, style = normal[flat], t = 0, r = 0, radius = 3px, menu = white[black], bp = 705px)
+ *  hamburger(bg = #222, style = normal[flat], align = right[left], top = 0, radius = 3px, menu = white[black], bp = 705px)
  *  cf()
  */
 
@@ -171,7 +171,7 @@ align(direction = both) // IE10+
         -ms-flex-pack center
         justify-content center
 
-hamburger(bg = #222, style = normal, t = 0, r = 0, radius = 3px, menu = white, bp = 705px)
+hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu = white, bp = 705px)
     @extend $cf
     position relative
     > button
@@ -221,15 +221,22 @@ hamburger(bg = #222, style = normal, t = 0, r = 0, radius = 3px, menu = white, b
         width 34px
         position relative
         cursor pointer
+        if (align == left)
+            float left
+        else
+            float right
         &:after
             if (style == normal)
                 button(bg)
             if (style == flat)
                 simple-button(bg)
             position absolute
-            top t
-            right r
             content ''
+            top top
+            if (align == left)
+                left 0
+            else
+                right 0
             if (menu == white)
                 background bg url(../img/menu_white.png) center no-repeat
             if (menu == black)
