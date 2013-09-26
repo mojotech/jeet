@@ -26,11 +26,12 @@ img-path = '../img/'
 // Mixins
 center(max_width = 1410px, padding = 15px)
     @extends $cf
+    width auto
     max-width max_width
-    float none
+    float none !important
     display block
-    margin-right auto
-    margin-left auto
+    margin-right auto !important
+    margin-left auto !important
     padding-left padding 
     padding-right padding 
 
@@ -108,10 +109,11 @@ endbp()
 stack(padding = 0, align = center)
     side = get_layout_direction()
     display block
-    float none
+    clear both
+    float none !important
     width 100%
-    margin-left auto
-    margin-right auto
+    margin-left auto !important
+    margin-right auto !important
     if padding != 0
         padding-left padding
         padding-right padding  
