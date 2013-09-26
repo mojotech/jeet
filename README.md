@@ -16,12 +16,12 @@ Installation
 Usage with Roots
 ---
 
-[Roots](http://roots.cx) is a static site compiler that cooperates nicely with jeet. It makes creating and watching your project a smoother and less manual process, and adds loads of features you can take advantage of like precompiled templates, a variety of supported languages (jade, coffeescript, etc.), dynamic content for buulding things like blogs, and livereload in development. To install roots and the roots jeet template follow the steps below:
+[Roots](http://roots.cx) is a static site compiler that cooperates nicely with Jeet. It makes creating and watching your project a smoother and less manual process, and adds loads of features you can take advantage of like precompiled templates, a variety of supported languages (Jade, Coffeescript, etc.), dynamic content for building things like blogs, and LiveReload in development. To install Roots and the Roots Jeet template follow the steps below:
 
 - `npm install roots -g`
 - `roots template add jeet https://github.com/jenius/jeet-template`
 
-Now to create a new roots project with the jeet template and grid, follow these steps:
+Now to create a new Roots project with the Jeet template and grid, follow these steps:
 
 - `roots new your_project_name --jeet`
 - `cd your_project_name`
@@ -30,6 +30,6 @@ Now to create a new roots project with the jeet template and grid, follow these 
 Note
 ---
 
-We're currently working on another npm package and will be expanding on the doc with screencasts and such. To be honest, I just wanted to start using Jeet 3 for a few personal projects of mine. Jeet 2 is still available under the [Jeet2 branch](https://github.com/CorySimmons/jeet/tree/jeet2) so you can download it and use `jeet watch` in those project directories.
+We're currently working on another npm package and will be expanding on the doc with screencasts and such. Jeet 2 is still available under the [Jeet2 branch](https://github.com/CorySimmons/jeet/tree/jeet2) so you can download it and use `jeet watch` in those project directories.
 
-Also, we're dropping support for SCSS but I expect someone ([@ozamorowski](https://github.com/ozamorowski)) will fork/port Jeet 3 sooner than later.
+Also, we're dropping official support for SCSS but I expect someone (*cough* [@ozamorowski](https://github.com/ozamorowski) *cough*) will fork/port Jeet 3 sooner than later.
