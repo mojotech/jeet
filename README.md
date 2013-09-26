@@ -1,4 +1,4 @@
-![alt text](https://raw.github.com/CorySimmons/jeet/master/jeet_logo.jpg "Jeet CSS Framework")
+![alt text](https://raw.github.com/CorySimmons/jeet/jeet2/jeet_logo.jpg "Jeet CSS Framework")
 
 Version 2
 -
