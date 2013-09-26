@@ -7,11 +7,11 @@ Installation
 ---
 
 1. Install [NodeJS](http://nodejs.org)
-2. `npm install -g stylus axis-css`
-3. `cd ~/your_empty_project_directory`
-4. `git clone https://github.com/CorySimmons/jeet.git .`
-5. `./watch`
-6. Hack away at `index.html` and `css/custom.styl`
+1. `npm install -g stylus axis-css`
+1. `git clone https://github.com/CorySimmons/jeet.git foo`
+1. `cd foo`
+1. `./watch`
+1. Hack away at `index.html` and `css/custom.styl`
 
 Usage with Roots
 ---
