@@ -32,4 +32,4 @@ Note
 
 We're currently working on another npm package and will be expanding on the doc with screencasts and such. Jeet 2 is still available under the [Jeet2 branch](https://github.com/CorySimmons/jeet/tree/jeet2) so you can download it and use `jeet watch` in those project directories.
 
-Also, we're dropping official support for SCSS but I expect someone (*cough* [@ozamorowski](https://github.com/ozamorowski) *cough*) will fork/port Jeet 3 sooner than later.
+Also, we're dropping official support for SCSS but I expect someone ([@ozamorowski](https://github.com/ozamorowski)) will fork/port Jeet 3 sooner than later.
