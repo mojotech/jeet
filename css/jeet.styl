@@ -173,20 +173,30 @@ align(direction = both) // IE10+
         -ms-flex-pack center
         justify-content center
 
-hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu = white, bp = 705px)
+hamburger(bg = #222, style = normal, align = right, t = 0, l = 0, r = 0, menu = white, bp = 705px)
     @extend $cf
-    position relative
     > button
         display none
         padding 0
-    bp(bp)
     > nav
+        display block !important
+    bp(bp)
+    &
         position absolute
-        right 0
-        top 120%
+        top t
         width 100%
-        display none
+        if (align == right)
+            right r
+        else
+            left l
+    > nav
+        position relative
+        display none !important
+        width 100%
+        margin-left r
+        margin-right l  
         a
+            transition all 400ms ease
             float none
             cursor pointer
             width 100%
@@ -194,6 +204,7 @@ hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu 
             margin 0
             border-radius 0
             border 0
+            line-height 1 
             fs(16px)
             if (menu == white)
                 color #FFF
@@ -207,12 +218,10 @@ hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu 
             padding 20px
             &:hover, &:active, &:focus
                 background darken(bg, 10%)
+            &.active
+                background darken(bg, 20%) 
             &:first-child
-                border-top-left-radius radius
-                border-top-right-radius radius
-            &:last-child
-                border-bottom-left-radius radius
-                border-bottom-right-radius radius
+                margin-top t
     > button
         display block
         float right
@@ -220,6 +229,7 @@ hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu 
         border none
         text-indent -9999px
         position relative
+        z-index 999
         cursor pointer
         width 34px
         height 34px
@@ -234,7 +244,6 @@ hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu 
                 simple-button(bg)
             position absolute
             content ''
-            top top
             if (align == left)
                 left 0
             else
@@ -246,6 +255,7 @@ hamburger(bg = #222, style = normal, align = right, top = 0, radius = 3px, menu 
             width 34px
             height 34px
             padding 0
+            top 0
     endbp()
 
 // Grid utilities
