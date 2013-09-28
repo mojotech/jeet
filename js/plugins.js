@@ -1,5 +1,6 @@
-// toggleAttr - https://www.inkling.com/read/jquery-cookbook-cody-lindley-1st/chapter-5/recipe-5-7
-// Used for hamburger menus
+// unheap.com is a wonderful place to find high quality, modern, JS plugins
+
+// toggleAttr (used for Hamburger Menus) - https://www.inkling.com/read/jquery-cookbook-cody-lindley-1st/chapter-5/recipe-5-7
 jQuery.fn.toggleAttr = function( name, onValue, offValue, on ) {
 
     function set( $element, on ) {
