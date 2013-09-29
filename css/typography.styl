@@ -18,7 +18,7 @@ major_twelfth = 3
 double_octave = 4
 
 // Set your ratio
-typography_ratio = minor_seventh
+typography_ratio = aug_fourth
 mobile_ratio = major_third
 
 ms(numbawang = 1, ratio = typography_ratio)
@@ -76,28 +76,22 @@ header
             color #bbb
     h1
         + p, + p + p, + p + p + p // Any more and you should move tagline stuff into own element
-            margin-top -(ms(10))
-            margin-bottom ms(10)
+            margin-top -(ms(5))
     h2
         + p, + p + p, + p + p + p
-            margin-top -(ms(8))
-            margin-bottom ms(8)
+            margin-top -(ms(4))
     h3
         + p, + p + p, + p + p + p
-            margin-top -(ms(6))
-            margin-bottom ms(6)
+            margin-top -(ms(3))
     h4
         + p, + p + p, + p + p + p
-            margin-top -(ms(4))
-            margin-bottom ms(4)
+            margin-top -(ms(2))
     h5
         + p, + p + p, + p + p + p
-            margin-top -(ms(2))
-            margin-bottom ms(2)
+            margin-top -(ms(1))
     h6
         + p, + p + p, + p + p + p
-            margin-top -(ms(2))
-            margin-bottom ms(2)
+            margin-top -(ms(1))
 
 // Mobile
 bp()
@@ -137,28 +131,25 @@ li, dd
 pre
     fs(ms(8))
 header
+    *
+        + p
+            color #bbb
     h1
-        + p, + p + p, + p + p + p
-            margin-top -(ms(10))
-            margin-bottom ms(10)
+        + p, + p + p, + p + p + p // Any more and you should move tagline stuff into own element
+            margin-top -(ms(5))
     h2
         + p, + p + p, + p + p + p
-            margin-top -(ms(8))
-            margin-bottom ms(8)
+            margin-top -(ms(4))
     h3
         + p, + p + p, + p + p + p
-            margin-top -(ms(6))
-            margin-bottom ms(6)
+            margin-top -(ms(3))
     h4
         + p, + p + p, + p + p + p
-            margin-top -(ms(4))
-            margin-bottom ms(4)
+            margin-top -(ms(2))
     h5
         + p, + p + p, + p + p + p
-            margin-top -(ms(2))
-            margin-bottom ms(2)
+            margin-top -(ms(1))
     h6
         + p, + p + p, + p + p + p
-            margin-top -(ms(2))
-            margin-bottom ms(2)
+            margin-top -(ms(1))
 endbp()
