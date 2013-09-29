@@ -1,0 +1,164 @@
+// Named ratios - http://modularscale.com
+minor_second = 1.067
+major_second = 1.125
+minor_third = 1.2
+major_third = 1.25
+perfect_fourth = 1.333
+aug_fourth = 1.414
+perfect_fifth = 1.5
+minor_sixth = 1.6
+golden = 1.618
+major_sixth = 1.667
+minor_seventh = 1.778
+major_seventh = 1.875
+octave = 2
+major_tenth = 2.5
+major_eleventh = 2.667
+major_twelfth = 3
+double_octave = 4
+
+// Set your ratio
+typography_ratio = minor_seventh
+mobile_ratio = major_third
+
+ms(numbawang = 1, ratio = typography_ratio)
+    return (numbawang * ratio)px
+
+// Default typography
+html
+    color #555
+    fs(ms(10))
+    font-weight 200 
+    line-height ms(15)
+    font-family helvetica-neue // https://github.com/jenius/axis/blob/master/axis/settings.styl
+a
+    color blue
+    &:hover
+        color darken(blue, 10%) 
+h1, h2, h3, h4, h5, h6, strong, b, dt
+    color #222
+    bold()
+h1
+    fs(ms(28))
+    line-height ms(30)
+    margin-bottom ms(10)
+h2
+    fs(ms(25))
+    line-height ms(28) 
+    margin-bottom ms(8)
+h3
+    fs(ms(22))
+    line-height ms(26)
+    margin-bottom ms(6)
+h4
+    fs(ms(19))
+    line-height ms(24)
+    margin-bottom ms(4)
+h5
+    fs(ms(16))
+    line-height ms(22)
+    margin-bottom ms(2)
+h6
+    fs(ms(13))
+    line-height ms(20)
+    margin-bottom ms(0)
+p, ul, ol, pre, dl
+    margin-bottom ms(10)
+ul, ol
+    padding-left 1.4em
+li, dd
+    margin-bottom ms(5)
+pre
+    fs(ms(8))
+header
+    *
+        + p
+            color #bbb
+    h1
+        + p, + p + p, + p + p + p // Any more and you should move tagline stuff into own element
+            margin-top -(ms(10))
+            margin-bottom ms(10)
+    h2
+        + p, + p + p, + p + p + p
+            margin-top -(ms(8))
+            margin-bottom ms(8)
+    h3
+        + p, + p + p, + p + p + p
+            margin-top -(ms(6))
+            margin-bottom ms(6)
+    h4
+        + p, + p + p, + p + p + p
+            margin-top -(ms(4))
+            margin-bottom ms(4)
+    h5
+        + p, + p + p, + p + p + p
+            margin-top -(ms(2))
+            margin-bottom ms(2)
+    h6
+        + p, + p + p, + p + p + p
+            margin-top -(ms(2))
+            margin-bottom ms(2)
+
+// Mobile
+bp()
+ms(numbawang = 1, ratio = mobile_ratio)
+    return (numbawang * ratio)px
+html
+    fs(ms(10))
+    line-height ms(15)
+h1
+    fs(ms(28))
+    line-height ms(30)
+    margin-bottom ms(10)
+h2
+    fs(ms(25))
+    line-height ms(28) 
+    margin-bottom ms(8)
+h3
+    fs(ms(22))
+    line-height ms(26)
+    margin-bottom ms(6)
+h4
+    fs(ms(19))
+    line-height ms(24)
+    margin-bottom ms(4)
+h5
+    fs(ms(16))
+    line-height ms(22)
+    margin-bottom ms(2)
+h6
+    fs(ms(13))
+    line-height ms(20)
+    margin-bottom ms(0)
+p, ul, ol, pre, dl
+    margin-bottom ms(10)
+li, dd
+    margin-bottom ms(5)
+pre
+    fs(ms(8))
+header
+    h1
+        + p, + p + p, + p + p + p
+            margin-top -(ms(10))
+            margin-bottom ms(10)
+    h2
+        + p, + p + p, + p + p + p
+            margin-top -(ms(8))
+            margin-bottom ms(8)
+    h3
+        + p, + p + p, + p + p + p
+            margin-top -(ms(6))
+            margin-bottom ms(6)
+    h4
+        + p, + p + p, + p + p + p
+            margin-top -(ms(4))
+            margin-bottom ms(4)
+    h5
+        + p, + p + p, + p + p + p
+            margin-top -(ms(2))
+            margin-bottom ms(2)
+    h6
+        + p, + p + p, + p + p + p
+            margin-top -(ms(2))
+            margin-bottom ms(2)
+endbp()
