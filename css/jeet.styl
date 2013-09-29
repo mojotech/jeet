@@ -13,7 +13,6 @@
  *  endbp()
  *  stack(padding = 0, align = center[c, left, l, right, r])
  *  edit()
- *  align(direction = both[b, vertical, v, horizontal, h])
  *  hamburger(bg = #222, style = normal[flat], align = right[left], top = 0, radius = 3px, menu = white[black], bp = 705px)
  *  cf()
  */
@@ -131,48 +130,7 @@ stack(padding = 0, align = center)
 
 edit()
     *
-        // transition 200ms ease all
         background url(../img/edit_mixin.png)
-
-align(direction = both) // IE10+
-    if (direction == both) or (direction == b)
-        display -webkit-box
-        display -moz-box
-        display -ms-flexbox
-        display -webkit-flex
-        display flex
-        -webkit-box-align center
-        -webkit-flex-align center
-        -ms-flex-align center
-        -webkit-align-items center
-        align-items center
-        -webkit-box-pack center
-        -moz-box-pack center
-        -webkit-justify-content center
-        -ms-flex-pack center
-        justify-content center
-    if (direction == vertical) or (direction == v)
-        display -webkit-box
-        display -moz-box
-        display -ms-flexbox
-        display -webkit-flex
-        display flex
-        -webkit-box-align center
-        -webkit-flex-align center
-        -ms-flex-align center
-        -webkit-align-items center
-        align-items center
-    if (direction == horizontal) or (direction == h)
-        display -webkit-box
-        display -moz-box
-        display -ms-flexbox
-        display -webkit-flex
-        display flex
-        -webkit-box-pack center
-        -moz-box-pack center
-        -webkit-justify-content center
-        -ms-flex-pack center
-        justify-content center
 
 hamburger(bg = #222, style = normal, align = right, t = 0, l = 0, r = 0, menu = white, bp = 705px)
     @extend $cf
