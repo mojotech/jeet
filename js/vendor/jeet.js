@@ -10,7 +10,7 @@ $('.chromeframe').on('click', function() {
 jQuery.fn.toggleAttr = function( name, onValue, offValue, on ) {
     function set( $element, on ) {
         var value = on ? onValue : offValue;
-        return value == null ?
+        return value === null ?
             $element.removeAttr( name ) :
             $element.attr( name, value );
     }
@@ -22,27 +22,82 @@ jQuery.fn.toggleAttr = function( name, onValue, offValue, on ) {
         });
 };
 $('.hamburger > button').click(function() {
-    $('.hamburger > nav').toggleAttr('style', 'display: block !important;', 'display: none;')
+    $('.hamburger > nav').toggleAttr('style', 'display: block !important;', 'display: none;');
 });
 
 // Jeet "fixed" positioning
-if($('[jeet-fixed]').attr('jeet-fixed')) {    
-    $('[jeet-fixed]').css({
-        position: 'relative',
-        top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10)
-    });
+if($('[jeet-fixed]').attr('jeet-fixed')) {
+    if($(window).scrollTop() >= parseInt($('[jeet-pickup]').attr('jeet-pickup'), 10)) {
+        $('[jeet-fixed]').css({
+            position: 'relative',
+            top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10)
+        });
+        $(window).scroll(function() {
+            var jS;
+            if($('[jeet-speed]').attr('jeet-speed')) {
+                jS = $('[jeet-speed]').attr('jeet-speed');
+            } else {
+                jS = '200ms';
+            }
+            setInterval(function() {
+                $('[jeet-fixed]').css({
+                    position: 'relative',
+                    top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10),
+                    transition: 'all '+ jS +' ease'
+                });
+            }, 200);
+        });
+    }
     $(window).scroll(function() {
-        if($('[jeet-speed]').attr('jeet-speed')) {
-            var jS = $('[jeet-speed]').attr('jeet-speed');
-        } else {
-            var jS = '200ms';
-        }
-        setInterval(function() {
+        if($(window).scrollTop() >= parseInt($('[jeet-pickup]').attr('jeet-pickup'), 10)) {
             $('[jeet-fixed]').css({
                 position: 'relative',
-                top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10),
-                transition: 'all '+ jS +' ease'
+                top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10)
             });
-        }, 200);
+            $(window).scroll(function() {
+                var jS;
+                if($('[jeet-speed]').attr('jeet-speed')) {
+                    jS = $('[jeet-speed]').attr('jeet-speed');
+                } else {
+                    jS = '200ms';
+                }
+                setInterval(function() {
+                    if($(window).scrollTop() >= parseInt($('[jeet-pickup]').attr('jeet-pickup'), 10)) {
+                        $('[jeet-fixed]').css({
+                            position: 'relative',
+                            top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10),
+                            transition: 'all '+ jS +' ease'
+                        });
+                    } else {
+                        $('[jeet-fixed]').css({
+                            position: 'relative',
+                            top: 'auto'
+                        });
+                    }
+                }, 200);
+            });
+        }
     });
+} else {
+    if($('[jeet-pickup').attr('jeet-pickup')) {
+        $('[jeet-fixed]').css({
+            position: 'relative',
+            top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10)
+        });
+        $(window).scroll(function() {
+            var jS;
+            if($('[jeet-speed]').attr('jeet-speed')) {
+                jS = $('[jeet-speed]').attr('jeet-speed');
+            } else {
+                jS = '200ms';
+            }
+            setInterval(function() {
+                $('[jeet-fixed]').css({
+                    position: 'relative',
+                    top: $(window).scrollTop() + parseInt($('[jeet-fixed]').attr('jeet-fixed'), 10),
+                    transition: 'all '+ jS +' ease'
+                });
+            }, 200);
+        });
+    }
 }
