@@ -24,7 +24,9 @@ Commands:
 LiveReload Installation
 ---
 
-- If you're using Sublime Text, disable your LiveReload plugin with it
+**Note:** *This only works with the Jeet NPM Package or the Roots installation. LiveReload support of various Stylus libraries is touchy at best and requires special tools.*
+
+- If you're using Sublime Text, disable the Sublime Text LiveReload plugin
 - Install a LiveReload [browser extension](http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-)
 - Once `jeet watch` is working it will notify you that LiveReload is active, open your browser and activate your LiveReload browser extension (usually just by clicking on it).
 
@@ -47,6 +49,7 @@ Lightweight Watcher Installation and Usage
 - `git clone https://github.com/CorySimmons/jeet.git foo`
 - `cd foo`
 - `./watch` or the longhand version: `stylus -u axis-css -w -c css/custom.styl`
+- Keep in mind your JavaScript won't be automatically minified. Use the NPM package for that.
 
 Usage with Roots
 ---
