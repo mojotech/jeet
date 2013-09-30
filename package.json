@@ -1,0 +1,19 @@
+{
+    "name": "Jeet",
+    "version": "3.0.1",
+    "description": "A light, semantic, responsive, CSS framework built from the best parts.",
+    "homepage": "http://jeetframework.com",
+    "keywords": [
+        "stylus",
+        "css",
+        "framework",
+        "grid"
+    ],
+    "repositories": [
+        {
+            "type": "git", 
+            "url": "http://github.com/CorySimmons/jeet.git"
+        }
+    ],
+    "github": "http://github.com/CorySimmons/jeet"
+}
