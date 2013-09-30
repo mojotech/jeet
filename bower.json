@@ -1,0 +1,12 @@
+{
+    "name": "jeet",
+    "version": "3.0.1",
+    "main": [
+        "index.html",
+        "css/jeet.styl",
+        "js/main.js"
+    ],
+    "ignore": [
+        "README.md"
+    ]
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Usage: ./watch
+
+stylus -u axis-css -w -c css/custom.styl
