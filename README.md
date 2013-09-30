@@ -40,6 +40,15 @@ CLI Usage
 
 Jeet will watch your project for changes to `.styl` files within `/css`. It will concatenate and minify that CSS to `css/custom.css`. Jeet will also watch your `/js` automatically concatenate and minify most of your JavaScript (the ones that aren't already included as oldIE polyfills) including your `plugins.js`, `main.js`, and any new `.js` files in your `/js` dir.
 
+Lightweight Watcher Installation and Usage
+---
+
+- Install [NodeJS](http://nodejs.org)
+- `npm install -g stylus axis-css`
+- `git clone https://github.com/CorySimmons/jeet.git foo`
+- `cd foo`
+- `./watch` or the longhand version: `stylus -u axis-css -w -c css/custom.styl`
+
 Usage with Roots
 ---
 
