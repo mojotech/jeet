@@ -9,6 +9,11 @@
         "framework",
         "grid"
     ],
+    "categories": [
+        "CSS",
+        "Frameworks",
+        "UI"
+    ],
     "repositories": [
         {
             "type": "git", 
