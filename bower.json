@@ -5,8 +5,5 @@
         "index.html",
         "css/jeet.styl",
         "js/main.js"
-    ],
-    "ignore": [
-        "README.md"
     ]
 }
