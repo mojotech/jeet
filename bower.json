@@ -5,5 +5,9 @@
         "index.html",
         "css/jeet.styl",
         "js/main.js"
+    ],
+    "ignore": [
+        "package.json",
+        "README.md"
     ]
 }
