@@ -19,6 +19,8 @@ Commands:
     Options:
         -h, --help          output usage information
         -V/-v, --version    output the version number
+        -o, --outpath       the folder to compile the css into
+        -n, --name          the name of the styl file [defaults to "custom"]
 ```
 
 LiveReload Installation
