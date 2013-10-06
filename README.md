@@ -19,8 +19,6 @@ Commands:
     Options:
         -h, --help          output usage information
         -V/-v, --version    output the version number
-        -o, --outpath       the folder to compile the css into
-        -n, --name          the name of the styl file [defaults to "custom"]
 ```
 
 **Note:** If you modify `--outpath` or `--name` you will have to reflect those changes in your `index.html` yourself.
@@ -49,10 +47,10 @@ Lightweight Watcher Installation and Usage
 ---
 
 - Install [NodeJS](http://nodejs.org)
-- `npm install -g stylus axis-css`
+- `npm install -g stylus`
 - `git clone https://github.com/CorySimmons/jeet.git foo`
 - `cd foo`
-- `./watch` or the longhand version: `stylus -u axis-css -w -c css/custom.styl`
+- `./watch` or the longhand version: `stylus -w -c css/custom.styl`
 - Keep in mind your JavaScript won't be automatically minified. Use the NPM package for that.
 
 Usage with Roots

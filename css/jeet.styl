@@ -1,5 +1,4 @@
 @import 'plugins.css'
-@import 'axis'
 @import 'typography'
 
 /*  Syntax quick reference
@@ -21,7 +20,6 @@
 gutter = 3
 parent_first = false
 layout_direction = LTR
-img-path = '../img/'
 
 // Mixins
 center(max_width = 1410px, padding = 15px)
@@ -164,6 +162,14 @@ reverse(list)
         prepend(result, item)
     return result
 
+cf()
+    *zoom 1
+    &:before, &:after
+        content ''
+        display table
+    &:after
+        clear both
+
 // Function aliases
 g = gutter
 col = column
@@ -192,7 +198,6 @@ img, video, audio, embed, object, input, iframe
 .chromeframe
     width 100%
     background #fff
-    background linear-gradient(top, #fff, #eee)
     border-bottom 1px solid #ddd
     box-shadow inset 0 -1px 0 #fff
     text-shadow 0 1px 0 #fff
@@ -204,4 +209,4 @@ img, video, audio, embed, object, input, iframe
         text-align center
         margin-bottom 0
         a
-            color #3a95fb
+            color blue
