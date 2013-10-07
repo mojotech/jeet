@@ -1,0 +1,260 @@
+// Typography Settings
+headers = helvetica
+header_color = #111
+header_weight = 200
+tagline_color = #aaa
+body = helvetica
+body_color = #444
+typography_ratio = golden
+mobile_ratio = major_third
+mobile_breakpoint = 705px
+
+// Named Ratios - http://modularscale.com
+minor_second = 1.067
+major_second = 1.125
+minor_third = 1.2
+major_third = 1.25
+perfect_fourth = 1.333
+aug_fourth = 1.414
+perfect_fifth = 1.5
+minor_sixth = 1.6
+golden = 1.618
+major_sixth = 1.667
+minor_seventh = 1.778
+major_seventh = 1.875
+octave = 2
+major_tenth = 2.5
+major_eleventh = 2.667
+major_twelfth = 3
+double_octave = 4
+
+
+// Font Stacks - http://www.awayback.com/revised-font-stack
+// Sans-serif
+optima = Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif
+futura = Futura, "Trebuchet MS", Arial, sans-serif
+gill_sans = "Gill Sans", "Gill Sans MT", Calibri, sans-serif
+trebuchet = "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif
+helvetica = "Helvetica Neue", Helvetica, Arial, sans-serif
+verdana = Verdana, Geneva, sans-serif
+lucida_grande = "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
+geneva = Geneva, Tahoma, Verdana, sans-serif
+segoe = Segoe, "Segoe UI", "Helvetica Neue", Arial, sans-serif
+candara = Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif
+calibri = Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif
+franklin = "Franklin Gothic Medium", Arial, sans-serif
+tahoma = Tahoma, Geneva, Verdana, sans-serif
+
+// Serif
+garamond = Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif
+lucida_bright = "Lucida Bright", Georgia, serif
+palatino = Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif
+caslon = "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif
+didot = Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif
+baskerville = Baskerville, "Baskerville old face", "Hoefler Text", Garamond, "Times New Roman", serif
+hoefler = "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif
+bodoni = "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif
+goudy = "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif
+constantia = Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif
+cambria = Cambria, Georgia, serif
+antiqua = "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif
+
+
+t = typography_ratio
+m = mobile_ratio
+
+ms(numbawang = 1, ratio = t)
+    if (ratio == mobile) or (ratio == m)
+        return (numbawang * m)px
+    else
+        return (numbawang * t)px
+
+// Defaults
+html
+    font-family body
+    font-weight 200 
+    color body_color
+    font-size ms(10)
+    line-height ms(15)
+a
+    color blue
+    &:hover
+        color darken(blue, 10%) 
+h1, h2, h3, h4, h5, h6, strong, b, dt
+    font-family headers
+    font-weight header_weight
+    color header_color
+    if headers is optima
+        letter-spacing -.015em
+    if headers is futura
+        letter-spacing -.035em
+    if headers is gill_sans
+        letter-spacing 0
+    if headers is trebuchet
+        letter-spacing -.025em
+    if headers is helvetica
+        letter-spacing -.015em
+    if headers is verdana
+        letter-spacing -.045em
+    if headers is lucida_grande
+        letter-spacing -.045em
+    if headers is segoe
+        letter-spacing .015em
+    if headers is candara
+        letter-spacing -.025em
+    if headers is calibri
+        letter-spacing -.025em
+    if headers is franklin
+        letter-spacing -.025em
+    if headers is tahoma
+        letter-spacing 0
+    if headers is garamond
+        letter-spacing -.015em
+    if headers is lucida_bright
+        letter-spacing -.015em
+    if headers is palatino
+        letter-spacing -.015em
+    if headers is caslon
+        letter-spacing .025em
+    if headers is didot
+        letter-spacing -.035em
+    if headers is baskerville
+        letter-spacing -.025em
+    if headers is hoefler
+        letter-spacing -.025em
+    if headers is bodoni
+        letter-spacing -.025em
+    if headers is goudy
+        letter-spacing .025em
+    if headers is constantia
+        letter-spacing -.025em
+    if headers is cambria
+        letter-spacing 0
+    if headers is antiqua
+        letter-spacing -.015em
+h1
+    font-size ms(28)
+    line-height ms(30)
+    margin-bottom ms(10)
+h2
+    font-size ms(25)
+    line-height ms(28) 
+    margin-bottom ms(8)
+h3
+    font-size ms(22)
+    line-height ms(26)
+    margin-bottom ms(6)
+h4
+    font-size ms(20)
+    line-height ms(24)
+    margin-bottom ms(4)
+h5
+    font-size ms(16)
+    line-height ms(22)
+    margin-bottom ms(2)
+h6
+    font-size ms(13)
+    line-height ms(20)
+    margin-bottom ms(0)
+p, ul, ol, pre, dl
+    margin-bottom ms(10)
+ul, ol
+    padding-left 1.4em
+li, dd
+    margin-bottom ms(5)
+pre
+    font-size ms(8)
+header
+    p
+        color tagline_color
+    h1
+        ~ p
+            margin-top -(ms(5))
+    h2
+        ~ p
+            margin-top -(ms(4))
+    h3
+        ~ p
+            margin-top -(ms(3))
+    h4
+        ~ p
+            margin-top -(ms(2))
+    h5
+        ~ p
+            margin-top -(ms(1))
+    h6
+        ~ p
+            margin-top -(ms(1))
+code
+    padding 3px 4px
+    color color
+    background-color #F5F5F5
+    border 1px solid #E1E1E8
+    border-radius 3px
+    font-family Menlo, Monaco, monospace
+pre
+    display block
+    padding 7px
+    background-color #F5F5F5
+    border 1px solid #E1E1E8
+    border-radius 3px
+    white-space pre-wrap
+    word-break break-all
+    font-family Menlo, Monaco, monospace
+    line-height 160%
+
+// Mobile
+bp(mobile_breakpoint)
+html
+    font-size ms(10, m)
+    line-height ms(15, m)
+h1
+    font-size ms(28, m)
+    line-height ms(30, m)
+    margin-bottom ms(10, m)
+h2
+    font-size ms(25, m)
+    line-height ms(28, m) 
+    margin-bottom ms(8, m)
+h3
+    font-size ms(22, m)
+    line-height ms(26, m)
+    margin-bottom ms(6, m)
+h4
+    font-size ms(19, m)
+    line-height ms(24, m)
+    margin-bottom ms(4, m)
+h5
+    font-size ms(16, m)
+    line-height ms(22, m)
+    margin-bottom ms(2, m)
+h6
+    font-size ms(13, m)
+    line-height ms(20, m)
+    margin-bottom ms(0, m)
+p, ul, ol, pre, dl
+    margin-bottom ms(10, m)
+li, dd
+    margin-bottom ms(5, m)
+pre
+    font-size ms(8, m)
+header
+    h1
+        ~ p
+            margin-top -(ms(5, m))
+    h2
+        ~ p
+            margin-top -(ms(4, m))
+    h3
+        ~ p
+            margin-top -(ms(3, m))
+    h4
+        ~ p
+            margin-top -(ms(2, m))
+    h5
+        ~ p
+            margin-top -(ms(1, m))
+    h6
+        ~ p
+            margin-top -(ms(1, m))
+endbp()

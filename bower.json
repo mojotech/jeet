@@ -1,9 +1,9 @@
 {
     "name": "jeet",
-    "version": "3.0.3",
+    "version": "3.5.0",
     "main": [
         "index.html",
-        "css/jeet.styl",
+        "css/custom.styl",
         "js/main.js"
     ],
     "ignore": [
