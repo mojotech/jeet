@@ -1,5 +1,7 @@
 ![alt text](https://raw.github.com/CorySimmons/jeetframework.com/master/img/jeet_logo_sm.png "Jeet CSS Framework")
 
+[![Dependency Status](https://david-dm.org/corysimmons/jeet.png)](https://david-dm.org/corysimmons/jeet)
+
 [Documentation](http://jeetframework.com) | [Demos / Screencasts](http://jeetframework.com/demos) | NPM Package: [Github](https://github.com/CorySimmons/jeet-npm), [NPM](https://npmjs.org/package/jeet)
 
 Installation:
