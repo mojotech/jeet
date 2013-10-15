@@ -5,7 +5,7 @@
     span(ratio = 1, offset = false)
     shift(ratios = 0)
     unshift()
-    bp(w = 705px, mobile_first = false[mf])
+    bp(w = 705px, mf = true)
     endbp()
     stack(padding = 0, align = center[c, left, l, right, r])
     edit()
@@ -13,21 +13,22 @@
 */
 
 @import 'palette'
+@import 'shame'
 @import 'utilities'
 @import 'reset'
 @import 'grid'
 @import 'typography'
-@import 'shame'
 
 
 /*  Content Priority Creation Scheme
     --------------------------------
-    1. Grid Layout
-    2. Dummy Content Dump
-    3. JS Plugins
-    4. Typography
-    5. Colors
-    6. UI
-    7. Mobile - If mobile first, push to 1
-    8. Real Content Dump
+    1. Mobile first stacking
+    2. Grid Layout
+    3. Dummy Content Dump
+    4. JS Plugins
+    5. Typography
+    6. Colors
+    7. UI with BEM
+    8. Placeholders
+    9. Real Content Dump
 */

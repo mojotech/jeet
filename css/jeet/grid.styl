@@ -19,6 +19,11 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
             margin_l = offset + widths[1]
     @extends $cf
     float side
+    display inline
+    clear none
+    text-align inherit
+    padding-left 0
+    padding-right 0 
     width (widths[0])%
     margin-{side} (margin_l)%
     margin-{opposite-position(side)} (margin_r)%
@@ -47,6 +52,11 @@ span(ratio = 1, offset = 0)
             margin_l = get_span(offset)
     @extends $cf
     float side
+    display inline
+    clear none
+    padding-left 0
+    padding-right 0
+    text-align inherit
     width (width)%
     margin-{side} (margin_l)%
     margin-{opposite-position(side)} (margin_r)%

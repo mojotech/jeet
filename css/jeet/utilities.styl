@@ -16,8 +16,8 @@ center(max_width = 1410px, padding = 15px)
     padding-right padding
 
 // Breakpoints
-bp(w = 705px, mobile_first = false)
-    if (mobile_first == mf || mobile_first == true)
+bp(w = 705px, mf = true)
+    if (mf == mf || mf == true)
         unquote("@media all and (min-width: " + w + ") {")
     else
         unquote("@media all and (max-width: " + w + ") {")
@@ -46,6 +46,8 @@ stack(padding = 0, align = center)
         text-align left
     if (align == right) or (align == r)
         text-align right
+$stack
+    stack()
 
 // Clearfix
 cf()
