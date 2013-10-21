@@ -1,1 +1,1 @@
-$(function(){});$(function(){$(".chromeframe").on("click",function(){$(this).slideUp("fast")})});
+$(function(){});$(function(){$(".browsehappy").on("click",function(){$(this).slideUp("fast")})});
