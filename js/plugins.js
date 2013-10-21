@@ -1,7 +1,7 @@
 // http://unheap.com
 
 $(function() {
-    $('.chromeframe').on('click', function() {
+    $('.browsehappy').on('click', function() {
         $(this).slideUp('fast');
     });
 });
