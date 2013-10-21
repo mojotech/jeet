@@ -16,15 +16,15 @@ center(max_width = 1410px, padding = 15px)
     padding-right padding
 
 // Breakpoints
-bp(w = 705px, mf = true)
-    if (mf == mf || mf == true)
-        unquote("@media all and (min-width: " + w + ") {")
-    else
+bp(w = 705px, mf = mobile_first)
+    if (mf == false)
         unquote("@media all and (max-width: " + w + ") {")
+    else
+        unquote("@media all and (min-width: " + w + ") {")
 endbp()
     unquote("}")
 
-// Stacking Elements on Top of Each Other For Mobile
+// Stacking/Unstacking Elements
 stack(padding = 0, align = center)
     side = get_layout_direction()
     display block
@@ -46,8 +46,21 @@ stack(padding = 0, align = center)
         text-align left
     if (align == right) or (align == r)
         text-align right
-$stack
-    stack()
+unstack()
+    side = get_layout_direction()
+    display inline
+    clear none
+    width auto
+    margin-left 0
+    margin-right 0
+    &:first-child
+        margin-{side} 0
+    &:last-child
+        margin-{opposite-position(side)} 0
+    if (layout_direction == RTL)
+        text-align right
+    else
+        text-align left
 
 // Clearfix
 cf()

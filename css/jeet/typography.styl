@@ -1,14 +1,3 @@
-// Typography Settings
-headers = helvetica
-header_color = #111
-header_weight = 200
-tagline_color = #aaa
-body = helvetica
-body_color = #444
-typography_ratio = golden
-mobile_ratio = major_third
-mobile_breakpoint = 705px
-
 // Named Ratios - http://modularscale.com
 minor_second = 1.067
 major_second = 1.125
@@ -27,7 +16,6 @@ major_tenth = 2.5
 major_eleventh = 2.667
 major_twelfth = 3
 double_octave = 4
-
 
 // Font Stacks - http://www.awayback.com/revised-font-stack
 // Sans-serif
@@ -60,16 +48,17 @@ cambria = Cambria, Georgia, serif
 antiqua = "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif
 
 
-t = typography_ratio
-m = mobile_ratio
+pr = primary_ratio
+sr = secondary_ratio
 
-ms(numbawang = 1, ratio = t)
-    if (ratio == mobile) or (ratio == m)
-        return (numbawang * m)px
+// Modular Scale Mixin
+ms(numbawang = 1, ratio = pr)
+    if (ratio == sr)
+        return (numbawang * sr)px
     else
-        return (numbawang * t)px
+        return (numbawang * pr)px
 
-// Defaults
+// Primary Typography
 html
     font-family body
     font-weight 200 
@@ -79,7 +68,9 @@ html
 a
     color blue
     &:hover
-        color darken(blue, 10%) 
+        color darken(blue, 10%)
+h1
+    margin-top 0
 h1, h2, h3, h4, h5, h6, strong, b, dt
     font-family headers
     font-weight header_weight
@@ -203,58 +194,58 @@ pre
     font-family Menlo, Monaco, monospace
     line-height 160%
 
-// Mobile
-bp(mobile_breakpoint, mf: false)
+// Secondary Typography
+bp(breakpoint)
 html
-    font-size ms(10, m)
-    line-height ms(15, m)
+    font-size ms(10, sr)
+    line-height ms(15, sr)
 h1
-    font-size ms(28, m)
-    line-height ms(30, m)
-    margin-bottom ms(10, m)
+    font-size ms(28, sr)
+    line-height ms(30, sr)
+    margin-bottom ms(10, sr)
 h2
-    font-size ms(25, m)
-    line-height ms(28, m) 
-    margin-bottom ms(8, m)
+    font-size ms(25, sr)
+    line-height ms(28, sr) 
+    margin-bottom ms(8, sr)
 h3
-    font-size ms(22, m)
-    line-height ms(26, m)
-    margin-bottom ms(6, m)
+    font-size ms(22, sr)
+    line-height ms(26, sr)
+    margin-bottom ms(6, sr)
 h4
-    font-size ms(19, m)
-    line-height ms(24, m)
-    margin-bottom ms(4, m)
+    font-size ms(19, sr)
+    line-height ms(24, sr)
+    margin-bottom ms(4, sr)
 h5
-    font-size ms(16, m)
-    line-height ms(22, m)
-    margin-bottom ms(2, m)
+    font-size ms(16, sr)
+    line-height ms(22, sr)
+    margin-bottom ms(2, sr)
 h6
-    font-size ms(13, m)
-    line-height ms(20, m)
-    margin-bottom ms(0, m)
+    font-size ms(13, sr)
+    line-height ms(20, sr)
+    margin-bottom ms(0, sr)
 p, ul, ol, pre, dl
-    margin-bottom ms(10, m)
+    margin-bottom ms(10, sr)
 li, dd
-    margin-bottom ms(5, m)
+    margin-bottom ms(5, sr)
 pre
-    font-size ms(8, m)
+    font-size ms(8, sr)
 header
     h1
         ~ p
-            margin-top -(ms(5, m))
+            margin-top -(ms(5, sr))
     h2
         ~ p
-            margin-top -(ms(4, m))
+            margin-top -(ms(4, sr))
     h3
         ~ p
-            margin-top -(ms(3, m))
+            margin-top -(ms(3, sr))
     h4
         ~ p
-            margin-top -(ms(2, m))
+            margin-top -(ms(2, sr))
     h5
         ~ p
-            margin-top -(ms(1, m))
+            margin-top -(ms(1, sr))
     h6
         ~ p
-            margin-top -(ms(1, m))
+            margin-top -(ms(1, sr))
 endbp()
