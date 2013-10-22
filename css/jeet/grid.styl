@@ -26,14 +26,10 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
         &:nth-child({uncycle}n)
             margin-{opposite-position(side)} (margin_r)%
             float side
-        &:nth-child({uncycle+1}n)
-            clear none
     if cycle != 0
         &:nth-child({cycle}n)
             margin-{opposite-position(side)} (margin_last)%
             float opposite-position(side)
-        &:nth-child({cycle+1}n)
-            clear both
     else
         &:last-child
             margin-{opposite-position(side)} (margin_last)%
