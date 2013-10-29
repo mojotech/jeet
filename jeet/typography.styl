@@ -60,192 +60,192 @@ ms(numbawang = 1, ratio = pr)
 
 // Primary Typography
 html
-    font-family body
-    font-weight 200 
-    color body_color
-    font-size ms(10)
-    line-height ms(15)
+    font-family: body
+    font-weight: 200 
+    color: body_color
+    font-size: ms(10)
+    line-height: ms(15)
 a
-    color blue
+    color: blue
     &:hover
-        color darken(blue, 10%)
+        color: darken(blue, 10%)
 h1, h2, h3, h4, h5, h6, p, ul, ol, dt, pre, code
-    margin-top 0
+    margin-top: 0
 h1, h2, h3, h4, h5, h6, dt
-    font-family headers
-    font-weight header_weight
-    color header_color
+    font-family: headers
+    font-weight: header_weight
+    color: header_color
     if headers is optima
-        letter-spacing -.015em
+        letter-spacing: -.015em
     if headers is futura
-        letter-spacing -.035em
+        letter-spacing: -.035em
     if headers is gill_sans
-        letter-spacing 0
+        letter-spacing: 0
     if headers is trebuchet
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is helvetica
-        letter-spacing -.015em
+        letter-spacing: -.015em
     if headers is verdana
-        letter-spacing -.045em
+        letter-spacing: -.045em
     if headers is lucida_grande
-        letter-spacing -.045em
+        letter-spacing: -.045em
     if headers is segoe
-        letter-spacing .015em
+        letter-spacing: .015em
     if headers is candara
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is calibri
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is franklin
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is tahoma
-        letter-spacing 0
+        letter-spacing: 0
     if headers is garamond
-        letter-spacing -.015em
+        letter-spacing: -.015em
     if headers is lucida_bright
-        letter-spacing -.015em
+        letter-spacing: -.015em
     if headers is palatino
-        letter-spacing -.015em
+        letter-spacing: -.015em
     if headers is caslon
-        letter-spacing .025em
+        letter-spacing: .025em
     if headers is didot
-        letter-spacing -.035em
+        letter-spacing: -.035em
     if headers is baskerville
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is hoefler
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is bodoni
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is goudy
-        letter-spacing .025em
+        letter-spacing: .025em
     if headers is constantia
-        letter-spacing -.025em
+        letter-spacing: -.025em
     if headers is cambria
-        letter-spacing 0
+        letter-spacing: 0
     if headers is antiqua
-        letter-spacing -.015em
+        letter-spacing: -.015em
 h1
-    font-size ms(28)
-    line-height ms(30)
-    margin-bottom ms(10)
+    font-size: ms(28)
+    line-height: ms(30)
+    margin-bottom: ms(10)
 h2
-    font-size ms(25)
-    line-height ms(28) 
-    margin-bottom ms(8)
+    font-size: ms(25)
+    line-height: ms(28) 
+    margin-bottom: ms(8)
 h3
-    font-size ms(22)
-    line-height ms(26)
-    margin-bottom ms(6)
+    font-size: ms(22)
+    line-height: ms(26)
+    margin-bottom: ms(6)
 h4
-    font-size ms(20)
-    line-height ms(24)
-    margin-bottom ms(4)
+    font-size: ms(20)
+    line-height: ms(24)
+    margin-bottom: ms(4)
 h5
-    font-size ms(16)
-    line-height ms(22)
-    margin-bottom ms(2)
+    font-size: ms(16)
+    line-height: ms(22)
+    margin-bottom: ms(2)
 h6
-    font-size ms(13)
-    line-height ms(20)
-    margin-bottom ms(0)
+    font-size: ms(13)
+    line-height: ms(20)
+    margin-bottom: ms(0)
 p, ul, ol, pre, dl
-    margin-bottom ms(10)
+    margin-bottom: ms(10)
 ul, ol
-    padding-left 1.4em
+    padding-left: 1.4em
 li, dd
-    margin-bottom ms(5)
+    margin-bottom: ms(5)
 pre
-    font-size ms(8)
+    font-size: ms(8)
 header
     p
-        color tagline_color
+        color: tagline_color
     h1
         ~ p
-            margin-top -(ms(5))
+            margin-top: -(ms(5))
     h2
         ~ p
-            margin-top -(ms(4))
+            margin-top: -(ms(4))
     h3
         ~ p
-            margin-top -(ms(3))
+            margin-top: -(ms(3))
     h4
         ~ p
-            margin-top -(ms(2))
+            margin-top: -(ms(2))
     h5
         ~ p
-            margin-top -(ms(1))
+            margin-top: -(ms(1))
     h6
         ~ p
-            margin-top -(ms(1))
+            margin-top: -(ms(1))
 code
-    padding 3px 4px
-    color body_color
-    background-color #F5F5F5
-    border 1px solid #E1E1E8
-    border-radius 3px
-    font-family Menlo, Monaco, monospace
+    padding: 3px 4px
+    color: body_color
+    background-color: #F5F5F5
+    border: 1px solid #E1E1E8
+    border-radius: 3px
+    font-family: Menlo, Monaco, monospace
 pre
-    display block
-    padding 7px
-    background-color #F5F5F5
-    border 1px solid #E1E1E8
-    border-radius 3px
-    white-space pre-wrap
-    word-break break-all
-    font-family Menlo, Monaco, monospace
-    line-height 160%
+    display: block
+    padding: 7px
+    background-color: #F5F5F5
+    border: 1px solid #E1E1E8
+    border-radius: 3px
+    white-space: pre-wrap
+    word-break: break-all
+    font-family: Menlo, Monaco, monospace
+    line-height: 160%
         
 // Secondary Typography
 bp(breakpoint)
 html
-    font-size ms(10, sr)
-    line-height ms(15, sr)
+    font-size: ms(10, sr)
+    line-height: ms(15, sr)
 h1
-    font-size ms(28, sr)
-    line-height ms(30, sr)
-    margin-bottom ms(10, sr)
+    font-size: ms(28, sr)
+    line-height: ms(30, sr)
+    margin-bottom: ms(10, sr)
 h2
-    font-size ms(25, sr)
-    line-height ms(28, sr) 
-    margin-bottom ms(8, sr)
+    font-size: ms(25, sr)
+    line-height: ms(28, sr) 
+    margin-bottom: ms(8, sr)
 h3
-    font-size ms(22, sr)
-    line-height ms(26, sr)
-    margin-bottom ms(6, sr)
+    font-size: ms(22, sr)
+    line-height: ms(26, sr)
+    margin-bottom: ms(6, sr)
 h4
-    font-size ms(19, sr)
-    line-height ms(24, sr)
-    margin-bottom ms(4, sr)
+    font-size: ms(19, sr)
+    line-height: ms(24, sr)
+    margin-bottom: ms(4, sr)
 h5
-    font-size ms(16, sr)
-    line-height ms(22, sr)
-    margin-bottom ms(2, sr)
+    font-size: ms(16, sr)
+    line-height: ms(22, sr)
+    margin-bottom: ms(2, sr)
 h6
-    font-size ms(13, sr)
-    line-height ms(20, sr)
-    margin-bottom ms(0, sr)
+    font-size: ms(13, sr)
+    line-height: ms(20, sr)
+    margin-bottom: ms(0, sr)
 p, ul, ol, pre, dl
-    margin-bottom ms(10, sr)
+    margin-bottom: ms(10, sr)
 li, dd
-    margin-bottom ms(5, sr)
+    margin-bottom: ms(5, sr)
 pre
-    font-size ms(8, sr)
+    font-size: ms(8, sr)
 header
     h1
         ~ p
-            margin-top -(ms(5, sr))
+            margin-top: -(ms(5, sr))
     h2
         ~ p
-            margin-top -(ms(4, sr))
+            margin-top: -(ms(4, sr))
     h3
         ~ p
-            margin-top -(ms(3, sr))
+            margin-top: -(ms(3, sr))
     h4
         ~ p
-            margin-top -(ms(2, sr))
+            margin-top: -(ms(2, sr))
     h5
         ~ p
-            margin-top -(ms(1, sr))
+            margin-top: -(ms(1, sr))
     h6
         ~ p
-            margin-top -(ms(1, sr))
+            margin-top: -(ms(1, sr))
 endbp()

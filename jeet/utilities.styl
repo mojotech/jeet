@@ -1,20 +1,20 @@
 // Edit Mode
 edit()
     *
-        background #eee 
-        background rgba(#000, 5%) url(../img/edit_mixin.png)
+        background: #eee 
+        background: rgba(#000, 5%)
 
 // Horizontal Centering Block Elements
-center(max_width = 1410px, padding = 15px)
-    @extends $cf
-    width auto
-    max-width max_width
-    float none
-    display block
-    margin-right auto
-    margin-left auto
-    padding-left padding 
-    padding-right padding
+center(max_width = 1410px, pad = 15px)
+    @extend $cf
+    width: auto
+    max-width: max_width
+    float: none
+    display: block
+    margin-right: auto
+    margin-left: auto
+    padding-left: pad 
+    padding-right: pad
 
 // Breakpoints
 bp(w = 705px, mf = mobile_first)
@@ -26,65 +26,65 @@ endbp()
     unquote("}")
 
 // Stacking/Unstacking Elements
-stack(padding = 0, align = center)
-    side = get_layout_direction()
-    display block
-    clear both
-    float none
-    width 100%
-    margin-left auto
-    margin-right auto
-    if padding != 0
-        padding-left padding
-        padding-right padding  
+stack(pad = 0, align = center)
+    side = -get_layout_direction()
+    display: block
+    clear: both
+    float: none
+    width: 100%
+    margin-left: auto
+    margin-right: auto
+    if pad != 0
+        padding-left: pad
+        padding-right: pad  
     &:first-child
-        margin-{side} auto
+        margin-{side}: auto
     &:last-child
-        margin-{opposite-position(side)} auto
+        margin-{opposite-position(side)}: auto
     if (align == center) or (align == c)
-        text-align center
+        text-align: center
     if (align == left) or (align == l)
-        text-align left
+        text-align: left
     if (align == right) or (align == r)
-        text-align right
+        text-align: right
 unstack()
-    side = get_layout_direction()
-    display inline
-    clear none
-    width auto
-    margin-left 0
-    margin-right 0
+    side = -get_layout_direction()
+    display: inline
+    clear: none
+    width: auto
+    margin-left: 0
+    margin-right: 0
     &:first-child
-        margin-{side} 0
+        margin-{side}: 0
     &:last-child
-        margin-{opposite-position(side)} 0
+        margin-{opposite-position(side)}: 0
     if (layout_direction == RTL)
-        text-align right
+        text-align: right
     else
-        text-align left
+        text-align: left
 
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
-    position absolute 
+    position: absolute 
     if (direction == horizontal) or (direction == h)
-        left 50%
-        transform translateX(-50%)
+        left: 50%
+        transform: translateX(-50%)
     else if (direction == vertical) or (direction == v)
-        top 50%
-        transform translateY(-50%)
+        top: 50%
+        transform: translateY(-50%)
     else
-        top 50%
-        left 50%
-        transform translate(-50%, -50%)
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
 
 // Clearfix
 cf()
-    *zoom 1
+    *zoom: 1
     &:before, &:after
-        content ''
-        display table
+        content: ''
+        display: table
     &:after
-        clear both
+        clear: both
 $cf
     cf()
 
