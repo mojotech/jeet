@@ -1,38 +1,38 @@
 // Columns with Gutters
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
     side = -get_layout_direction()
-    widths = -get_column(ratios)
+    column_widths = -get_column(ratios)
     margin_l = margin_last = 0
-    margin_r = widths[1]
+    margin_r = column_widths[1]
     unless offset == 0
         if offset < 0
             offset *= -1
-            offset = -get_column(offset, widths[1])[0]
-            margin_r = margin_last = offset + widths[1] * 2
+            offset = -get_column(offset, column_widths[1])[0]
+            margin_r = margin_last = offset + column_widths[1] * 2
         else
-            offset = -get_column(offset, widths[1])[0]
-            margin_l = offset + widths[1]
+            offset = -get_column(offset, column_widths[1])[0]
+            margin_l = offset + column_widths[1]
     @extends $cf
-    float side
-    display inline
-    clear none
-    text-align inherit
-    padding-left 0
-    padding-right 0 
-    width (widths[0])%
-    margin-{side} (margin_l)%
-    margin-{opposite-position(side)} (margin_r)%
+    float: side
+    display: inline
+    clear: none
+    text-align: inherit
+    padding-left: 0
+    padding-right: 0 
+    width: (column_widths[0])%
+    margin-{side}: (margin_l)%
+    margin-{opposite-position(side)}: (margin_r)%
     if uncycle != 0
         &:nth-child({uncycle}n)
-            margin-{opposite-position(side)} (margin_r)%
-            float side
+            margin-{opposite-position(side)}: (margin_r)%
+            float: side
     if cycle != 0
         &:nth-child({cycle}n)
-            margin-{opposite-position(side)} (margin_last)%
-            float opposite-position(side)
+            margin-{opposite-position(side)}: (margin_last)%
+            float: opposite-position(side)
     else
         &:last-child
-            margin-{opposite-position(side)} (margin_last)%
+            margin-{opposite-position(side)}: (margin_last)%
 
 // Columns without Gutters
 span(ratio = 1, offset = 0)
@@ -62,8 +62,8 @@ shift(ratios = 0, col_or_span = column)
     if side == right
         ratios = -replace_nth(ratios, 0, ratios[0] * -1)
     if col_or_span == column or col_or_span == col or col_or_span == c
-        widths = -get_column(ratios)
-        translate = widths[0] + widths[1]
+        column_widths = -get_column(ratios)
+        translate = column_widths[0] + column_widths[1]
     else
         translate = -get_span(ratios)
     position relative
