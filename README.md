@@ -1,6 +1,9 @@
 ![alt text](https://raw.github.com/CorySimmons/jeetframework.com/master/img/jeet_logo_sm.png "Jeet CSS Framework")
 
-**We've moved. This is now a [MojoTech](https://github.com/mojotech/jeet) repo.**
+####Installation
+- `npm install -g jeet`
+- `stylus -u jeet -w -c`
+
 
 License
 ---
