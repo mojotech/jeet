@@ -37,7 +37,7 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
 // Columns without Gutters
 span(ratio = 1, offset = 0)
     side = -get_layout_direction()
-    width = -get_span(ratio)
+    span_width = -get_span(ratio)
     margin_l = margin_r = 0
     unless offset == 0
         if offset < 0
@@ -46,15 +46,15 @@ span(ratio = 1, offset = 0)
         else
             margin_l = -get_span(offset)
     @extends $cf
-    float side
-    display inline
-    clear none
-    padding-left 0
-    padding-right 0
-    text-align inherit
-    width (width)%
-    margin-{side} (margin_l)%
-    margin-{opposite-position(side)} (margin_r)%
+    float: side
+    display: inline
+    clear: none
+    padding-left: 0
+    padding-right: 0
+    text-align: inherit
+    width: (span_width)%
+    margin-{side}: (margin_l)%
+    margin-{opposite-position(side)}: (margin_r)%
 
 // Source Ordering
 shift(ratios = 0, col_or_span = column)
@@ -66,8 +66,8 @@ shift(ratios = 0, col_or_span = column)
         translate = column_widths[0] + column_widths[1]
     else
         translate = -get_span(ratios)
-    position relative
-    left (translate)%
+    position: relative
+    left: (translate)%
 unshift()
-    position static
-    left 0
+    position: static
+    left: 0
