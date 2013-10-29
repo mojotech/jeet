@@ -1,5 +1,7 @@
 {
     "name": "jeet",
+    "author": "Cory Simmons",
+    "main": "jeet.js",
     "version": "4.0.0",
     "description": "A light, semantic, responsive, CSS framework built from the best parts.",
     "homepage": "http://jeetframework.com",
@@ -19,5 +21,14 @@
             "url": "http://github.com/mojotech/jeet.git"
         }
     ],
-    "github": "http://github.com/mojotech/jeet"
+    "github": "http://github.com/mojotech/jeet",
+    "dependencies": {
+        "autoprefixer-stylus": "0.0.1"
+    },
+    "devDependencies": {
+        "stylus": "latest"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    }
 }
