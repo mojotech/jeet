@@ -23,12 +23,8 @@
     ],
     "github": "http://github.com/mojotech/jeet",
     "dependencies": {
-        "autoprefixer-stylus": "0.0.1"
+        "stylus": "latest",
+        "autoprefixer-stylus": "latest"
     },
-    "devDependencies": {
-        "stylus": "latest"
-    },
-    "engines": {
-        "node": ">=0.8.0"
-    }
+    "preferGlobal": true
 }
