@@ -6,16 +6,16 @@ edit()
         background: #eee 
 
 // Horizontal Centering Block Elements
-center(max_width = 1410px, padding = 15px)
+center(max_width = 1410px, pad = 15px)
     @extends $cf
-    padding-left padding 
-    padding-right padding
     width: auto
     max-width: max_width
     float: none
     display: block
     margin-right: auto
     margin-left: auto
+    padding-left: pad 
+    padding-right: pad
 
 // Breakpoints
 bp(w = 705px, mf = mobile_first)
@@ -27,17 +27,17 @@ endbp()
     unquote("}")
 
 // Stacking/Unstacking Elements
-stack(padding = 0, align = center)
+stack(pad = 0, align = center)
     side = -get_layout_direction()
-    if padding != 0
-        padding-left padding
-        padding-right padding  
     display: block
     clear: both
     float: none
     width: 100%
     margin-left: auto
     margin-right: auto
+    if pad != 0
+        padding-left: pad
+        padding-right: pad  
     &:first-child
         margin-{side}: auto
     &:last-child
