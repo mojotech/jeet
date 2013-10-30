@@ -27,7 +27,7 @@ endbp()
 
 // Stacking/Unstacking Elements
 stack(padding = 0, align = center)
-    side = get_layout_direction()
+    side = -get_layout_direction()
     display block
     clear both
     float none
@@ -48,7 +48,7 @@ stack(padding = 0, align = center)
     if (align == right) or (align == r)
         text-align right
 unstack()
-    side = get_layout_direction()
+    side = -get_layout_direction()
     display inline
     clear none
     width auto
