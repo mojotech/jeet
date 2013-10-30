@@ -13,26 +13,26 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)
             offset = -get_column(offset, column_widths[1])[0]
             margin_l = offset + column_widths[1]
     @extends $cf
-    float side
-    display inline
-    clear none
-    text-align inherit
-    padding-left 0
-    padding-right 0 
-    width (widths[0])%
-    margin-{side} (margin_l)%
-    margin-{opposite-position(side)} (margin_r)%
+    float: side
+    display: inline
+    clear: none
+    text-align: inherit
+    padding-left: 0
+    padding-right: 0 
+    width: (column_widths[0])%
+    margin-{side}: (margin_l)%
+    margin-{opposite-position(side)}: (margin_r)%
     if uncycle != 0
         &:nth-child({uncycle}n)
-            margin-{opposite-position(side)} (margin_r)%
-            float side
+            margin-{opposite-position(side)}: (margin_r)%
+            float: side
     if cycle != 0
         &:nth-child({cycle}n)
-            margin-{opposite-position(side)} (margin_last)%
-            float opposite-position(side)
+            margin-{opposite-position(side)}: (margin_last)%
+            float: opposite-position(side)
     else
         &:last-child
-            margin-{opposite-position(side)} (margin_last)%
+            margin-{opposite-position(side)}: (margin_last)%
 
 // Columns without Gutters
 span(ratio = 1, offset = 0)
@@ -46,15 +46,15 @@ span(ratio = 1, offset = 0)
         else
             margin_l = -get_span(offset)
     @extends $cf
-    float side
-    display inline
-    clear none
-    padding-left 0
-    padding-right 0
-    text-align inherit
-    width (width)%
-    margin-{side} (margin_l)%
-    margin-{opposite-position(side)} (margin_r)%
+    float: side
+    display: inline
+    clear: none
+    padding-left: 0
+    padding-right: 0
+    text-align: inherit
+    width: (span_width)%
+    margin-{side}: (margin_l)%
+    margin-{opposite-position(side)}: (margin_r)%
 
 // Source Ordering
 shift(ratios = 0, col_or_span = column)
