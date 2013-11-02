@@ -36,6 +36,9 @@ In the example above, Jeet will be [implicitly included](https://github.com/mojo
 ####Syntax Quick Reference
 [https://github.com/mojotech/jeet/blob/master/jeet/index.styl](https://github.com/mojotech/jeet/blob/master/jeet/index.styl)
 
+####Looking for a watcher?
+Check out [Roots](http://roots.cx) and our [Jeet Roots](https://github.com/mojotech/jeet-roots) template.
+
 ####License
 
 Jeet is licensed under [GPL Version 3](http://opensource.org/licenses/GPL-3.0)
