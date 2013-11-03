@@ -1,7 +1,7 @@
 // Edit Mode
 edit()
     *
-        background: #eee 
+        background: #eee
         background: rgba(#000, 5%)
 
 // Horizontal Centering Block Elements
@@ -13,11 +13,11 @@ center(max_width = 1410px, pad = 0)
     display: block
     margin-right: auto
     margin-left: auto
-    padding-left: pad 
+    padding-left: pad
     padding-right: pad
 
 // Breakpoints
-bp(w = 705px, mf = mobile_first)
+bp(w = breakpoint, mf = mobile_first)
     if (mf == false)
         unquote("@media all and (max-width: " + w + ") {")
     else
@@ -36,7 +36,7 @@ stack(pad = 0, align = center)
     margin-right: auto
     if pad != 0
         padding-left: pad
-        padding-right: pad  
+        padding-right: pad
     &:first-child
         margin-{side}: auto
     &:last-child
@@ -65,7 +65,7 @@ unstack()
 
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
-    position: absolute 
+    position: absolute
     if (direction == horizontal) or (direction == h)
         left: 50%
         transform: translateX(-50%)
@@ -79,7 +79,7 @@ align(direction = both)
 
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
-    position absolute 
+    position absolute
     if (direction == horizontal) or (direction == h)
         left 50%
         transform translateX(-50%)
