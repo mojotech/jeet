@@ -1,3 +1,11 @@
+### 4.0.1
+
+- Core
+    - Update package.json and npm repo
+- Bug Fixes
+    - bp(w = 705px) to bp(w = breakpoint) to inherit settings.styl breakpoint setting
+    - Remove align() block duplication in utilities.styl
+
 ### 4.0.0
 
 - Core
