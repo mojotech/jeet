@@ -39,6 +39,9 @@ In the example above, Jeet will be [implicitly included](https://github.com/mojo
 ####Looking for a watcher?
 Check out [Roots](http://roots.cx) and our [Jeet Roots](https://github.com/mojotech/jeet-roots) template.
 
+####Looking for an HTML boilerplate?
+Check out our [Jeet HTML](https://github.com/mojotech/jeet-html) repo.
+
 ####License
 
 Jeet is licensed under [GPL Version 3](http://opensource.org/licenses/GPL-3.0)
