@@ -34,13 +34,13 @@ stack(pad = 0, align = center)
     width: 100%
     margin-left: auto
     margin-right: auto
-    if pad != 0
-        padding-left: pad
-        padding-right: pad
     &:first-child
         margin-{side}: auto
     &:last-child
         margin-{opposite-position(side)}: auto
+    if pad != 0
+        padding-left: pad
+        padding-right: pad
     if (align == center) or (align == c)
         text-align: center
     if (align == left) or (align == l)
