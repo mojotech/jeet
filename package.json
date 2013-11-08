@@ -2,7 +2,7 @@
     "name": "jeet",
     "author": "Cory Simmons / MojoTech",
     "main": "jeet.js",
-    "version": "4.0.1",
+    "version": "4.0.2",
     "description": "A light, semantic, responsive, CSS framework built from the best parts.",
     "homepage": "http://jeetframework.com",
     "keywords": [
@@ -23,8 +23,8 @@
     ],
     "github": "http://github.com/mojotech/jeet",
     "dependencies": {
-        "stylus": "0.38.x",
-        "autoprefixer-stylus": "0.0.x"
+        "stylus": "0.40.x",
+        "autoprefixer-stylus": "0.0.2"
     },
     "preferGlobal": true
 }
