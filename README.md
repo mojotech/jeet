@@ -36,15 +36,14 @@ In the example above, Jeet will be [implicitly included](https://github.com/mojo
 ####Syntax Quick Reference
 [https://github.com/mojotech/jeet/blob/master/jeet/index.styl](https://github.com/mojotech/jeet/blob/master/jeet/index.styl)
 
-####Looking for a watcher?
-Check out [Roots](http://roots.cx) and our [Jeet Roots](https://github.com/mojotech/jeet-roots) template.
+####HTML Boilerplate
+[https://github.com/mojotech/jeet-html](https://github.com/mojotech/jeet-html)
 
-####Looking for an HTML boilerplate?
-Check out our [Jeet HTML](https://github.com/mojotech/jeet-html) repo.
+####Roots Integration
+[https://github.com/mojotech/jeet-roots](https://github.com/mojotech/jeet-roots)
 
 ####Help! npm is throwing permission errors!
 You're probably trying to `sudo` everything aren't you? That's bad juju! `sudo chown -R $USER /usr/local` will fix this. You might be interested in reinstalling all your global npm packages without sudo as well. Don't believe us? Here's a [blog post](http://howtonode.org/introduction-to-npm) on the subject by the maintainer of npm himself.
 
 ####License
-
 Jeet is licensed under [GPL Version 3](http://opensource.org/licenses/GPL-3.0)
