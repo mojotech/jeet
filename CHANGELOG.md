@@ -1,3 +1,10 @@
+### 4.0.2
+
+- Bug Fixes
+    - Version lock autoprefixer-stylus
+- Enhancements
+    - Version lock stylus
+
 ### 4.0.1
 
 - Bug Fixes
