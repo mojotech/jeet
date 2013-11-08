@@ -1,4 +1,4 @@
-![alt text](https://raw.github.com/CorySimmons/jeetframework.com/master/img/jeet_logo_sm.png "Jeet CSS Framework")
+![alt text](https://raw.github.com/corysimmons/jeetframework.com/master/img/jeet_logo_sm.png "Jeet CSS Framework")
 
 ####Installation
 `npm install -g stylus jeet`
