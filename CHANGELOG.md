@@ -1,3 +1,17 @@
+### 4.1.0
+
+- Core
+    - Remove Autoprefixer integration so Jeet is primarily a collection of .styl files. While trying to port Jeet to a plethora of applications, I noticed it most of these applications that claimed to have Stylus support were expecting pure Stylus libraries - not a script that performed any other actions. Most of these applications (Roots, Grunt, Ruby) were based around integrating libraries in the [nib](https://github.com/visionmedia/nib).
+    - Prefixed partials with underscore for consistency across ports. Doesn't break the API.
+- Breaking Changes
+    - By removing Autoprefixer integration 4.0.x projects that were relying on Autoprefixer for non-Jeet elements (e.g. `transform: rotate(90deg)`) will need to be prefixed.
+- Migration Strategy
+    - The easiest migration would be to use Jeet in unison with some other prefixing library (like nib). This will heavy-handily do vendor prefixing (add vendor prefixing to everything as opposed to just the prefixes required) but should work fairly seamlessly via `stylus -u jeet nib -w`
+    - For a cleaner, better, migration, try to get Autoprefixer in your project's pipeline some other way. We'll keep adding pipelines to do this for things like pure HTML (Grunt), Rails, Node, Roots, etc. but if you end up figuring out a nice way, feel free to contribute or drop us a link and we'll add it to the README.
+    - Hand prefix partials with underscores in `jeet/` and `jeet/index.styl`
+- Bug Fixes
+    - Update index.styl quick reference to be accurate to API
+
 ### 4.0.2
 
 - Bug Fixes
