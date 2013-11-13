@@ -34,7 +34,7 @@ In the example above, Jeet will be [implicitly included](https://github.com/mojo
 ```
 
 ####Syntax Quick Reference
-[https://github.com/mojotech/jeet/blob/master/jeet/index.styl](https://github.com/mojotech/jeet/blob/master/jeet/index.styl)
+[https://github.com/mojotech/jeet/blob/master/lib/index.styl](https://github.com/mojotech/jeet/blob/master/lib/index.styl)
 
 ####HTML Boilerplate
 [https://github.com/mojotech/jeet-html](https://github.com/mojotech/jeet-html)
