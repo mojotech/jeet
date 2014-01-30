@@ -17,7 +17,7 @@ center(max_width = 1410px, pad = 0)
     padding-right: pad
 
 // Breakpoints
-bp(mt = media_type, w = breakpoint, mf = mobile_first)
+bp(w = breakpoint, mf = mobile_first, mt = media_type)
     if (mf == false)
         unquote("@media " + mt + " and (max-width: " + w + ") {")
     else
