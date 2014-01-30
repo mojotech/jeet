@@ -19,9 +19,9 @@ center(max_width = 1410px, pad = 0)
 // Breakpoints
 bp(w = breakpoint, mf = mobile_first, mt = media_type)
     if (mf == false)
-        unquote("@media " + mt + " and (max-width: " + w + ") {")
+        unquote("@media " + join(", ", mt) + " and (max-width: " + w + ") {")
     else
-        unquote("@media " + mt + " and (min-width: " + w + ") {")
+        unquote("@media " + join(", ", mt) + " and (min-width: " + w + ") {")
 endbp()
     unquote("}")
 
