@@ -2,7 +2,7 @@
   "name": "jeet",
   "author": "Cory Simmons / MojoTech",
   "main": "index.js",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "description": "A light, semantic, responsive, CSS framework built from the best parts.",
   "homepage": "http://jeet.gs",
   "keywords": [
@@ -23,7 +23,7 @@
   ],
   "github": "http://github.com/mojotech/jeet",
   "devDependencies": {
-    "stylus": "0.40.x"
+    "stylus": "0.42.x"
   },
   "preferGlobal": true
 }
