@@ -16,15 +16,6 @@ center(max_width = 1410px, pad = 0)
   padding-left: pad
   padding-right: pad
 
-// Breakpoints
-bp(w = breakpoint, mf = mobile_first)
-  if (mf == false)
-    unquote("@media all and (max-width: " + w + ") {")
-  else
-    unquote("@media all and (min-width: " + w + ") {")
-endbp()
-  unquote("}")
-
 // Stacking/Unstacking Elements
 stack(pad = 0, align = center)
   side = -get_layout_direction()
