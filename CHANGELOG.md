@@ -1,5 +1,27 @@
-### 4.1.0
+### 5.0.0
+- Core
+    - Jeet 5 is the final step in making Jeet a perfectly modular Stylus component to be used anywhere libs such as [nib](https://github.com/visionmedia/nib) and [Axis](https://github.com/jenius/axis) are accepted. It pulls a lot of extra stuff out and turns Jeet exclusively into the finest Stylus grid system available.
+    - Drop typography
+    - Drop colors
+    - Drop `bp()`
+    - Namespace things
+    - Add testing
+    - Add Travis CI
+    - Add David DM
+    - Package for Yeoman and Bower
+    - Add placeholders where appropriate
+    - 2 space indents rather than 4
+    - Replace snake_case with dash-case for namespaced variables. We're talking CSS here. What are we, animals?!
+- Breaking Changes
+    - By dropping typography, sites that use Jeet's typography system will no longer have typography
+    - By dropping colors, sites that were making use of these variables in `_settings.styl` will no longer have them defined
+    - By dropping `bp()`, sites that used `bp()` will now not be responsive
+- Migration strategy
+    - Jeet's typography will be exported to the [Typographic](https://github.com/corysimmons/typographic) npm package, so just include that lib when compiling
+    - Copy/paste your color variables to anywhere they'll be compiled before they're used
+    - Include the [Rupture](https://github.com/jenius/rupture) lib and replace occurrences of the `bp()` mixin with Rupture equivalents
 
+### 4.1.0
 - Core
     - Remove Autoprefixer integration so Jeet is primarily a collection of .styl files. While trying to port Jeet to a plethora of applications, I noticed it most of these applications that claimed to have Stylus support were expecting pure Stylus libraries - not a script that performed any other actions. Most of these applications (Roots, Grunt, Ruby) were based around integrating libraries in the [nib](https://github.com/visionmedia/nib).
     - Prefixed partials with underscore for consistency across ports. Doesn't break the API.
@@ -13,20 +35,17 @@
     - Update index.styl quick reference to be accurate to API
 
 ### 4.0.2
-
 - Bug Fixes
     - Version lock autoprefixer-stylus
 - Enhancements
     - Version lock stylus
 
 ### 4.0.1
-
 - Bug Fixes
     - bp(w = 705px) to bp(w = breakpoint) to inherit settings.styl breakpoint setting
     - Remove align() block duplication in utilities.styl
 
 ### 4.0.0
-
 - Core
     - Remove watcher (use [Roots](http://roots.cx))
     - Remove template (use [jeet-roots](https://github.com/mojotech/jeet-roots)) which included [these files](https://github.com/mojotech/jeet/commit/153560d04b7eac25f4afe71ca2e233a54988823b)
