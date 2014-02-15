@@ -18,17 +18,17 @@ stylus -u jeet -w foo.styl
 #### Usage Example
 ```
 <section>
-    <aside>Sidebar</aside>
-    <article>Content</article>
+  <aside>Sidebar</aside>
+  <article>Content</article>
 </section>
 ```
 ```
 section
-  center()
+ center()
 aside
-  col(1/3)
+ col(1/3)
 article
-  col(2/3)
+ col(2/3)
 ```
 
 #### API

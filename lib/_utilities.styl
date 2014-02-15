@@ -1,92 +1,92 @@
 // Edit Mode
 edit()
-    *
-        background: #eee
-        background: rgba(#000, 5%)
+  *
+    background: #eee
+    background: rgba(#000, 5%)
 
 // Horizontal Centering Block Elements
 center(max_width = 1410px, pad = 0)
-    @extend $cf
-    width: auto
-    max-width: max_width
-    float: none
-    display: block
-    margin-right: auto
-    margin-left: auto
-    padding-left: pad
-    padding-right: pad
+  @extend $cf
+  width: auto
+  max-width: max_width
+  float: none
+  display: block
+  margin-right: auto
+  margin-left: auto
+  padding-left: pad
+  padding-right: pad
 
 // Breakpoints
 bp(w = breakpoint, mf = mobile_first)
-    if (mf == false)
-        unquote("@media all and (max-width: " + w + ") {")
-    else
-        unquote("@media all and (min-width: " + w + ") {")
+  if (mf == false)
+    unquote("@media all and (max-width: " + w + ") {")
+  else
+    unquote("@media all and (min-width: " + w + ") {")
 endbp()
-    unquote("}")
+  unquote("}")
 
 // Stacking/Unstacking Elements
 stack(pad = 0, align = center)
-    side = -get_layout_direction()
-    display: block
-    clear: both
-    float: none
-    width: 100%
-    margin-left: auto
-    margin-right: auto
-    &:first-child
-        margin-{side}: auto
-    &:last-child
-        margin-{opposite-position(side)}: auto
-    if pad != 0
-        padding-left: pad
-        padding-right: pad
-    if (align == center) or (align == c)
-        text-align: center
-    if (align == left) or (align == l)
-        text-align: left
-    if (align == right) or (align == r)
-        text-align: right
+  side = -get_layout_direction()
+  display: block
+  clear: both
+  float: none
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  &:first-child
+    margin-{side}: auto
+  &:last-child
+    margin-{opposite-position(side)}: auto
+  if pad != 0
+    padding-left: pad
+    padding-right: pad
+  if (align == center) or (align == c)
+    text-align: center
+  if (align == left) or (align == l)
+    text-align: left
+  if (align == right) or (align == r)
+    text-align: right
 unstack()
-    side = -get_layout_direction()
-    display: inline
-    clear: none
-    width: auto
-    margin-left: 0
-    margin-right: 0
-    &:first-child
-        margin-{side}: 0
-    &:last-child
-        margin-{opposite-position(side)}: 0
-    if (layout_direction == RTL)
-        text-align: right
-    else
-        text-align: left
+  side = -get_layout_direction()
+  display: inline
+  clear: none
+  width: auto
+  margin-left: 0
+  margin-right: 0
+  &:first-child
+    margin-{side}: 0
+  &:last-child
+    margin-{opposite-position(side)}: 0
+  if (layout_direction == RTL)
+    text-align: right
+  else
+    text-align: left
 
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
-    position: absolute
-    if (direction == horizontal) or (direction == h)
-        left: 50%
-        transform: translateX(-50%)
-    else if (direction == vertical) or (direction == v)
-        top: 50%
-        transform: translateY(-50%)
-    else
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
+  position: absolute
+  if (direction == horizontal) or (direction == h)
+    left: 50%
+    transform: translateX(-50%)
+  else if (direction == vertical) or (direction == v)
+    top: 50%
+    transform: translateY(-50%)
+  else
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
 
 // Clearfix
 cf()
-    *zoom: 1
-    &:before, &:after
-        content: ''
-        display: table
-    &:after
-        clear: both
+  *zoom: 1
+  &:before, &:after
+    content: ''
+    display: table
+  &:after
+    clear: both
 $cf
-    cf()
+  cf()
 
 // CSS Easing
 // https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/addons/_timing-functions.scss
