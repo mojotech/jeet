@@ -1,29 +1,29 @@
 {
-    "name": "jeet",
-    "author": "Cory Simmons / MojoTech",
-    "main": "index.js",
-    "version": "4.1.1",
-    "description": "A light, semantic, responsive, CSS framework built from the best parts.",
-    "homepage": "http://jeetframework.com",
-    "keywords": [
-        "stylus",
-        "css",
-        "framework",
-        "grid"
-    ],
-    "categories": [
-        "CSS",
-        "Frameworks"
-    ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/mojotech/jeet.git"
-        }
-    ],
-    "github": "http://github.com/mojotech/jeet",
-    "devDependencies": {
-        "stylus": "0.40.x"
-    },
-    "preferGlobal": true
+  "name": "jeet",
+  "author": "Cory Simmons / MojoTech",
+  "main": "jeet.js",
+  "version": "5.0.0",
+  "description": "The most advanced, yet intuitive, grid system on the market today",
+  "homepage": "http://jeet.gs",
+  "keywords": [
+    "stylus",
+    "css",
+    "framework",
+    "grid"
+  ],
+  "categories": [
+    "CSS",
+    "Frameworks"
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/mojotech/jeet.git"
+    }
+  ],
+  "github": "http://github.com/mojotech/jeet",
+  "devDependencies": {
+    "stylus": "0.42.x"
+  },
+  "preferGlobal": true
 }

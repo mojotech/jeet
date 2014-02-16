@@ -1,0 +1,30 @@
+{
+  "name": "jeet",
+  "version": "5.0.0",
+  "main": "jeet/*.styl",
+  "homepage": "http://jeet.gs",
+  "authors": [
+    "Cory Simmons <cory@mojotech.com>"
+  ],
+  "description": "The most advanced, yet intuitive, grid system on the market today",
+  "keywords": [
+    "Stylus",
+    "CSS",
+    "grid",
+    "framework",
+    "responsive"
+  ],
+  "license": "GPL v3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "README.md",
+    "CHANGELOG.md",
+    ".*",
+    "jeet.js",
+    "package.json"
+  ]
+}
