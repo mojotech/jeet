@@ -1,7 +1,7 @@
 {
   "name": "jeet",
   "author": "Cory Simmons / MojoTech",
-  "main": "index.js",
+  "main": "jeet.js",
   "version": "5.0.0",
   "description": "A light, semantic, responsive, CSS framework built from the best parts.",
   "homepage": "http://jeet.gs",
