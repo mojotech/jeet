@@ -3,9 +3,7 @@
 Jeet is the most advanced, yet intuitive, grid system on the market today.
 
 #### Installation
-`npm install jeet`
-
-It's recommended that you've been using an older version (pre version 5) of Jeet that you uninstall it globally (`npm uninstall -g jeet`) and just install it on a per project basis (`npm install jeet` from a project directory).
+`npm install -g jeet`
 
 For more information on the many ways you can use Stylus plugins, please refer to [this guide](https://gist.github.com/jenius/8263065).
 
