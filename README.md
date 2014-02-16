@@ -44,11 +44,11 @@ Be sure to check out [Jeet's website](http://jeet.gs) for [CodePen](http://codep
 - **`$cf`** - The clearfix placeholder saves space on repetitive use of clearfix. Use clearfix anywhere like so: `@extend $cf`
 
 #### Protip
-Use Jeet alongside other great Stylus projects like [nib](https://github.com/visionmedia/nib), [Axis](https://github.com/jenius/axis), [Rupture](https://github.com/jenius/rupture), and [Typographic](https://github.com/corysimmons/typographic).
+Use Jeet alongside other great Stylus projects like [nib](https://github.com/visionmedia/nib), [Axis](https://github.com/jenius/axis), [Autoprefixer-Stylus](https://github.com/jenius/autoprefixer-stylus), [Rupture](https://github.com/jenius/rupture), and [Typographic](https://github.com/corysimmons/typographic).
 
 ```
-npm install -g nib axis-css rupture typographic jeet
-stylus -u nib -u axis-css -u rupture -u typographic -u jeet -w css/style.styl
+npm install -g nib axis-css autoprefixer-stylus rupture typographic jeet
+stylus -u nib -u axis-css -u autoprefixer-stylus -u rupture -u typographic -u jeet -w css/style.styl
 ```
 
 #### Global Settings
