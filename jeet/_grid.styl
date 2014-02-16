@@ -73,3 +73,84 @@ shift(ratios = 0, col_or_span = column)
 unshift()
   position: static
   left: 0
+
+// Edit Mode
+edit()
+  *
+    background: #eee
+    background: rgba(#000, 5%)
+
+// Horizontal Centering Block Elements
+center(max_width = 1410px, pad = 0)
+  @extend $cf
+  width: auto
+  max-width: max_width
+  float: none
+  display: block
+  margin-right: auto
+  margin-left: auto
+  padding-left: pad
+  padding-right: pad
+
+// Stacking/Unstacking Elements
+stack(pad = 0, align = center)
+  side = -get_layout_direction()
+  display: block
+  clear: both
+  float: none
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  &:first-child
+    margin-{side}: auto
+  &:last-child
+    margin-{opposite-position(side)}: auto
+  if pad != 0
+    padding-left: pad
+    padding-right: pad
+  if (align == center) or (align == c)
+    text-align: center
+  if (align == left) or (align == l)
+    text-align: left
+  if (align == right) or (align == r)
+    text-align: right
+unstack()
+  side = -get_layout_direction()
+  display: inline
+  clear: none
+  width: auto
+  margin-left: 0
+  margin-right: 0
+  &:first-child
+    margin-{side}: 0
+  &:last-child
+    margin-{opposite-position(side)}: 0
+  if (jeet-layout-direction == RTL)
+    text-align: right
+  else
+    text-align: left
+
+// Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
+align(direction = both)
+  position: absolute
+  if (direction == horizontal) or (direction == h)
+    left: 50%
+    transform: translateX(-50%)
+  else if (direction == vertical) or (direction == v)
+    top: 50%
+    transform: translateY(-50%)
+  else
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+// Clearfix
+cf()
+  *zoom: 1
+  &:before, &:after
+    content: ''
+    display: table
+  &:after
+    clear: both
+$cf
+  cf()
