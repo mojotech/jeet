@@ -30,7 +30,6 @@ article
 ```
 
 #### API
-
 Be sure to check out [Jeet's website](http://jeet.gs) for [CodePen](http://codepen.io) examples of all this stuff.
 
 - **`column(ratios = 1, offset = 0, cycle = 0, uncycle = 0)`** - `column` (also aliased as `col`) is perhaps the strongest feature of any grid system on the market. You specify an initial ratio, either as fractions or decimals, then pass the parent container's context ratio to maintain consistent gutters as you nest. Offsetting is made trivial as well. Just specify a ratio to make your offset have a margin-left. Make it negative to give it a margin-right instead. E.g. `column(1/4, offset: 1/4)` would create a column the quarter of the size of it's container and push it to the right a quarter. `cycle` and `uncycle` are pretty awesome in their own right as well. Want to make a gallery but don't want to specify a row every 4 pictures? `column(1/4, cycle: 4)` - done. Want to change it up when you get down to mobile? Maybe just show 2 images per row? `uncycle` your 4-item cycle then... `column(1/2, uncycle: 4, cycle: 2)` - done.
@@ -51,6 +50,13 @@ Use Jeet alongside other great Stylus projects like [nib](https://github.com/vis
 npm install -g nib axis-css rupture typographic jeet
 stylus -u nib -u axis-css -u rupture -u typographic -u jeet -w css/style.styl
 ```
+
+#### Global Settings
+- Create a `_settings.styl` file in your project directory somewhere. `@import '_settings'` at the top of whichever file Stylus is watching (e.g. `stylus -u jeet -w css/style.styl`)
+- You can adjust the following variables:
+  - **`jeet-gutter = 3`** - The percentage of the page the root-level gutters take up.
+  - **`jeet-parent-first = false`** - When assigning multiple ratio contexts to a `col()`, do you want to reference the outer most container first? Example: Let's assume we have a column set to `col(1/4)` that is nested inside of another column that is `col(1/3)` which is nested inside of another column that is `col(1/2)`. By default, to maintain consistently sized gutters (even when nesting), our inner-most column would look like `col(1/4 1/3 1/2)`. If we adjust this global variable to be `true`, our inner-most column could be written from a top-down perspective like so: `col(1/2 1/3 1/4)`. This is entirely a preference thing. Do you like stepping up or down?
+  - **`jeet-layout-direction = LTR`** - Support for left-to-right, or right-to-left (`RTL`) text/layouts.
 
 ---
 
