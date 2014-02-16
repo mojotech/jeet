@@ -44,6 +44,14 @@ Be sure to check out [Jeet's website](http://jeet.gs) for [CodePen](http://codep
 - **`align(direction = both)`** - Aligning blocks relative to their container with `position: absolute` and fancy positioning and transform. Vertical alignment is now trivial in IE9+ browsers.
 - **`$cf`** - The clearfix placeholder saves space on repetitive use of clearfix. Use clearfix anywhere like so: `@extend $cf`
 
+#### Protip
+Use Jeet alongside other great Stylus projects like [nib](https://github.com/visionmedia/nib), [Axis](https://github.com/jenius/axis), [Rupture](https://github.com/jenius/rupture), and [Typographic](https://github.com/corysimmons/typographic).
+
+```
+npm install -g nib axis-css rupture typographic jeet
+stylus -u nib -u axis-css -u rupture -u typographic -u jeet -w css/style.styl
+```
+
 ---
 
 #### Thanks
