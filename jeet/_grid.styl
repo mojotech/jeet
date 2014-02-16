@@ -93,7 +93,7 @@ center(max_width = 1410px, pad = 0)
   padding-right: pad
 
 // Stacking/Unstacking Elements
-stack(pad = 0, align = center)
+stack(pad = 0, align = false)
   side = -get_layout_direction()
   display: block
   clear: both
@@ -108,12 +108,13 @@ stack(pad = 0, align = center)
   if pad != 0
     padding-left: pad
     padding-right: pad
-  if (align == center) or (align == c)
-    text-align: center
-  if (align == left) or (align == l)
-    text-align: left
-  if (align == right) or (align == r)
-    text-align: right
+  if (align is not false)
+    if (align == center) or (align == c)
+      text-align: center
+    if (align == left) or (align == l)
+      text-align: left
+    if (align == right) or (align == r)
+      text-align: right
 unstack()
   side = -get_layout_direction()
   display: inline
