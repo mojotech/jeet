@@ -3,24 +3,36 @@
 Jeet is the most advanced, yet intuitive, grid system on the market today.
 
 #### Installation
-`npm install -g jeet`
+- Install [NodeJS](http://nodejs.org)
+- `npm install -g jeet`
+- `cd ~/Projects`
+- Put `@import 'jeet'` at the top of `~/Projects/foo.styl`
+
+#### Usage
+```
+stylus -u jeet -w css/foo.styl
+```
 
 For more information on the many ways you can use Stylus plugins, please refer to [this guide](https://gist.github.com/jenius/8263065).
 
-#### Stylus Usage
-```
-cd ~/Project/css
-stylus -u jeet -w foo.styl
-```
-
 #### Usage Example
 ```
-<section>
-  <aside>Sidebar</aside>
-  <article>Content</article>
-</section>
+<html>
+  <head>
+    <link href="css/foo.css">
+  </head>
+  <body>
+    <section>
+      <aside>Sidebar</aside>
+      <article>Content</article>
+    </section>
+  </body>
+</html>
 ```
 ```
+@import 'jeet'
+edit()
+
 section
  center()
 aside
@@ -52,7 +64,7 @@ stylus -u nib -u axis-css -u autoprefixer-stylus -u rupture -u typographic -u je
 ```
 
 #### Global Settings
-- Create a `_settings.styl` file in your project directory somewhere. `@import '_settings'` at the top of whichever file Stylus is watching (e.g. `stylus -u jeet -w css/style.styl`)
+- Create a `_settings.styl` file in your project directory somewhere. `@import '_settings'` at the top (right above `@import 'jeet'`) of whichever file Stylus is watching (e.g. `stylus -u jeet -w css/style.styl`)
 - You can adjust the following variables:
   - **`jeet-gutter = 3`** - The percentage of the page the root-level gutters take up.
   - **`jeet-parent-first = false`** - When assigning multiple ratio contexts to a `col()`, do you want to reference the outer most container first? Example: Let's assume we have a column set to `col(1/4)` that is nested inside of another column that is `col(1/3)` which is nested inside of another column that is `col(1/2)`. By default, to maintain consistently sized gutters (even when nesting), our inner-most column would look like `col(1/4 1/3 1/2)`. If we adjust this global variable to be `true`, our inner-most column could be written from a top-down perspective like so: `col(1/2 1/3 1/4)`. This is entirely a preference thing. Do you like stepping up or down?

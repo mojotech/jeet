@@ -1,3 +1,8 @@
+### 5.0.2
+- Core
+  - Update Jeet to stop being implicitly loaded as this breaks the ability to override settings.
+  - Update README for a more thorough quick start guide.
+
 ### 5.0.1
 - Core
   - Add custom gutter sizing relative to containing unit.
