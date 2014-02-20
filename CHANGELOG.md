@@ -1,3 +1,7 @@
+### 5.0.1
+- Core
+  - Add custom gutter sizing relative to containing unit.
+
 ### 5.0.0
 - Core
   - Jeet 5 is the final step in making Jeet a perfectly modular Stylus component to be used anywhere libs such as [nib](https://github.com/visionmedia/nib) and [Axis](https://github.com/jenius/axis) are accepted. It pulls a lot of extra stuff out and turns Jeet exclusively into the finest Stylus grid system available.
