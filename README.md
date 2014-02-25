@@ -19,7 +19,7 @@ For more information on the many ways you can use Stylus plugins, please refer t
 ```
 <html>
   <head>
-    <link href="css/foo.css">
+    <link rel="stylesheet" href="css/foo.css">
   </head>
   <body>
     <section>
