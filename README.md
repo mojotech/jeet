@@ -16,7 +16,7 @@ stylus -u jeet -w css/foo.styl
 For more information on the many ways you can use Stylus plugins, please refer to [this guide](https://gist.github.com/jenius/8263065).
 
 #### Usage Example
-```
+```html
 <html>
   <head>
     <link rel="stylesheet" href="css/foo.css">
@@ -29,7 +29,7 @@ For more information on the many ways you can use Stylus plugins, please refer t
   </body>
 </html>
 ```
-```
+```stylus
 @import 'jeet'
 edit()
 
