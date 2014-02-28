@@ -1,2 +1,47 @@
 @import 'reset.css'
 @import 'jeet'
+
+
+.sidebar
+  background: #222
+.content
+  background: #eee
+.sidebar, .content
+  overflow: hidden
+  padding: .75em 2em
+
++above(800px)
+  .sidebar
+    span(2/7)
+    position: fixed
+    height: 100%
+  .content
+    span(5/7, offset: 2/7)
+    padding-bottom: 500px
+  .sidebar, .content
+    padding: 0 4em
+  .content
+    padding-bottom: 600px
+
+
+
+
+
+
+// Nav
+.anchorific
+  ul
+    list-style: none
+    padding: 0
+    li a
+      color: #fff
+  li ul
+    color: green
+  li.active
+    > a
+      color: blue
+    > ul
+      margin-left: 30px
+
+.top
+  display: none
