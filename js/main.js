@@ -12,6 +12,7 @@ $(function() {
 
   $.scrollIt({
     activeClass: 'scrollIt-active',
+    scrollTime: 200,
     topOffset: -20
   });
 

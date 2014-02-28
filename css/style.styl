@@ -1,47 +1,61 @@
 @import 'reset.css'
 @import 'jeet'
 
+bp = 50em
+
+c1 = black
+c3 = white
+c6 = blue
+c2 = lighten(c1, 20%)
+c4 = lighten(c6, 40%)
+c5 = lighten(c1, 2%)
+c7 = lighten(c6, 10%)
+c8 = lighten(c5, 5%)
+
+nav-btn(bg = c5)
+  background: bg
+  padding: .938em 1.250em
+  color: c3
+  text-decoration: none
+  &:hover
+    background: c8
 
 .sidebar
-  background: #222
-.content
-  background: #eee
-.sidebar, .content
-  overflow: hidden
-  padding: .75em 2em
-
-+above(800px)
-  .sidebar
-    span(2/7)
+  background: c1
+  +above(bp)
+    span(1.15/7)
     position: fixed
     height: 100%
-  .content
-    span(5/7, offset: 2/7)
-    padding-bottom: 500px
-  .sidebar, .content
-    padding: 0 4em
-  .content
-    padding-bottom: 600px
-
-
-
-
-
-
-// Nav
+.content
+  +above(bp)
+    span(5.85/7, offset: 1.15/7)
+    padding: .5em 2em 60em
 .anchorific
   ul
     list-style: none
     padding: 0
-    li a
-      color: #fff
-  li ul
-    color: green
+    margin: 0
+    li
+      background: lighten(c1, 2%)
+      ul
+        display: none
+      a
+        nav-btn()
+        display: block
   li.active
     > a
-      color: blue
+      color: c7
+      border-right: .313em c4 solid
     > ul
-      margin-left: 30px
-
+      display: block
+      margin-left: 2em
 .top
   display: none
+  +below(bp)
+    display: none !important
+  +above(bp)
+    span(1.15/7)
+    nav-btn()
+    position: fixed
+    bottom: 0
+    left: 0

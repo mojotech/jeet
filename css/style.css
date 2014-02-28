@@ -1,31 +1,27 @@
 @import 'reset.css';
 .sidebar,
-.content {
+.content,
+.top {
   *zoom: 1;
 }
 .sidebar:before,
 .content:before,
+.top:before,
 .sidebar:after,
-.content:after {
+.content:after,
+.top:after {
   content: '';
   display: table;
 }
 .sidebar:after,
-.content:after {
+.content:after,
+.top:after {
   clear: both;
 }
 .sidebar {
-  background: #222;
+  background: #272727;
 }
-.content {
-  background: #eee;
-}
-.sidebar,
-.content {
-  overflow: hidden;
-  padding: 0.75em 2em;
-}
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 50em) {
   .sidebar {
     float: left;
     display: inline;
@@ -33,12 +29,14 @@
     padding-left: 0;
     padding-right: 0;
     text-align: inherit;
-    width: 28.57142857142857%;
+    width: 16.428571428571427%;
     margin-left: 0%;
     margin-right: 0%;
     position: fixed;
     height: 100%;
   }
+}
+@media only screen and (min-width: 50em) {
   .content {
     float: left;
     display: inline;
@@ -46,35 +44,69 @@
     padding-left: 0;
     padding-right: 0;
     text-align: inherit;
-    width: 71.42857142857143%;
-    margin-left: 28.57142857142857%;
+    width: 83.57142857142857%;
+    margin-left: 16.428571428571427%;
     margin-right: 0%;
-    padding-bottom: 500px;
-  }
-  .sidebar,
-  .content {
-    padding: 0 4em;
-  }
-  .content {
-    padding-bottom: 600px;
+    padding: 0.5em 2em 60em;
   }
 }
 .anchorific ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+.anchorific ul li {
+  background: #2b2b2b;
+}
+.anchorific ul li ul {
+  display: none;
 }
 .anchorific ul li a {
+  background: #2b2b2b;
+  padding: 0.938em 1.25em;
   color: #fff;
+  text-decoration: none;
+  display: block;
 }
-.anchorific li ul {
-  color: #7fc028;
+.anchorific ul li a:hover {
+  background: #363636;
 }
 .anchorific li.active > a {
-  color: #00a6fc;
+  color: #17b0ff;
+  border-right: 0.313em #64caff solid;
 }
 .anchorific li.active > ul {
-  margin-left: 30px;
+  display: block;
+  margin-left: 2em;
 }
 .top {
   display: none;
+}
+@media only screen and (max-width: 50em) {
+  .top {
+    display: none !important;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .top {
+    float: left;
+    display: inline;
+    clear: none;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: inherit;
+    width: 16.428571428571427%;
+    margin-left: 0%;
+    margin-right: 0%;
+    background: #2b2b2b;
+    padding: 0.938em 1.25em;
+    color: #fff;
+    text-decoration: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  .top:hover {
+    background: #363636;
+  }
 }
