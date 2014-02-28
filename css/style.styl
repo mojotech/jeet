@@ -1,5 +1,7 @@
 @import 'reset.css'
+@import '_settings'
 @import 'jeet'
+@import 'typographic'
 
 bp = 50em
 
@@ -11,14 +13,20 @@ c4 = lighten(c6, 40%)
 c5 = lighten(c1, 2%)
 c7 = lighten(c6, 10%)
 c8 = lighten(c5, 5%)
+c9 = lighten(c1, 80%)
+c10 = darken(c9, 10%)
 
 nav-btn(bg = c5)
   background: bg
   padding: .938em 1.250em
   color: c3
   text-decoration: none
-  &:hover
+  &:hover, &:active
     background: c8
+    color: c3
+
+html
+  font-weight: normal
 
 .sidebar
   background: c1
@@ -27,6 +35,7 @@ nav-btn(bg = c5)
     position: fixed
     height: 100%
 .content
+  padding: 1.50em
   +above(bp)
     span(5.85/7, offset: 1.15/7)
     padding: .5em 2em 60em
@@ -37,15 +46,24 @@ nav-btn(bg = c5)
     margin: 0
     li
       background: lighten(c1, 2%)
+      margin-bottom: 0
       ul
         display: none
       a
         nav-btn()
         display: block
+        +below(bp)
+          font-size: ms(15)
+          padding: 1.250em
+          border-bottom: 1px solid c8
+      &:last-child a
+        border-bottom: 0
   li.active
     > a
       color: c7
       border-right: .313em c4 solid
+      +below(bp)
+        color: c3
     > ul
       display: block
       margin-left: 2em
@@ -59,3 +77,14 @@ nav-btn(bg = c5)
     position: fixed
     bottom: 0
     left: 0
+.anchor
+  text-decoration: none
+  color: c9
+  padding-left: .45em
+  font-style: normal
+  font-size: ms(20)
+  position: relative
+  top: -(ms(5))
+  font-weight: 900
+  &:hover
+    color: c10
