@@ -1,1 +1,80 @@
 @import 'reset.css';
+.sidebar,
+.content {
+  *zoom: 1;
+}
+.sidebar:before,
+.content:before,
+.sidebar:after,
+.content:after {
+  content: '';
+  display: table;
+}
+.sidebar:after,
+.content:after {
+  clear: both;
+}
+.sidebar {
+  background: #222;
+}
+.content {
+  background: #eee;
+}
+.sidebar,
+.content {
+  overflow: hidden;
+  padding: 0.75em 2em;
+}
+@media only screen and (min-width: 800px) {
+  .sidebar {
+    float: left;
+    display: inline;
+    clear: none;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: inherit;
+    width: 28.57142857142857%;
+    margin-left: 0%;
+    margin-right: 0%;
+    position: fixed;
+    height: 100%;
+  }
+  .content {
+    float: left;
+    display: inline;
+    clear: none;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: inherit;
+    width: 71.42857142857143%;
+    margin-left: 28.57142857142857%;
+    margin-right: 0%;
+    padding-bottom: 500px;
+  }
+  .sidebar,
+  .content {
+    padding: 0 4em;
+  }
+  .content {
+    padding-bottom: 600px;
+  }
+}
+.anchorific ul {
+  list-style: none;
+  padding: 0;
+}
+.anchorific ul li a {
+  color: #fff;
+}
+.anchorific li ul {
+  color: #7fc028;
+}
+.anchorific li.active > a {
+  color: #00a6fc;
+}
+.anchorific li.active > ul {
+  margin-left: 30px;
+}
+.top {
+  display: none;
+}
