@@ -13,7 +13,7 @@ $(function() {
   $.scrollIt({
     activeClass: 'scrollIt-active',
     scrollTime: 200,
-    topOffset: -20
+    topOffset: -15
   });
 
 });
