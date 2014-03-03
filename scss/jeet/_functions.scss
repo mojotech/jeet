@@ -2,13 +2,13 @@
 @function -get_span($ratio: 1) {
   @return $ratio * 100;
 }
-@function -get_column($ratios: 1, $gutter: $jeet-gutter) {
+@function -get_column($ratios: 1, $g: $jeet-gutter) {
   @if ($jeet-parent-first != 'true') {
     $ratios: -reverse($ratios);
   }
   $w: 100;
   @each $ratio in $ratios {
-    $g: $gutter / $w * 100;
+    $g: $g / $w * 100;
     $w: 100 * $ratio - $g + $ratio * $g;
   }
   @return $w $g;

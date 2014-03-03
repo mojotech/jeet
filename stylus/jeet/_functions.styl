@@ -1,11 +1,11 @@
 -get_span(ratio = 1)
   return ratio * 100
 
--get_column(ratios = 1, gutter = jeet-gutter)
+-get_column(ratios = 1, g = jeet-gutter)
   ratios = -reverse(ratios) unless jeet-parent-first is true
   w = 100
   for ratio in ratios
-    g = gutter / w * 100
+    g = g / w * 100
     w = 100 * ratio - g + ratio * g
   return w g
 
