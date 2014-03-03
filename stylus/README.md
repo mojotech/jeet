@@ -3,8 +3,8 @@
 #### Installation
 - Install [NodeJS](http://nodejs.org)
 - `npm install -g jeet`
-- `cd ~/Projects`
-- Put `@import 'jeet'` at the top of `~/Projects/foo.styl`
+- `cd ~/Project`
+- Put `@import 'jeet'` at the top of `~/Project/foo.styl`
 
 #### Usage
 ```
