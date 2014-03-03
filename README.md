@@ -1,4 +1,5 @@
 # Jeet Grid System
+[![Build Status](https://travis-ci.org/mojotech/jeet.png?branch=cs/tests)](https://travis-ci.org/mojotech/jeet)
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like [Semantic.gs](http://semantic.gs/) on crack.
 
