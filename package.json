@@ -1,8 +1,6 @@
 {
   "name": "jeet",
-  "author": {
-    "name": "Cory Simmons / MojoTech"
-  },
+  "author": "Cory Simmons / MojoTech <cory@mojotech.com> (http://mojotech.com)",
   "main": "stylus/jeet.js",
   "version": "5.1.2",
   "description": "The most advanced, yet intuitive, grid system on the market today",
@@ -26,7 +24,9 @@
     "url": "https://github.com/mojotech/jeet.git"
   },
   "bugs": {
-    "url": "https://github.com/mojotech/jeet/issues"
+    "url": "https://github.com/mojotech/jeet/issues",
+    "email": "cory@mojotech.com"
   },
+  "license": "GPL-3.0+",
   "homepage": "https://jeet.gs"
 }
