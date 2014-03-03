@@ -3,8 +3,8 @@
   "author": {
     "name": "Cory Simmons / MojoTech"
   },
-  "version": "5.0.2",
   "main": "stylus/jeet.js",
+  "version": "5.1.2",
   "description": "The most advanced, yet intuitive, grid system on the market today",
   "keywords": [
     "stylus",
