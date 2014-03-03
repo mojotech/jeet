@@ -1,7 +1,5 @@
 # Jeet for SCSS
 
-Jeet is the most advanced, yet intuitive, grid system on the market today.
-
 #### Installation
 - Install Ruby [[Windows](http://rubyinstaller.org/), [Mac/Linux](https://github.com/sstephenson/rbenv)]
 - `gem install sass`
@@ -63,13 +61,3 @@ article {
   - **`$jeet-gutter: 3`** - The percentage of the page the root-level gutters take up.
   - **`$jeet-parent-first: false`** - When assigning multiple ratio contexts to a `col()`, do you want to reference the outer most container first? Example: Let's assume we have a column set to `col(1/4)` that is nested inside of another column that is `col(1/3)` which is nested inside of another column that is `col(1/2)`. By default, to maintain consistently sized gutters (even when nesting), our inner-most column would look like `col(1/4 1/3 1/2)`. If we adjust this global variable to be `true`, our inner-most column could be written from a top-down perspective like so: `col(1/2 1/3 1/4)`. This is entirely a preference thing. Do you like stepping up or down?
   - **`$jeet-layout-direction: LTR`** - Support for left-to-right, or right-to-left (`RTL`) text/layouts.
-
-
----
-
-#### Thanks
-- **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
-- **[Gabriel Manricks](http://gabrielmanricks.com)** - For constantly helping. The man is unstoppable.
-- **[Mitchell Coote](http://monkeez.com)** - For contributing the sweet goodness of consistently sized gutters even in nested contexts (seriously-tricky-business).
-- **[Carrot Creative](http://carrot.is)** - For keeping up with Jeet and using it on some of the [biggest companies](http://carrot.is/creative) in the world.
-- **[The rest of ya's](https://github.com/mojotech/jeet/graphs/contributors)** - Thanks for your love. It makes developing this project fun and rewarding for everyone.

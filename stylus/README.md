@@ -1,7 +1,5 @@
 # Jeet for Stylus
 
-Jeet is the most advanced, yet intuitive, grid system on the market today.
-
 #### Installation
 - Install [NodeJS](http://nodejs.org)
 - `npm install -g jeet`
@@ -73,12 +71,3 @@ stylus -u nib -u axis-css -u autoprefixer-stylus -u rupture -u typographic -u je
 #### Gulp
 - `npm install gulp gulp-stylus jeet`
 - `gulp jeet`
-
----
-
-#### Thanks
-- **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
-- **[Gabriel Manricks](http://gabrielmanricks.com)** - For constantly helping. The man is unstoppable.
-- **[Mitchell Coote](http://monkeez.com)** - For contributing the sweet goodness of consistently sized gutters even in nested contexts (seriously-tricky-business).
-- **[Carrot Creative](http://carrot.is)** - For keeping up with Jeet and using it on some of the [biggest companies](http://carrot.is/creative) in the world.
-- **[The rest of ya's](https://github.com/mojotech/jeet/graphs/contributors)** - Thanks for your love. It makes developing this project fun and rewarding for everyone.
