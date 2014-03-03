@@ -8,7 +8,6 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 - [Stylus](stylus)
 - [SCSS](scss)
-- [Sass](sass)
 
 ---
 
