@@ -21,6 +21,8 @@
     "mocha": "1.17.1",
     "node-sass": "0.8.1"
   },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha tests/index.js"
   },
   "preferGlobal": true,
   "repository": {
