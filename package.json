@@ -16,7 +16,7 @@
   ],
   "github": "http://github.com/mojotech/jeet",
   "devDependencies": {
-    "stylus": "0.42.x"
+    "stylus": "0.42.3",
   },
   "preferGlobal": true,
   "repository": {
