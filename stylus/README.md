@@ -1,4 +1,4 @@
-# Jeet
+# Jeet for Stylus
 
 Jeet is the most advanced, yet intuitive, grid system on the market today.
 
