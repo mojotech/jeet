@@ -1,3 +1,8 @@
+### 5.1.2
+- Core
+  - Add SCSS port
+  - Migrate preprocessor ports to own folders
+
 ### 5.0.2
 - Core
   - Update Jeet to stop being implicitly loaded as this breaks the ability to override settings.
