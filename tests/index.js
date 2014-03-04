@@ -25,6 +25,6 @@ describe('compiling method', function() {
     compare('column', done);
   });
   it('should create 4 equally sized blocks; the 5th block should drop to the next row', function(done) {
-    compare('cycle', done);
+    compare('column-cycle', done);
   });
 });
