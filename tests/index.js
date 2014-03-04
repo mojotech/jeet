@@ -1,28 +1,24 @@
-var should = require('should'),
-    stylus = require('stylus'),
-    fs = require('fs');
+var stylus  = require('stylus'),
+    fs      = require('fs'),
+    should  = require('should');
 
-var stylusMatchTest = function() {
-  var files = fs.readdirSync(__dirname + '/fixtures/stylus/styl/');
-
-  files.forEach(function(file) {
-    var fileName = file.replace(/.{5}$/, '');
-
-    describe(fileName + ' method', function() {
-      it('should match', function(done) {
-        var str = fs.readFileSync(__dirname + '/fixtures/stylus/styl/' + fileName + '.styl', { encoding: 'utf8' });
-        stylus(str)
-          .import('stylus/jeet')
-          .render(function(err, result) {
-            var expected = fs.readFileSync(__dirname + '/fixtures/stylus/css/' + fileName + '.css', { encoding: 'utf8' });
-
-            done(err, expected.should.be.exactly(result));
-          });
+function compare(name, done) {
+  var str = fs.readFileSync(__dirname + '/fixtures/stylus/styl/' + name + '.styl', { encoding: 'utf8' });
+  stylus(str)
+    .import('stylus/jeet')
+    .render(function(err, result) {
+      fs.readFile(__dirname + '/fixtures/stylus/css/' + name + '.css', { encoding: 'utf8' }, function(e, expected) {
+        done(err, expected.should.be.exactly(result));
       });
     });
-
-  });
-
 }
 
-stylusMatchTest();
+// Stylus Comparison Tests
+describe('compiling method', function() {
+  it('should apply a translucent, light-gray background color to all elements', function(done) {
+    compare('edit', done);
+  });
+  it('should center an element horizontally', function(done) {
+    compare('center', done);
+  });
+});
