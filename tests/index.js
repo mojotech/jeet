@@ -27,4 +27,7 @@ describe('compiling method', function() {
   it('should create 4 equally sized blocks; the 5th block should drop to the next row', function(done) {
     compare('column-cycle', done);
   });
+  it('should create 4 equally sized (25%) blocks with no gutter between them', function(done) {
+    compare('span', done);
+  });
 });

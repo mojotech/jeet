@@ -1,0 +1,22 @@
+.spanned-column {
+  *zoom: 1;
+}
+.spanned-column:before,
+.spanned-column:after {
+  content: '';
+  display: table;
+}
+.spanned-column:after {
+  clear: both;
+}
+.spanned-column {
+  float: left;
+  display: inline;
+  clear: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: inherit;
+  width: 25%;
+  margin-left: 0%;
+  margin-right: 0%;
+}
