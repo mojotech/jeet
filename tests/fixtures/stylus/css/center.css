@@ -1,15 +1,19 @@
-section {
+.basic,
+.advanced {
   *zoom: 1;
 }
-section:before,
-section:after {
+.basic:before,
+.advanced:before,
+.basic:after,
+.advanced:after {
   content: '';
   display: table;
 }
-section:after {
+.basic:after,
+.advanced:after {
   clear: both;
 }
-section {
+.basic {
   width: auto;
   max-width: 1410px;
   float: none;
@@ -19,7 +23,7 @@ section {
   padding-left: 0;
   padding-right: 0;
 }
-section {
+.advanced {
   width: auto;
   max-width: 800px;
   float: none;
