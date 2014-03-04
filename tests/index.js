@@ -21,4 +21,7 @@ describe('compiling method', function() {
   it('should center an element horizontally', function(done) {
     compare('center', done);
   });
+  it('should create an aside that spans 1/3 width with a margin-right gutter and an article that spans 2/3', function(done) {
+    compare('column', done);
+  });
 });
