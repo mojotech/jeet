@@ -7,10 +7,34 @@
 - `svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet`
 - Put `@import 'jeet/index.scss';` at the top of `~/Project/css/foo.scss`
 
-#### Usage
+#### Sass Usage
 ```
 sass -w foo.scss
 ```
+<!-- Adpated from: https://github.com/twbs/bootstrap/blob/master/README.md -->
+#### Grunt Usage
+Jeet now has support for [Grunt](http://gruntjs.com/). To use it, install the required dependencies as directed and then run some Grunt commands.
+
+##### Install Grunt
+From the command line:
+
+1. Install `grunt` globally with `npm install -g grunt`.
+2. Navigate to the root of your project directory, `/scss` for this case, then run `npm install`. npm will look at `package.json` and automatically install the necessary local dependencies listed there.
+
+When completed, you'll be able to run the various Grunt commands provided from the command line.
+
+**Unfamiliar with `npm`? Don't have node installed?** That's a-okay. npm stands for [node packaged modules](http://npmjs.org/) and is a way to manage development dependencies through node.js. [Download and install node.js](http://nodejs.org/download/) before proceeding.
+
+#### Available Grunt commands
+
+##### Build - `grunt`
+Run `grunt` to run compile Sass to `/build`. Watches for any changes as well.
+
+##### Watch - `grunt dev`
+Watches just Sass files and automatically building them whenever you save.
+
+##### Distribution - `grunt dist`
+Compiles Sass and minifies CSS for production to `/dist`.
 
 #### Usage Example
 ```html
