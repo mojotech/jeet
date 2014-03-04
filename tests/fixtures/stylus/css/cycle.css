@@ -1,0 +1,26 @@
+.block {
+  *zoom: 1;
+}
+.block:before,
+.block:after {
+  content: '';
+  display: table;
+}
+.block:after {
+  clear: both;
+}
+.block {
+  float: left;
+  display: inline;
+  clear: none;
+  text-align: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  width: 22.75%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.block:nth-child(4n) {
+  margin-right: 0%;
+  float: right;
+}

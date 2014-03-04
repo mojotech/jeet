@@ -1,0 +1,43 @@
+.basic aside,
+.basic article {
+  *zoom: 1;
+}
+.basic aside:before,
+.basic article:before,
+.basic aside:after,
+.basic article:after {
+  content: '';
+  display: table;
+}
+.basic aside:after,
+.basic article:after {
+  clear: both;
+}
+.basic aside {
+  float: left;
+  display: inline;
+  clear: none;
+  text-align: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  width: 31.33333333333333%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.basic aside:last-child {
+  margin-right: 0%;
+}
+.basic article {
+  float: left;
+  display: inline;
+  clear: none;
+  text-align: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  width: 65.66666666666666%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.basic article:last-child {
+  margin-right: 0%;
+}
