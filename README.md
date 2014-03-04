@@ -12,8 +12,8 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 ---
 
-##### Jeet is curated by the loving hands of... (psst, [we're hiring](http://www.mojotech.com/jobs))
-[![MojoTech](https://raw.github.com/mojotech/jeet/static-assets/images/mojotech-logo.png)](http://mojotech.com)
+##### Jeet is curated by loving hands at...
+[![MojoTech](https://raw.github.com/mojotech/jeet/static-assets/images/mojotech-logo.png)](http://mojotech.com) <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
 
 ##### Thanks
 - **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
