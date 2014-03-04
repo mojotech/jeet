@@ -18,9 +18,7 @@
   "devDependencies": {
     "stylus": "0.42.3",
     "should": "3.1.3",
-    "mocha": "1.17.1",
-    "node-sass": "0.8.1",
-    "commander": "~2.1.0"
+    "mocha": "1.17.1"
   },
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha tests/index.js"
