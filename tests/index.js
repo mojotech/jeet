@@ -12,7 +12,6 @@ var stylusMatchTest = function() {
       it('should match', function(done) {
         var str = fs.readFileSync(__dirname + '/fixtures/stylus/styl/' + fileName + '.styl', { encoding: 'utf8' });
         stylus(str)
-          .import('stylus/jeet')
           .render(function(err, result) {
             var expected = fs.readFileSync(__dirname + '/fixtures/stylus/css/' + fileName + '.css', { encoding: 'utf8' });
 
