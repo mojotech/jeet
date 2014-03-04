@@ -12,7 +12,10 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 ---
 
-#### Thanks
+##### Jeet is curated by the loving hands of... (psst, [we're hiring](http://www.mojotech.com/jobs))
+[![MojoTech](https://raw.github.com/mojotech/jeet/static-assets/images/mojotech-logo.png)](http://mojotech.com)
+
+##### Thanks
 - **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
 - **[Gabriel Manricks](http://gabrielmanricks.com)** - For constantly helping. The man is unstoppable.
 - **[Mitchell Coote](http://monkeez.com)** - For contributing the sweet goodness of consistently sized gutters even in nested contexts (seriously-tricky-business).
