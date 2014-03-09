@@ -33,4 +33,7 @@ describe('compiling method', function() {
   it('should create 3 equally sized (25%) blocks with no gutter between them and a 25% offset applied to the second element', function(done) {
     compare('span-offset', done);
   });
+  it('should create an aside that spans 1/3 and is shifted to the right 2/3, and create an article that spans 2/3 and is shifted to the left -1/3', function(done) {
+    compare('span-shift', done);
+  });
 });

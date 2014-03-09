@@ -1,0 +1,41 @@
+aside,
+article {
+  *zoom: 1;
+}
+aside:before,
+article:before,
+aside:after,
+article:after {
+  content: '';
+  display: table;
+}
+aside:after,
+article:after {
+  clear: both;
+}
+aside {
+  float: left;
+  display: inline;
+  clear: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: inherit;
+  width: 33.33333333333333%;
+  margin-left: 0%;
+  margin-right: 0%;
+  position: relative;
+  left: 66.66666666666666%;
+}
+article {
+  float: left;
+  display: inline;
+  clear: none;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: inherit;
+  width: 66.66666666666666%;
+  margin-left: 0%;
+  margin-right: 0%;
+  position: relative;
+  left: -33.33333333333333%;
+}
