@@ -1,6 +1,13 @@
 // Grid Settings
-$jeet-gutter: 3 !default;
-$jeet-parent-first: false !default;
-$jeet-layout-direction: LTR !default;
+$jeet: (
+  gutter: 3,
+  parent-first: false,
+  layout-direction: LTR
+);
 
-$g: $jeet-gutter;
+// Sass Namespacing Function
+@function jeet($var) {
+  @return map-get($jeet, $var);
+}
+
+$g: jeet(gutter);

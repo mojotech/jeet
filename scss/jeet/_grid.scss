@@ -1,5 +1,5 @@
 // Columns with Gutters
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
+@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: jeet(gutter)) {
   $side: -get_layout_direction();
   $column_widths: -get_column($ratios, $gutter);
   $margin_last: 0;
@@ -74,7 +74,7 @@
 }
 
 // Source Ordering
-@mixin shift($ratios: 0, $col_or_span: column, $gutter: $jeet-gutter) {
+@mixin shift($ratios: 0, $col_or_span: column, $gutter: jeet(gutter)) {
   $translate: '';
   $side: -get_layout_direction();
   @if $side == right {
@@ -159,7 +159,7 @@
   &:last-child {
     margin-#{opposite-direction($side)}: 0;
   }
-  @if ($jeet-layout-direction == RTL) {
+  @if (jeet(layout-direction) == RTL) {
     text-align: right;
   } @else {
     text-align: left;
