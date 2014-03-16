@@ -1,5 +1,5 @@
 // Columns with Gutters
-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet-gutter)
+column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   side = -get_layout_direction()
   column_widths = -get_column(ratios, gutter)
   margin_l = margin_last = 0
@@ -59,7 +59,7 @@ span(ratio = 1, offset = 0)
   margin-{opposite-position(side)}: (margin_r)%
 
 // Source Ordering
-shift(ratios = 0, col_or_span = column, gutter = jeet-gutter)
+shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
   side = -get_layout_direction()
   if side == right
     ratios = -replace_nth(ratios, 0, ratios[0] * -1)
@@ -126,7 +126,7 @@ unstack()
     margin-{side}: 0
   &:last-child
     margin-{opposite-position(side)}: 0
-  if (jeet-layout-direction == RTL)
+  if (jeet.layout-direction == RTL)
     text-align: right
   else
     text-align: left

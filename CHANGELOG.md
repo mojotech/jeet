@@ -1,3 +1,9 @@
+### 5.1.4
+- Core
+  - Convert namespace from `jeet-` to hash maps for Stylus and SCSS
+- Migration Strategy
+  - Update Stylus and SCSS global variable references from `jeet-` to `jeet.`, and `$jeet-` to `jeet(...)` respectively.
+
 ### 5.1.3
 - Core
   - Add SCSS port
