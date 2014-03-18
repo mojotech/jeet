@@ -86,7 +86,7 @@ center(max_width = 1410px, pad = 0)
   width: auto
   max-width: max_width
   float: none
-  display: block
+  display: unquote('block')
   margin-right: auto
   margin-left: auto
   padding-left: pad
@@ -95,7 +95,7 @@ center(max_width = 1410px, pad = 0)
 // Stacking/Unstacking Elements
 stack(pad = 0, align = false)
   side = -get_layout_direction()
-  display: block
+  display: unquote('block')
   clear: both
   float: none
   width: 100%
