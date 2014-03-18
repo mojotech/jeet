@@ -1,3 +1,7 @@
+### 5.1.5
+- Bugfix
+  - Stylus block level mixins break when `display: block` occurs within one. By using `unquote` we're able to apply a temporary bugfix until Stylus and other libraries are repaired.
+
 ### 5.1.4
 - Core
   - Convert namespace from `jeet-` to hash maps for Stylus and SCSS

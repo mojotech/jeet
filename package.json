@@ -2,7 +2,7 @@
   "name": "jeet",
   "author": "Cory Simmons / MojoTech <cory@mojotech.com> (http://mojotech.com)",
   "main": "stylus/jeet.js",
-  "version": "5.1.4",
+  "version": "5.1.5",
   "description": "The most advanced, yet intuitive, grid system on the market today",
   "keywords": [
     "stylus",
