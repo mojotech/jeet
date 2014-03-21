@@ -20,6 +20,9 @@ synchronizeHovers = (navLink) ->
   allNavBtns.removeClass('hover')
   $(".#{otherNavBtns}").addClass('hover')
 
+fixFluidResize = ->
+  setInterval(alignNavs, 0.5)
+
 didResize = null
 $win.resize ->
   didResize = true
@@ -33,6 +36,7 @@ setInterval (->
 ), 250
 
 $doc.scroll -> alignNavs()
+$('.toggle-api').click -> fixFluidResize()
 $(".side-nav-link").hover -> synchronizeHovers($(this))
 
 alignNavs()
