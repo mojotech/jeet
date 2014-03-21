@@ -1,0 +1,58 @@
+.hero
+  padding xl-padding-block 0
+  background green
+  z-index 10
+  @extend $cf
+.headline
+  font-size headline-font
+  font-weight bold
+.nav-narrative
+  margin-top large-padding-block - 27
+  font-size large-font + 4
+.grid-toggle
+  center()
+  clear both
+  padding-top large-padding-block - 8
+  text-decoration none
+  cursor pointer
+  user-select none
+  hideAt(med-snap)
+  .track, .handle
+    margin auto
+    border-radius 50px
+    border-box box-sizing
+  .track
+    size(448px, 82px)
+    position relative
+    color white
+    background dark-green
+    border 1px solid darken(dark-green, 10%)
+    padding (small-padding-block + 6) (med-padding-block - 2)
+  .handle
+    size(220px, 70px)
+    pos(absolute, 5px, false, false, 6px)
+    background white
+    padding-top med-padding-block + 1
+    transition left 0.25s
+.hide-grid-label, .show-grid-label
+  position absolute
+  font-family montserrat
+  font-size large-font
+  text-transform uppercase
+  z-index 1
+  transition color 0.25s, padding 0.25s
+.hide-grid-label
+  left 50px
+  color dark-green
+.show-grid-label
+  right 46px
+  padding-right 10px
+.grid-visible
+  .handle
+    pos(absolute, 5px, false, false, 221px)
+  .hide-grid-label
+    color white
+    padding-left 10px
+  .show-grid-label
+    color dark-green
+    padding-right 0
