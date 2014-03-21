@@ -7,123 +7,95 @@
     visibility hidden
   &.full-color
     z-index 10
-    .side-nav-link:hover, .side-nav-link.hover
-      border-color lighten(dark-grey, 40%)
-      background-color rgba(white, 0.9)
-      color dark-grey
     .logo
-      retina-background-image('/img/jeet-logo-color')
-      background-size 86px 36px
-    .toggle-api
-      retina-background-image('/img/api-icon-grey')
-      background-size 31px 20px
-    .to-features
-      retina-background-image('/img/features-icon-grey')
-      background-size 25px
-    .to-installation
-      retina-background-image('/img/installation-icon-grey')
-      background-size 25px
-    .to-resources
-      retina-background-image('/img/resources-icon-grey')
-      background-size 25px
-  &.green, &.light-green, &.orange
+      background-image url('/img/jeet-logo-color.svg')
     .side-nav-link:hover, .side-nav-link.hover
-      color white
+      background-color rgba(white, 0.9)
+      .nav-label
+        color dark-grey
+  &.green, &.light-green, &.orange
+    .logo
+      background-image url('/img/jeet-logo-white.svg')
+    .side-nav-link:hover, .side-nav-link.hover
+      .nav-label
+        color white
   &.green
     .side-nav-link:hover, .side-nav-link.hover
       background-color rgba(green, 0.9)
-    .logo
-      retina-background-image('/img/jeet-logo-white')
-      background-size 86px 36px
-    .toggle-api
-      retina-background-image('/img/api-icon-green')
-      background-size 31px 20px
-    .to-features
-      retina-background-image('/img/features-icon-green')
-      background-size 25px
-    .to-installation
-      retina-background-image('/img/installation-icon-green')
-      background-size 25px
-    .to-resources
-      retina-background-image('/img/resources-icon-green')
-      background-size 25px
   &.light-green
     .side-nav-link:hover, .side-nav-link.hover
       background-color rgba(dark-green, 0.9)
-    .logo
-      retina-background-image('/img/jeet-logo-white')
-      background-size 86px 36px
-    .toggle-api
-      retina-background-image('/img/api-icon-light-green')
-      background-size 31px 20px
-    .to-features
-      retina-background-image('/img/features-icon-light-green')
-      background-size 25px
-    .to-installation
-      retina-background-image('/img/installation-icon-light-green')
-      background-size 25px
-    .to-resources
-      retina-background-image('/img/resources-icon-light-green')
-      background-size 25px
   &.orange
     .side-nav-link:hover, .side-nav-link.hover
       background-color rgba(orange, 0.9)
-    .logo
-      retina-background-image('/img/jeet-logo-white')
-      background-size 86px 36px
-    .toggle-api
-      retina-background-image('/img/api-icon-orange')
-      background-size 31px 20px
-    .to-features
-      retina-background-image('/img/features-icon-orange')
-      background-size 25px
-    .to-installation
-      retina-background-image('/img/installation-icon-orange')
-      background-size 25px
-    .to-resources
-      retina-background-image('/img/resources-icon-orange')
-      background-size 25px
+.nav-label
+  display inline
+  font-family montserrat
+  text-transform uppercase
+  display inline-block
+  padding-left tiny-padding-block
+  vertical-align top
+  padding-top 2px
+  white-space nowrap
+  color transparent
+  transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
 .side-nav-link
+  text-align left
   height small-padding-block + 5
   background-repeat no-repeat
   display block
-  margin-bottom -2px
-  font-family montserrat
-  text-transform uppercase
-  text-align left
-  line-height small-padding-block + 5
   padding (med-padding-block / 2) 0 (med-padding-block / 2) 0
   cursor pointer
-  border 2px solid transparent
-  border-radius 2px
-  white-space nowrap
-  color transparent
-  transition border-color .5s drawn-out-animation, color .5s drawn-out-animation, padding-left .5s drawn-out-animation
+  transition padding-left .5s drawn-out-animation
   &:hover, &.hover
-    border-color white
-    padding-left large-padding-block
-    transition border-color .2s drawn-out-animation, color .1s drawn-out-animation, padding-left .5s drawn-out-animation
+    padding-left tiny-padding-block
+    .nav-label
+      transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
   &.logo
-    background-position (xs-padding-block - 2) center
-    border none
     width 96px
+    background-position (xs-padding-block - 2) center
+    background-size 86px 36px
     &:hover
       background-color none
       padding-left 0
   &.toggle-api
-    background-position (xs-padding-block - 1) (small-padding-block - 1)
-    width 94px
+    width 136px
+    .nav-label
+      padding-top 1px
+    svg
+      size(31px, 20px)
+      margin-left xs-padding-block - 1
+      padding-top small-padding-block - 1
   &.to-features
-    background-position (xs-padding-block + 1) (small-padding-block - 5)
-    width 106px
+    width 151px
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
+      padding-top small-padding-block - 5
   &.to-installation
-    background-position (xs-padding-block + 1) (small-padding-block - 3)
-    width 140px
+    width 182px
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
+      padding-top small-padding-block - 3
   &.to-resources
-    background-position (xs-padding-block + 1) center
-    width 120px
+    width 162px
+    .nav-label
+      padding-top tiny-padding-block - 3
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
 .grid-visible .installation .side-nav
   &.orange
     display none
   &.full-color
     display block
+.side-nav
+  &.green .nav-icon
+    fill dark-green
+  &.light-green .nav-icon
+    fill green
+  &.orange .nav-icon
+    fill dark-orange
+  &.full-color .nav-icon
+    fill #cecece
