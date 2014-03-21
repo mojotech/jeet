@@ -1,42 +1,5 @@
-# Created by http://www.gitignore.io
-
-### Node ###
-lib-cov
-lcov.info
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-
-pids
-logs
-results
-build
-.grunt
-
-node_modules
-
-
-### SASS ###
-### Sass Ignores - "Sassy CSS" http://sass-lang.com/
-*.sass-cache
-
-
-### OSX ###
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must ends with two \r.
-Icon
-
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+node_modules
+public

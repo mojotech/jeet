@@ -1,9 +1,9 @@
-# Jeet Grid System
-[![Build Status](https://travis-ci.org/mojotech/jeet.png?branch=master)](https://travis-ci.org/mojotech/jeet)
+# Roots Template: Jeet
 
-[Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like [Semantic.gs](http://semantic.gs/) on crack.
+Make your own fluid grid
 
-By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
+Setup
+-----
 
 Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
 

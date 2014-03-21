@@ -1,0 +1,53 @@
+.comparison
+  padding (section-padding-block - xl-padding-block) 0 xl-padding-block 0
+  .focused-example
+    &.comparatives, &.bootstrap, &.foundation
+      border-right none
+    &:before
+      content 'span(1/4 5/6)'
+      line-height small-padding-block
+.cell
+  background light-grey
+  height large-padding-block
+  border-right 1px solid white
+  border-top 1px solid white
+  background-repeat no-repeat
+  background-position center
+  box-sizing border-box
+  &.darker
+    background-color grey
+  &.bigger
+    height xl-padding-block
+.check
+  retina-background-image('/img/check')
+  background-size 15px 12px
+.x
+  retina-background-image('/img/x')
+  background-size 12px 13px
+.bootstrap-grid
+  retina-background-image('/img/bootstrap-grid')
+  background-size 139px 22px
+.foundation-grid
+  retina-background-image('/img/foundation-grid')
+  background-size 144px 19px
+.jeet-logo
+  retina-background-image('/img/bootstrap-grid')
+  background-size 139px 22px
+.comparative
+  box-sizing border-box
+  text-align left
+  line-height 12px
+  border-top 1px solid white
+  padding small-padding-block (small-padding-block + 4)
+.fourth
+  margin-top med-padding-block - 7
+  &.jeet
+    box-sizing border-box
+    border 1px solid light-green
+    .cell
+      border-right 0 solid white
+    .bigger
+      height xl-padding-block - 1
+    &.focused-example
+      border 2px solid orange
+      padding-bottom small-padding-block + 1
