@@ -1,5 +1,5 @@
 .featured-articles
-  margin-top ((large-padding-block - xl-padding-block) - (large-padding-block / 2)) 
+  margin-top ((large-padding-block - xl-padding-block) - (large-padding-block / 2))
   padding-bottom ((xl-padding-block - 5) - (large-padding-block / 2))
   .half
     column(1/2 5/6, gutter: 4)
@@ -25,14 +25,14 @@
     &.unshift-view:before
       content 'unshift()'
 .smashing-magazine
-  retina-background-image('/img/smashing-magazine-logo')
+  retina-background-image('../img/smashing-magazine-logo')
   background-size 187px 49px
   +below(large-snap)
     shift(1/2)
   +below(med-snap)
     unshift()
 .css-tricks
-  retina-background-image('/img/css-tricks-logo')
+  retina-background-image('../img/css-tricks-logo')
   background-size 200px 40px
   +below(large-snap)
     shift(-1/2)
