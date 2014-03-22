@@ -1,6 +1,4 @@
 {
-  "name": "Jeet",
-  "description": "Make your own fluid grid",
   "dependencies": {
     "jade": "1.x.x",
     "marked": "0.3.x",
