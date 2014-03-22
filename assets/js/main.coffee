@@ -1,6 +1,6 @@
 require.config
   paths:
-    jquery:        '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min'
+    jquery:        'jquery'
     modernizr:     'custom-modernizr'
     pushy:         'pushy'
     scrollIt:      'scrollIt'
@@ -14,7 +14,7 @@ require ['jquery', 'modernizr', 'pushy', 'scrollIt', 'stickyNav', 'interAPI', 'm
 
   $.scrollIt()
 
-  $('.grid-toggle').click -> 
+  $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"
     $('.toggle-api').click -> fixFluidResize()
 
