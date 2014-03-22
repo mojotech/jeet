@@ -1,0 +1,101 @@
+.side-nav
+  column(1/10, offset: 1/48)
+  pos(absolute, (small-padding-block - (med-padding-block / 2)), false, false, 0)
+  min-width 86px
+  &.default
+    pos(fixed, (small-padding-block / 2), false, false, 0)
+    visibility hidden
+  &.full-color
+    z-index 10
+    .logo
+      background-image url('/img/jeet-logo-color.svg')
+    .side-nav-link:hover, .side-nav-link.hover
+      background-color rgba(white, 0.9)
+      .nav-label
+        color dark-grey
+  &.green, &.light-green, &.orange
+    .logo
+      background-image url('/img/jeet-logo-white.svg')
+    .side-nav-link:hover, .side-nav-link.hover
+      .nav-label
+        color white
+  &.green
+    .side-nav-link:hover, .side-nav-link.hover
+      background-color rgba(green, 0.9)
+  &.light-green
+    .side-nav-link:hover, .side-nav-link.hover
+      background-color rgba(dark-green, 0.9)
+  &.orange
+    .side-nav-link:hover, .side-nav-link.hover
+      background-color rgba(orange, 0.9)
+.nav-label
+  display inline
+  font-family montserrat
+  text-transform uppercase
+  display inline-block
+  padding-left tiny-padding-block
+  vertical-align top
+  padding-top 2px
+  white-space nowrap
+  color transparent
+  transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
+.side-nav-link
+  text-align left
+  height small-padding-block + 5
+  background-repeat no-repeat
+  display block
+  padding (med-padding-block / 2) 0 (med-padding-block / 2) 0
+  cursor pointer
+  transition padding-left .5s drawn-out-animation
+  &:hover, &.hover
+    padding-left tiny-padding-block
+    .nav-label
+      transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
+  &.logo
+    width 96px
+    background-position (xs-padding-block - 2) center
+    background-size 86px 36px
+    &:hover
+      background-color none
+      padding-left 0
+  &.toggle-api
+    width 136px
+    .nav-label
+      padding-top 1px
+    svg
+      size(31px, 20px)
+      margin-left xs-padding-block - 1
+      padding-top small-padding-block - 1
+  &.to-features
+    width 151px
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
+      padding-top small-padding-block - 5
+  &.to-installation
+    width 182px
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
+      padding-top small-padding-block - 3
+  &.to-resources
+    width 162px
+    .nav-label
+      padding-top tiny-padding-block - 3
+    svg
+      size(25px)
+      margin-left xs-padding-block + 1
+.grid-visible .installation .side-nav
+  &.orange
+    display none
+  &.full-color
+    display block
+.side-nav
+  &.green .nav-icon
+    fill dark-green
+  &.light-green .nav-icon
+    fill green
+  &.orange .nav-icon
+    fill dark-orange
+  &.full-color .nav-icon
+    fill #cecece

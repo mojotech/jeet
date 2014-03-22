@@ -1,0 +1,79 @@
+.installation
+  column(1)
+  z-index 10
+  background orange
+  padding (xl-padding-block - 17) 0
+  &.focused-parent
+    background rgba(orange, 0.7)
+  .focused-example
+    padding-top large-padding-block
+    &:before
+      content 'stack()'
+    &.unstack-view:before
+      content 'unstack()'
+  .side-nav.full-color
+    display none
+  h1, h2, h3, p, li, code
+    color white
+  .half
+    margin-top large-padding-block - 9
+    +below(med-snap)
+      stack()
+  h3, ol
+    width 322px
+    +below(xl-snap)
+      width 100%
+    +below(med-snap)
+      margin auto
+  ol
+    margin-top med-padding-block - 37px
+  li
+    margin (small-padding-block + 5) 0 0 (small-padding-block + 2)
+    position relative
+  code.to-copy
+    width 290px
+    box-sizing border-box
+    +below(xl-snap)
+      width 100%
+      margin-top tiny-padding-block * -1
+      top small-padding-block * -1
+  .copy-btn
+    background orange
+    &:hover
+      background white
+      color orange
+    +below(xl-snap)
+      margin-top tiny-padding-block * -1
+.scss
+  h3, ol, .usage
+    float right
+    +below(med-snap)
+      float none
+.copy-code-above
+  margin-top xs-padding-block
+.usage
+  width 324 - small-padding-block
+  font-size tiny-font
+  font-weight bold
+  margin (large-padding-block + 6) 0 0 (small-padding-block + 2)
+  +below(xl-snap)
+    width 100%
+  +below(med-snap)
+    margin small-padding-block auto auto auto
+    text-indent small-padding-block / 2
+.grid-visible .installation
+  h1, h2, h3, p, li, .inline-link, .copy-code-above code
+    color dark-grey
+  .inline-link
+    border-color dark-grey
+.pushy-active .installation
+  h3, ol
+    width 100%
+  code.to-copy
+    width 100%
+    margin-top tiny-padding-block * -1
+    top small-padding-block * -1
+  .copy-btn
+    margin-top tiny-padding-block * -1
+  .usage
+    width 100%

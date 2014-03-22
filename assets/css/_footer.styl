@@ -1,0 +1,42 @@
+.footer
+  column(1)
+  position relative
+  padding (small-padding-block - 4) 0 (small-padding-block - 3) 0 
+  color light-blue
+  text-align center
+  background charcoal
+  height small-padding-block + 2
+  &.focused-parent
+    background rgba(charcoal, 0.8)
+  .focused-example
+    padding-top 35px
+    margin-top -13px
+    min-width 208px
+    &:before
+      content 'align(both)'
+  .contained
+    column(5/6, offset: 1/12)
+    +above(xl-snap)
+      width 100%
+      max-width 100%
+      margin-left auto
+.copyright
+  margin-top tiny-padding-block - 1
+  float right
+  font-size tiny-font
+  opacity 0.5
+  +above(xl-snap)
+    margin-right 2.145833333333333%
+.attribution
+  align(both)
+.mojotech
+  margin-top -4px
+  text-decoration none
+.heart
+  color transparent
+  background-repeat no-repeat
+  background-position center
+  padding 0 (small-padding-block - 3)
+  margin 0 -9px 0 -11px
+  background-image url('/img/heart.svg')
+  background-size 17px 15px

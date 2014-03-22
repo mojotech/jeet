@@ -1,0 +1,56 @@
+.installation.grid-container(data-scroll-index='3') 
+  .contained
+    h1.text-center.scrollReveal Getting started is easy as hell.
+    h2.text-center.scrollReveal Something about two options lorem ipsum dolor sit amet.
+    .half.scss.stack-example.unstack-example.scrollReveal
+      h3 SCSS Installation
+      ol
+        li
+          | Install Ruby [ 
+          a.inline-link(href='http://rubyinstaller.org/') Windows
+          |  , 
+          a.inline-link(href='https://github.com/sstephenson/rbenv') Mac/Linux
+          |  ]
+        li
+          code.inline.to-copy gem install sass
+          a.btn.copy-btn(href='#') copy
+        li
+          code.inline.to-copy cd ~/Project/css
+          a.btn.copy-btn(href='#') copy
+        li
+          code.inline.to-copy svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet
+          a.btn.copy-btn(href='#') copy
+        li
+          p
+            code.inline.to-copy @import 'jeet/index.scss';
+            a.btn.copy-btn(href='#') copy
+          p.copy-code-above
+            | goes at the top of  
+            code ~/Project/css/foo.scss
+    .half.stylus.scrollReveal
+      h3 Stylus Installation
+      ol
+        li
+          | Install 
+          a.inline-link(href='http://nodejs.org/') NodeJS
+        li
+          code.inline.to-copy npm install -g jeet
+          a.btn.copy-btn(href='#') copy
+        li
+          code.inline.to-copy cd ~/Project
+          a.btn.copy-btn(href='#') copy
+        li
+          p
+            code.inline.to-copy @import 'jeet'
+            a.btn.copy-btn(href='#') copy
+          p.copy-code-above
+            | goes at the top of  
+            code ~/Project/foo.styl
+      p.usage
+        | *Learn more about usage with  
+        a.inline-link(href='https://github.com/mojotech/jeet/tree/master/stylus#usage') stylus
+        |  or 
+        a.inline-link(href='https://github.com/mojotech/jeet/tree/master/scss#usage') scss
+        |  here.
+  include _nav-orange
+  include _nav-full-color

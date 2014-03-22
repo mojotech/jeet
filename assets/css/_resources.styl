@@ -1,0 +1,33 @@
+.resources
+  padding (xl-padding-block - 17) 0
+  h3
+    margin-top 10px
+  .focused-example.cf
+    position relative
+    border none
+    &:before
+      content '@extend $cf'
+.fancybox
+  text-decoration none
+  color dark-grey
+.third
+  margin-top ((large-padding-block - 6) - (large-padding-block / 2))
+  padding (large-padding-block / 2) 0
+.tutorial
+  size(100%, 200px)
+  display block
+  background-color green
+.play
+  background-image url('/img/play-icon.svg')
+  background-size 30px
+  background-repeat no-repeat
+  background-position center
+.fancybox-close
+  background-image url('/img/x.svg')
+  background-size 15px
+  top 0
+  right -40px
+  background-color white
+  background-repeat no-repeat
+  background-position center
+  border-radius 2px

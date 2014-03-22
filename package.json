@@ -1,37 +1,14 @@
 {
-  "name": "jeet",
-  "author": "Cory Simmons / MojoTech <cory@mojotech.com> (http://mojotech.com)",
-  "main": "stylus/jeet.js",
-  "version": "5.1.5",
-  "description": "The most advanced, yet intuitive, grid system on the market today",
-  "keywords": [
-    "stylus",
-    "css",
-    "framework",
-    "grid"
-  ],
-  "categories": [
-    "CSS",
-    "Frameworks"
-  ],
-  "github": "http://github.com/mojotech/jeet",
-  "devDependencies": {
-    "stylus": "0.42.3",
-    "should": "3.1.3",
-    "mocha": "1.17.1"
-  },
-  "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/index.js"
-  },
-  "preferGlobal": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mojotech/jeet.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mojotech/jeet/issues",
-    "email": "cory@mojotech.com"
-  },
-  "license": "GPL-3.0+",
-  "homepage": "https://jeet.gs"
+  "name": "Jeet",
+  "description": "Make your own fluid grid",
+  "dependencies": {
+    "jade": "1.x.x",
+    "marked": "0.3.x",
+    "stylus": "0.42.x",
+    "coffee-script": "1.x.x",
+    "autoprefixer-stylus": "0.0.x",
+    "axis-css": "0.2.x",
+    "rupture": "0.0.x",
+    "jeet": "5.1.5"
+  }
 }
