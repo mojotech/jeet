@@ -1,4 +1,4 @@
-# Roots Template: Jeet
+# Jeet Website
 
 Make your own fluid grid
 
