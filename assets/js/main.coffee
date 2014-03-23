@@ -1,16 +1,16 @@
 require.config
   paths:
-    jquery:        'jquery'
-    modernizr:     'custom-modernizr'
-    pushy:         'pushy'
-    scrollIt:      'scrollIt'
+    jquery:        'vendor/jquery'
+    modernizr:     'vendor/custom-modernizr'
+    pushy:         'vendor/pushy'
+    scrollIt:      'vendor/scrollIt'
+    matchHeight:   'vendor/matchHeight'
+    fancybox:      'vendor/fancybox'
     stickyNav:     'stickyNav'
     interAPI:      'interactiveAPI'
-    matchHeight:   'matchHeight'
     animateScroll: 'animateScroll'
-    fancybox:      'fancybox'
 
-require ['jquery', 'modernizr', 'pushy', 'scrollIt', 'stickyNav', 'interAPI', 'matchHeight', 'fancybox', 'animateScroll'], ($) ->
+require ['jquery', 'modernizr', 'pushy', 'scrollIt', 'matchHeight', 'fancybox', 'stickyNav', 'interAPI', 'animateScroll'], ($) ->
 
   $.scrollIt()
 
