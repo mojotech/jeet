@@ -10,13 +10,12 @@ require.config
     interAPI:      'interactiveAPI'
     animateScroll: 'animateScroll'
 
-require ['jquery', 'modernizr', 'pushy', 'scrollIt', 'matchHeight', 'fancybox', 'stickyNav', 'interAPI', 'animateScroll'], ($) ->
-
-  $.scrollIt()
+require ['jquery', 'modernizr', 'scrollIt', 'stickyNav', 'matchHeight', 'pushy', 'fancybox', 'interAPI', 'animateScroll'], ($) ->
 
   $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"
-    $('.toggle-api').click -> fixFluidResize()
+  
+  $('.toggle-api').click -> fixFluidResize()
 
   $(".half, .third, .fourth, .third:before").matchHeight()
   didResize = null
@@ -36,3 +35,7 @@ require ['jquery', 'modernizr', 'pushy', 'scrollIt', 'matchHeight', 'fancybox', 
       media: true
     aspectRatio: true
     scrolling: "no"
+
+  $.scrollIt()
+
+  return
