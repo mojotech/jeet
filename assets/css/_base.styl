@@ -45,7 +45,7 @@ code
     border-bottom-right-radius 0
     border-top-right-radius 0
     white-space nowrap
-    overflow scroll
+    overflow hidden
 strong
   font-weight bold
 
@@ -84,6 +84,9 @@ strong
   border-top-left-radius 0
   right 0
   padding 8px 20px
+  &:active
+    position absolute
+    bottom -6px
 
 .contained
   column(4/6, offset: 1/6)
