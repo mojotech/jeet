@@ -1,6 +1,6 @@
 mainSection = $("#demo-container")
 showAllDivs = ->
-  mainSection.find('*').removeClass "faded focused-example focused-parent edit-view unshift-view unstack-view"
+  mainSection.find('*').removeClass "faded focused-example focused-parent edit-view"
   return
 
 $(".view-example").click ->
@@ -13,10 +13,6 @@ $(".view-example").click ->
   showExample = ->
     if dataAttribute is "edit-example"
       exampleParent.addClass "edit-view"
-    else if dataAttribute is "unshift-example"
-      demoDiv.addClass "unshift-view"
-    else if dataAttribute is "unstack-example"
-      demoDiv.addClass "unstack-view"
 
     mainChildren.addClass "faded"
     exampleParent.addClass "focused-parent"    
