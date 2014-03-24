@@ -1,6 +1,6 @@
 require.config
   paths:
-    jquery:        'vendor/jquery'
+    jquery:        '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min'
     modernizr:     'vendor/custom-modernizr'
     pushy:         'vendor/pushy'
     scrollIt:      'vendor/scrollIt'
