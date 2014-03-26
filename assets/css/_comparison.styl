@@ -1,23 +1,26 @@
 .comparison
   padding 0 0 xl-padding-block 0
+  hideAt(small-snap)
   .focused-example
     &.comparatives, &.bootstrap, &.foundation
       border-right none
     &:before
-      content 'span(1/4 5/6)'
+      content 'span(1/4)'
       line-height small-padding-block
 .cell
   background light-grey
-  height large-padding-block
+  min-height large-padding-block + 7
   border-right 1px solid white
   border-top 1px solid white
   background-repeat no-repeat
   background-position center
   box-sizing border-box
+  p
+    line-height 1.3em
   &.darker
     background-color grey
-  &.bigger
-    height xl-padding-block
+    +below(890px)
+      height 81px
 .check
   background-image url('../img/check.svg')
   background-size 15px 12px
@@ -25,22 +28,36 @@
   background-image url('../img/x.svg')
   background-size 12px 13px
 .bootstrap-grid
-  retina-background-image('../img/bootstrap-grid')
+  background-image url('../img/bootstrap-grid.svg')
   background-size 139px 22px
 .foundation-grid
-  retina-background-image('../img/foundation-grid')
+  background-image url('../img/foundation-grid.svg')
   background-size 144px 19px
+.bigger-cell
+  height xl-padding-block
+  +below(large-snap)
+    background-size 80%
+.pushy-active .bigger-cell
+  background-size 80%  
 .jeet-logo
   background-image url('../img/jeet-logo-color.svg')
   background-size 86px 36px
+  +below(large-snap)
+    background-size 65%
 .comparative
   box-sizing border-box
   text-align left
   line-height 12px
   border-top 1px solid white
   padding small-padding-block (small-padding-block + 4)
+  white-space nowrap
+  +below(890px)
+    white-space normal
+    padding-right 30%
 .fourth
   margin-top med-padding-block - 7
+  &.bootstrap, &.foundation
+    hideAt(small-snap)
   &.jeet
     box-sizing border-box
     border 1px solid light-green

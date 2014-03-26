@@ -25,7 +25,7 @@ $(function() {
           offsetTop = $this.offset().top;
 
       if (scrolled + windowPercentage > offsetTop || $win_height > offsetTop) {
-        if ($this.hasClass('flip-staggered-second')) {console.log($this);
+        if ($this.hasClass('flip-staggered-second')) {
           window.setTimeout(function(){
             $this.addClass('animated flipInX');
           }, 400);

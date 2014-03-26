@@ -1,10 +1,19 @@
+.touch .side-nav
+  display none
 .side-nav
   column(1/10, offset: 1/48)
   pos(absolute, (small-padding-block - (med-padding-block / 2)), false, false, 0)
   min-width 86px
+  hideAt(small-snap)
+  +below(med-snap)
+    transition top 500ms ease-out
   &.default
     pos(fixed, (small-padding-block / 2), false, false, 0)
     visibility hidden
+    +below(small-snap)
+      display none
+    .logo
+      background-image url('../img/jeet-logo-white.svg')
   &.full-color
     z-index 10
     .logo
@@ -28,29 +37,18 @@
   &.orange
     .side-nav-link:hover, .side-nav-link.hover
       background-color rgba(orange, 0.9)
-.nav-label
-  display inline
-  font-family montserrat
-  text-transform uppercase
-  display inline-block
-  padding-left tiny-padding-block
-  vertical-align top
-  padding-top 2px
-  white-space nowrap
-  color transparent
-  transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
 .side-nav-link
-  text-align left
   height small-padding-block + 5
+  text-align left
   background-repeat no-repeat
   display block
   padding (med-padding-block / 2) 0 (med-padding-block / 2) 0
   cursor pointer
-  transition padding-left .5s drawn-out-animation
+  transition padding-left .25s drawn-out-animation
   &:hover, &.hover
     padding-left tiny-padding-block
     .nav-label
-      transition color .5s drawn-out-animation, padding-left .5s drawn-out-animation
+      transition color .25s drawn-out-animation, padding-left .25s drawn-out-animation
   &.logo
     width 96px
     background-position (xs-padding-block - 4) center
@@ -65,26 +63,32 @@
     svg
       size(31px, 20px)
       margin-left xs-padding-block - 1
-      padding-top small-padding-block - 1
   &.to-features
     width 151px
     svg
       size(25px)
       margin-left xs-padding-block + 1
-      padding-top small-padding-block - 5
   &.to-installation
     width 182px
     svg
       size(25px)
       margin-left xs-padding-block + 1
-      padding-top small-padding-block - 3
   &.to-resources
     width 162px
-    .nav-label
-      padding-top tiny-padding-block - 3
     svg
       size(25px)
       margin-left xs-padding-block + 1
+.nav-label
+  position relative
+  top -5px
+  display inline
+  font-family montserrat
+  text-transform uppercase
+  display inline-block
+  padding-left tiny-padding-block
+  white-space nowrap
+  color transparent
+  transition color .25s drawn-out-animation, padding-left .25s drawn-out-animation
 .grid-visible .installation .side-nav
   &.orange
     display none

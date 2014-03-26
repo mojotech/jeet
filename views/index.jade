@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  include _api
+  //[if lt IE 10]>
+    <div class="updateBrowser">
+    <p>Your browser is unsupported. Please <a href="http://browsehappy.com/">upgrade</a> for the best experience.
+    </div>
+    <![endif]
   #demo-container
     include _nav-default
     include _hero
@@ -11,5 +15,10 @@ block content
     include _installation
     include _resources
     include _featured-articles
+    .desktop-footer
+      include _share
+      include _footer
+  include _api
+  .mobile-footer
     include _share
     include _footer

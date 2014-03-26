@@ -1,42 +1,44 @@
-$doc          = $(document)
-$win          = $(window)
-targetNav     = $(".side-nav.default")
-orangeSection = $(".installation")
-allNavBtns    = $(".side-nav-link")
+if $("html").hasClass("no-touch")
+  $doc          = $(document)
+  $win          = $(window)
+  targetNav     = $(".side-nav.default")
+  orangeSection = $(".installation")
+  allNavBtns    = $(".side-nav-link")
 
-alignNavs = ->
-  scrolled         = $doc.scrollTop()
-  targetedPosition = targetNav.offset()
-  $(".side-nav.to-be-fixed").each ->
-    $this = $(this)
-    actualPosition = $this.parents(':eq(1)').offset()
-    $this.css "top", (targetedPosition.top - actualPosition.top) + "px"
+  alignNavs = ->
+    scrolled         = $doc.scrollTop()
+    targetedPosition = targetNav.offset()
+    $(".side-nav.to-be-fixed").each ->
+      $this = $(this)
+      actualPosition = $this.parents(':eq(1)').offset()
+      $this.css "top", (targetedPosition.top - actualPosition.top) + "px"
+      return
     return
-  return
 
-synchronizeHovers = (navLink) ->
-  currentBtnClasses = navLink.attr('class').split(/\s/)
-  otherNavBtns      = currentBtnClasses[currentBtnClasses.length-1]
-  allNavBtns.removeClass('hover')
-  $(".#{otherNavBtns}").addClass('hover')
+  synchronizeHovers = (navLink) ->
+    currentBtnClasses = navLink.attr('class').split(/\s/)
+    otherNavBtns      = currentBtnClasses[currentBtnClasses.length-1]
+    allNavBtns.removeClass('hover')
+    $(".#{otherNavBtns}").addClass('hover')
 
-fixFluidResize = ->
-  setInterval(alignNavs, 0.5)
+  fixFluidResize = ->
+    setInterval(alignNavs, 0.1)
 
-didResize = null
-$win.resize ->
-  didResize = true
-  return
 
-setInterval (->
-  if didResize
-    didResize = false
-    alignNavs()
-  return
-), 250
+  didResize = null
+  $win.resize ->
+    didResize = true
+    return
 
-$doc.scroll -> alignNavs()
-$('.toggle-api').click -> fixFluidResize()
-$(".side-nav-link").hover -> synchronizeHovers($(this))
+  setInterval (->
+    if didResize
+      didResize = false
+      alignNavs()
+    return
+  ), 250
 
-alignNavs()
+  $doc.scroll -> alignNavs()
+  $('.toggle-api').click -> fixFluidResize()
+  $(".side-nav-link").hover -> synchronizeHovers($(this))
+
+  alignNavs()

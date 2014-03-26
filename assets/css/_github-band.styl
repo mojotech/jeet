@@ -5,10 +5,19 @@
   background dark-green
   padding (small-padding-block - 3) 0
 .last-updated
-  margin (xs-padding-block - 2) 0 (-(xs-padding-block - 2)) 0
+  margin (xs-padding-block - 1) 0 (-(xs-padding-block - 2)) 0
+  white-space nowrap
+  +below(small-snap)
+    column(1)
+    text-align center
+    margin (tiny-padding-block + 1) 0 xs-padding-block 0
 .latest-commit-link
   font-weight bold
   text-decoration none
+.right-half-wrap
+  min-width 350px
+  float right
+  hideAt(small-snap)
 .hero-ctas
   .btn
     float right
@@ -16,8 +25,14 @@
     &:hover
       color dark-green
   .without-border
+    margin-top 1px
     padding-right 0
+    opacity 1
+    transition opacity .25s drawn-out-animation
+    hideAt(large-snap)
     &:hover
       color white
+.pushy-active .btn.without-border
+  opacity 0
 .view-api-btn
   border 2px solid white

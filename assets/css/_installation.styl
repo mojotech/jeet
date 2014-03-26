@@ -3,6 +3,8 @@
   z-index 10
   background orange
   padding (xl-padding-block - 17) 0
+  +below(small-snap)
+    padding (large-padding-block - 17) 0
   &.focused-parent
     background rgba(orange, 0.7)
   .focused-example
@@ -15,10 +17,15 @@
     display none
   h1, h2, h3, p, li, code
     color white
+  +below(small-snap)
+    p
+      padding 0
   .half
     margin-top large-padding-block - 9
     +below(med-snap)
       stack()
+    +below(small-snap)
+      margin-top med-padding-block - 9
   h3, ol
     width 322px
     +below(xl-snap)
@@ -61,7 +68,10 @@
   +below(med-snap)
     margin small-padding-block auto auto auto
     text-indent small-padding-block / 2
+  +below(small-snap)
+    text-align center
 .grid-visible .installation
+  padding 0
   h1, h2, h3, p, li, .inline-link, .copy-code-above code
     color dark-grey
   .inline-link
