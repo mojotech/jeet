@@ -3,12 +3,24 @@
   background green
   z-index 10
   @extend $cf
+  +below(small-snap)
+    padding (xl-padding-block + tiny-padding-block) 0 large-padding-block 0
 .headline
   font-size headline-font
   font-weight bold
+  +below(small-snap)
+    font-size 2.6rem
 .nav-narrative
   margin-top large-padding-block - 27
-  font-size large-font + 4
+  font-size large-font * 1.1
+  line-height 2.4rem
+  +below(small-snap)
+    margin-top med-padding-block - 27
+    padding 0
+    font-size 1.2rem
+    line-height 1.7rem
+.touch .grid-toggle
+  display none
 .grid-toggle
   center()
   clear both
@@ -56,3 +68,10 @@
   .show-grid-label
     color dark-green
     padding-right 0
+.updateBrowser
+  z-index 999
+  position fixed
+  top 0
+  width 100%
+  background orange
+  color white

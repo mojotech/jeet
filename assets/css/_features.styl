@@ -1,5 +1,7 @@
 .features
   padding (xl-padding-block - 17) 0
+  +below(small-snap)
+    padding ( large-padding-block - 17) 0
   &.focused-parent.edit-view .edit-example
     edit()
     margin-top med-padding-block
@@ -10,14 +12,21 @@
   .third
     margin-top ((large-padding-block - 6) - (large-padding-block / 2))
     padding (large-padding-block / 2) 0
+    +below(small-snap)
+      margin-top small-padding-block - 6
+      padding-bottom 0
+  h2
+    hideAt(small-snap)
   h3
     margin (large-padding-block - 3) 0 (small-padding-block - 11) 0
+    +below(small-snap)
+      margin-top xs-padding-block - 3
   code
     font-weight bold
   .focused-example
     padding-top large-padding-block
     &:before
-      content 'column(1/3 5/6)'
+      content 'column(1/3)'
     &.edit-example:before
       content 'edit()'
 .features-img

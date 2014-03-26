@@ -1,23 +1,12 @@
-require.config
-  paths:
-    jquery:        '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min'
-    modernizr:     'vendor/custom-modernizr'
-    pushy:         'vendor/pushy'
-    scrollIt:      'vendor/scrollIt'
-    matchHeight:   'vendor/matchHeight'
-    fancybox:      'vendor/fancybox'
-    stickyNav:     'stickyNav'
-    interAPI:      'interactiveAPI'
-    animateScroll: 'animateScroll'
-
-require ['jquery', 'modernizr', 'scrollIt', 'stickyNav', 'matchHeight', 'pushy', 'fancybox', 'interAPI', 'animateScroll'], ($) ->
+if $("html").hasClass("no-touch") or $(window).width > 635
 
   $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"
-  
-  $('.toggle-api').click -> fixFluidResize()
 
-  $(".half, .third, .fourth, .third:before").matchHeight()
+  equalHeightColumns = -> $(".half, .third, .fourth, .third:before").matchHeight()
+  
+  equalHeightColumns()
+
   didResize = null
   $(window).resize ->
     didResize = true
@@ -26,16 +15,23 @@ require ['jquery', 'modernizr', 'scrollIt', 'stickyNav', 'matchHeight', 'pushy',
   setInterval (->
     if didResize
       didResize = false
-      $(".container div").matchHeight()
+      equalHeightColumns()
     return
   ), 250
 
-  $(".fancybox").fancybox
-    helpers:
-      media: true
-    aspectRatio: true
-    scrolling: "no"
+  equalColumns = -> setTimeout(equalHeightColumns, 100)
+  $('.toggle-api').click -> equalColumns()
 
-  $.scrollIt()
+$(".fancybox").fancybox
+  helpers:
+    media: true
+  aspectRatio: true
+  scrolling: "no"
 
-  return
+$("#menu").slicknav label: ""
+
+$(".scrollTo-mobile").click ->
+  $("#menu").slicknav "close"
+
+$.scrollIt()
+browserBlast()

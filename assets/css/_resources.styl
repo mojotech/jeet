@@ -1,5 +1,7 @@
 .resources
   padding (xl-padding-block - 17) 0
+  +below(small-snap)
+    padding (tiny-padding-block + med-padding-block - 17) 0 (xs-padding-block + med-padding-block - 17) 0
   h3
     margin-top 10px
   .focused-example.cf
@@ -13,10 +15,19 @@
 .third
   margin-top ((large-padding-block - 6) - (large-padding-block / 2))
   padding (large-padding-block / 2) 0
+  +below(small-snap)
+    padding 0
+.getting-started
+  +below(small-snap)
+    margin-top small-padding-block + tiny-padding-block - 4
 .tutorial
   size(100%, 200px)
   display block
   background-color green
+  +below(med-snap)
+    height xl-padding-block
+  +below(small-snap)
+    height section-padding-block
 .play
   background-image url('../img/play-icon.svg')
   background-size 30px

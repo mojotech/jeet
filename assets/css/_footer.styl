@@ -6,6 +6,8 @@
   text-align center
   background charcoal
   height small-padding-block + 2
+  +below(med-snap)
+    height auto
   &.focused-parent
     background rgba(charcoal, 0.8)
   .focused-example
@@ -27,8 +29,15 @@
   opacity 0.5
   +above(xl-snap)
     margin-right 2.145833333333333%
+  +below(med-snap)
+    float none
 .attribution
   align(both)
+  +below(med-snap)
+    position static
+    width 100%
+    padding 0
+    transform translate(0,0)
 .mojotech
   margin-top -4px
   text-decoration none
@@ -40,3 +49,7 @@
   margin 0 -9px 0 -11px
   background-image url('../img/heart.svg')
   background-size 17px 15px
+.touch .desktop-footer, .mobile-footer
+  display none
+.touch .mobile-footer
+  display block
