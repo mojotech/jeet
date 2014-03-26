@@ -5,7 +5,7 @@ $(function() {
       noMoreFades       = false,
       windowPercentage  = ($(window).height() * 0.9),
       isTouch           = (Modernizr.touch),
-      lastInstance      = $('.scrollReveal:last');
+      lastInstance      = $('.desktop-footer .scrollReveal:last');
   
   if (isTouch) {
     $('.scrollReveal').addClass('animated');
@@ -20,13 +20,12 @@ $(function() {
       noMoreFades = true;
     }
 
-    $('.scrollReveal').each(function () {    
+    $(".scrollReveal:not(.animated)").each(function () {   
       var $this     = $(this),
           offsetTop = $this.offset().top;
 
-      if (!noMoreFades && scrolled + windowPercentage > offsetTop || $win_height > offsetTop) {
-
-        if ($this.hasClass('flip-staggered-second')) {
+      if (scrolled + windowPercentage > offsetTop || $win_height > offsetTop) {
+        if ($this.hasClass('flip-staggered-second')) {console.log($this);
           window.setTimeout(function(){
             $this.addClass('animated flipInX');
           }, 400);
@@ -35,7 +34,7 @@ $(function() {
             $this.addClass('animated flipInX');
           }, 800);
         } else if ($this.hasClass('fade-in')) {
-            $this.addClass('animated fadeInUp');
+          $this.addClass('animated fadeInUp');
         } else if ($this.hasClass('fadeInUp-staggered-second')) {
           window.setTimeout(function(){
             $this.addClass('animated fadeInUp');
@@ -45,15 +44,15 @@ $(function() {
             $this.addClass('animated fadeInUp');
           }, 800);
         } else if ($this.hasClass('comparison-animation')) {
-            $this.addClass('animated bounceIn');
+          $this.addClass('animated bounceIn');
         } else if ($this.hasClass('slide-in-first')) {
-            $this.addClass('animated bounceInLeft');
+          $this.addClass('animated bounceInLeft');
         } else if ($this.hasClass('slide-in-second')) {
           window.setTimeout(function(){
             $this.addClass('animated bounceInRight');
           }, 400);
         } else {
-          $this.addClass('animated flipInX');
+          $(this).addClass('animated flipInX');
         } 
       }
     });
