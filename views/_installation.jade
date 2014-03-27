@@ -13,17 +13,17 @@
           |  ]
         li
           code.inline.to-copy gem install sass
-          a.btn.copy-btn(href='#') copy
+          a.btn.copy-btn(data-clipboard-text='gem install sass') copy
         li
           code.inline.to-copy cd ~/Project/css
-          a.btn.copy-btn(href='#') copy
+          a.btn.copy-btn(data-clipboard-text='cd ~/Project/css') copy
         li
           code.inline.to-copy svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet
-          a.btn.copy-btn(href='#') copy
+          a.btn.copy-btn(data-clipboard-text='svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet') copy
         li
           p
             code.inline.to-copy @import 'jeet/index.scss';
-            a.btn.copy-btn(href='#') copy
+            a.btn.copy-btn(data-clipboard-text="@import 'jeet/index.scss';") copy
           p.copy-code-above
             | goes at the top of  
             code ~/Project/css/foo.scss
@@ -35,14 +35,14 @@
           a.inline-link(href='http://nodejs.org/') NodeJS
         li
           code.inline.to-copy npm install -g jeet
-          a.btn.copy-btn(href='#') copy
+          a.btn.copy-btn(data-clipboard-text='npm install -g jeet') copy
         li
           code.inline.to-copy cd ~/Project
-          a.btn.copy-btn(href='#') copy
+          a.btn.copy-btn(data-clipboard-text='cd ~/Project') copy
         li
           p
             code.inline.to-copy @import 'jeet'
-            a.btn.copy-btn(href='#') copy
+            a.btn.copy-btn(data-clipboard-text="@import 'jeet'") copy
           p.copy-code-above
             | goes at the top of  
             code ~/Project/foo.styl

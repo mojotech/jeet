@@ -22,6 +22,10 @@ if $("html").hasClass("no-touch") or $(window).width > 635
   equalColumns = -> setTimeout(equalHeightColumns, 100)
   $('.toggle-api').click -> equalColumns()
 
+  client = new ZeroClipboard($(".copy-btn"),
+    moviePath: "js/ZeroClipboard.swf"
+  )
+
 $(".fancybox").fancybox
   helpers:
     media: true
