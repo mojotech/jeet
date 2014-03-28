@@ -13,23 +13,24 @@
       content 'stack()'
     &.unstack-view:before
       content 'unstack()'
+  .half
+    overflow hidden
+    height auto
+    margin-top large-padding-block - 9
+    +below(large-snap)
+      stack()
+    +below(small-snap)
+      margin-top med-padding-block - 9
   .side-nav.full-color
     display none
   h1, h2, h3, p, li, code
     color white
-  +below(small-snap)
-    p
-      padding 0
-  .half
-    margin-top large-padding-block - 9
-    +below(med-snap)
-      stack()
+  p
+    margin-top xs-padding-block + 3
     +below(small-snap)
-      margin-top med-padding-block - 9
+      padding 0
   h3, ol
-    width 322px
-    +below(xl-snap)
-      width 100%
+    width 100%
     +below(med-snap)
       margin auto
   ol
@@ -37,25 +38,23 @@
   li
     margin (small-padding-block + 5) 0 0 (small-padding-block + 2)
     position relative
+    &:first-child
+      margin-bottom - 5px
+    &:not(:first-child)
+      margin-top 32px
   code.to-copy
-    width 290px
+    size(100%, (med-padding-block + 2))
     box-sizing border-box
-    +below(xl-snap)
-      width 100%
-      margin-top tiny-padding-block * -1
-      top small-padding-block * -1
+    +below(small-snap)
+      line-height 22px
   .copy-btn
     background orange
+    min-height 18px
+    +below(small-snap)
+      line-height 22px
     &:hover, &.zeroclipboard-is-hover
       background white
       color orange
-    +below(xl-snap)
-      margin-top tiny-padding-block * -1
-.scss
-  h3, ol, .usage
-    float right
-    +below(med-snap)
-      float none
 .copy-code-above
   margin-top xs-padding-block
 .usage
