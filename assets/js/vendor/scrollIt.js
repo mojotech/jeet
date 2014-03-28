@@ -22,7 +22,7 @@
         scrollTime: 600,
         activeClass: 'active',
         onPageChange: null,
-        topOffset : 0
+        topOffset : -50
     };
 
     $.scrollIt = function(options) {
