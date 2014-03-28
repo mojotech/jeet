@@ -35,10 +35,11 @@
   background-size 144px 19px
 .bigger-cell
   height xl-padding-block
-  +below(large-snap)
+  +below(xl-snap)
     background-size 80%
 .pushy-active .bigger-cell
-  background-size 80%  
+  +below(1400px)
+    background-size 80%  
 .jeet-logo
   background-image url('../img/jeet-logo-color.svg')
   background-size 86px 36px
