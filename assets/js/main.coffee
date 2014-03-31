@@ -37,5 +37,7 @@ $("#menu").slicknav label: ""
 $(".scrollTo-mobile").click ->
   $("#menu").slicknav "close"
 
+FastClick.attach(document.body)
+
 $.scrollIt()
 browserBlast()
