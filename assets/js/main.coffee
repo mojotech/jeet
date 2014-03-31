@@ -1,4 +1,4 @@
-if $("html").hasClass("no-touch") or $(window).width > 635
+if $("html").hasClass("no-touch") and $(window).width >= 768
 
   $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"

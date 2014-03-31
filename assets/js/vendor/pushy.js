@@ -5,7 +5,7 @@
 
 $(function() {
 
-  if ($("html").hasClass("no-touch")) {
+  if ($("html").hasClass("no-touch") && $(window).width() >= 768) {
 
     var pushy = $('.pushy'), //menu css class
       body = $('body'),
