@@ -1,19 +1,5 @@
-.basic,
-.advanced {
-  *zoom: 1;
-}
-.basic:before,
-.advanced:before,
-.basic:after,
-.advanced:after {
-  content: '';
-  display: table;
-}
-.basic:after,
-.advanced:after {
-  clear: both;
-}
 .basic {
+  *zoom: 1;
   width: auto;
   max-width: 1410px;
   float: none;
@@ -23,7 +9,16 @@
   padding-left: 0;
   padding-right: 0;
 }
+.basic:before,
+.basic:after {
+  content: '';
+  display: table;
+}
+.basic:after {
+  clear: both;
+}
 .advanced {
+  *zoom: 1;
   width: auto;
   max-width: 800px;
   float: none;
@@ -32,4 +27,12 @@
   margin-left: auto;
   padding-left: 30px;
   padding-right: 30px;
+}
+.advanced:before,
+.advanced:after {
+  content: '';
+  display: table;
+}
+.advanced:after {
+  clear: both;
 }

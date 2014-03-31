@@ -1,19 +1,5 @@
-.basic aside,
-.basic article {
-  *zoom: 1;
-}
-.basic aside:before,
-.basic article:before,
-.basic aside:after,
-.basic article:after {
-  content: '';
-  display: table;
-}
-.basic aside:after,
-.basic article:after {
-  clear: both;
-}
 .basic aside {
+  *zoom: 1;
   float: left;
   display: inline;
   clear: none;
@@ -24,10 +10,19 @@
   margin-left: 0%;
   margin-right: 3%;
 }
+.basic aside:before,
+.basic aside:after {
+  content: '';
+  display: table;
+}
+.basic aside:after {
+  clear: both;
+}
 .basic aside:last-child {
   margin-right: 0%;
 }
 .basic article {
+  *zoom: 1;
   float: left;
   display: inline;
   clear: none;
@@ -37,6 +32,14 @@
   width: 65.66666666666666%;
   margin-left: 0%;
   margin-right: 3%;
+}
+.basic article:before,
+.basic article:after {
+  content: '';
+  display: table;
+}
+.basic article:after {
+  clear: both;
 }
 .basic article:last-child {
   margin-right: 0%;

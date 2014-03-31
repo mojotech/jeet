@@ -1,19 +1,5 @@
-aside,
-article {
-  *zoom: 1;
-}
-aside:before,
-article:before,
-aside:after,
-article:after {
-  content: '';
-  display: table;
-}
-aside:after,
-article:after {
-  clear: both;
-}
 aside {
+  *zoom: 1;
   float: left;
   display: inline;
   clear: none;
@@ -26,7 +12,16 @@ aside {
   position: relative;
   left: 66.66666666666666%;
 }
+aside:before,
+aside:after {
+  content: '';
+  display: table;
+}
+aside:after {
+  clear: both;
+}
 article {
+  *zoom: 1;
   float: left;
   display: inline;
   clear: none;
@@ -38,4 +33,12 @@ article {
   margin-right: 0%;
   position: relative;
   left: -33.33333333333333%;
+}
+article:before,
+article:after {
+  content: '';
+  display: table;
+}
+article:after {
+  clear: both;
 }
