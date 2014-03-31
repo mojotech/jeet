@@ -52,7 +52,7 @@ article {
 - **`stack($pad: 0, $align: false)`** - A helper mixin to "stack" elements on top of each other. Useful for mobile views. Accepts padding and/or text alignment.
 - **`unstack()`** - Cancel that `stack()`. This won't revert back to your `column()` calls. For that, manually call your `column()` method again.
 - **`align($direction: both)`** - Aligning blocks relative to their container with `position: absolute` and fancy positioning and transform. Vertical alignment is now trivial in IE9+ browsers.
-- **`%cf`** - The clearfix placeholder saves space on repetitive use of clearfix. Use clearfix anywhere like so: `@extend %cf;`
+- **`cf()`** - Nicholas Gallagher's clearfix. Use this to wrap any set of `column()`s or `span`s.
 
 
 #### Global Settings

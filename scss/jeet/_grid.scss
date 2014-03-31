@@ -16,7 +16,7 @@
       $margin_l: $offset + nth($column_widths, 2);
     }
   }
-  @extend %cf;
+  @include cf();
   float: $side;
   display: inline;
   clear: none;
@@ -61,7 +61,7 @@
       $margin_l: -get_span($offset);
     }
   }
-  @extend %cf;
+  @include cf();
   float: $side;
   display: inline;
   clear: none;
@@ -104,7 +104,7 @@
 
 // Horizontal Centering Block Elements
 @mixin center($max_width: 1410px, $pad: 0) {
-  @extend %cf;
+  @include cf();
   width: auto;
   max-width: $max_width;
   float: none;
@@ -192,7 +192,4 @@
   &:after {
     clear: both;
   }
-}
-%cf {
-  @include cf();
 }

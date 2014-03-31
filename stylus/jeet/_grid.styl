@@ -12,7 +12,7 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
     else
       offset = -get_column(offset, column_widths[1])[0]
       margin_l = offset + column_widths[1]
-  @extend $cf
+  cf()
   float: side
   display: inline
   clear: none
@@ -47,7 +47,7 @@ span(ratio = 1, offset = 0)
       margin_r = -get_span(offset)
     else
       margin_l = -get_span(offset)
-  @extend $cf
+  cf()
   float: side
   display: inline
   clear: none
@@ -82,7 +82,7 @@ edit()
 
 // Horizontal Centering Block Elements
 center(max_width = 1410px, pad = 0)
-  @extend $cf
+  cf()
   width: auto
   max-width: max_width
   float: none
@@ -153,5 +153,3 @@ cf()
     display: table
   &:after
     clear: both
-$cf
-  cf()

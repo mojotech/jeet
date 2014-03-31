@@ -51,7 +51,7 @@ Be sure to check out [Jeet's website](http://jeet.gs) for [CodePen](http://codep
 - **`stack(pad = 0, align = false)`** - A helper mixin to "stack" elements on top of each other. Useful for mobile views. Accepts padding and/or text alignment.
 - **`unstack()`** - Cancel that `stack()`. This won't revert back to your `column()` calls. For that, manually call your `column()` method again.
 - **`align(direction = both)`** - Aligning blocks relative to their container with `position: absolute` and fancy positioning and transform. Vertical alignment is now trivial in IE9+ browsers.
-- **`$cf`** - The clearfix placeholder saves space on repetitive use of clearfix. Use clearfix anywhere like so: `@extend $cf`
+- **`cf()`** - Nicholas Gallagher's clearfix. Use this to wrap any set of `column()`s or `span`s.
 
 #### Protip
 Use Jeet alongside other great Stylus projects like [nib](https://github.com/visionmedia/nib), [Axis](https://github.com/jenius/axis), [Autoprefixer-Stylus](https://github.com/jenius/autoprefixer-stylus), [Rupture](https://github.com/jenius/rupture), and [Typographic](https://github.com/corysimmons/typographic).
