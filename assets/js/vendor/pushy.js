@@ -5,80 +5,88 @@
 
 $(function() {
 
-  if ($("html").hasClass("no-touch") && $(window).width() >= 768) {
+  var pushy = $('.pushy'), //menu css class
+    body = $('body'),
+    container = $('#demo-container'), //container css class
+    push = $('.interactive-api'), //css class to add pushy capability
+    pushyClass = "pushy-left pushy-open", //menu position & menu open class
+    containerClass = "container-push", //container open class
+    pushClass = "push-push", //css class to add pushy capability
+    menuBtn = $('.toggle-api'), //css classes to toggle the api
+    menuSpeed = 200; //jQuery fallback menu speed
+    menuWidth = ((body.width() * 0.3) + "px"); //jQuery fallback menu width
 
-    var pushy = $('.pushy'), //menu css class
-      body = $('body'),
-      container = $('#demo-container'), //container css class
-      push = $('.push'), //css class to add pushy capability
-      siteOverlay = $('.site-overlay'), //site overlay
-      pushyClass = "pushy-left pushy-open", //menu position & menu open class
-      pushyActiveClass = "pushy-active", //css class to toggle site overlay
-      containerClass = "container-push", //container open class
-      pushClass = "push-push", //css class to add pushy capability
-      menuBtn = $('.toggle-api'), //css classes to toggle the api
-      menuSpeed = 200; //jQuery fallback menu speed
-      // menuWidth = ((body.width() * 0.5) + "px"); //jQuery fallback menu width
-
-    function togglePushy(){
-      body.toggleClass(pushyActiveClass); //toggle site overlay
-      pushy.toggleClass(pushyClass);
-      container.toggleClass(containerClass);
-      push.toggleClass(pushClass); //css class to add pushy capability
-    }
-
-    function openPushyFallback(){
-      body.addClass(pushyActiveClass);
-      pushy.animate({left: "0%"}, menuSpeed);
-      container.animate({left: menuWidth}, menuSpeed);
-      push.animate({left: menuWidth}, menuSpeed); //css class to add pushy capability
-    }
-
-    function closePushyFallback(){
-      body.removeClass(pushyActiveClass);
-      pushy.animate({left: "-" + menuWidth}, menuSpeed);
-      container.animate({left: "0%"}, menuSpeed);
-      push.animate({left: "0%"}, menuSpeed); //css class to add pushy capability
-    }
-
-    if(Modernizr.csstransforms3d){
-      //toggle menu
-      menuBtn.click(function() {
-        togglePushy();
-      });
-      //close menu when clicking site overlay
-      siteOverlay.click(function(){ 
-        togglePushy();
-      });
-    }else{
-      //jQuery fallback
-      pushy.css({left: "-" + menuWidth}); //hide menu by default
-      container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
-
-      //keep track of menu state (open/close)
-      var state = true;
-
-      //toggle menu
-      menuBtn.click(function() {
-        if (state) {
-          openPushyFallback();
-          state = false;
-        } else {
-          closePushyFallback();
-          state = true;
-        }
-      });
-
-      //close menu when clicking site overlay
-      siteOverlay.click(function(){ 
-        if (state) {
-          openPushyFallback();
-          state = false;
-        } else {
-          closePushyFallback();
-          state = true;
-        }
-      });
-    }
+  function togglePushy(){
+    pushy.toggleClass(pushyClass);
+    container.toggleClass(containerClass);
+    push.toggleClass(pushClass); //css class to add pushy capability
   }
+
+  function openPushyFallback(){
+    pushy.animate({left: "0%"}, menuSpeed);
+    container.animate({left: menuWidth}, menuSpeed);
+    push.animate({left: menuWidth}, menuSpeed); //css class to add pushy capability
+  }
+
+  function closePushyFallback(){
+    pushy.animate({left: "-" + menuWidth}, menuSpeed);
+    container.animate({left: "0%"}, menuSpeed);
+    push.animate({left: "0%"}, menuSpeed); //css class to add pushy capability
+  }
+
+  //keep track of menu state (open/close)
+  var state = true;
+
+  if(Modernizr.csstransforms3d){
+    //toggle menu
+    menuBtn.click(function() {
+      if (state) {
+        togglePushy();
+        state = false;
+      } else {
+        togglePushy();
+        state = true;
+      }
+    });
+  }else{
+    //jQuery fallback
+    pushy.css({left: "-" + menuWidth}); //hide menu by default
+    container.css({"overflow-x": "hidden"}); //fixes IE scrollbar issue
+
+    //toggle menu
+    menuBtn.click(function() {
+      if (state) {
+        openPushyFallback();
+        state = false;
+      } else {
+        closePushyFallback();
+        state = true;
+      }
+    });
+  }
+
+  var screenResized = false;
+  
+  $(window).resize(function() {
+    screenResized = true;
+  });
+
+  setInterval((function() {
+    if (screenResized) {
+      if ($(window).width() <= 1024 && !state) {
+        if(Modernizr.csstransforms3d){
+          pushy.addClass('pushy-left');
+          pushy.removeClass('pushy-open');
+          container.removeClass(containerClass);
+          push.removeClass(pushClass); //css class to add pushy capability
+          state = true;
+        }else{
+          closePushyFallback();
+          state = true;
+        }
+      }
+      screenResized = false;
+    }
+  }), 250);
+
 });

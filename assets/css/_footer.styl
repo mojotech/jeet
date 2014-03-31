@@ -49,7 +49,15 @@
   margin 0 -9px 0 -11px
   background-image url('../img/heart.svg')
   background-size 17px 15px
-.touch .desktop-footer, .mobile-footer
+.touch .desktop-footer
   display none
+.desktop-footer
+  display block
+  +below(med-snap)
+    display none
 .touch .mobile-footer
   display block
+.mobile-footer
+  display none
+  +below(med-snap)
+    display block

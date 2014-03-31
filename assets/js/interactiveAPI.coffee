@@ -1,4 +1,4 @@
-if $("html").hasClass("no-touch") and $(window).width >= 768
+if $("html").hasClass("no-touch") and $(window).width() >= 1024
   mainSection = $("#demo-container")
   showAllDivs = ->
     mainSection.find('*').removeClass "faded focused-example focused-parent edit-view"
