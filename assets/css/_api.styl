@@ -1,8 +1,8 @@
 .api
   padding small-padding-block
   padding-top xl-padding-block - 7
-  +below(small-snap)
-    padding (med-padding-block - 7) 4% small-padding-block 4%
+  +below(med-snap)
+    padding (xl-padding-block - 7) 4% (xl-padding-block - 14) 4%
   h1, h2, h3, p
     color white
   h3
@@ -19,6 +19,8 @@
 .view-example
   margin-top small-padding-block - 5
   display inline-block
+  +below(med-snap)
+    display none
   &:hover
     color #444
 .touch .view-example
@@ -33,6 +35,11 @@
   -webkit-overflow-scrolling touch
 .pushy-left
   transform translate3d(-100%,0,0)
+  +below(med-snap)
+    transition none
+    transform none
+    width 100%
+    position static
 .touch .pushy-left
   transition none
   transform none
