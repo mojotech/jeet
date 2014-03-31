@@ -1,3 +1,7 @@
+### 5.2.5
+- Bugfix
+  - You can't extend placeholders within media queries in any pre-processor so when people were trying to use `col()`, `span()`, or `center()` (all of which made use of a clearfix placeholder) they weren't actually getting clearfixed. This fixes that bug by turning the placeholder into a mixin. This is a slightly breaking change but not big enough to warrant a major release.
+
 ### 5.1.5
 - Bugfix
   - Stylus block level mixins break when `display: block` occurs within one. By using `unquote` we're able to apply a temporary bugfix until Stylus and other libraries are repaired.
