@@ -1,28 +1,14 @@
 (function() {
-  require.config({
-    paths: {
-      jquery: 'vendor/jquery',
-      modernizr: 'vendor/custom-modernizr',
-      pushy: 'vendor/pushy',
-      scrollIt: 'vendor/scrollIt',
-      matchHeight: 'vendor/matchHeight',
-      fancybox: 'vendor/fancybox',
-      stickyNav: 'stickyNav',
-      interAPI: 'interactiveAPI',
-      animateScroll: 'animateScroll'
-    }
-  });
+  var client, didResize, equalColumns, equalHeightColumns;
 
-  require(['jquery', 'modernizr', 'pushy', 'scrollIt', 'matchHeight', 'fancybox', 'stickyNav', 'interAPI', 'animateScroll'], function($) {
-    var didResize;
-    $.scrollIt();
+  if ($("html").hasClass("no-touch") && $(window).width() >= 1024) {
     $('.grid-toggle').click(function() {
-      $(".landing-page").toggleClass("grid-visible");
-      return $('.toggle-api').click(function() {
-        return fixFluidResize();
-      });
+      return $(".landing-page").toggleClass("grid-visible");
     });
-    $(".half, .third, .fourth, .third:before").matchHeight();
+    equalHeightColumns = function() {
+      return $(".half, .third, .fourth, .third:before").matchHeight();
+    };
+    equalHeightColumns();
     didResize = null;
     $(window).resize(function() {
       didResize = true;
@@ -30,16 +16,45 @@
     setInterval((function() {
       if (didResize) {
         didResize = false;
-        $(".container div").matchHeight();
+        equalHeightColumns();
       }
     }), 250);
-    return $(".fancybox").fancybox({
-      helpers: {
-        media: true
-      },
-      aspectRatio: true,
-      scrolling: "no"
+    equalColumns = function() {
+      return setTimeout(equalHeightColumns, 100);
+    };
+    $('.toggle-api').click(function() {
+      return equalColumns();
     });
+  }
+
+  ZeroClipboard.config({
+    debug: false
   });
+
+  client = new ZeroClipboard($(".copy-btn"), {
+    moviePath: "js/ZeroClipboard.swf"
+  });
+
+  $(".fancybox").fancybox({
+    helpers: {
+      media: true
+    },
+    aspectRatio: true,
+    scrolling: "no"
+  });
+
+  $("#menu").slicknav({
+    label: ""
+  });
+
+  $(".scrollTo-mobile").click(function() {
+    return $("#menu").slicknav("close");
+  });
+
+  FastClick.attach(document.body);
+
+  $.scrollIt();
+
+  browserBlast();
 
 }).call(this);
