@@ -2229,7 +2229,6 @@ strong {
 }
 @media only screen and (max-width: 890px) {
   .comparative {
-    white-space: normal;
     padding-right: 30%;
   }
 }
