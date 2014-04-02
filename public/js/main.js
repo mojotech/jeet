@@ -57,4 +57,9 @@
 
   browserBlast();
 
+  $.get("https://api.github.com/repos/mojotech/jeet/commits").done(function(commits) {
+    $(".latest-commit-link").attr("href", commits[0].html_url);
+    $(".latest-commit-link").html(commits[0].commit.message);
+  });
+
 }).call(this);
