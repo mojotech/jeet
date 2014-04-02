@@ -1,3 +1,7 @@
+### 5.2.6
+- Enhancements
+  - Add Stylus as dependency of Jeet so it auto-installs
+
 ### 5.2.5
 - Bugfix
   - You can't extend placeholders within media queries in any pre-processor so when people were trying to use `col()`, `span()`, or `center()` (all of which made use of a clearfix placeholder) they weren't actually getting clearfixed. This fixes that bug by turning the placeholder into a mixin. This is a slightly breaking change but not big enough to warrant a major release.
