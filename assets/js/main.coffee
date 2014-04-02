@@ -4,7 +4,7 @@ if $("html").hasClass("no-touch") and $(window).width() >= 1024
     $(".landing-page").toggleClass "grid-visible"
 
   equalHeightColumns = -> $(".half, .third, .fourth, .third:before").matchHeight()
-  
+
   equalHeightColumns()
 
   didResize = null
@@ -42,3 +42,8 @@ FastClick.attach(document.body)
 
 $.scrollIt()
 browserBlast()
+
+$.get("https://api.github.com/repos/mojotech/jeet/commits").done (commits) ->
+  $(".latest-commit-link").attr "href", commits[0].html_url
+  $(".latest-commit-link").html commits[0].commit.message
+  return
