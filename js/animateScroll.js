@@ -3,24 +3,24 @@ $(function() {
   var $win              = $(window),
       $win_height       = $(window).height(),
       noMoreFades       = false,
-      windowPercentage  = ($(window).height() * 0.9),
+      windowPercentage  = ($(window).height() * 1.1),
       isTouch           = (Modernizr.touch),
       lastInstance      = $('.desktop-footer .scrollReveal:last');
-  
+
   if (isTouch) {
     $('.scrollReveal').addClass('animated');
   }
 
   $win.on('scroll', scrollReveal);
 
-  function scrollReveal() { 
+  function scrollReveal() {
     var scrolled = $win.scrollTop();
 
     if (lastInstance.hasClass('animated')) {
       noMoreFades = true;
     }
 
-    $(".scrollReveal:not(.animated)").each(function () {   
+    $(".scrollReveal:not(.animated)").each(function () {
       var $this     = $(this),
           offsetTop = $this.offset().top;
 
@@ -53,7 +53,7 @@ $(function() {
           }, 400);
         } else {
           $(this).addClass('animated flipInX');
-        } 
+        }
       }
     });
   }
