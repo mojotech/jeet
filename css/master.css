@@ -1558,13 +1558,13 @@ strong {
   z-index: 1;
 }
 .slicknav_open .slicknav_icon-bar:first-child {
-  top: 0.45em;
+  top: 0.5em;
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 .slicknav_open .slicknav_icon-bar:last-child {
-  top: -0.45em;
+  top: -0.5em;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
