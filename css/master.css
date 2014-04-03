@@ -2491,6 +2491,11 @@ strong {
     padding: 0;
   }
 }
+.getting-started .tutorial {
+  background: url("../img/installation.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 @media only screen and (max-width: 635px) {
   .getting-started {
     margin-top: 24px;
@@ -2501,6 +2506,17 @@ strong {
     position: relative;
     left: 33.666666666666664%;
   }
+}
+.basic-use .tutorial {
+  background: url("../img/basic-use.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+.advanced-use .tutorial {
+  opacity: 0.5;
+}
+.advanced-use .tutorial:hover {
+  opacity: 0.5;
 }
 .focused-example.third.tight {
   padding: 24px 0 10px 0;
@@ -2523,13 +2539,11 @@ strong {
   position: relative;
   display: block;
   background-color: #48cfad;
-}
-.tutorial .screenshot {
-  opacity: 0.7;
+  opacity: 0.8;
   -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
 }
-.tutorial .screenshot:hover {
+.tutorial:hover {
   opacity: 1;
 }
 @media only screen and (max-width: 768px) {
