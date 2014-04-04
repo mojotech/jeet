@@ -1482,6 +1482,12 @@ strong {
 .side-nav.full-color .nav-icon {
   fill: #cecece;
 }
+.share .side-nav.full-color .nav-icon {
+  fill: #a5a5a5;
+}
+.share .side-nav.full-color .side-nav-link:hover {
+  background-color: rgba(243,243,243,0.9);
+}
 .mobile-nav {
   display: none;
 }
