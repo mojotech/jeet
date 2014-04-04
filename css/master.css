@@ -911,7 +911,6 @@ body {
     transform: translateY(0);
   }
 }
-@import url("http://fonts.googleapis.com/css?family=Montserrat:400,700");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
 @import url("http://fonts.googleapis.com/css?family=Anonymous+Pro");
 html {
@@ -946,7 +945,7 @@ span {
 }
 h1 {
   font-size: 2.375rem;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   font-weight: normal;
   letter-spacing: -0.04em;
 }
@@ -970,7 +969,7 @@ h2 {
 }
 h3 {
   font-size: 1rem;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   letter-spacing: -0.02em;
   font-weight: bold;
   text-transform: uppercase;
@@ -1024,7 +1023,7 @@ strong {
 }
 .btn {
   color: #fff;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   font-size: 0.875rem;
   text-decoration: none;
   text-transform: uppercase;
@@ -1456,7 +1455,7 @@ strong {
   position: relative;
   top: -5px;
   display: inline;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   display: inline-block;
   padding-left: 8px;
@@ -1607,7 +1606,7 @@ strong {
   position: relative;
   display: block;
   color: #fff;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   font-weight: bold;
   font-size: 2rem;
   text-indent: 30%;
@@ -1913,7 +1912,7 @@ strong {
 .show-grid-label {
   position: absolute;
   margin-top: 3px;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   font-size: 1.175em;
   text-transform: uppercase;
   z-index: 1;
