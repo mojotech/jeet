@@ -1453,9 +1453,10 @@ strong {
 }
 .nav-label {
   position: relative;
-  top: -5px;
+  top: -7px;
   display: inline;
   font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
+  font-size: 0.625rem;
   text-transform: uppercase;
   display: inline-block;
   padding-left: 8px;
