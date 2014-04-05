@@ -1,4 +1,4 @@
-<img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
+<img width="190px" src="https://mojotech.github.io/jeet/public/img/jeet-logo-color.svg" title="Jeet Grid System">
 
 [![Build Status](https://travis-ci.org/mojotech/jeet.png?branch=master)](https://travis-ci.org/mojotech/jeet)
 
@@ -14,7 +14,7 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 ---
 
 ##### Jeet is curated by loving hands at...
-<a href="http://mojotech.com"><img width="140px" src="https://mojotech.github.io/jeet/img/mojotech-logo.svg" title="MojoTech's Hiring"></a> <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
+<a href="http://mojotech.com"><img width="140px" src="https://mojotech.github.io/jeet/public/img/mojotech-logo.svg" title="MojoTech's Hiring"></a> <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
 
 ##### Thanks
 - **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
