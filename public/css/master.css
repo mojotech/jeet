@@ -1643,6 +1643,7 @@ strong {
 }
 .side-nav-link.toggle-api .nav-label {
   padding-top: 1px;
+  top: -5px;
 }
 .side-nav-link.toggle-api svg {
   width: 31px;
@@ -1678,8 +1679,8 @@ strong {
   top: -7px;
   display: inline;
   font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
-  font-size: 0.625rem;
-  text-transform: uppercase;
+  font-size: 0.825rem;
+  font-weight: bold;
   display: inline-block;
   padding-left: 8px;
   white-space: nowrap;
