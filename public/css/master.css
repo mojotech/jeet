@@ -1898,6 +1898,7 @@ strong {
 }
 .api p {
   padding: 10px 0;
+  line-height: 1.35em;
 }
 .static.api {
   display: none;
@@ -2363,6 +2364,9 @@ strong {
   .integration-img {
     background-image: url("../img/integration@2x.png");
   }
+}
+.edit-example {
+  line-height: 1.35em;
 }
 .comparison {
   padding: 73px 0 90px 0;
