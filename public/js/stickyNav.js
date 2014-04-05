@@ -1,5 +1,5 @@
 (function() {
-  var $doc, $win, alignNavs, allNavBtns, didResize, fixFluidResize, orangeSection, synchronizeHovers, targetNav;
+  var $doc, $win, alignNavs, allNavBtns, didResize, finishedAnimating, onToggle, orangeSection, showGrid, synchronizeHovers, targetNav;
 
   if ($("html").hasClass("no-touch")) {
     $doc = $(document);
@@ -25,8 +25,22 @@
       allNavBtns.removeClass('hover');
       return $("." + otherNavBtns).addClass('hover');
     };
-    fixFluidResize = function() {
-      return setInterval(alignNavs, 0.1);
+    onToggle = function() {
+      $('#demo-container').on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", finishedAnimating);
+    };
+    finishedAnimating = function() {
+      $('#demo-container').off("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd");
+      alignNavs();
+      return showGrid();
+    };
+    showGrid = function() {
+      if ($('body').hasClass("pushy-active")) {
+        $(".landing-page").addClass("grid-visible");
+        return;
+      } else {
+        $(".landing-page").removeClass("grid-visible");
+        return;
+      }
     };
     didResize = null;
     $win.resize(function() {
@@ -42,7 +56,7 @@
       return alignNavs();
     });
     $('.toggle-api').click(function() {
-      return fixFluidResize();
+      return onToggle();
     });
     $(".side-nav-link").hover(function() {
       return synchronizeHovers($(this));

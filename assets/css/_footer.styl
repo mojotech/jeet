@@ -1,0 +1,63 @@
+.footer
+  column(1)
+  position relative
+  padding (small-padding-block - 4) 0 (small-padding-block - 3) 0
+  color light-blue
+  text-align center
+  background charcoal
+  height small-padding-block + 2
+  +below(med-snap)
+    height auto
+  &.focused-parent
+    background rgba(charcoal, 0.8)
+  .focused-example
+    padding-top 35px
+    margin-top -13px
+    min-width 208px
+    &:before
+      content 'align(both)'
+  .contained
+    column(5/6, offset: 1/12)
+    +above(huge-snap)
+      width 100%
+      max-width 100%
+      margin-left auto
+.copyright
+  margin-top tiny-padding-block - 1
+  float right
+  font-size tiny-font
+  opacity 0.5
+  +above(huge-snap)
+    margin-right 2.145833333333333%
+  +below(med-snap)
+    float none
+.attribution
+  align(both)
+  +below(med-snap)
+    position static
+    width 100%
+    padding 0
+    transform translate(0,0)
+.mojotech
+  margin-top -4px
+  text-decoration none
+.heart
+  color transparent
+  background-repeat no-repeat
+  background-position center
+  padding 0 (small-padding-block - 3)
+  margin 0 -9px 0 -11px
+  background-image url('../img/heart.svg')
+  background-size 17px 15px
+.touch .desktop-footer
+  display none
+.desktop-footer
+  display block
+  +below(xl-snap)
+    display none
+.touch .mobile-footer
+  display block
+.mobile-footer
+  display none
+  +below(xl-snap)
+    display block

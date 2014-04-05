@@ -1,0 +1,71 @@
+.animated 
+  animation-duration 1s
+  animation-fill-mode both
+.animated.flip 
+  backface-visibility visible
+  animation-name flip
+@keyframes flipInX 
+  0% 
+    transform perspective(400px) rotateX(90deg)
+    opacity 0
+  40% 
+    transform perspective(400px) rotateX(-10deg)
+  70% 
+    transform perspective(400px) rotateX(10deg)
+  100% 
+    transform perspective(400px) rotateX(0deg)
+    opacity 1
+.flipInX 
+  backface-visibility visible !important
+  animation-name flipInX
+@keyframes bounceIn 
+  0% 
+    opacity 0
+    transform scale(.3)
+  50% 
+    opacity 1
+    transform scale(1.05)
+  70% 
+    transform scale(.9)
+  100% 
+    opacity 1
+    transform scale(1)
+.bounceIn 
+  animation-name bounceIn
+@keyframes bounceInLeft 
+  0% 
+    opacity 0
+    transform translateX(-2000px)
+  60% 
+    opacity 1
+    transform translateX(30px)
+  80% 
+    transform translateX(-10px)
+  100% 
+    opacity 1
+    transform translateX(0)
+.bounceInLeft 
+  animation-name bounceInLeft
+@keyframes bounceInRight 
+  0% 
+    opacity 0
+    transform translateX(2000px)
+  60% 
+    opacity 1
+    transform translateX(-30px)
+  80% 
+    transform translateX(10px)
+  100% 
+    opacity 1
+    transform translateX(0)
+.bounceInRight 
+  animation-name bounceInRight
+@keyframes fadeInUp 
+  0% 
+    opacity 0
+    transform translateY(20px)
+  100% 
+    opacity 1
+    transform translateY(0)
+.fadeInUp 
+  animation-name fadeInUp

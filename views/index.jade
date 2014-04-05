@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  //[if lt IE 10]>
+    <div class="updateBrowser">
+    <p>Your browser is unsupported. Please <a href="http://browsehappy.com/">upgrade</a> for the best experience.
+    </div>
+    <![endif]
+  include _api-interactive
+  #demo-container
+    include _nav-default
+    include _hero
+    include _github-band
+    include _features
+    include _comparison
+    include _installation
+    include _resources
+    .desktop-footer
+      include _share
+      include _footer
+  .static.api(data-scroll-index='8')
+    include _api-markdown
+  .mobile-footer
+    include _share
+    include _footer

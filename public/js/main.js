@@ -3,7 +3,14 @@
 
   if ($("html").hasClass("no-touch") && $(window).width() >= 1024) {
     $('.grid-toggle').click(function() {
-      return $(".landing-page").toggleClass("grid-visible");
+      $(".landing-page").toggleClass("grid-visible");
+      if (!$('body').hasClass("grid-visible")) {
+        $('.grid-toggle').removeAttr('data-scroll-goto');
+      } else {
+        $('.grid-toggle').attr({
+          'data-scroll-goto': 1
+        });
+      }
     });
     equalHeightColumns = function() {
       return $(".half, .third, .fourth, .third:before").matchHeight();
@@ -18,7 +25,7 @@
         didResize = false;
         equalHeightColumns();
       }
-    }), 250);
+    }), 50);
     equalColumns = function() {
       return setTimeout(equalHeightColumns, 100);
     };

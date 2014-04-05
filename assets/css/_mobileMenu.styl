@@ -1,0 +1,108 @@
+.mobile-nav
+  display none
+.touch .slicknav_menu
+  display block
+.slicknav_menu
+  display none
+  position fixed
+  top 0
+  width 100%
+  z-index 100
+  background dark-green url('../img/jeet-logo-white.svg') no-repeat small-padding-block (xs-padding-block - 3)
+  background-size 86px 36px
+  transition background-position .2s quick-slide-animation
+  +below(xl-snap)
+    display block
+  &:before, &:after
+    content " "
+    display table
+  &:after
+    clear both
+.pushy-active .slicknav_menu
+  background-position small-padding-block 35%
+.slicknav_btn
+  position relative
+  display block
+  vertical-align middle
+  float right
+  cursor pointer
+  text-decoration none
+  padding small-padding-block
+.slicknav_icon
+  float left
+  margin 0.188em 0 0 0.438em
+.slicknav_no-text
+  margin 0
+.slicknav_icon-bar
+  size(2em, 0.2em)
+  display block
+  background white
+  margin-top 0.3em
+  transform rotate(0)
+  transition transform 80ms ease-out
+  &:first-child
+    margin-top 0
+.slicknav_open .slicknav_icon-bar
+  background dark-green
+  &:first-child, &:last-child
+    background white
+    position relative
+    z-index 1
+  &:first-child
+    top 0.5em
+    transform rotate(-45deg)
+  &:last-child
+    top -0.5em
+    transform rotate(45deg)
+.slicknav_nav
+  clear both
+  margin 0
+  padding 0
+.slicknav_item
+  display block
+  cursor pointer
+.slicknav_nav
+  list-style none
+  overflow hidden
+.nav-mobile-link
+  display block
+  text-align left
+  border-top 1px solid green
+  cursor pointer
+  &:last-child
+    border-bottom 1px solid green
+  svg
+    pos(absolute, 33%, false, false, 0)
+    size(30%)
+    path
+      fill green
+      transition fill 100ms drawn-out-animation
+  a
+    position relative
+    display block
+    color white
+    font-family open-sans
+    font-weight bold
+    font-size 2rem
+    text-indent 30%
+    text-decoration none
+    background dark-green
+    padding (small-padding-block - 3) 5%
+    margin 0
+    &:hover
+      background green
+      svg path
+        fill dark-green
+  .logo-icon
+    position
+.mobile-scrollTo-top
+  display none
+  size(140px, 57px)
+  position fixed
+  top 0
+  z-index 100
+  cursor pointer
+  +below(xl-snap)
+    display block
+.touch .mobile-scrollTo-top
+  display block

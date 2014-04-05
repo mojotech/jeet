@@ -1,0 +1,43 @@
+.featured-articles
+  margin-top ((large-padding-block - xl-padding-block) - (large-padding-block / 2))
+  padding-bottom ((xl-padding-block - 5) - (large-padding-block / 2))
+  hideAt(small-snap)
+  .half
+    column(1/2 5/6, gutter: 4)
+    margin-top ((large-padding-block / 2) - xs-padding-block)
+    background-repeat no-repeat
+    background-position 0 (large-padding-block / 2)
+    padding ((xl-padding-block - 7) + (large-padding-block / 2)) 0 (large-padding-block / 2) 0
+    +below(small-snap)
+      unstack()
+  .inline-link
+    color dark-grey
+    border-bottom 1px dotted dark-grey
+    &:hover
+      color blue
+      border-bottom 1px dotted blue
+  .focused-example
+    padding-top (xl-padding-block - 7) + large-padding-block
+    background-position 0 large-padding-block
+    &:before
+      line-height small-padding-block + 5
+    &.smashing-magazine:before
+      content 'shift(1/2)'
+    &.unshift-view:before
+      content 'unshift()'
+.smashing-magazine
+  background url('../img/smashing-magazine-logo.svg') no-repeat
+  background-size 187px 49px
+  +below(large-snap)
+    shift(1/2)
+  +below(med-snap)
+    unshift()
+.css-tricks
+  background url('../img/css-tricks-logo.svg') no-repeat
+  background-size 200px 40px
+  +below(large-snap)
+    shift(-1/2)
+  +below(med-snap)
+    unshift()
+.article-summary
+  margin-top small-padding-block - 12

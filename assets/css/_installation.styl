@@ -1,0 +1,91 @@
+.installation
+  column(1)
+  z-index 10
+  background orange
+  padding (xl-padding-block - 17) 0
+  +below(small-snap)
+    padding (large-padding-block - 17) 0
+  &.focused-parent
+    background rgba(orange, 0.7)
+  .focused-example
+    padding-top large-padding-block
+    &:before
+      content 'stack()'
+    &.unstack-view:before
+      content 'unstack()'
+  .half
+    overflow hidden
+    height auto
+    margin-top large-padding-block - 9
+    +between(xl-snap, huge-snap)
+      stack()
+    +below(med-snap)
+      stack()
+    +below(small-snap)
+      margin-top med-padding-block - 9
+  .side-nav.full-color
+    display none
+  h1, h2, h3, p, li, code
+    color white
+  p
+    margin-top xs-padding-block + 3
+    +below(small-snap)
+      padding 0
+  h3, ol
+    width 100%
+    +below(med-snap)
+      margin auto
+  ol
+    margin-top med-padding-block - 37px
+  li
+    margin (small-padding-block + 5) 0 0 (small-padding-block + 2)
+    position relative
+    &:first-child
+      margin-bottom - 5px
+    &:not(:first-child)
+      margin-top 32px
+  code.to-copy
+    size(100%, (med-padding-block + 2))
+    box-sizing border-box
+    +below(small-snap)
+      line-height 22px
+  .copy-btn
+    background orange
+    min-height 18px
+    +below(small-snap)
+      line-height 20px
+      max-height 18px
+    &:hover, &.zeroclipboard-is-hover
+      background white
+      color orange
+.copy-code-above
+  margin-top xs-padding-block
+.usage
+  width 324 - small-padding-block
+  font-size tiny-font
+  font-weight bold
+  margin (large-padding-block + 6) 0 0 (small-padding-block + 2)
+  +below(huge-snap)
+    width 100%
+  +below(med-snap)
+    margin small-padding-block auto auto auto
+    text-indent small-padding-block / 2
+  +below(small-snap)
+    text-align center
+.grid-visible .installation
+  padding 0
+  h1, h2, h3, p, li, .inline-link, .copy-code-above code
+    color dark-grey
+  .inline-link
+    border-color dark-grey
+.pushy-active .installation
+  h3, ol
+    width 100%
+  code.to-copy
+    width 100%
+    margin-top tiny-padding-block * -1
+    top small-padding-block * -1
+  .copy-btn
+    margin-top (tiny-padding-block - 2) * -1
+  .usage
+    width 100%

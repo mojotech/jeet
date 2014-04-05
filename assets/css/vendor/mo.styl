@@ -1,0 +1,34 @@
+pos(args...)
+  positions = absolute, fixed, relative, static, inherit, initial
+  props = top, right, bottom, left
+
+  if args[0] in positions
+    position: args[0]
+    args = args[1..length(args)]
+
+  if args[0] is 'fill'
+    args = args[1..length(args)]
+    for prop, i in props
+      {prop}: args[i] or 0 unless args[i] is false
+  else
+    for arg, i in args
+      {props[i]}: arg unless arg is false
+
+ellipsis(width = false)
+  width:         width unless width is false
+  overflow:      hidden
+  white-space:   nowrap
+  text-overflow: ellipsis
+
+hideAt(screen-size)
+  +below(screen-size)
+      display none
+
+size(width, height = width)
+  width:  width
+  height: height
+
+retina-background-image(name, extension = png)
+  background-image url(name'.'extension)
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: #<Sass::Script::Operation:0x007f7703501258>), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)
+    background-image url(name'@2x.'extension)

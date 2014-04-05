@@ -1,0 +1,52 @@
+.share
+  column(1)
+  position relative
+  text-align center
+  background grey
+  padding (xl-padding-block - 17) 0
+  +below(xl-snap)
+    padding (med-padding-block - 11) 0 med-padding-block 0
+  h1
+    +below(small-snap)
+      font-size 1.8rem
+  .contained
+    column(5/6, offset: 1/12)
+    +above(huge-snap)
+      width 100%
+      max-width 100%
+      margin-left auto
+  .focused-example
+    padding-top med-padding-block
+    &:before
+      content 'center(420px)'
+      line-height 175px
+.centered
+  center(420px)
+.share-inline-circle
+  size(80px)
+  display inline-block
+  margin-top med-padding-block - 6
+  border-radius 50%
+  +below(small-snap)
+    size(50px)
+    margin-top small-padding-block - 6
+  img
+    size(30px)
+    border 0px
+    padding-top small-padding-block + 5
+    +below(small-snap)
+      size(small-padding-block)
+      padding-top small-padding-block - 5
+.google
+  background-color rgb(221, 75, 57)
+  &:hover
+    background-color rgb(225, 95, 79)
+.twitter
+  margin 0 20px
+  background-color rgb(0, 172, 238)
+  &:hover
+    background-color rgb(8, 187, 255)
+.facebook
+  background-color rgb(59, 89, 152)
+  &:hover
+    background-color rgb(66, 100, 170)
