@@ -2139,6 +2139,8 @@ strong {
 .hide-grid-label,
 .show-grid-label {
   position: absolute;
+  top: 0;
+  line-height: 70px;
   font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
   font-size: 1.375rem;
   text-transform: uppercase;
