@@ -2073,6 +2073,13 @@ strong {
   font-size: 1.5125000000000002rem;
   line-height: 2.4rem;
 }
+.nav-narrative .inline-link {
+  -webkit-transition: all 400 ease;
+  transition: all 400 ease;
+}
+.nav-narrative .inline-link:hover {
+  border-bottom-color: #a3e7d6;
+}
 @media only screen and (max-width: 635px) {
   .nav-narrative {
     margin-top: 7px;
