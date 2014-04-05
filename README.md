@@ -1,13 +1,11 @@
-# Jeet's Website
+# jeet.gs
 
-### Setup
+#### Setup
 - Install [NodeJS](http://nodejs.org)
 - `npm install`
 
-#### Development Watcher
+#### Watch
+- `roots watch`
 
-- `npm run-script watch`
-
-##### Compile Site
-
-- `npm run-script compile`
+##### Compile
+- `roots compile`

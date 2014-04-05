@@ -9,10 +9,6 @@
     "axis-css": "0.2.x",
     "rupture": "0.0.x",
     "jeet": "5.1.5",
-    "roots": "~3.0.0-rc.5"
-  },
-  "scripts": {
-    "watch": "./node_modules/roots/bin/roots watch",
-    "compile": "./node_modules/roots/bin/roots compile"
+    "roots": "^3.0.0-rc.5"
   }
 }
