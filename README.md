@@ -4,6 +4,9 @@
 - Install [NodeJS](http://nodejs.org)
 - `npm install`
 
+#### Developmen
+- `cd src`
+
 #### Watch
 - `roots watch`
 
