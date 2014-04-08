@@ -1168,7 +1168,7 @@ span {
 }
 h1 {
   font-size: 2.375rem;
-  font-family: 'Helvetica W01 Bold', "Helvetica Neue", Helvetica, Arial, sans-serif bold, "Helvetica Neue", Helvetica, Arial, sans-serif, arial, sans-serif;
+  font-family: 'Helvetica W02 Roman', "Helvetica Neue", Helvetica, Arial, sans-serif, arial, sans-serif;
   font-weight: normal;
   letter-spacing: -0.04em;
 }
@@ -1176,6 +1176,9 @@ h1 {
   h1 {
     font-size: 2rem;
   }
+}
+h1.headline {
+  font-family: 'Helvetica W01 Bold', "Helvetica Neue", Helvetica, Arial, sans-serif bold, "Helvetica Neue", Helvetica, Arial, sans-serif, arial, sans-serif;
 }
 h2 {
   font-size: 1.375rem;
