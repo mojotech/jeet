@@ -1,14 +1,7 @@
 # jeet.gs
 
-#### Setup
+#### Development
 - Install [NodeJS](http://nodejs.org)
-- `npm install`
-
-#### Developmen
 - `cd src`
-
-#### Watch
-- `roots watch`
-
-##### Compile
-- `roots compile`
+- `npm install`
+- `roots watch` or `roots compile`
