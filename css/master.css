@@ -2066,6 +2066,7 @@ strong {
 }
 .headline {
   font-size: 3.25rem;
+  font-weight: bold;
 }
 @media only screen and (max-width: 635px) {
   .headline {
