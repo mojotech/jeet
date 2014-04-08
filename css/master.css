@@ -2066,7 +2066,8 @@ strong {
 }
 .headline {
   font-size: 3.25rem;
-  font-weight: bold;
+  font-family: 'Helvetica W01 Bold', "Helvetica Neue", Helvetica, Arial, sans-serif bold, "Helvetica Neue", Helvetica, Arial, sans-serif, arial, sans-serif;
+  font-weight: normal;
 }
 @media only screen and (max-width: 635px) {
   .headline {
@@ -2312,14 +2313,6 @@ strong {
     padding-bottom: 0;
   }
 }
-.features h1 {
-  font-family: 'Helvetica W02 Roman', "Helvetica Neue", Helvetica, Arial, sans-serif, arial, sans-serif;
-}
-@media only screen and (max-width: 635px) {
-  .features h2 {
-    display: none;
-  }
-}
 .features h3 {
   margin: 51px 0 9px 0;
 }
@@ -2339,6 +2332,25 @@ strong {
 }
 .features .focused-example.edit-example:before {
   content: 'edit()';
+}
+.features-headline {
+  width: 100%;
+  height: 184px;
+  margin-top: 39px;
+  margin-bottom: 60px;
+}
+@media only screen and (max-width: 768px) {
+  .features-headline {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .features-headline {
+    width: 90%;
+    margin-top: -20px;
+    margin-bottom: -34px;
+  }
 }
 .features-img {
   width: 140px;
@@ -2414,10 +2426,9 @@ strong {
 .cell.darker {
   background-color: #f3f3f3;
 }
-@media only screen and (max-width: 890px) {
-  .cell.darker {
-    height: 81px;
-  }
+.no-touch .pushy-active .cell {
+  white-space: normal;
+  min-height: 81px;
 }
 .check {
   background-image: url("../img/check.svg");
