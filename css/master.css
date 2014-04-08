@@ -2127,7 +2127,7 @@ strong {
 }
 .grid-toggle .track {
   width: 448px;
-  height: 72px;
+  height: 83px;
   position: relative;
   color: #fff;
   background: #21b291;
@@ -2136,7 +2136,7 @@ strong {
 }
 .grid-toggle .handle {
   width: 220px;
-  height: 60px;
+  height: 71px;
   position: absolute;
   top: 5px;
   left: 6px;
@@ -2149,20 +2149,20 @@ strong {
 .show-grid-label {
   position: absolute;
   top: 0;
-  line-height: 70px;
+  line-height: 80px;
   font-family: 'Open Sans', Helvetica, Helvetica, Arial, sans-serif;
-  font-size: 1.375rem;
+  font-size: 1.17rem;
   text-transform: uppercase;
   z-index: 1;
   -webkit-transition: color 0.25s, padding 0.25s;
   transition: color 0.25s, padding 0.25s;
 }
 .hide-grid-label {
-  left: 61px;
+  left: 15.27%;
   color: #21b291;
 }
 .show-grid-label {
-  right: 58px;
+  right: 13.7%;
   padding-right: 10px;
 }
 .grid-visible .handle {
