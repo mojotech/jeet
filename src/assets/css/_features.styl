@@ -15,10 +15,6 @@
     +below(small-snap)
       margin-top small-padding-block - 6
       padding-bottom 0
-  h1
-    font-family helvetica-reg
-  h2
-    hideAt(small-snap)
   h3
     margin (large-padding-block - 3) 0 (small-padding-block - 11) 0
     +below(small-snap)
@@ -31,6 +27,18 @@
       content 'column(1/3)'
     &.edit-example:before
       content 'edit()'
+.features-headline
+  width 100%
+  height 184px
+  margin-top 39px
+  margin-bottom 60px
+  +below(med-snap)
+    margin-top 0
+    margin-bottom 0
+  +below(small-snap)
+    width 90%
+    margin-top small-padding-block * -1
+    margin-bottom med-padding-block * -1
 .features-img
   width 140px
   max-width 100%
