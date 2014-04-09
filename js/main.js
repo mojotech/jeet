@@ -8,7 +8,7 @@
         $('.grid-toggle').removeAttr('data-scroll-goto');
       } else {
         $('.grid-toggle').attr({
-          'data-scroll-goto': 1
+          'data-scroll-goto': 9
         });
       }
     });
