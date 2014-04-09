@@ -5,7 +5,7 @@ if $("html").hasClass("no-touch") and $(window).width() >= 1024
     if !$('body').hasClass "grid-visible"
       $('.grid-toggle').removeAttr 'data-scroll-goto'
     else 
-      $('.grid-toggle').attr {'data-scroll-goto' : 1}
+      $('.grid-toggle').attr {'data-scroll-goto' : 9}
     return
 
   equalHeightColumns = -> $(".half, .third, .fourth, .third:before").matchHeight()

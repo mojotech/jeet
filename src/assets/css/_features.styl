@@ -1,16 +1,23 @@
-.features
-  padding-top xl-padding-block - 17
+.features-headline
+  padding 112px 0 (80 - med-padding-block) 0
   +below(small-snap)
-    padding (large-padding-block - 17) 0
+    padding (large-padding-block - 3) 0
+  svg
+    width 100%
+    height 184px
+    +below(small-snap)
+      width 90%
+    path
+      transition fill 1s ease-out
+.grid-visible svg path
+  fill white
+.features
   &.focused-parent.edit-view .edit-example
     edit()
-    margin-top med-padding-block
     padding-top small-padding-block + 4
     transition background .2s drawn-out-animation
-    .third
-      margin-top 0
   .third
-    margin-top ((large-padding-block - 6) - (large-padding-block / 2))
+    margin-top 0
     padding (large-padding-block / 2) 0
     +below(small-snap)
       margin-top small-padding-block - 6
@@ -23,22 +30,11 @@
     font-weight bold
   .focused-example
     padding-top large-padding-block
+    margin-top large-padding-block + small-padding-block - 6
     &:before
       content 'column(1/3)'
     &.edit-example:before
       content 'edit()'
-.features-headline
-  width 100%
-  height 184px
-  margin-top 39px
-  margin-bottom 60px
-  +below(med-snap)
-    margin-top 0
-    margin-bottom 0
-  +below(small-snap)
-    width 90%
-    margin-top small-padding-block * -1
-    margin-bottom med-padding-block * -1
 .features-img
   width 140px
   max-width 100%
