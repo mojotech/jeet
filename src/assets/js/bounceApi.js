@@ -1,6 +1,6 @@
 $(function() {
   var $doc           = $(document),
-      featuresOffset = $('.features').offset(),
+      featuresOffset = $('.features-headline').offset(),
       bounceIcon     = 'bounceInLeftRepeat',
       apiIcon        = $('.side-nav-link.toggle-api');
   
