@@ -2,8 +2,8 @@
 @function -get_span($ratio: 1) {
   @return $ratio * 100;
 }
-@function -get_column($ratios: 1, $g: jeet(gutter)) {
-  @if (jeet(parent-first) != 'true') {
+@function -get_column($ratios: 1, $g: $jeet-gutter) {
+  @if ($jeet-parent-first != 'true') {
     $ratios: -reverse($ratios);
   }
   $w: 100;
@@ -15,7 +15,7 @@
 }
 @function -get_layout_direction() {
   $result: '';
-  @if jeet(layout-direction) == RTL {
+  @if $jeet-layout-direction == RTL {
     $result: right;
   } @else {
     $result: left;
