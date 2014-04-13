@@ -3,9 +3,9 @@
 #### Installation
 - Install Ruby [[Windows](http://rubyinstaller.org/), [Mac/Linux](https://github.com/sstephenson/rbenv)]
 - `gem install sass`
-- `cd ~/Project/css`
+- `cd ~/Project`
 - `svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet`
-- Put `@import 'jeet/index.scss';` at the top of `~/Project/css/foo.scss`
+- Put `@import 'jeet/index';` at the top of `~/Project/foo.scss`
 
 #### Usage
 ```
