@@ -1,3 +1,7 @@
+### 5.2.7
+- Enhancements
+  - Revert SCSS global variables to normal SCSS variables since maps have really poor support unless you're on a recent version of SCSS (which most people aren't).
+
 ### 5.2.6
 - Enhancements
   - Add Stylus as dependency of Jeet so it auto-installs
