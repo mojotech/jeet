@@ -11,6 +11,8 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 - [Stylus](stylus)
 - [SCSS](scss)
 
+Want to sandbox it right this very second? Fork some examples on [CodePen](http://codepen.io/collection/eilAH/).
+
 ---
 
 ##### Jeet is curated by loving hands at...
