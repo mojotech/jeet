@@ -42,6 +42,11 @@ article {
 }
 ```
 
+#### Rails Installation
+- `cd ~/RailsApp`
+- `svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet vendor/assets/stylesheets/jeet`
+- Add `@import 'jeet/index';` to your `application.css.scss`
+
 #### API
 - **`column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter)`** - `column` (also aliased as `col`) is perhaps the strongest feature of any grid system on the market. You specify an initial ratio, either as fractions or decimals, then pass the parent container's context ratio to maintain consistent gutters as you nest. Offsetting is made trivial as well. Just specify a ratio to make your offset have a margin-left. Make it negative to give it a margin-right instead. E.g. `column(1/4, $offset: 1/4)` would create a column the quarter of the size of it's container and push it to the right a quarter. `cycle` and `uncycle` are pretty awesome in their own right as well. Want to make a gallery but don't want to specify a row every 4 pictures? `column(1/4, $cycle: 4)` - done. Want to change it up when you get down to mobile? Maybe just show 2 images per row? `uncycle` your 4-item cycle then... `column(1/2, $uncycle: 4, $cycle: 2)` - done. Need to adjust column gutters for a specific container? `col(1/4, $gutter: .5)`
 - **`span($ratio: 1, $offset: 0)`** - Need a grid without the gutters? For instance, for a horizontal navigation where you want buttons touching. Do so like: `span(1/5)`. No need to pass more than one ratio since we don't need to worry about the math involved with gutters and all that.
