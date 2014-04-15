@@ -2251,7 +2251,8 @@ strong {
   margin-right: 0%;
 }
 .last-updated {
-  margin: 14px 0 -10px 0;
+  margin-top: 14px;
+  margin-bottom: -10px;
   white-space: nowrap;
 }
 @media only screen and (max-width: 635px) {

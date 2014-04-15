@@ -1,10 +1,10 @@
 if $("html").hasClass("no-touch") and $(window).width() >= 1024
 
-  $('.grid-toggle').click ->    
+  $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"
     if !$('body').hasClass "grid-visible"
       $('.grid-toggle').removeAttr 'data-scroll-goto'
-    else 
+    else
       $('.grid-toggle').attr {'data-scroll-goto' : 9}
     return
 
@@ -49,9 +49,11 @@ $.scrollIt()
 browserBlast()
 
 $.get("http://github.cache.mojotech.com/repos/mojotech/jeet/commits").done (commits) ->
+  commitMsg = commits[0].commit.message
+  truncatedMsg = commitMsg.replace(/\n.*/gmi, '')
+  console.log truncatedMsg
+  $(".latest-commit-link").html truncatedMsg
   $(".latest-commit-link").attr "href", commits[0].html_url
-  $(".latest-commit-link").html commits[0].commit.message
-  return
 
 ((i, s, o, g, r, a, m) ->
   i["GoogleAnalyticsObject"] = r
