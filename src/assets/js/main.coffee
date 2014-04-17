@@ -1,4 +1,4 @@
-if $("html").hasClass("no-touch") and $(window).width() >= 1024
+if $("html").hasClass("no-touch") and $(window).width() >= 635
 
   $('.grid-toggle').click ->
     $(".landing-page").toggleClass "grid-visible"
@@ -8,24 +8,26 @@ if $("html").hasClass("no-touch") and $(window).width() >= 1024
       $('.grid-toggle').attr {'data-scroll-goto' : 9}
     return
 
-  equalHeightColumns = -> $(".half, .third, .fourth, .third:before").matchHeight()
+equalHeightColumns = -> $(".half, .third, .fourth, .third:before").matchHeight()
 
-  equalHeightColumns()
+equalHeightColumns()
 
-  didResize = null
-  $(window).resize ->
-    didResize = true
-    return
+didResize = null
+$(window).resize ->
+  didResize = true
+  return
 
-  setInterval (->
-    if didResize
-      didResize = false
-      equalHeightColumns()
-    return
-  ), 50
+setInterval (->
+  if didResize
+    didResize = false
+    equalHeightColumns()
+    if $(window).width() < 768
+      $('.landing-page').removeClass 'grid-visible'
+  return
+), 50
 
-  equalColumns = -> setTimeout(equalHeightColumns, 100)
-  $('.toggle-api').click -> equalColumns()
+equalColumns = -> setTimeout(equalHeightColumns, 100)
+$('.toggle-api').click -> equalColumns()
 
 ZeroClipboard.config debug: false
 client = new ZeroClipboard($(".copy-btn"),

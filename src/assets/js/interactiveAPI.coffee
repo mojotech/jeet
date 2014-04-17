@@ -16,7 +16,7 @@ if $("html").hasClass("no-touch") and $(window).width() >= 1024
         exampleParent.addClass "edit-view"
 
       mainChildren.addClass "faded"
-      exampleParent.addClass "focused-parent"    
+      exampleParent.addClass "focused-parent"
       demoDiv.addClass "focused-example"
       return
 

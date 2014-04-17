@@ -1,7 +1,7 @@
 (function() {
   var client, didResize, equalColumns, equalHeightColumns;
 
-  if ($("html").hasClass("no-touch") && $(window).width() >= 1024) {
+  if ($("html").hasClass("no-touch") && $(window).width() >= 635) {
     $('.grid-toggle').click(function() {
       $(".landing-page").toggleClass("grid-visible");
       if (!$('body').hasClass("grid-visible")) {
@@ -12,27 +12,37 @@
         });
       }
     });
-    equalHeightColumns = function() {
-      return $(".half, .third, .fourth, .third:before").matchHeight();
-    };
-    equalHeightColumns();
-    didResize = null;
-    $(window).resize(function() {
-      didResize = true;
-    });
-    setInterval((function() {
-      if (didResize) {
-        didResize = false;
-        equalHeightColumns();
-      }
-    }), 50);
-    equalColumns = function() {
-      return setTimeout(equalHeightColumns, 100);
-    };
-    $('.toggle-api').click(function() {
-      return equalColumns();
-    });
   }
+
+  equalHeightColumns = function() {
+    return $(".half, .third, .fourth, .third:before").matchHeight();
+  };
+
+  equalHeightColumns();
+
+  didResize = null;
+
+  $(window).resize(function() {
+    didResize = true;
+  });
+
+  setInterval((function() {
+    if (didResize) {
+      didResize = false;
+      equalHeightColumns();
+      if ($(window).width() < 768) {
+        $('.landing-page').removeClass('grid-visible');
+      }
+    }
+  }), 50);
+
+  equalColumns = function() {
+    return setTimeout(equalHeightColumns, 100);
+  };
+
+  $('.toggle-api').click(function() {
+    return equalColumns();
+  });
 
   ZeroClipboard.config({
     debug: false
