@@ -31,11 +31,19 @@
       margin-#{opposite-direction($side)}: $margin_r * 1%;
       float: $side;
     }
+
+    &:nth-child(#{$uncycle}n + 1) {
+      clear: none
+    }
   }
   @if $cycle != 0 {
     &:nth-child(#{$cycle}n) {
       margin-#{opposite-direction($side)}: $margin_last * 1%;
       float: opposite-direction($side);
+    }
+
+    &:nth-child(#{$uncycle}n + 1) {
+      clear: $side
     }
   } @else {
     &:last-child {
