@@ -33,7 +33,7 @@
     }
 
     &:nth-child(#{$uncycle}n + 1) {
-      clear: none
+      clear: none;
     }
   }
   @if $cycle != 0 {
@@ -43,7 +43,7 @@
     }
 
     &:nth-child(#{$cycle}n + 1) {
-      clear: $side
+      clear: both;
     }
   } @else {
     &:last-child {
