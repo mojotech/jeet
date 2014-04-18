@@ -42,7 +42,7 @@
       float: opposite-direction($side);
     }
 
-    &:nth-child(#{$uncycle}n + 1) {
+    &:nth-child(#{$cycle}n + 1) {
       clear: $side
     }
   } @else {
