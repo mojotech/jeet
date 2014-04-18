@@ -1,0 +1,24 @@
+@import 'jeet'
+
+edit()
+
+section
+  center(900px)
+
+div
+  margin-bottom: 30px
+  col(1/3, cycle: 3)
+
+section:nth-child(2)
+  div
+    col(1/2, uncycle: 3, cycle: 2)
+
+section:nth-child(3)
+  background: red
+  div
+    span(1/3, cycle: 3)
+
+section:nth-child(4)
+  background: blue
+  div
+    span(1/2, uncycle: 3, cycle: 2)
