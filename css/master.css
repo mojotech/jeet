@@ -1546,17 +1546,12 @@ strong {
   right: 0;
 }
 #awwwards.right.black a {
-  background-image: url("../img/awwwards_nominee_black_right.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: #<Sass::Script::Operation:0x007f7703501258>), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx) {
-  #awwwards.right.black a {
-    background-image: url("../img/awwwards_nominee_black_right@2x.png");
-  }
+  background: url("../img/nominee-grey-cssda-right.svg");
 }
 #awwwards a {
   display: block;
-  width: 70px;
-  height: 105px;
+  width: 67px;
+  height: 120px;
   text-indent: -8000px;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -1565,12 +1560,6 @@ strong {
 @media only screen and (max-width: 767px) {
   #awwwards {
     display: none;
-  }
-}
-@media only screen and (-Webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5) {
-  #awwwards a {
-    -webkit-background-size: 70px 105px;
-    background-size: 70px 105px;
   }
 }
 .touch .side-nav {
