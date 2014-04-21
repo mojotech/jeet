@@ -11,6 +11,10 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 Want to sandbox it right this very second? Fork some examples on [CodePen](http://codepen.io/collection/eilAH/).
 
+#### Browser Support
+- IE9+ and all major browsers without polyfills like Selectivizr
+- With a nice boilerplate like [Boy](http://github.com/corysimmons/boy), seamless and responsive in IE7+
+
 ---
 
 ##### Jeet is curated by loving hands at...
