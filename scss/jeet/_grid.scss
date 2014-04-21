@@ -33,7 +33,7 @@
     }
 
     &:nth-child(#{$uncycle}n + 1) {
-      clear: none
+      clear: none;
     }
   }
   @if $cycle != 0 {
@@ -43,7 +43,7 @@
     }
 
     &:nth-child(#{$cycle}n + 1) {
-      clear: $side
+      clear: both;
     }
   } @else {
     &:last-child {
@@ -179,14 +179,14 @@
   position: absolute;
   @if ($direction == horizontal) or ($direction == h) {
     left: 50%;
-    transform: translateX(-50%);
+    @include jeet-prefixer(transform, translateX(-50%));
   } @else if ($direction == vertical) or ($direction == v) {
     top: 50%;
-    transform: translateY(-50%);
+    @include jeet-prefixer(transform, translateY(-50%));
   } @else {
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    @include jeet-prefixer(transform, translate(-50%, -50%));
   }
 }
 
@@ -201,3 +201,13 @@
     clear: both;
   }
 }
+
+// Define a rule with all vendor-specific prefixes
+@mixin jeet-prefixer($name, $arguments) {
+  -webkit-#{$name}: #{$arguments};
+  -ms-#{$name}: #{$arguments};
+  -moz-#{$name}: #{$arguments};
+  -o-#{$name}: #{$arguments};
+  #{$name}: #{$arguments};
+}
+
