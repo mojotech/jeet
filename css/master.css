@@ -1138,6 +1138,7 @@ body {
 @import url("http://fonts.googleapis.com/css?family=Anonymous+Pro");
 html {
   font-size: 16px;
+  overflow-x: hidden;
 }
 @media only screen and (max-width: 768px) {
   html {
@@ -1531,36 +1532,6 @@ strong {
 }
 .touch .scrollReveal {
   opacity: 1;
-}
-#awwwards {
-  position: absolute;
-  top: 22px;
-  z-index: 9999;
-}
-@media only screen and (max-width: 1024px) {
-  #awwwards {
-    top: 74px;
-  }
-}
-#awwwards.right {
-  right: 0;
-}
-#awwwards.right.black a {
-  background: url("../img/nominee-grey-cssda-right.svg");
-}
-#awwwards a {
-  display: block;
-  width: 67px;
-  height: 120px;
-  text-indent: -8000px;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  overflow: hidden;
-}
-@media only screen and (max-width: 767px) {
-  #awwwards {
-    display: none;
-  }
 }
 .touch .side-nav {
   display: none;
@@ -3128,4 +3099,31 @@ strong {
   color: #a1d36e;
   font-weight: bold;
   text-decoration: underline;
+}
+.github-ribbon {
+  position: absolute;
+  top: -35px;
+  right: -100px;
+  padding: 1px 0;
+  -webkit-transform-origin: top left;
+  -ms-transform-origin: top left;
+  transform-origin: top left;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-color: #424242;
+  z-index: 100;
+}
+.github-ribbon__link {
+  display: inline-block;
+  width: 250px;
+  color: #fff;
+  font-size: 0.8em;
+  letter-spacing: 0.06em;
+  text-shadow: 0 -1px #777;
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;
+  border-top: 1px dotted #7b7b7b;
+  border-bottom: 1px dotted #686868;
 }
