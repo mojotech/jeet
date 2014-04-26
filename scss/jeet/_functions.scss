@@ -1,7 +1,12 @@
-// List functions courtesy of the wonderful folks at Team Sass - check out their awesome grid: Singularity
+// List functions courtesy of the wonderful folks at Team Sass
+// Check out their awesome grid: Singularity
+
+// Getter - span
 @function -get_span($ratio: 1) {
   @return $ratio * 100;
 }
+
+// Getter - column
 @function -get_column($ratios: 1, $g: $jeet-gutter) {
   @if ($jeet-parent-first != 'true') {
     $ratios: -reverse($ratios);
@@ -13,9 +18,13 @@
   }
   @return $w $g;
 }
+
+// Getter - layout direction
 @function -get_layout_direction() {
   @return if($jeet-layout-direction == 'RTL', right, left);
 }
+
+// Helper - replace-nth
 @function -replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
     @warn "Invalid index (#{$index}) for `replace-nth`.";
@@ -24,6 +33,8 @@
   $list: set-nth($list, $index, $value);
   @return if(not is-true($value), purge($list), $list);
 }
+
+// Helper - reverse
 @function -reverse($list, $recursive: false) {
   $result: ();
   @for $i from length($list)*-1 through -1 {
@@ -35,6 +46,8 @@
   }
   @return $result;
 }
+
+// Helper - opposite-direction
 @function opposite-direction($dir) {
   @if $dir == 'left' {
     @return right;

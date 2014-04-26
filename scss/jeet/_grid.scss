@@ -51,6 +51,8 @@
     }
   }
 }
+
+// Alias for `column()`
 @mixin col($args...) {
   @include column($args...);
 }
@@ -97,6 +99,8 @@
   position: relative;
   left: $translate * 1%;
 }
+
+// Unshifting
 @mixin unshift() {
   position: static;
   left: 0;
@@ -159,6 +163,8 @@
     }
   }
 }
+
+// Unstacking
 @mixin unstack() {
   $side: -get_layout_direction();
   display: inline;
