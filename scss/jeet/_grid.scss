@@ -88,7 +88,7 @@
   $translate: '';
   $side: _get-layout-direction();
   @if $side == right {
-    $ratios: _replace-nth($ratios, 0, nth($ratios, 1) * -1);
+    $ratios: set-nth($ratios, 0, nth($ratios, 1) * -1);
   }
   @if $col-or-span == column or $col-or-span == col or $col-or-span == c {
     $column-widths: _get-column($ratios, $gutter);
