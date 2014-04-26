@@ -110,6 +110,11 @@
   }
 }
 
+// Alias for `edit()`
+@mixin debug() {
+  @include edit;
+}
+
 // Horizontal Centering Block Elements
 @mixin center($max_width: 1410px, $pad: 0) {
   @include cf();
