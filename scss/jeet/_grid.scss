@@ -6,9 +6,9 @@
   $uncycle: 0, 
   $gutter: $jeet-gutter
 ) {
-  $side: _get-layout-direction();
-  $opposite-side: opposite-direction($side);
-  $column-widths: _get-column($ratios, $gutter);
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+  $column-widths: jeet-get-column($ratios, $gutter);
   $margin-last: 0;
   $margin-l: $margin-last;
   $margin-r: nth($column-widths, 2);
@@ -16,12 +16,12 @@
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
-      $offset: nth(_get-column($offset, nth($column-widths, 2)), 1);
+      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
       $margin-last: $offset + nth($column-widths, 2) * 2;
       $margin-r: $margin-last;
     } 
     @else {
-      $offset: nth(_get-column($offset, nth($column-widths, 2)), 1);
+      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
       $margin-l: $offset + nth($column-widths, 2);
     }
   }
@@ -75,19 +75,19 @@
   $ratio: 1, 
   $offset: 0
 ) {
-  $side: _get-layout-direction();
-  $opposite-side: opposite-direction($side);
-  $span-width: _get-span($ratio);
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+  $span-width: jeet-get-span($ratio);
   $margin-r: 0;
   $margin-l: $margin-r;
   
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
-      $margin-r: _get-span($offset);
+      $margin-r: jeet-get-span($offset);
     } 
     @else {
-      $margin-l: _get-span($offset);
+      $margin-l: jeet-get-span($offset);
     }
   }
 
@@ -110,18 +110,18 @@
   $gutter: $jeet-gutter
 ) {
   $translate: '';
-  $side: _get-layout-direction();
+  $side: jeet-get-layout-direction();
   
   @if $side == right {
     $ratios: set-nth($ratios, 0, nth($ratios, 1) * -1);
   }
 
   @if index("column" "col" "c", $col-or-span) {
-    $column-widths: _get-column($ratios, $gutter);
+    $column-widths: jeet-get-column($ratios, $gutter);
     $translate: nth($column-widths, 1) + nth($column-widths, 2);
   } 
   @else {
-    $translate: _get-span($ratios);
+    $translate: jeet-get-span($ratios);
   }
 
   position: relative;
@@ -168,8 +168,8 @@
   $pad: 0, 
   $align: false
 ) {
-  $side: _get-layout-direction();
-  $opposite-side: _opposite-direction($side);
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
   
   display: block;
   clear: both;
@@ -206,8 +206,8 @@
 
 // Unstacking
 @mixin unstack() {
-  $side: _get-layout-direction();
-  $opposite-side: opposite-direction($side);
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
   
   text-align: $side;
   display: inline;
@@ -230,15 +230,15 @@
   position: absolute;
   
   @if index("horizontal" "h", $direction) {
-    @include jeet-prefixer(transform, translateX(-50%));
+    @include prefixer(transform, translateX(-50%));
     left: 50%;
   } 
   @else if index("vertical" "v", $direction) {
-    @include jeet-prefixer(transform, translateY(-50%));
+    @include prefixer(transform, translateY(-50%));
     top: 50%;
   } 
   @else {
-    @include jeet-prefixer(transform, translate(-50%, -50%));
+    @include prefixer(transform, translate(-50%, -50%));
     top: 50%;
     left: 50%;
   }
@@ -258,7 +258,7 @@
 }
 
 // Define a rule with all vendor-specific prefixes
-@mixin jeet-prefixer($property, $value) {
+@mixin prefixer($property, $value) {
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;
   -ms-#{$property}: $value;

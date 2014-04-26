@@ -2,13 +2,13 @@
 // Check out their awesome grid: Singularity
 
 // Getter - span
-@function _get-span($ratio: 1) {
+@function jeet-get-span($ratio: 1) {
   @return $ratio * 100;
 }
 
 // Getter - column
-@function _get-column($ratios: 1, $g: $jeet-gutter) {
-  $ratios: if($jeet-parent-first != true, _reverse($ratios), $ratios);
+@function jeet-get-column($ratios: 1, $g: $jeet-gutter) {
+  $ratios: if($jeet-parent-first != true, jeet-reverse($ratios), $ratios);
   $w: 100;
   
   @each $ratio in $ratios {
@@ -20,17 +20,17 @@
 }
 
 // Getter - layout direction
-@function _get-layout-direction() {
+@function jeet-get-layout-direction() {
   @return if($jeet-layout-direction == "RTL", right, left);
 }
 
 // Helper - reverse
-@function _reverse($list, $recursive: false) {
+@function jeet-reverse($list, $recursive: false) {
   $result: ();
   
   @for $i from length($list) * -1 through -1 {
     $item: nth($list, abs($i));
-    $item: if(type-of($item) == list and $recursive, _reverse($item, $recursive), $item);
+    $item: if(type-of($item) == list and $recursive, jeet-reverse($item, $recursive), $item);
     $result: append($result, $item);
   }
 
@@ -38,7 +38,7 @@
 }
 
 // Helper - opposite-direction
-@function _opposite-direction($dir) {
+@function jeet-opposite-direction($dir) {
   @if $dir == "left" {
     @return right;
   }
