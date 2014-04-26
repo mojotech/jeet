@@ -8,53 +8,53 @@
 
 // Getter - column
 @function _get-column($ratios: 1, $g: $jeet-gutter) {
-  @if ($jeet-parent-first != 'true') {
-    $ratios: _reverse($ratios);
-  }
+  $ratios: if($jeet-parent-first != true, _reverse($ratios), $ratios);
   $w: 100;
+  
   @each $ratio in $ratios {
     $g: $g / $w * 100;
     $w: 100 * $ratio - $g + $ratio * $g;
   }
+  
   @return $w $g;
 }
 
 // Getter - layout direction
 @function _get-layout-direction() {
-  @return if($jeet-layout-direction == 'RTL', right, left);
+  @return if($jeet-layout-direction == "RTL", right, left);
 }
 
 // Helper - reverse
 @function _reverse($list, $recursive: false) {
   $result: ();
-  @for $i from length($list)*-1 through -1 {
-    @if type-of(nth($list, abs($i))) == list and $recursive {
-      $result: append($result, _reverse(nth($list, abs($i)), $recursive));
-    } @else {
-      $result: append($result, nth($list, abs($i)));
-    }
+  
+  @for $i from length($list) * -1 through -1 {
+    $item: nth($list, abs($i));
+    $item: if(type-of($item) == list and $recursive, _reverse($item, $recursive), $item);
+    $result: append($result, $item);
   }
+
   @return $result;
 }
 
 // Helper - opposite-direction
 @function _opposite-direction($dir) {
-  @if $dir == 'left' {
+  @if $dir == "left" {
     @return right;
   }
-  @else if  $dir == 'right' {
+  @else if $dir == "right" {
     @return left;
   }
-  @else if $dir == 'ltr' {
+  @else if index("ltr" "LTR", $dir) {
     @return rtl;
   }
-  @else if $dir == 'rtl' {
+  @else if index("rtl" "RTL", $dir) {
     @return ltr;
   }
-  @else if $dir == 'top' {
+  @else if $dir == "top" {
     @return bottom;
   }
-  @else if $dir == 'bottom' {
+  @else if $dir == "bottom" {
     @return top;
   }
   @else {
