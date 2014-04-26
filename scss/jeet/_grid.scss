@@ -230,15 +230,15 @@
   position: absolute;
   
   @if index("horizontal" "h", $direction) {
-    @include prefixer(transform, translateX(-50%));
+    @include prefixer(transform, translateX(-50%), webkit ms);
     left: 50%;
   } 
   @else if index("vertical" "v", $direction) {
-    @include prefixer(transform, translateY(-50%));
+    @include prefixer(transform, translateY(-50%), webkit ms);
     top: 50%;
   } 
   @else {
-    @include prefixer(transform, translate(-50%, -50%));
+    @include prefixer(transform, translate(-50%, -50%), webkit ms);
     top: 50%;
     left: 50%;
   }
@@ -258,11 +258,11 @@
 }
 
 // Define a rule with all vendor-specific prefixes
-@mixin prefixer($property, $value) {
-  -webkit-#{$property}: $value;
-  -moz-#{$property}: $value;
-  -ms-#{$property}: $value;
-  -o-#{$property}: $value;
+@mixin prefixer($property, $value, $vendors: webkit moz ms o) {
+  @each $vendor in $vendors {
+    #{'-' + $vendor + '-' + $property}: $value;
+  }
+
   #{$property}: $value;
 }
 
