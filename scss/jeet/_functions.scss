@@ -2,14 +2,14 @@
 // Check out their awesome grid: Singularity
 
 // Getter - span
-@function -get_span($ratio: 1) {
+@function _get-span($ratio: 1) {
   @return $ratio * 100;
 }
 
 // Getter - column
-@function -get_column($ratios: 1, $g: $jeet-gutter) {
+@function _get-column($ratios: 1, $g: $jeet-gutter) {
   @if ($jeet-parent-first != 'true') {
-    $ratios: -reverse($ratios);
+    $ratios: _reverse($ratios);
   }
   $w: 100;
   @each $ratio in $ratios {
@@ -20,12 +20,12 @@
 }
 
 // Getter - layout direction
-@function -get_layout_direction() {
+@function _get-layout-direction() {
   @return if($jeet-layout-direction == 'RTL', right, left);
 }
 
 // Helper - replace-nth
-@function -replace-nth($list, $index, $value) {
+@function _replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
     @warn "Invalid index (#{$index}) for `replace-nth`.";
     @return false;
@@ -35,11 +35,11 @@
 }
 
 // Helper - reverse
-@function -reverse($list, $recursive: false) {
+@function _reverse($list, $recursive: false) {
   $result: ();
   @for $i from length($list)*-1 through -1 {
     @if type-of(nth($list, abs($i))) == list and $recursive {
-      $result: append($result, reverse(nth($list, abs($i)), $recursive));
+      $result: append($result, _reverse(nth($list, abs($i)), $recursive));
     } @else {
       $result: append($result, nth($list, abs($i)));
     }
@@ -48,7 +48,7 @@
 }
 
 // Helper - opposite-direction
-@function opposite-direction($dir) {
+@function _opposite-direction($dir) {
   @if $dir == 'left' {
     @return right;
   }
