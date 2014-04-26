@@ -14,13 +14,7 @@
   @return $w $g;
 }
 @function -get_layout_direction() {
-  $result: '';
-  @if $jeet-layout-direction == RTL {
-    $result: right;
-  } @else {
-    $result: left;
-  }
-  @return $result;
+  @return if($jeet-layout-direction == 'RTL', right, left);
 }
 @function -replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
