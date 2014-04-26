@@ -2,26 +2,25 @@
 @function -get_span($ratio: 1) {
   @return $ratio * 100;
 }
-@function -get_column($ratios: 1, $g: $jeet-gutter) {
-  @if ($jeet-parent-first != 'true') {
-    $ratios: -reverse($ratios);
-  }
+
+// Getter - column
+@function _get-column($ratios: 1, $g: $jeet-gutter) {
+  $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
   $w: 100;
+
   @each $ratio in $ratios {
     $g: $g / $w * 100;
     $w: 100 * $ratio - $g + $ratio * $g;
   }
+
   @return $w $g;
 }
-@function -get_layout_direction() {
-  $result: '';
-  @if $jeet-layout-direction == RTL {
-    $result: right;
-  } @else {
-    $result: left;
-  }
-  @return $result;
+
+// Getter - layout direction
+@function _get-layout-direction() {
+  @return if($jeet-layout-direction == "RTL", right, left);
 }
+
 @function -replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
     @warn "Invalid index (#{$index}) for `replace-nth`.";
@@ -30,38 +29,41 @@
   $list: set-nth($list, $index, $value);
   @return if(not is-true($value), purge($list), $list);
 }
+
 @function -reverse($list, $recursive: false) {
   $result: ();
-  @for $i from length($list)*-1 through -1 {
-    @if type-of(nth($list, abs($i))) == list and $recursive {
-      $result: append($result, reverse(nth($list, abs($i)), $recursive));
-    } @else {
-      $result: append($result, nth($list, abs($i)));
-    }
+
+  @for $i from length($list) * -1 through -1 {
+    $item: nth($list, abs($i));
+    $item: if(type-of($item) == list and $recursive, _reverse($item, $recursive), $item);
+    $result: append($result, $item);
   }
+
   @return $result;
 }
-@function opposite-direction($dir) {
-  @if $dir == 'left' {
+
+// Helper - opposite-direction
+@function _opposite-direction($dir) {
+  @if $dir == "left" {
     @return right;
   }
-  @else if  $dir == 'right' {
+  @else if $dir == "right" {
     @return left;
   }
-  @else if $dir == 'ltr' {
-    @return rtl;
-  }
-  @else if $dir == 'rtl' {
-    @return ltr;
-  }
-  @else if $dir == 'top' {
+  @else if $dir == "top" {
     @return bottom;
   }
-  @else if $dir == 'bottom' {
+  @else if $dir == "bottom" {
     @return top;
   }
+  @else if index("ltr" "LTR", $dir) {
+    @return rtl;
+  }
+  @else if index("rtl" "RTL", $dir) {
+    @return ltr;
+  }
   @else {
-    @warn "#{$dir} is not a direction! Make sure your direction is all lowercase!";
+    @warn "`#{$dir}` is not a direction; please make sure your direction is all lowercase.";
     @return false;
   }
 }
