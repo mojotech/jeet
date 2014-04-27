@@ -145,8 +145,11 @@
 }
 
 // Horizontal Centering Block Elements
-@mixin center($max-width: 1410px, $pad: 0) {
-  @include cf();
+@mixin center(
+  $max-width: $jeet-max-width,
+  $pad: 0
+) {
+  @include cf;
   width: auto;
   max-width: $max-width;
   float: none;
