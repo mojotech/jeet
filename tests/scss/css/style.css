@@ -13,8 +13,8 @@
   cf()
 */
 * {
-  background: #eee;
-  background: rgba(0, 0, 0, 0.05); }
+  background: rgba(0, 0, 0, 0.05);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#10000000, endColorstr=#10000000); }
 
 html {
   font-size: 11px;
