@@ -1,0 +1,8 @@
+@import '../../../../scss/jeet/index';
+
+@include edit();
+
+section {
+  @include center(800px);
+  height: 40px;
+}
