@@ -7,24 +7,42 @@
 }
 
 // Getter - column
-@function jeet-get-column($ratios: 1, $g: $jeet-gutter) {
+// ---
+// @param [number] $ratios (1): ratios
+// @param [number] $g ($jeet-gutter): gutter
+// ---
+// @return [list]
+// ---
+@function jeet-get-column($ratios: 1, $gutter: $jeet-gutter) {
   $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
-  $w: 100;
+  $width: 100;
 
   @each $ratio in $ratios {
-    $g: $g / $w * 100;
-    $w: 100 * $ratio - $g + $ratio * $g;
+    $gutter: $gutter / $width * 100;
+    $width: 100 * $ratio - $gutter + $ratio * $gutter;
   }
 
-  @return $w $g;
+  @return $width $gutter;
 }
 
 // Getter - layout direction
+// ---
+// @return [string]
+// ---
 @function jeet-get-layout-direction() {
   @return if($jeet-layout-direction == "RTL", right, left);
 }
 
 // Helper - replace-nth
+// ---
+// Progressively enhanced for Sass 3.3
+// ---
+// @param [list] $list: list
+// @param [number] $index: index
+// @param [literal] $value: value
+// ---
+// @return [list]
+// ---
 @function jeet-replace-nth($list, $index, $value) {
   // Fallback for Sass 3.2
   @if function-exists("set-nth") != true {
@@ -43,6 +61,13 @@
 }
 
 // Helper - reverse
+// ---
+// Progressively enhanced for Sass 3.3
+// ---
+// @param [list] $list: list
+// ---
+// @return [list]
+// ---
 @function jeet-reverse($list) {
   // Sass 3.2
   @if function-exists("set-nth") != true {
@@ -66,27 +91,32 @@
 }
 
 // Helper - opposite-direction
-@function jeet-opposite-direction($dir) {
-  @if $dir == "left" {
+// ---
+// @param [string] $direction: direction
+// ---
+// @return [string] | false
+// ---
+@function jeet-opposite-direction($direction) {
+  @if $direction == "left" {
     @return right;
   }
-  @else if $dir == "right" {
+  @else if $direction == "right" {
     @return left;
   }
-  @else if $dir == "top" {
+  @else if $direction == "top" {
     @return bottom;
   }
-  @else if $dir == "bottom" {
+  @else if $direction == "bottom" {
     @return top;
   }
-  @else if index("ltr" "LTR", $dir) {
+  @else if index("ltr" "LTR", $direction) {
     @return rtl;
   }
-  @else if index("rtl" "RTL", $dir) {
+  @else if index("rtl" "RTL", $direction) {
     @return ltr;
   }
   @else {
-    @warn "`#{$dir}` is not a direction; please make sure your direction is all lowercase.";
+    @warn "`#{$direction}` is not a direction; please make sure your direction is all lowercase.";
     @return false;
   }
 }
