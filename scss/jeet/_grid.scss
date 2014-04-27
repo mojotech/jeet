@@ -1,4 +1,11 @@
 // Columns with Gutters
+// ---
+// @param [number] $ratios (1): ratios
+// @param [number] $offset (0): offset
+// @param [number] $cycle (0): cycle
+// @param [number] $uncycle (0): uncycle
+// @param [number] $gutter ($jeet-gutter): gutter 
+// ---
 @mixin column(
   $ratios: 1, 
   $offset: 0, 
@@ -69,12 +76,16 @@
   }
 }
 
-// Alias for `column()`
+// Alias for `column`
 @mixin col($args...) {
   @include column($args...);
 }
 
 // Columns without Gutters
+// ---
+// @param [number] $ratio (1): ratio
+// @param [number] $offset (0): offset 
+// ---
 @mixin span(
   $ratio: 1, 
   $offset: 0
@@ -112,6 +123,11 @@
 }
 
 // Source Ordering
+// ---
+// @param [number] $ratios (0): ratios 
+// @param [literal] $col-or-span (column): type 
+// @param [number] $gutter ($jeet-gutter): gutter 
+// ---
 @mixin shift(
   $ratios: 0, 
   $col-or-span: column, 
@@ -137,12 +153,14 @@
 }
 
 // Unshifting
+// ---
 @mixin unshift() {
   position: static;
   left: 0;
 }
 
-// Edit Mode
+// Debug Mode
+// ---
 @mixin edit() {
   * {
     background: #eee;
@@ -150,12 +168,16 @@
   }
 }
 
-// Alias for `edit()`
+// Alias for `edit`
 @mixin debug() {
   @include edit;
 }
 
 // Horizontal Centering Block Elements
+// ---
+// @param [number] $max-width ($jeet-max-width): max width
+// @param [number] $pad (0): pad 
+// ---
 @mixin center(
   $max-width: $jeet-max-width, 
   $pad: 0
@@ -175,7 +197,11 @@
   };
 }
 
-// Stacking/Unstacking Elements
+// Stacking/Unstacking elements
+// ---
+// @param [number] $pad (0): pad
+// @param [bool] $align (false): alignment 
+// ---
 @mixin stack(
   $pad: 0, 
   $align: false
@@ -221,6 +247,7 @@
 }
 
 // Unstacking
+// ---
 @mixin unstack() {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
@@ -243,8 +270,17 @@
   }
 }
 
-// Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
-@mixin align($direction: both) {
+// Horizontal/Vertical/Both Alignment 
+// ---
+// Parent container needs position relative. 
+// ---
+// @support IE9+
+// ---
+// @param [string] $direction (both): direction 
+// ---
+@mixin align(
+  $direction: both
+) {
   position: absolute;
   
   @if index("horizontal" "h", $direction) {
@@ -263,6 +299,7 @@
 }
 
 // Clearfix
+// ---
 @mixin cf() {
   *zoom: 1;
 
@@ -276,6 +313,11 @@
 }
 
 // Define a rule with all vendor-specific prefixes
+// ---
+// @param [string] $property: property 
+// @param [string] $value: value 
+// @param [list] $vendors (webkit moz ms o): vendor prefixes 
+// ---
 @mixin prefixer($property, $value, $vendors: webkit moz ms o) {
   @each $vendor in $vendors {
     #{'-' + $vendor + '-' + $property}: $value;
@@ -283,4 +325,3 @@
 
   #{$property}: $value;
 }
-

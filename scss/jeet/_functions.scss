@@ -2,11 +2,22 @@
 // Check out their awesome grid: Singularity
 
 // Getter - span
+// ---
+// @param [number] $ratio (1): ratio
+// ---
+// @return [number]
+// ---
 @function jeet-get-span($ratio: 1) {
   @return $ratio * 100;
 }
 
 // Getter - column
+// ---
+// @param [number] $ratios (1): ratios
+// @param [number] $g ($jeet-gutter): gutter 
+// ---
+// @return [list]
+// ---
 @function jeet-get-column($ratios: 1, $g: $jeet-gutter) {
   $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
   $w: 100;
@@ -19,12 +30,24 @@
   @return $w $g;
 }
 
-// Getter - layout direction
+// Getter - layout direction 
+// ---
+// @return [string]
+// ---
 @function jeet-get-layout-direction() {
   @return if($jeet-layout-direction == "RTL", right, left);
 }
 
 // Helper - replace-nth
+// ---
+// Progressively enhanced for Sass 3.3
+// ---
+// @param [list] $list: list
+// @param [number] $index: index
+// @param [literal] $value: value 
+// ---
+// @return [list]
+// ---
 @function jeet-replace-nth($list, $index, $value) {
   // Fallback for Sass 3.2
   @if function-exists("set-nth") != true {
@@ -43,6 +66,13 @@
 }
 
 // Helper - reverse
+// ---
+// Progressively enhanced for Sass 3.3
+// ---
+// @param [list] $list: list 
+// ---
+// @return [list]
+// ---
 @function jeet-reverse($list) {
   // Sass 3.2
   @if function-exists("set-nth") != true {
@@ -66,6 +96,11 @@
 }
 
 // Helper - opposite-direction
+// ---
+// @param [string] $dir: direction  
+// ---
+// @return [string] | false
+// ---
 @function jeet-opposite-direction($dir) {
   @if $dir == "left" {
     @return right;
