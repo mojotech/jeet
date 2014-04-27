@@ -1,9 +1,9 @@
 @import 'reset.css';
-@import '../../../../scss/jeet/index';
+@import '../../../scss/jeet/index';
 
 @include edit();
 
 section {
   @include center(800px);
-  height: 40px;
+  min-height: 40px;
 }
