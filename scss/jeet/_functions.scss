@@ -24,6 +24,24 @@
   @return if($jeet-layout-direction == "RTL", right, left);
 }
 
+// Helper - replace-nth
+@function jeet-replace-nth($list, $index, $value) {
+  // Fallback for Sass 3.2
+  @if function-exists("set-nth") != true {
+    $result: ();
+    $index: if($index < 0, length($list) + $index + 1, $index);  
+
+    @for $i from 1 through length($list) {
+      $result: append($result, if($i == $index, $value, nth($list, $i)));
+    }
+
+    @return $result;  
+  }
+
+  // Sass 3.3
+  @return set-nth($list, $index, $value);
+}
+
 // Helper - reverse
 @function jeet-reverse($list, $recursive: false) {
   $result: ();

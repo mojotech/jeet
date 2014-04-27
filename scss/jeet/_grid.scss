@@ -113,7 +113,7 @@
   $side: jeet-get-layout-direction();
   
   @if $side == right {
-    $ratios: set-nth($ratios, 0, nth($ratios, 1) * -1);
+    $ratios: jeet-replace-nth($ratios, 0, nth($ratios, 1) * -1);
   }
 
   @if index("column" "col" "c", $col-or-span) {
