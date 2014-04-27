@@ -1,0 +1,58 @@
+@import 'normalize.css';
+
+body,
+.cf {
+  *zoom: 1;
+}
+body:before,
+.cf:before,
+body:after,
+.cf:after {
+  content: '';
+  display: table;
+}
+body:after,
+.cf:after {
+  clear: both;
+}
+*,
+*:before,
+*:after,
+*::before,
+*::after {
+  *behavior: url("js/vendor/boxsizing.htc");
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+body {
+  width: 100%;
+}
+img,
+video,
+audio,
+embed,
+object,
+input,
+iframe {
+  max-width: 100%;
+}
+.browsehappy {
+  width: 100%;
+  padding: 15px 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.browsehappy p {
+  text-align: center;
+}
+.browsehappy p:last-of-type {
+  margin-bottom: 0;
+}
+.browsehappy a {
+  color: #00f;
+}
