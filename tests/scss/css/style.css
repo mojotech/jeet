@@ -48,6 +48,22 @@ section {
   section p {
     padding: 15px 0; }
 
+.center {
+  *zoom: 1;
+  width: auto;
+  max-width: 1200px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 60px;
+  padding-right: 60px; }
+  .center:before, .center:after {
+    content: '';
+    display: table; }
+  .center:after {
+    clear: both; }
+
 .column .twelfths .one div {
   *zoom: 1;
   float: left;

@@ -26,6 +26,10 @@ section {
   }
 }
 
+.center {
+  @include center(1200px, $pad: 60px);
+}
+
 .column {
   .twelfths {
     .one {
