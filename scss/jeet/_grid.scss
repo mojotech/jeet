@@ -27,15 +27,19 @@
   }
 
   @include cf;
-  float: $side;
   display: inline;
   clear: none;
   text-align: inherit;
-  padding-left: 0;
-  padding-right: 0;
+  float: $side;
   width: nth($column-widths, 1) * 1%;
-  margin-#{$side}: $margin-l * 1%;
-  margin-#{$opposite-side}: $margin-r * 1%;
+  padding: {
+    left:  0;
+    right: 0;
+  };
+  margin: {
+    #{$side}:          $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
   
   @if $uncycle != 0 {
     &:nth-child(#{$uncycle}n) {
@@ -95,12 +99,16 @@
   float: $side;
   display: inline;
   clear: none;
-  padding-left: 0;
-  padding-right: 0;
   text-align: inherit;
   width: $span-width * 1%;
-  margin-#{$side}: $margin-l * 1%;
-  margin-#{$opposite-side}: $margin-r * 1%;
+  padding: {
+    left:  0;
+    right: 0;
+  };
+  margin: {
+    #{$side}:          $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
 }
 
 // Source Ordering
@@ -157,10 +165,14 @@
   max-width: $max-width;
   float: none;
   display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: $pad;
-  padding-right: $pad;
+  margin: {
+    left:  auto;
+    right: auto;
+  };
+  padding: {
+    left:  $pad;
+    right: $pad;
+  };
 }
 
 // Stacking/Unstacking Elements
@@ -175,12 +187,16 @@
   clear: both;
   float: none;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: {
+    left:  auto;
+    right: auto;
+  };
   
   @if $pad != 0 {
-    padding-left: $pad;
-    padding-right: $pad;
+    padding: {
+      left:  $pad;
+      right: $pad;
+    }
   }
   
   @if ($align is not false) {
@@ -213,8 +229,10 @@
   display: inline;
   clear: none;
   width: auto;
-  margin-left: 0;
-  margin-right: 0;
+  margin: {
+    left:  0;
+    right: 0;
+  };
   
   &:first-child {
     margin-#{$side}: 0;

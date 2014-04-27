@@ -8,7 +8,7 @@
 
 // Getter - column
 @function jeet-get-column($ratios: 1, $g: $jeet-gutter) {
-  $ratios: if($jeet-parent-first != true, jeet-reverse($ratios), $ratios);
+  $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
   $w: 100;
   
   @each $ratio in $ratios {
@@ -63,20 +63,20 @@
   @else if $dir == "right" {
     @return left;
   }
-  @else if index("ltr" "LTR", $dir) {
-    @return rtl;
-  }
-  @else if index("rtl" "RTL", $dir) {
-    @return ltr;
-  }
   @else if $dir == "top" {
     @return bottom;
   }
   @else if $dir == "bottom" {
     @return top;
   }
+  @else if index("ltr" "LTR", $dir) {
+    @return rtl;
+  }
+  @else if index("rtl" "RTL", $dir) {
+    @return ltr;
+  }
   @else {
-    @warn "#{$dir} is not a direction! Make sure your direction is all lowercase!";
+    @warn "`#{$dir}` is not a direction; please make sure your direction is all lowercase.";
     @return false;
   }
 }
