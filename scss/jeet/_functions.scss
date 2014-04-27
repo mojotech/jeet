@@ -43,16 +43,26 @@
 }
 
 // Helper - reverse
-@function jeet-reverse($list, $recursive: false) {
-  $result: ();
+@function jeet-reverse($list) {
+  // Sass 3.2
+  @if function-exists("set-nth") != true {
+    $result: ();
+    
+    @for $i from length($list) * -1 through -1 {
+      $result: append($result, nth($list, abs($i)));
+    }
   
-  @for $i from length($list) * -1 through -1 {
-    $item: nth($list, abs($i));
-    $item: if(type-of($item) == list and $recursive, jeet-reverse($item, $recursive), $item);
-    $result: append($result, $item);
+    @return $result;
+  }
+  
+  // Sass 3.3
+  @for $i from 1 through floor(length($list) / 2) {
+    $tmp: nth($list, $i);
+    $list: set-nth($list, $i, nth($list, -$i));
+    $list: set-nth($list, -$i, $tmp);
   }
 
-  @return $result;
+  @return $list;
 }
 
 // Helper - opposite-direction
