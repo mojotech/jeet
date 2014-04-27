@@ -149,7 +149,7 @@
 
 // Horizontal Centering Block Elements
 @mixin center(
-  $max-width: 1410px, 
+  $max-width: $jeet-max-width, 
   $pad: 0
 ) {
   @include cf;
