@@ -3,7 +3,45 @@
 
 @include edit();
 
+html {
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+  color: #666;
+}
+
 section {
-  @include center(800px);
-  min-height: 40px;
+  @include center(1200px);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  p {
+    padding: 15px 0;
+  }
+}
+
+.column {
+  .twelfths {
+    .one {
+      div {
+        @include col(1/12);
+        overflow: hidden;
+        padding: 15px 0;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .flexible {
+    div {
+      padding: 15px 0;
+      &:nth-child(1) {
+        @include col(2/7);
+      }
+      &:nth-child(2) {
+        @include col(1/2);
+      }
+      &:nth-child(3) {
+        @include col(1.5/7);
+      }
+    }
+  }
 }
