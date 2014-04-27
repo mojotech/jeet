@@ -10,10 +10,17 @@ html {
   color: #666;
 }
 
+h1 {
+  margin: 0;
+  padding: 15px 0;
+  margin-bottom: 15px;
+  background: none;
+  color: #555;
+}
+
 section {
   @include center(1200px);
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
   p {
     padding: 15px 0;
   }
