@@ -29,6 +29,6 @@ Want to sandbox it right this very second? Fork some examples on [CodePen](http:
 - **[Hugo Giraudel](http://hugogiraudel.com)** - For his huge contributions to the SCSS port.
 - **[Jeff Escalante](https://github.com/jenius)** - For his patience and guidance with this project.
 - **[Carrot Creative](http://carrot.is)** - For keeping up with Jeet and using it on some of the [biggest companies](http://carrot.is/creative) in the world.
-- **[Kenichiro Murata](http://muraken720.hatenablog.com)** - For his continual support and for creating/maintaining [jeet-gulp](https://github.com/muraken720/jeet-gulp).
+- **[Kenichiro Murata](https://github.com/muraken720)** - For his continual support and for creating/maintaining [jeet-gulp](https://github.com/muraken720/jeet-gulp).
 - **[Julian Ćwirko](http://www.wavesofideas.com/)** - For creating/maintaining the Yeoman [generator-jeet](https://github.com/juliancwirko/generator-jeet).
 - **[The rest of ya's](https://github.com/mojotech/jeet/graphs/contributors)** - Thanks for your love. It makes developing this project fun and rewarding for everyone.
