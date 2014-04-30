@@ -1,10 +1,10 @@
 :markdown
-  Jeet's API.
-  =======================
-  Interact with our docs.
-  ---------------------------------------
+  <h1>Jeet's API.</h1>
 
-  ### column ###
+  <h2>Interact with our docs.</h2>
+
+  <h3>column</h3>
+
   *`(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet-gutter)`*
 
   `column` (also aliased as `col`) is perhaps the strongest feature of any grid system on the market. You specify an initial ratio, either as fractions or decimals, then pass the parent container's context ratio to maintain consistent gutters as you nest.
@@ -18,7 +18,8 @@
 a.btn.view-example(data-scroll-goto='1', data-example='column-example') View an example
 
 :markdown
-  ### span ###
+  <h3>span</h3>
+
   *`(ratio = 1, offset = 0)`*
 
   Need a grid without the gutters? For instance, for a horizontal navigation where you want buttons touching. Do so like: `span(1/5)`. No need to pass more than one ratio since we don't need to worry about the math involved with gutters and all that.
@@ -26,7 +27,8 @@ a.btn.view-example(data-scroll-goto='1', data-example='column-example') View an 
 a.btn.view-example(data-scroll-goto='2', data-example='span-example') View an example
 
 :markdown
-  ### shift ###
+  <h3>shift</h3>
+
   *`(ratios = 0, col_or_span = column, gutter = jeet-gutter)`*
 
   Source ordering works in Jeet by assigning `position: relative` and then a `left` offset equal to the ratio passed. You can specify if this is a column or span shift to include gutters or not. This works similar to offset in that it can accept negative values to shift the other direction.
@@ -38,13 +40,15 @@ a.btn.view-example(data-scroll-goto='2', data-example='span-example') View an ex
 a.btn.view-example(data-scroll-goto='4', data-example='shift-example') View an example
 
 :markdown
-  ### unshift ###
+  <h3>unshift</h3>
+
   *`()`*
 
   Accepts no values but isn't a block closer either. `unshift()` is a great helper function to quickly disable whatever source ordering you've done to an element.
 
 :markdown
-  ### edit ###
+  <h3>edit</h3>
+
   *`()`*
 
   Edit mode assigns a light gray, semi-transparent, background to every element on the page. It's a little trick picked up over the years that makes visualizing the structure of your site trivial.
@@ -52,7 +56,8 @@ a.btn.view-example(data-scroll-goto='4', data-example='shift-example') View an e
 a.btn.view-example(data-scroll-goto='1', data-example='edit-example') View an example
 
 :markdown
-  ### center ###
+  <h3>center</h3>
+
   *`(max_width = 1410px, pad = 0)`*
 
   This is a shortcut to easily center containers. The `pad` variable sets padding on the left and right.
@@ -60,7 +65,8 @@ a.btn.view-example(data-scroll-goto='1', data-example='edit-example') View an ex
 a.btn.view-example(data-scroll-goto='6', data-example='center-example') View an example
 
 :markdown
-  ### stack ###
+  <h3>stack</h3>
+
   *`(pad = 0, align = center)`*
 
   A helper mixin to "stack" elements on top of each other. Useful for mobile views. Accepts padding and/or text alignment.
@@ -70,7 +76,8 @@ a.btn.view-example(data-scroll-goto='6', data-example='center-example') View an 
 a.btn.view-example(data-scroll-goto='3', data-example='stack-example') View an example
 
 :markdown
-  ### unstack ###
+  <h3>unstack</h3>
+
   *`()`*
 
   Cancel that `stack()`. Note: This won't revert back to your `column()` calls. For that, manually call your `column()` method again.
@@ -78,7 +85,8 @@ a.btn.view-example(data-scroll-goto='3', data-example='stack-example') View an e
   (resize your browser to a mobile viewport when viewing the example to see this in action)
 
 :markdown
-  ### align ###
+  <h3>align</h3>
+
   *`(direction = both)`*
 
   Aligning blocks relative to their container with `position: absolute` and fancy positioning and `transform`. Vertical alignment is now trivial in IE9+ browsers.
@@ -86,7 +94,8 @@ a.btn.view-example(data-scroll-goto='3', data-example='stack-example') View an e
 a.btn.view-example(data-scroll-goto='7', data-example='align-example') View an example
 
 :markdown
-  ### cf ###
+  <h3>cf</h3>
+
   *`()`*
 
   Nicholas Gallagher's clearfix. Use this to wrap any set of `column()`s or `spans`.
