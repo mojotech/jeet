@@ -3053,6 +3053,7 @@ strong {
   -webkit-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  text-decoration: none;
 }
 @media only screen and (max-width: 768px) {
   .attribution {
