@@ -24,6 +24,25 @@ html,
   font-family: altisextra_bold, "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+.main,
+.footer > div,
+.logo {
+  *zoom: 1;
+}
+.main:before,
+.footer > div:before,
+.logo:before,
+.main:after,
+.footer > div:after,
+.logo:after {
+  content: '';
+  display: table;
+}
+.main:after,
+.footer > div:after,
+.logo:after {
+  clear: both;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -32,7 +51,6 @@ html {
   line-height: 1.6;
 }
 .main {
-  *zoom: 1;
   width: auto;
   max-width: 1100px;
   float: none;
@@ -44,14 +62,6 @@ html {
   overflow: hidden;
   position: relative;
   z-index: 2;
-}
-.main:before,
-.main:after {
-  content: '';
-  display: table;
-}
-.main:after {
-  clear: both;
 }
 .footer {
   position: absolute;
@@ -83,7 +93,6 @@ html {
   color: #2e8224;
 }
 .footer > div {
-  *zoom: 1;
   width: auto;
   max-width: 1100px;
   float: none;
@@ -92,14 +101,6 @@ html {
   margin-left: auto;
   padding-left: 25px;
   padding-right: 25px;
-}
-.footer > div:before,
-.footer > div:after {
-  content: '';
-  display: table;
-}
-.footer > div:after {
-  clear: both;
 }
 .video-bg {
   position: fixed;
@@ -132,7 +133,6 @@ html {
   }
 }
 .logo {
-  *zoom: 1;
   float: left;
   display: inline;
   clear: none;
@@ -145,16 +145,12 @@ html {
   margin-top: 45px;
   margin-bottom: 90px;
 }
-.logo:before,
-.logo:after {
-  content: '';
-  display: table;
-}
-.logo:after {
-  clear: both;
-}
 .logo:last-child {
   margin-right: 0%;
+}
+.logo img {
+  width: 140px;
+  height: 40px;
 }
 @media only screen and (max-width: 770px) {
   .logo {
@@ -206,6 +202,7 @@ html {
 }
 .h1 {
   font-size: 55px;
+  font-weight: normal;
   line-height: 1.2;
   margin-bottom: 30px;
 }
