@@ -2289,7 +2289,7 @@ strong {
 }
 @media only screen and (max-width: 635px) {
   .features-headline {
-    padding: 51px 0;
+    padding: 25px 0 0;
   }
 }
 .features-headline svg {
@@ -2308,6 +2308,11 @@ strong {
 .grid-visible svg path {
   fill: #fff;
 }
+@media only screen and (max-width: 635px) {
+  .features {
+    margin-bottom: 45px;
+  }
+}
 .features.focused-parent.edit-view .edit-example {
   padding-top: 24px;
   -webkit-transition: background 0.2s cubic-bezier(0, 0.615, 0.085, 0.705);
@@ -2325,6 +2330,11 @@ strong {
   .features .third {
     margin-top: 14px;
     padding-bottom: 0;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .features .third:nth-child(1) {
+    margin-top: 0;
   }
 }
 .features h3 {

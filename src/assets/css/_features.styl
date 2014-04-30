@@ -1,7 +1,7 @@
 .features-headline
   padding 112px 0 (80 - med-padding-block) 0
   +below(small-snap)
-    padding (large-padding-block - 3) 0
+    padding 25px 0 0
   svg
     width 100%
     height 184px
@@ -12,6 +12,8 @@
 .grid-visible svg path
   fill white
 .features
+  +below(small-snap)
+    margin-bottom: 45px
   &.focused-parent.edit-view .edit-example
     edit()
     padding-top small-padding-block + 4
@@ -22,6 +24,9 @@
     +below(small-snap)
       margin-top small-padding-block - 6
       padding-bottom 0
+    &:nth-child(1)
+      +below(small-snap)
+        margin-top: 0
   h3
     margin (large-padding-block - 3) 0 (small-padding-block - 11) 0
     +below(small-snap)
