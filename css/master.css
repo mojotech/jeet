@@ -3140,3 +3140,12 @@ strong {
   border-top: 1px dotted #7b7b7b;
   border-bottom: 1px dotted #686868;
 }
+.awwwards {
+  position: absolute;
+  top: 170px;
+  right: 0;
+  z-index: 999;
+}
+.awwwards img {
+  width: 80px;
+}
