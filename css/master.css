@@ -3120,6 +3120,11 @@ strong {
   width: 163px;
   height: 163px;
 }
+@media only screen and (max-width: 635px) {
+  .github-ribbon__clip {
+    display: none;
+  }
+}
 .github-ribbon {
   position: absolute;
   top: -35px;
@@ -3152,6 +3157,11 @@ strong {
   top: 170px;
   right: 0;
   z-index: 999;
+}
+@media only screen and (max-width: 768px) {
+  .awwwards {
+    display: none;
+  }
 }
 .awwwards img {
   width: 80px;
