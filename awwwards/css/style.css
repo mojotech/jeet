@@ -199,7 +199,8 @@ html {
   transition: all 200ms ease;
 }
 .hero-content a:hover {
-  background: rgba(237,28,55,0.5);
+  background: #fff;
+  color: #ed1c37;
 }
 .h1 {
   font-size: 55px;
