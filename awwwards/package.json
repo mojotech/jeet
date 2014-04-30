@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "autoprefixer-stylus": "^0.1.0",
+    "jeet": "^5.2.7",
+    "rupture": "^0.1.0",
+    "stylus": "^0.44.0"
+  }
+}
