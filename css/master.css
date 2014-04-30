@@ -2781,10 +2781,9 @@ strong {
   background-size: cover;
 }
 .advanced-use .tutorial {
-  opacity: 0.5;
-}
-.advanced-use .tutorial:hover {
-  opacity: 0.5;
+  background: url("../img/advanced-usage.png") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 .focused-example.third.tight {
   padding: 24px 0 10px 0;
