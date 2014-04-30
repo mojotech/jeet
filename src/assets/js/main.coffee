@@ -53,7 +53,6 @@ browserBlast()
 $.get("http://github.cache.mojotech.com/repos/mojotech/jeet/commits").done (commits) ->
   commitMsg = commits[0].commit.message
   truncatedMsg = commitMsg.replace(/\n.*/gmi, '')
-  console.log truncatedMsg
   $(".latest-commit-link").html truncatedMsg
   $(".latest-commit-link").attr "href", commits[0].html_url
 

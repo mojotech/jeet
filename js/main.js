@@ -78,7 +78,6 @@
     var commitMsg, truncatedMsg;
     commitMsg = commits[0].commit.message;
     truncatedMsg = commitMsg.replace(/\n.*/gmi, '');
-    console.log(truncatedMsg);
     $(".latest-commit-link").html(truncatedMsg);
     return $(".latest-commit-link").attr("href", commits[0].html_url);
   });
