@@ -3113,51 +3113,37 @@ strong {
   font-weight: bold;
   text-decoration: underline;
 }
-.github-ribbon__clip {
+.github-ribbon {
   position: absolute;
   top: 0;
   right: 0;
-  overflow: hidden;
+  z-index: 100;
   width: 163px;
-  height: 163px;
 }
-@media only screen and (max-width: 635px) {
-  .github-ribbon__clip {
+@media only screen and (max-width: 1024px) {
+  .github-ribbon {
+    z-index: 99;
+    top: 57px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .github-ribbon {
     display: none;
   }
 }
-.github-ribbon {
-  position: absolute;
-  top: -35px;
-  right: -100px;
-  padding: 1px 0;
-  -webkit-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  background-color: #424242;
-  z-index: 100;
-}
-.github-ribbon__link {
-  display: inline-block;
-  width: 250px;
-  color: #fff;
-  font-size: 0.8em;
-  letter-spacing: 0.06em;
-  text-shadow: 0 -1px #777;
-  text-decoration: none;
-  text-align: center;
-  line-height: 30px;
-  border-top: 1px dotted #7b7b7b;
-  border-bottom: 1px dotted #686868;
+.github-ribbon img {
+  max-width: 100%;
 }
 .awwwards {
   position: absolute;
-  top: 170px;
+  top: 145px;
   right: 0;
   z-index: 999;
+}
+@media only screen and (max-width: 1024px) {
+  .awwwards {
+    top: 205px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .awwwards {
