@@ -177,6 +177,8 @@ html {
 .hero-content {
   *zoom: 1;
   margin-bottom: 90px;
+  -webkit-transition: all 100ms ease;
+  transition: all 100ms ease;
   clear: both;
   color: #fff;
 }
