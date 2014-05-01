@@ -2658,8 +2658,7 @@ strong {
 }
 @media only screen and (max-width: 635px) {
   .installation .copy-btn {
-    line-height: 20px;
-    max-height: 18px;
+    display: none;
   }
 }
 .installation .copy-btn:hover,
