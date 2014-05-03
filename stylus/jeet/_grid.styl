@@ -147,6 +147,7 @@ unstack()
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
   position: absolute
+  transform-style: preserve-3d
   if (direction == horizontal) or (direction == h)
     left: 50%
     transform: translateX(-50%)

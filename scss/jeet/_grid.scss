@@ -177,6 +177,7 @@
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 @mixin align($direction: both) {
   position: absolute;
+  @include jeet-prefixer(transform-style, preserve-3d);
   @if ($direction == horizontal) or ($direction == h) {
     left: 50%;
     @include jeet-prefixer(transform, translateX(-50%));
