@@ -1,3 +1,7 @@
+### 5.2.10
+- Fix
+  - Un-npmignore-ing .gitignore so the npm package can read the gitignore data
+
 ### 5.2.9
 - Fix
   - Remove site stuff from npm package
