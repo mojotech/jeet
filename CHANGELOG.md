@@ -1,3 +1,7 @@
+### 5.2.9
+- Fix
+  - Remove site stuff from npm package
+
 ### 5.2.8
 - Bugfix
   - Fix `align` so it doesn't make items blurry by adding `transform-style: preserve-3d` to it

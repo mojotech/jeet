@@ -1,5 +1,4 @@
 .editorconfig
-.gitignore
 /tests
 /scss/README.md
 /stylus/README.md
