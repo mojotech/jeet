@@ -1,5 +1,7 @@
 <img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
 
+**JEET.GS IS DOWN. IT'S A DNS ISSUE WITH OUR REGISTRAR. WE'RE WORKING TO FIX IT NOW. IN THE MEANTIME YOU CAN STILL USE [http://mojotech.github.io/jeet](http://mojotech.github.io/jeet). TELL YOUR FRIENDS. SORRY FOR THE INCONVENIENCE.**
+
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
 By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
