@@ -1,3 +1,7 @@
+### 5.2.11
+- Fix
+  - Repair `cycle`/`uncycle`
+
 ### 5.2.10
 - Fix
   - Un-npmignore-ing .gitignore so the npm package can read the gitignore data
