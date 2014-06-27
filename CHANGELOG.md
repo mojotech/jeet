@@ -1,3 +1,7 @@
+### 5.3.0
+- Enhancements
+  - Remove IE6 support for floated staircase bug (no one uses IE6 anymore, this code just bloated)
+
 ### 5.2.8
 - Bugfix
   - Fix `align` so it doesn't make items blurry by adding `transform-style: preserve-3d` to it
