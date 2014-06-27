@@ -3114,10 +3114,16 @@ strong {
 }
 .github-ribbon {
   position: absolute;
-  top: 57px;
+  top: 0;
   right: 0;
   z-index: 100;
   width: 163px;
+}
+@media only screen and (max-width: 1024px) {
+  .github-ribbon {
+    z-index: 99;
+    top: 57px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .github-ribbon {
@@ -3129,9 +3135,14 @@ strong {
 }
 .awwwards {
   position: absolute;
-  top: 205px;
+  top: 145px;
   right: 0;
   z-index: 999;
+}
+@media only screen and (max-width: 1024px) {
+  .awwwards {
+    top: 205px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .awwwards {
