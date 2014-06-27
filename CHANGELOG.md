@@ -1,3 +1,7 @@
+### 5.3.0
+- Enhancements
+  - Drop support for IE6 to clean some bloat
+
 ### 5.2.11
 - Fix
   - Repair `cycle`/`uncycle`
