@@ -14,7 +14,6 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
       margin_l = offset + column_widths[1]
   cf()
   float: side
-  display: inline
   clear: none
   text-align: inherit
   padding-left: 0
@@ -26,7 +25,7 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
     &:nth-child({uncycle}n)
       margin-{opposite-position(side)}: (margin_r)%
       float: side
-    &:nth-child({cycle}n + 1)
+    &:nth-child({uncycle}n + 1)
       clear: none
   if cycle != 0
     &:nth-child({cycle}n)
@@ -53,7 +52,6 @@ span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
       margin_l = -get_span(offset)
   cf()
   float: side
-  display: inline
   clear: none
   padding-left: 0
   padding-right: 0
@@ -64,7 +62,7 @@ span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
   if uncycle != 0
     &:nth-child({uncycle}n)
       float: side
-    &:nth-child({cycle}n + 1)
+    &:nth-child({uncycle}n + 1)
       clear: none
   if cycle != 0
     &:nth-child({cycle}n)
@@ -91,7 +89,6 @@ unshift()
 // Edit Mode
 edit()
   *
-    background: #eee
     background: rgba(#000, 5%)
 
 // Horizontal Centering Block Elements
@@ -105,6 +102,14 @@ center(max_width = 1410px, pad = 0)
   margin-left: auto
   padding-left: pad
   padding-right: pad
+
+// Uncenter Elements
+uncenter()
+  max-width: none
+  margin-right: 0
+  margin-left: 0
+  padding-left: 0
+  padding-right: 0
 
 // Stacking/Unstacking Elements
 stack(pad = 0, align = false)
@@ -148,6 +153,7 @@ unstack()
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
   position: absolute
+  transform-style: preserve-3d
   if (direction == horizontal) or (direction == h)
     left: 50%
     transform: translateX(-50%)

@@ -16,7 +16,7 @@ sass -w foo.scss
 ```html
 <html>
   <head>
-    <link rel="stylesheet" href="css/foo.css">
+    <link rel="stylesheet" href="foo.css">
   </head>
   <body>
     <section>
@@ -28,11 +28,11 @@ sass -w foo.scss
 ```
 
 ```scss
-@import 'jeet/index.scss';
-@include edit();
+@import 'jeet/index';
+@include edit;
 
 section {
- @include center();
+ @include center;
 }
 aside {
  @include col(1/3);

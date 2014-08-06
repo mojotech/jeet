@@ -1,4 +1,8 @@
-/scss
 .editorconfig
+/tests
+/scss/README.md
+/stylus/README.md
 CHANGELOG.md
-.travis.yml
+CONTRIBUTING.md
+LICENSE
+README.md

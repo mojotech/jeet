@@ -1,3 +1,23 @@
+### 5.3.0
+- Enhancements
+  - Drop support for IE6 to clean some bloat
+
+### 5.2.11
+- Fix
+  - Repair `cycle`/`uncycle`
+
+### 5.2.10
+- Fix
+  - Un-npmignore-ing .gitignore so the npm package can read the gitignore data
+
+### 5.2.9
+- Fix
+  - Remove site stuff from npm package
+
+### 5.2.8
+- Bugfix
+  - Fix `align` so it doesn't make items blurry by adding `transform-style: preserve-3d` to it
+
 ### 5.2.7
 - Enhancements
   - Revert SCSS global variables to normal SCSS variables since maps have really poor support unless you're on a recent version of SCSS (which most people aren't).
