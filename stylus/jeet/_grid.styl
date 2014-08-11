@@ -22,19 +22,19 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   margin-{side}: (margin_l)%
   margin-{opposite-position(side)}: (margin_r)%
   if uncycle != 0
-    &:nth-child({uncycle}n)
+    &:nth-of-type({uncycle}n)
       margin-{opposite-position(side)}: (margin_r)%
       float: side
-    &:nth-child({uncycle}n + 1)
+    &:nth-of-type({uncycle}n + 1)
       clear: none
   if cycle != 0
-    &:nth-child({cycle}n)
+    &:nth-of-type({cycle}n)
       margin-{opposite-position(side)}: (margin_last)%
       float: opposite-position(side)
-    &:nth-child({cycle}n + 1)
+    &:nth-of-type({cycle}n + 1)
       clear: both
   else
-    &:last-child
+    &:last-of-type
       margin-{opposite-position(side)}: (margin_last)%
 
 col = column
@@ -60,14 +60,14 @@ span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
   margin-{side}: (margin_l)%
   margin-{opposite-position(side)}: (margin_r)%
   if uncycle != 0
-    &:nth-child({uncycle}n)
+    &:nth-of-type({uncycle}n)
       float: side
-    &:nth-child({uncycle}n + 1)
+    &:nth-of-type({uncycle}n + 1)
       clear: none
   if cycle != 0
-    &:nth-child({cycle}n)
+    &:nth-of-type({cycle}n)
       float: opposite-position(side)
-    &:nth-child({cycle}n + 1)
+    &:nth-of-type({cycle}n + 1)
       clear: both
 
 // Source Ordering
@@ -120,9 +120,9 @@ stack(pad = 0, align = false)
   width: 100%
   margin-left: auto
   margin-right: auto
-  &:first-child
+  &:first-of-type
     margin-{side}: auto
-  &:last-child
+  &:last-of-type
     margin-{opposite-position(side)}: auto
   if pad != 0
     padding-left: pad
@@ -141,9 +141,9 @@ unstack()
   width: auto
   margin-left: 0
   margin-right: 0
-  &:first-child
+  &:first-of-type
     margin-{side}: 0
-  &:last-child
+  &:last-of-type
     margin-{opposite-position(side)}: 0
   if (jeet.layout-direction == RTL)
     text-align: right

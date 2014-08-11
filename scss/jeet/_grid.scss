@@ -26,26 +26,26 @@
   margin-#{$side}: $margin_l * 1%;
   margin-#{opposite-direction($side)}: $margin_r  * 1%;
   @if $uncycle != 0 {
-    &:nth-child(#{$uncycle}n) {
+    &:nth-of-type(#{$uncycle}n) {
       margin-#{opposite-direction($side)}: $margin_r * 1%;
       float: $side;
     }
 
-    &:nth-child(#{$uncycle}n + 1) {
+    &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
   }
   @if $cycle != 0 {
-    &:nth-child(#{$cycle}n) {
+    &:nth-of-type(#{$cycle}n) {
       margin-#{opposite-direction($side)}: $margin_last * 1%;
       float: opposite-direction($side);
     }
 
-    &:nth-child(#{$cycle}n + 1) {
+    &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
   } @else {
-    &:last-child {
+    &:last-of-type {
       margin-#{opposite-direction($side)}: $margin_last * 1%;
     }
   }
@@ -139,10 +139,10 @@
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  &:first-child {
+  &:first-of-type {
     margin-#{$side}: auto;
   }
-  &:last-child {
+  &:last-of-type {
     margin-#{opposite-direction($side)}: auto;
   }
   @if $pad != 0 {
@@ -168,10 +168,10 @@
   width: auto;
   margin-left: 0;
   margin-right: 0;
-  &:first-child {
+  &:first-of-type {
     margin-#{$side}: 0;
   }
-  &:last-child {
+  &:last-of-type {
     margin-#{opposite-direction($side)}: 0;
   }
   @if ($jeet-layout-direction == RTL) {
@@ -218,4 +218,3 @@
   -o-#{$name}: #{$arguments};
   #{$name}: #{$arguments};
 }
-
