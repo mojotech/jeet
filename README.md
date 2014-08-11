@@ -2,6 +2,8 @@
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
+This is a fork of jeet addressing an issue with using jeet with ember. Ember surrounds elements with script tags causing the first / last / nth child selectors to break. The fix changes to of-type but this means different elements won't flow correctly. Use with caution.
+
 By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
 
 Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
