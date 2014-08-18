@@ -1,7 +1,23 @@
-// List functions courtesy of the wonderful folks at Team Sass - check out their awesome grid: Singularity
+/**
+ * List functions courtesy of the wonderful folks at Team Sass.
+ * Check out their awesome grid: Singularity.
+ */
+
+/**
+ * Get  percentage from a given ratio.
+ * @param {number} [$ratio=1] - The column ratio of the element.
+ * @returns {number} - The percentage value.
+ */
 @function -get_span($ratio: 1) {
   @return $ratio * 100;
 }
+
+/**
+ * Work out the column widths based on the ratio and gutter sizes.
+ * @param {number} [$ratios=1] - The column ratio of the element.
+ * @param {number} [$g=$jeet-gutter] - The gutter for the column.
+ * @returns {list} $w $g - A list containing the with and gutter for the element.
+ */
 @function -get_column($ratios: 1, $g: $jeet-gutter) {
   @if ($jeet-parent-first != 'true') {
     $ratios: -reverse($ratios);
@@ -13,6 +29,11 @@
   }
   @return $w $g;
 }
+
+/**
+ * Get the set layout direction for the project.
+ * @returns {string} $result - The layout direction.
+ */
 @function -get_layout_direction() {
   $result: '';
   @if $jeet-layout-direction == RTL {
@@ -22,6 +43,15 @@
   }
   @return $result;
 }
+
+/**
+ * Replace a specified list value with a new value.
+ * @param {list} $list - The list of values you want to alter.
+ * @param {number} $index - The index of the list item you want to replace.
+ * @param {*} $value - The value you want to replace $index with.
+ * @returns {list} $list - The list with the value replaced or removed.
+ * @warn If an invalid index is supplied.
+ */
 @function -replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
     @warn "Invalid index (#{$index}) for `replace-nth`.";
@@ -30,6 +60,13 @@
   $list: set-nth($list, $index, $value);
   @return if(not is-true($value), purge($list), $list);
 }
+
+/**
+ * Reverse a list.
+ * @param {list} $list - The list of values you want to reverse.
+ * @param {boolean} $recursive
+ * @returns {list} $result - The reversed list.
+ */
 @function -reverse($list, $recursive: false) {
   $result: ();
   @for $i from length($list)*-1 through -1 {
@@ -41,6 +78,13 @@
   }
   @return $result;
 }
+
+/**
+ * Get the opposite direction to a given value.
+ * @param {string} $dir - The direction you want the opposite of.
+ * @returns {string} - The opposite direction to $dir.
+ * @warn If an incorrect string is provided.
+ */
 @function opposite-direction($dir) {
   @if $dir == 'left' {
     @return right;
