@@ -1,33 +1,56 @@
 // Columns with Gutters
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
-  $side: -get_layout_direction();
-  $column_widths: -get_column($ratios, $gutter);
-  $margin_last: 0;
-  $margin_l: $margin_last;
-  $margin_r: nth($column_widths, 2);
+// ---
+// @param [number] $ratios (1): ratios
+// @param [number] $offset (0): offset
+// @param [number] $cycle (0): cycle
+// @param [number] $uncycle (0): uncycle
+// @param [number] $gutter ($jeet-gutter): gutter
+// ---
+@mixin column(
+  $ratios: 1,
+  $offset: 0,
+  $cycle: 0,
+  $uncycle: 0,
+  $gutter: $jeet-gutter
+) {
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+  $column-widths: jeet-get-column($ratios, $gutter);
+  $margin-last: 0;
+  $margin-l: $margin-last;
+  $margin-r: nth($column-widths, 2);
+
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
-      $offset: nth(-get_column($offset, nth($column_widths, 2)), 1);
-      $margin_last: $offset + nth($column_widths, 2) * 2;
-      $margin_r: $margin_last;
-    } @else {
-      $offset: nth(-get_column($offset, nth($column_widths, 2)), 1);
-      $margin_l: $offset + nth($column_widths, 2);
+      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
+      $margin-last: $offset + nth($column-widths, 2) * 2;
+      $margin-r: $margin-last;
+    }
+    @else {
+      $offset: nth(jeet-get-column($offset, nth($column-widths, 2)), 1);
+      $margin-l: $offset + nth($column-widths, 2);
     }
   }
-  @include cf();
-  float: $side;
+
+  @include cf;
+  display: inline;
   clear: none;
   text-align: inherit;
-  padding-left: 0;
-  padding-right: 0;
-  width: nth($column_widths, 1) * 1%;
-  margin-#{$side}: $margin_l * 1%;
-  margin-#{opposite-direction($side)}: $margin_r  * 1%;
+  float: $side;
+  width: nth($column-widths, 1) * 1%;
+  padding: {
+    left:  0;
+    right: 0;
+  };
+  margin: {
+    #{$side}:          $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
+
   @if $uncycle != 0 {
     &:nth-child(#{$uncycle}n) {
-      margin-#{opposite-direction($side)}: $margin_r * 1%;
+      margin-#{$opposite-side}: $margin-r * 1%;
       float: $side;
     }
 
@@ -35,72 +58,108 @@
       clear: none;
     }
   }
+
   @if $cycle != 0 {
     &:nth-child(#{$cycle}n) {
-      margin-#{opposite-direction($side)}: $margin_last * 1%;
-      float: opposite-direction($side);
+      margin-#{$opposite-side}: $margin-last * 1%;
+      float: $opposite-side;
     }
 
     &:nth-child(#{$cycle}n + 1) {
       clear: both;
     }
-  } @else {
+  }
+  @else {
     &:last-child {
-      margin-#{opposite-direction($side)}: $margin_last * 1%;
+      margin-#{$opposite-side}: $margin-last * 1%;
     }
   }
 }
+
+// Alias for `column`
 @mixin col($args...) {
   @include column($args...);
 }
 
 // Columns without Gutters
-@mixin span($ratio: 1, $offset: 0) {
-  $side: -get_layout_direction();
-  $span_width: -get_span($ratio);
-  $margin_r: 0;
-  $margin_l: $margin_r;
+// ---
+// @param [number] $ratio (1): ratio
+// @param [number] $offset (0): offset
+// ---
+@mixin span(
+  $ratio: 1,
+  $offset: 0
+) {
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+  $span-width: jeet-get-span($ratio);
+  $margin-r: 0;
+  $margin-l: $margin-r;
+
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
-      $margin_r: -get_span($offset);
-    } @else {
-      $margin_l: -get_span($offset);
+      $margin-r: jeet-get-span($offset);
+    }
+    @else {
+      $margin-l: jeet-get-span($offset);
     }
   }
-  @include cf();
+
+  @include cf;
   float: $side;
   clear: none;
-  padding-left: 0;
-  padding-right: 0;
   text-align: inherit;
-  width: $span_width * 1%;
-  margin-#{$side}: $margin_l * 1%;
-  margin-#{opposite-direction($side)}: $margin_r * 1%;
+  width: $span-width * 1%;
+  padding: {
+    left:  0;
+    right: 0;
+  };
+  margin: {
+    #{$side}:          $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
 }
 
 // Source Ordering
-@mixin shift($ratios: 0, $col_or_span: column, $gutter: $jeet-gutter) {
+// ---
+// @param [number] $ratios (0): ratios
+// @param [literal] $col-or-span (column): type
+// @param [number] $gutter ($jeet-gutter): gutter
+// ---
+@mixin shift(
+  $ratios: 0,
+  $col-or-span: column,
+  $gutter: $jeet-gutter
+) {
   $translate: '';
-  $side: -get_layout_direction();
+  $side: jeet-get-layout-direction();
+
   @if $side == right {
-    $ratios: -replace_nth($ratios, 0, nth($ratios, 1) * -1);
+    $ratios: jeet-replace-nth($ratios, 0, nth($ratios, 1) * -1);
   }
-  @if $col_or_span == column or $col_or_span == col or $col_or_span == c {
-    $column_widths: -get_column($ratios, $gutter);
-    $translate: nth($column_widths, 1) + nth($column_widths, 2);
-  } @else {
-    $translate: -get_span($ratios);
+
+  @if index("column" "col" "c", $col-or-span) {
+    $column-widths: jeet-get-column($ratios, $gutter);
+    $translate: nth($column-widths, 1) + nth($column-widths, 2);
   }
+  @else {
+    $translate: jeet-get-span($ratios);
+  }
+
   position: relative;
   left: $translate * 1%;
 }
+
+// Unshifting
+// ---
 @mixin unshift() {
   position: static;
   left: 0;
 }
 
-// Edit Mode
+// Debug Mode
+// ---
 @mixin edit() {
   * {
     background: rgba(0, 0, 0, .05);
@@ -108,17 +167,33 @@
   }
 }
 
+// Alias for `edit`
+@mixin debug() {
+  @include edit;
+}
+
 // Horizontal Centering Block Elements
-@mixin center($max_width: 1410px, $pad: 0) {
-  @include cf();
+// ---
+// @param [number] $max-width ($jeet-max-width): max width
+// @param [number] $pad (0): pad
+// ---
+@mixin center(
+  $max-width: $jeet-max-width,
+  $pad: 0
+) {
+  @include cf;
   width: auto;
-  max-width: $max_width;
+  max-width: $max-width;
   float: none;
   display: block;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: $pad;
-  padding-right: $pad;
+  margin: {
+    left:  auto;
+    right: auto;
+  };
+  padding: {
+    left:  $pad;
+    right: $pad;
+  };
 }
 
 // Uncenter Elements
@@ -130,77 +205,112 @@
   padding-right: 0;
 }
 
-// Stacking/Unstacking Elements
-@mixin stack($pad: 0, $align: false) {
-  $side: -get_layout_direction();
+// Stacking/Unstacking elements
+// ---
+// @param [number] $pad (0): pad
+// @param [bool] $align (false): alignment
+// ---
+@mixin stack(
+  $pad: 0,
+  $align: false
+) {
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+
   display: block;
   clear: both;
   float: none;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  &:first-child {
-    margin-#{$side}: auto;
-  }
-  &:last-child {
-    margin-#{opposite-direction($side)}: auto;
-  }
+  margin: {
+    left:  auto;
+    right: auto;
+  };
+
   @if $pad != 0 {
-    padding-left: $pad;
-    padding-right: $pad;
+    padding: {
+      left:  $pad;
+      right: $pad;
+    }
   }
+
   @if ($align is not false) {
-    @if ($align == center) or ($align == c) {
+    @if index("center" "c", $align) {
       text-align: center;
     }
-    @if ($align == left) or ($align == l) {
+    @else if index("left" "l", $align) {
       text-align: left;
     }
-    @if ($align == right) or ($align == r) {
+    @else if index("right" "r", $align) {
       text-align: right;
     }
   }
-}
-@mixin unstack() {
-  $side: -get_layout_direction();
-  display: inline;
-  clear: none;
-  width: auto;
-  margin-left: 0;
-  margin-right: 0;
+
   &:first-child {
-    margin-#{$side}: 0;
+    margin-#{$side}: auto;
   }
+
   &:last-child {
-    margin-#{opposite-direction($side)}: 0;
-  }
-  @if ($jeet-layout-direction == RTL) {
-    text-align: right;
-  } @else {
-    text-align: left;
+    margin-#{$opposite-side}: auto;
   }
 }
 
-// Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
-@mixin align($direction: both) {
+// Unstacking
+// ---
+@mixin unstack() {
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+
+  text-align: $side;
+  display: inline;
+  clear: none;
+  width: auto;
+  margin: {
+    left:  0;
+    right: 0;
+  };
+
+  &:first-child {
+    margin-#{$side}: 0;
+  }
+
+  &:last-child {
+    margin-#{$opposite-side}: 0;
+  }
+}
+
+// Horizontal/Vertical/Both Alignment
+// ---
+// Parent container needs position relative.
+// ---
+// @support IE9+
+// ---
+// @param [string] $direction (both): direction
+// ---
+@mixin align(
+  $direction: both
+) {
   position: absolute;
-  @include jeet-prefixer(transform-style, preserve-3d);
-  @if ($direction == horizontal) or ($direction == h) {
+
+  @if index("horizontal" "h", $direction) {
+    @include prefixer(transform, translateX(-50%), webkit ms);
     left: 50%;
-    @include jeet-prefixer(transform, translateX(-50%));
-  } @else if ($direction == vertical) or ($direction == v) {
+  }
+  @else if index("vertical" "v", $direction) {
+    @include prefixer(transform, translateY(-50%), webkit ms);
     top: 50%;
-    @include jeet-prefixer(transform, translateY(-50%));
-  } @else {
+  }
+  @else {
+    @include prefixer(transform, translate(-50%, -50%), webkit ms);
     top: 50%;
     left: 50%;
-    @include jeet-prefixer(transform, translate(-50%, -50%));
   }
 }
 
 // Clearfix
+// ---
 @mixin cf() {
   *zoom: 1;
+
   &:before, &:after {
     content: '';
     display: table;
@@ -211,11 +321,15 @@
 }
 
 // Define a rule with all vendor-specific prefixes
-@mixin jeet-prefixer($name, $arguments) {
-  -webkit-#{$name}: #{$arguments};
-  -ms-#{$name}: #{$arguments};
-  -moz-#{$name}: #{$arguments};
-  -o-#{$name}: #{$arguments};
-  #{$name}: #{$arguments};
-}
+// ---
+// @param [string] $property: property
+// @param [string] $value: value
+// @param [list] $vendors (webkit moz ms o): vendor prefixes
+// ---
+@mixin prefixer($property, $value, $vendors: webkit moz ms o) {
+  @each $vendor in $vendors {
+    #{'-' + $vendor + '-' + $property}: $value;
+  }
 
+  #{$property}: $value;
+}

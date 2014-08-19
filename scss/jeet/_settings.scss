@@ -1,6 +1,5 @@
 // Grid Settings
-$jeet-gutter: 3;
-$jeet-parent-first: false;
-$jeet-layout-direction: LTR;
-
-$g: $jeet-gutter;
+$jeet-gutter:           3      !default;
+$jeet-parent-first:     false  !default;
+$jeet-layout-direction: "LTR"  !default;
+$jeet-max-width:        1410px !default;
