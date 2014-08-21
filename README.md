@@ -1,4 +1,6 @@
+<p align="center">
 <img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
+</p>
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
