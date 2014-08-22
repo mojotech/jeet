@@ -19,6 +19,22 @@ Explore [Jeet Integrations](INTEGRATIONS.md) to see some community-backed plugin
 - IE9+ and all major browsers without polyfills like Selectivizr
 - With a nice boilerplate like [Boy](http://github.com/corysimmons/boy), seamless and responsive in IE7+ ([gallery](http://imgur.com/a/Z0YPD))
 
+#### Using Ember.js or similar?
+
+If you're using Ember.js or another framework that adds tags to your DOM (metamorph tags in the case of Ember), you may need to add:
+
+    whatever:last-of-type {
+      margin-right: 0;
+    }
+    
+Or when your layout is stacked:
+
+    whatever:nth-of-type(number of columns in your row) {
+      margin-right: 0;
+    }
+
+In order to preserve Jeet's excellent formatting.
+
 ---
 
 ##### Jeet is curated by loving hands at...
