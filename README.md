@@ -13,11 +13,7 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 Want to sandbox it right this very second? Fork some examples on [CodePen](http://codepen.io/collection/eilAH/).
 
-#### Jeet Projects
-- [generator-jeet](https://github.com/juliancwirko/generator-jeet) - [Yeoman](http://yeoman.io/) generator with [LiveReload](http://livereload.com) for Jeet
-- [jeet-gulp](https://github.com/muraken720/jeet-gulp) - [Gulp](http://gulpjs.com) project with [LiveReload](http://livereload.com) for Jeet
-- [scotty](https://github.com/juliancwirko/scotty) - [Meteor](http://meteor.com) boilerplate project for Jeet
-- [jeet-snippets](https://github.com/markalfred/jeet-snippets) - [Sublime Text](http://www.sublimetext.com) snippets for Jeet
+Explore [Jeet Integrations](INTEGRATIONS.md) to see some community-backed plugins to your favorite frameworks and libraries.
 
 #### Browser Support
 - IE9+ and all major browsers without polyfills like Selectivizr
@@ -28,4 +24,4 @@ Want to sandbox it right this very second? Fork some examples on [CodePen](http:
 ##### Jeet is curated by loving hands at...
 <a href="http://mojotech.com"><img width="140px" src="https://mojotech.github.io/jeet/img/mojotech-logo.svg" title="MojoTech's Hiring"></a> <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
 
-##### Thanks to all the [awesome contributors](https://github.com/mojotech/jeet/graphs/contributors) 
+##### Thanks to all the [awesome contributors](https://github.com/mojotech/jeet/graphs/contributors)
