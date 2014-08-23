@@ -13,7 +13,7 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 
 Want to sandbox it right this very second? Fork some examples on [CodePen](http://codepen.io/collection/eilAH/).
 
-Explore [Jeet Integrations](INTEGRATIONS.md) to see some community-backed plugins to your favorite frameworks and libraries.
+Explore [Jeet Integrations](https://github.com/mojotech/jeet/wiki/Jeet-Integrations) to see some community-backed plugins to your favorite frameworks and libraries.
 
 #### Browser Support
 - IE9+ and all major browsers without polyfills like Selectivizr
