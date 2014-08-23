@@ -1,4 +1,11 @@
-// Columns with Gutters
+/**
+ * Style an element as a column with a gutter.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [$cycle=0] - Easily create an nth column grid where $cycle equals the number of columns.
+ * @param {number} [$uncycle=0] - Undo a previous cycle vlue to allow for a new one.
+ * @param {number} [$gutter=$jeet-gutter] - Specifiy the gutter width as a percentage of the containers width.
+ */
 @mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
   $side: -get_layout_direction();
   $column_widths: -get_column($ratios, $gutter);
@@ -50,11 +57,20 @@
     }
   }
 }
+
+/**
+ * An alias for the column mixin.
+ * @param [...] All arguments get passed through to column().
+ */
 @mixin col($args...) {
   @include column($args...);
 }
 
-// Columns without Gutters
+/**
+ * Style an element as a column without any gutters for a seamless row.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ */
 @mixin span($ratio: 1, $offset: 0) {
   $side: -get_layout_direction();
   $span_width: -get_span($ratio);
@@ -79,7 +95,12 @@
   margin-#{opposite-direction($side)}: $margin_r * 1%;
 }
 
-// Source Ordering
+/**
+ * Reorder columns without altering the HTML.
+ * @param {number} [$ratios=0] - Specify how far along you want the element to move.
+ * @param {string} [$col_or_span=column] - Specify whether the element has a gutter or not.
+ * @param {number} [$gutter=$jeet-gutter] - Specifiy the gutter width as a percentage of the containers width.
+ */
 @mixin shift($ratios: 0, $col_or_span: column, $gutter: $jeet-gutter) {
   $translate: '';
   $side: -get_layout_direction();
@@ -95,12 +116,18 @@
   position: relative;
   left: $translate * 1%;
 }
+
+/**
+ * Reset an element that has had shift() applied to it.
+ */
 @mixin unshift() {
   position: static;
   left: 0;
 }
 
-// Edit Mode
+/**
+ * View the grid and its layers for easy debugging.
+ */
 @mixin edit() {
   * {
     background: rgba(0, 0, 0, .05);
@@ -108,7 +135,11 @@
   }
 }
 
-// Horizontal Centering Block Elements
+/**
+ * Horizontally center an element.
+ * @param {number} [$max_width=1410px] - The max width the element can be.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ */
 @mixin center($max_width: 1410px, $pad: 0) {
   @include cf();
   width: auto;
@@ -121,7 +152,9 @@
   padding-right: $pad;
 }
 
-// Uncenter Elements
+/**
+ * Uncenter an element.
+ */
 @mixin uncenter() {
   max-width: none;
   margin-right: 0;
@@ -130,7 +163,11 @@
   padding-right: 0;
 }
 
-// Stacking/Unstacking Elements
+/**
+ * Stack an element so that nothing is either side of it.
+ * @param {number} [$pad=0] - Specify the element's left and right padding.
+ * @param {bollean/string} [$align=false] - Specify the text align for the element.
+ */
 @mixin stack($pad: 0, $align: false) {
   $side: -get_layout_direction();
   display: block;
@@ -161,6 +198,10 @@
     }
   }
 }
+
+/**
+ * Unstack an element.
+ */
 @mixin unstack() {
   $side: -get_layout_direction();
   display: inline;
@@ -181,7 +222,11 @@
   }
 }
 
-// Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
+/**
+ * Center an element on either or both axes.
+ * @requires A parent container with relative positioning.
+ * @param {string} [$direction=both] - Specify which axes to center the element on.
+ */
 @mixin align($direction: both) {
   position: absolute;
   transform-style: preserve-3d;
@@ -198,7 +243,9 @@
   }
 }
 
-// Clearfix
+/**
+ * Apply a clearfix to an element.
+ */
 @mixin cf() {
   *zoom: 1;
   &:before, &:after {
