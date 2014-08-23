@@ -1,11 +1,23 @@
 {
   "name": "jeet",
-  "author": "Cory Simmons / MojoTech <cory@mojotech.com> (http://mojotech.com)",
+  "maintainers": [
+    {
+      "name": "Cory Simmons",
+      "email": "csimmonswork@gmail.com",
+      "web": "http://jeet.gs"
+    },
+    {
+      "name": "Sam Saccone",
+      "email": "sam@mojotech.com",
+      "web": "http://mojotech.com"
+    }
+  ],
   "main": "stylus/jeet.js",
   "version": "5.3.0",
-  "description": "The most advanced, yet intuitive, grid system on the market today",
+  "description": "A grid system for humans.",
   "keywords": [
     "stylus",
+    "scss",
     "css",
     "framework",
     "grid"
@@ -32,6 +44,6 @@
     "url": "https://github.com/mojotech/jeet/issues",
     "email": "cory@mojotech.com"
   },
-  "license": "GPL-3.0+",
+  "license": "MIT",
   "homepage": "https://jeet.gs"
 }
