@@ -1,0 +1,28 @@
+{
+  "name": "jeet",
+  "version": "5.3.0",
+  "homepage": "http://jeet.gs",
+  "authors": [
+    "Cory Simmons <csimmonswork@gmail.com>",
+    "Sam Saccone <sam@mojotech.com>"
+  ],
+  "description": "A grid system for humans.",
+  "main": [
+    "stylus/jeet/index.styl",
+    "scss/jeet/index.scss"
+  ],
+  "keywords": [
+    "grid",
+    "framework",
+    "ratio",
+    "fraction"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
