@@ -33,8 +33,5 @@
     "email": "cory@mojotech.com"
   },
   "license": "GPL-3.0+",
-  "homepage": "https://jeet.gs",
-  "dependencies": {
-    "stylus": "^0.42.3"
-  }
+  "homepage": "https://jeet.gs"
 }
