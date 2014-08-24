@@ -28,3 +28,17 @@
   for item in list
     prepend(result, item)
   return result
+
+column-width(ratios = 1, g = jeet.gutter)
+  ratios = -reverse(ratios) unless jeet.parent-first is true
+  w = 100
+  for ratio in ratios
+    w = 100 * ratio - g + ratio * g
+  return w + '%'
+
+column-gutter(ratios = 1, g = jeet.gutter)
+  ratios = -reverse(ratios) unless jeet.parent-first is true
+  w = 100
+  for ratio in ratios
+    g = g / w * 100
+  return g + '%'
