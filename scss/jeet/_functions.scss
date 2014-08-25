@@ -1,18 +1,23 @@
-// List functions courtesy of the wonderful folks at Team Sass
-// Check out their awesome grid: Singularity
+/**
+ * List functions courtesy of the wonderful folks at Team Sass.
+ * Check out their awesome grid: Singularity.
+ */
 
-// Getter - span
+/**
+ * Get  percentage from a given ratio.
+ * @param {number} [$ratio=1] - The column ratio of the element.
+ * @returns {number} - The percentage value.
+ */
 @function jeet-get-span($ratio: 1) {
   @return $ratio * 100;
 }
 
-// Getter - column
-// ---
-// @param [number] $ratios (1): ratios
-// @param [number] $g ($jeet-gutter): gutter
-// ---
-// @return [list]
-// ---
+/**
+ * Work out the column widths based on the ratio and gutter sizes.
+ * @param {number} [$ratios=1] - The column ratio of the element.
+ * @param {number} [$gutter=$jeet-gutter] - The gutter for the column.
+ * @returns {list} $width $gutter - A list containing the with and gutter for the element.
+ */
 @function jeet-get-column($ratios: 1, $gutter: $jeet-gutter) {
   $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
   $width: 100;
@@ -25,24 +30,24 @@
   @return $width $gutter;
 }
 
-// Getter - layout direction
-// ---
-// @return [string]
-// ---
+/**
+ * Get the set layout direction for the project.
+ * @returns {string} $direction - The layout direction.
+ */
 @function jeet-get-layout-direction() {
-  @return if($jeet-layout-direction == "RTL", right, left);
+  $direction: if($jeet-layout-direction == "RTL", right, left);
+
+  @return $direction;
 }
 
-// Helper - replace-nth
-// ---
-// Progressively enhanced for Sass 3.3
-// ---
-// @param [list] $list: list
-// @param [number] $index: index
-// @param [literal] $value: value
-// ---
-// @return [list]
-// ---
+/**
+ * Replace a specified list value with a new value (uses built in set-nth() if available)
+ * @param {list} $list - The list of values you want to alter.
+ * @param {number} $index - The index of the list item you want to replace.
+ * @param {*} $value - The value you want to replace $index with.
+ * @returns {list} $list - The list with the value replaced or removed.
+ * @warn if an invalid index is supplied.
+ */
 @function jeet-replace-nth($list, $index, $value) {
   // Fallback for Sass 3.2
   @if function-exists("set-nth") != true {
@@ -57,17 +62,16 @@
   }
 
   // Sass 3.3
-  @return set-nth($list, $index, $value);
+  $result: set-nth($list, $index, $value);
+
+  @return $result;
 }
 
-// Helper - reverse
-// ---
-// Progressively enhanced for Sass 3.3
-// ---
-// @param [list] $list: list
-// ---
-// @return [list]
-// ---
+/**
+ * Reverse a list (progressively enhanced for Sass 3.3)
+ * @param {list} $list - The list of values you want to reverse.
+ * @returns {list} $result - The reversed list.
+ */
 @function jeet-reverse($list) {
   // Sass 3.2
   @if function-exists("set-nth") != true {
@@ -90,12 +94,12 @@
   @return $list;
 }
 
-// Helper - opposite-direction
-// ---
-// @param [string] $direction: direction
-// ---
-// @return [string] | false
-// ---
+/**
+ * Get the opposite direction to a given value.
+ * @param {string} $dir - The direction you want the opposite of.
+ * @returns {string} - The opposite direction to $dir.
+ * @warn if an incorrect string is provided.
+ */
 @function jeet-opposite-direction($direction) {
   @if $direction == "left" {
     @return right;

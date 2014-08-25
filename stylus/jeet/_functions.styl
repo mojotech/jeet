@@ -17,9 +17,8 @@ jeet-get-column(ratios = 1, gutter = jeet.gutter)
   width = 100
 
   for ratio in ratios
-    g = g / w * 100
-    w = 100 * ratio - g + ratio * g
-  return w g
+    gutter = gutter / width * 100
+    width = 100 * ratio - gutter + ratio * gutter
 
   return width gutter
 
@@ -29,6 +28,7 @@ jeet-get-column(ratios = 1, gutter = jeet.gutter)
  */
 jeet-get-layout-direction()
   jeet.layout-direction == RTL ? result = right : result = left
+
   return result
 
 /**
@@ -41,11 +41,13 @@ jeet-get-layout-direction()
 jeet-replace-nth(list, index, value)
   result = ()
   index = length(list) + index if index < 0
+
   for i in (0..(length(list) - 1))
     if i == index
       append(result, value)
     else
       append(result, list[i])
+
   return result
 
 /**
@@ -55,6 +57,8 @@ jeet-replace-nth(list, index, value)
  */
 jeet-reverse(list)
   result = ()
+
   for item in list
     prepend(result, item)
+
   return result

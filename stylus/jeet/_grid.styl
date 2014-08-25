@@ -1,4 +1,11 @@
-// Columns with Gutters
+/**
+ * Style an element as a column with a gutter.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
+ * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
+ * @param {number} [uncycle=0] - Undo a previous cycle vlue to allow for a new one.
+ * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
+ */
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   side = -get_layout_direction()
   opposite-side = opposite-position(side)
@@ -43,9 +50,16 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
     &:last-child
       margin-{opposite-side}: (margin_last)%
 
+/**
+ * An alias for the column mixin.
+ */
 col = column
 
-// Columns without Gutters
+/**
+ * Style an element as a column without any gutters for a seamless row.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
+ */
 span(ratio = 1, offset = 0)
   side = -get_layout_direction()
   opposite-side = opposite-position(side)
@@ -70,7 +84,12 @@ span(ratio = 1, offset = 0)
   margin-{side}: (margin_l)%
   margin-{opposite-side}: (margin_r)%
 
-// Source Ordering
+/**
+ * Reorder columns without altering the HTML.
+ * @param {number} [ratios=0] - Specify how far along you want the element to move.
+ * @param {string} [col_or_span=column] - Specify whether the element has a gutter or not.
+ * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
+ */
 shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
   translate = ''
   side = -get_layout_direction()
@@ -86,11 +105,17 @@ shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
 
   position: relative
   left: (translate)%
+
+/**
+ * Reset an element that has had shift() applied to it.
+ */
 unshift()
   position: static
   left: 0
 
-// Edit Mode
+/**
+ * View the grid and its layers for easy debugging.
+ */
 edit()
   *
     background: rgba(#000, 5%)
@@ -117,7 +142,9 @@ center(max_width = jeet.max-width, pad = 0)
   padding-left: pad
   padding-right: pad
 
-// Uncenter Elements
+/**
+ * Uncenter an element.
+ */
 uncenter()
   max-width: none
   margin-right: 0
@@ -125,7 +152,11 @@ uncenter()
   padding-left: 0
   padding-right: 0
 
-// Stacking/Unstacking Elements
+/**
+ * Stack an element so that nothing is either side of it.
+ * @param {number} [pad=0] - Specify the element's left and right padding.
+ * @param {bollean/string} [align=false] - Specify the text align for the element.
+ */
 stack(pad = 0, align = false)
   side = -get_layout_direction()
   opposite-side = opposite-position(side)
@@ -154,6 +185,10 @@ stack(pad = 0, align = false)
       text-align: left
     if (align == right) or (align == r)
       text-align: right
+
+/**
+ * Unstack an element.
+ */
 unstack()
   side = -get_layout_direction()
   opposite-side = opposite-position(side)
@@ -171,7 +206,11 @@ unstack()
   &:last-child
     margin-{opposite-side}: 0
 
-// Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
+/**
+ * Center an element on either or both axes.
+ * @requires A parent container with relative positioning.
+ * @param {string} [direction=both] - Specify which axes to center the element on.
+ */
 align(direction = both)
   position: absolute
   transform-style: preserve-3d
@@ -187,7 +226,9 @@ align(direction = both)
     left: 50%
     transform: translate(-50%, -50%)
 
-// Clearfix
+/**
+ * Apply a clearfix to an element.
+ */
 cf()
   *zoom: 1
 
