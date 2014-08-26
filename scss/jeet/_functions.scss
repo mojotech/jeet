@@ -1,10 +1,13 @@
-// List functions courtesy of the wonderful folks at Team Sass - check out their awesome grid: Singularity
-@function -get_span($ratio: 1) {
+// List functions courtesy of the wonderful folks at Team Sass
+// Check out their awesome grid: Singularity
+
+// Getter - span
+@function jeet-get-span($ratio: 1) {
   @return $ratio * 100;
 }
 
 // Getter - column
-@function _get-column($ratios: 1, $g: $jeet-gutter) {
+@function jeet-get-column($ratios: 1, $g: $jeet-gutter) {
   $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
   $w: 100;
 
@@ -17,11 +20,11 @@
 }
 
 // Getter - layout direction
-@function _get-layout-direction() {
+@function jeet-get-layout-direction() {
   @return if($jeet-layout-direction == "RTL", right, left);
 }
 
-@function -replace-nth($list, $index, $value) {
+@function jeet-replace-nth($list, $index, $value) {
   @if type-of($index) != number or $index == 0 or abs($index) > length($list) {
     @warn "Invalid index (#{$index}) for `replace-nth`.";
     @return false;
@@ -30,12 +33,13 @@
   @return if(not is-true($value), purge($list), $list);
 }
 
-@function -reverse($list, $recursive: false) {
+// Helper - reverse
+@function jeet-reverse($list, $recursive: false) {
   $result: ();
 
   @for $i from length($list) * -1 through -1 {
     $item: nth($list, abs($i));
-    $item: if(type-of($item) == list and $recursive, _reverse($item, $recursive), $item);
+    $item: if(type-of($item) == list and $recursive, jeet-reverse($item, $recursive), $item);
     $result: append($result, $item);
   }
 
@@ -43,7 +47,7 @@
 }
 
 // Helper - opposite-direction
-@function _opposite-direction($dir) {
+@function jeet-opposite-direction($dir) {
   @if $dir == "left" {
     @return right;
   }

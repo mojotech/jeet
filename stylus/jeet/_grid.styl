@@ -1,16 +1,18 @@
 // Columns with Gutters
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
-  side = -get_layout_direction()
-  column_widths = -get_column(ratios, gutter)
-  margin_l = margin_last = 0
+  side = jeet-get-layout-direction()
+  opposite-side = opposite-position(side)
+  column_widths = jeet-get-column(ratios, gutter)
+  margin_last = 0
+  margin_l = margin_last
   margin_r = column_widths[1]
   unless offset == 0
     if offset < 0
       offset *= -1
-      offset = -get_column(offset, column_widths[1])[0]
+      offset = jeet-get-column(offset, column_widths[1])[0]
       margin_r = margin_last = offset + column_widths[1] * 2
     else
-      offset = -get_column(offset, column_widths[1])[0]
+      offset = jeet-get-column(offset, column_widths[1])[0]
       margin_l = offset + column_widths[1]
   cf()
   float: side
@@ -41,15 +43,19 @@ col = column
 
 // Columns without Gutters
 span(ratio = 1, offset = 0)
-  side = -get_layout_direction()
-  span_width = -get_span(ratio)
-  margin_l = margin_r = 0
+  side = jeet-get-layout-direction()
+  opposite-side = opposite-position(side)
+  span_width = jeet-get-span(ratio)
+  margin_r = 0
+  margin_l = margin_r
+
   unless offset == 0
     if offset < 0
       offset *= -1
-      margin_r = -get_span(offset)
+      margin_r = jeet-get-span(offset)
     else
-      margin_l = -get_span(offset)
+      margin_l = jeet-get-span(offset)
+
   cf()
   float: side
   clear: none
@@ -62,14 +68,17 @@ span(ratio = 1, offset = 0)
 
 // Source Ordering
 shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
-  side = -get_layout_direction()
+  translate = ''
+  side = jeet-get-layout-direction()
+
   if side == right
     ratios = -replace_nth(ratios, 0, ratios[0] * -1)
   if col_or_span == column or col_or_span == col or col_or_span == c
-    column_widths = -get_column(ratios, gutter)
+    column_widths = jeet-get-column(ratios, gutter)
     translate = column_widths[0] + column_widths[1]
   else
-    translate = -get_span(ratios)
+    translate = jeet-get-span(ratios)
+
   position: relative
   left: (translate)%
 unshift()
@@ -103,7 +112,9 @@ uncenter()
 
 // Stacking/Unstacking Elements
 stack(pad = 0, align = false)
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
+  opposite-side = opposite-position(side)
+
   display: unquote('block')
   clear: both
   float: none
@@ -125,7 +136,10 @@ stack(pad = 0, align = false)
     if (align == right) or (align == r)
       text-align: right
 unstack()
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
+  opposite-side = opposite-position(side)
+
+  text-align: side
   display: inline
   clear: none
   width: auto
