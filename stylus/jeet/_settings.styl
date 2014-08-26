@@ -1,8 +1,11 @@
-// Grid Settings
-jeet = {
-  gutter: 3,
-  parent-first: false,
-  layout-direction: LTR
-}
+/**
+ * Grid settings.
+ * All values are defaults and can therefore be easily overidden.
+ */
 
-g = jeet.gutter
+jeet = {
+  gutter ?= 3,
+  parent-first ?= false,
+  layout-direction ?= LTR,
+  max-width ?= 1440px
+}
