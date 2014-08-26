@@ -1,11 +1,12 @@
 // Columns with Gutters
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
-  side = jeet-get-layout-direction()
+  side = -get_layout_direction()
   opposite-side = opposite-position(side)
-  column_widths = jeet-get-column(ratios, gutter)
+  column_widths = -get_column(ratios, gutter)
   margin_last = 0
   margin_l = margin_last
   margin_r = column_widths[1]
+
   unless offset == 0
     if offset < 0
       offset *= -1
@@ -14,6 +15,7 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
     else
       offset = jeet-get-column(offset, column_widths[1])[0]
       margin_l = offset + column_widths[1]
+
   cf()
   float: side
   clear: none
@@ -22,30 +24,32 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   padding-right: 0
   width: (column_widths[0])%
   margin-{side}: (margin_l)%
-  margin-{opposite-position(side)}: (margin_r)%
+  margin-{opposite-side}: (margin_r)%
+
   if uncycle != 0
     &:nth-child({uncycle}n)
-      margin-{opposite-position(side)}: (margin_r)%
+      margin-{opposite-side}: (margin_r)%
       float: side
     &:nth-child({uncycle}n + 1)
       clear: none
+
   if cycle != 0
     &:nth-child({cycle}n)
-      margin-{opposite-position(side)}: (margin_last)%
-      float: opposite-position(side)
+      margin-{opposite-side}: (margin_last)%
+      float: opposite-side
     &:nth-child({cycle}n + 1)
       clear: both
-  else
+   else
     &:last-child
-      margin-{opposite-position(side)}: (margin_last)%
+      margin-{opposite-side}: (margin_last)%
 
 col = column
 
 // Columns without Gutters
 span(ratio = 1, offset = 0)
-  side = jeet-get-layout-direction()
+  side = -get_layout_direction()
   opposite-side = opposite-position(side)
-  span_width = jeet-get-span(ratio)
+  span_width = -get_span(ratio)
   margin_r = 0
   margin_l = margin_r
 
@@ -54,7 +58,7 @@ span(ratio = 1, offset = 0)
       offset *= -1
       margin_r = jeet-get-span(offset)
     else
-      margin_l = jeet-get-span(offset)
+      margin_l = -get_span(offset)
 
   cf()
   float: side
@@ -64,20 +68,21 @@ span(ratio = 1, offset = 0)
   text-align: inherit
   width: (span_width)%
   margin-{side}: (margin_l)%
-  margin-{opposite-position(side)}: (margin_r)%
+  margin-{opposite-side}: (margin_r)%
 
 // Source Ordering
 shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
   translate = ''
-  side = jeet-get-layout-direction()
+  side = -get_layout_direction()
 
   if side == right
     ratios = -replace_nth(ratios, 0, ratios[0] * -1)
+
   if col_or_span == column or col_or_span == col or col_or_span == c
     column_widths = jeet-get-column(ratios, gutter)
     translate = column_widths[0] + column_widths[1]
   else
-    translate = jeet-get-span(ratios)
+    translate = -get_span(ratios)
 
   position: relative
   left: (translate)%
@@ -89,9 +94,19 @@ unshift()
 edit()
   *
     background: rgba(#000, 5%)
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#10000000, endColorstr=#10000000)
 
-// Horizontal Centering Block Elements
-center(max_width = 1410px, pad = 0)
+/**
+ *  Alias for `edit()`
+ */
+debug = edit
+
+/**
+ * Horizontally center an element.
+ * @param {number} [max_width=jeet.max-width] - The max width the element can be.
+ * @param {number} [pad=0] - Specify the element's left and right padding.
+ */
+center(max_width = jeet.max-width, pad = 0)
   cf()
   width: auto
   max-width: max_width
@@ -112,7 +127,7 @@ uncenter()
 
 // Stacking/Unstacking Elements
 stack(pad = 0, align = false)
-  side = jeet-get-layout-direction()
+  side = -get_layout_direction()
   opposite-side = opposite-position(side)
 
   display: unquote('block')
@@ -121,13 +136,17 @@ stack(pad = 0, align = false)
   width: 100%
   margin-left: auto
   margin-right: auto
+
   &:first-child
     margin-{side}: auto
+
   &:last-child
-    margin-{opposite-position(side)}: auto
+    margin-{opposite-side}: auto
+
   if pad != 0
     padding-left: pad
     padding-right: pad
+
   if (align is not false)
     if (align == center) or (align == c)
       text-align: center
@@ -136,7 +155,7 @@ stack(pad = 0, align = false)
     if (align == right) or (align == r)
       text-align: right
 unstack()
-  side = jeet-get-layout-direction()
+  side = -get_layout_direction()
   opposite-side = opposite-position(side)
 
   text-align: side
@@ -145,19 +164,18 @@ unstack()
   width: auto
   margin-left: 0
   margin-right: 0
+
   &:first-child
     margin-{side}: 0
+
   &:last-child
-    margin-{opposite-position(side)}: 0
-  if (jeet.layout-direction == RTL)
-    text-align: right
-  else
-    text-align: left
+    margin-{opposite-side}: 0
 
 // Horizontal/Vertical/Both Alignment - Parent container needs position relative. IE9+
 align(direction = both)
   position: absolute
   transform-style: preserve-3d
+
   if (direction == horizontal) or (direction == h)
     left: 50%
     transform: translateX(-50%)
@@ -172,8 +190,10 @@ align(direction = both)
 // Clearfix
 cf()
   *zoom: 1
+
   &:before, &:after
     content: ''
     display: table
+
   &:after
     clear: both
