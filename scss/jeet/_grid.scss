@@ -43,7 +43,7 @@
 
   @if $uncycle != 0 {
     &:nth-child(#{$uncycle}n) {
-      margin-#{_opposite-direction($side)}: $margin-r * 1%;
+      margin-#{jeet-opposite-direction($side)}: $margin-r * 1%;
       float: $side;
     }
     &:nth-child(#{$uncycle}n + 1) {
@@ -53,15 +53,15 @@
 
   @if $cycle != 0 {
     &:nth-child(#{$cycle}n) {
-      margin-#{_opposite-direction($side)}: $margin-last * 1%;
-      float: _opposite-direction($side);
+      margin-#{jeet-opposite-direction($side)}: $margin-last * 1%;
+      float: jeet-opposite-direction($side);
     }
     &:nth-child(#{$cycle}n + 1) {
       clear: both;
     }
   } @else {
     &:last-child {
-      margin-#{_opposite-direction($side)}: $margin-last * 1%;
+      margin-#{jeet-opposite-direction($side)}: $margin-last * 1%;
     }
   }
 }
@@ -256,7 +256,7 @@
   }
 
   &:last-child {
-    margin-#{_opposite-direction($side)}: 0;
+    margin-#{jeet-opposite-direction($side)}: 0;
   }
   @if ($jeet-layout-direction == RTL) {
     text-align: right;
