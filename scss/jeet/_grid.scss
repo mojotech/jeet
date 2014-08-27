@@ -155,6 +155,43 @@
 }
 
 /**
+ * Add an offset to an element without outputting the column styles.
+ * @param {number} [$ratios=0] - The width of the offset, relative to its container.
+ * @param {string} [$col-or-span=column] - Whether you are offsetting a column or span.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the container's width.
+ * @warns if the default offset of 0 is left in place.
+ */
+@mixin offset($ratios: 0, $col-or-span: column, $gutter: $jeet-gutter) {
+  $side: jeet-get-layout-direction();
+  $opposite-side: jeet-opposite-direction($side);
+  $column-widths: jeet-get-column($ratios, $gutter);
+  $margin: 0;
+
+  @if $ratios != 0 {
+    @if $ratios < 0 {
+      $ratios: $ratios * -1;
+      @if index("column" "col" "c", $col-or-span) {
+        $offset: nth(jeet-get-column($ratios, nth($column-widths, 2)), 1);
+        $margin: $offset + nth($column-widths, 2) * 2;
+      } @else {
+        $margin: jeet-get-span($ratios);
+      }
+    } @else {
+      @if index("column" "col" "c", $col-or-span) {
+        $offset: nth(jeet-get-column($ratios, nth($column-widths, 2)), 1);
+        $margin: $offset + nth($column-widths, 2);
+      } @else {
+        $margin: jeet-get-span($ratios);
+      }
+    }
+  } @else {
+    @warn "You need to specify an offset other than 0 to have any affect.";
+  }
+
+  margin-#{$side}: $margin * 1%;
+}
+
+/**
  * Reorder columns without altering the HTML.
  * @param {number} [$ratios=0] - Specify how far along you want the element to move.
  * @param {string} [$col-or-span=column] - Specify whether the element has a gutter or not.
