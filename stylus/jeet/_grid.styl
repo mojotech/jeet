@@ -85,6 +85,37 @@ span(ratio = 1, offset = 0)
   margin-{opposite-side}: (margin-r)%
 
 /**
+ * Add an offset to an element without outputting the column styles.
+ * @param {number} [ratio=1] - The width of the offset, relative to its container.
+ * @param {string} [col-or-span=column] - Whether you are offsetting a column or span.
+ * @param {number} [gutter=jeet-gutter] - Specifiy the gutter width as a percentage of the containers width.
+ * @warns if the default offset of 0 is left in place.
+ */
+offset(ratio: 0, col-or-span: column, gutter: jeet-gutter)
+  side = jeet-get-layout-direction()
+  opposite-side = opposite-position(side)
+  column-widths = jeet-get-column(ratios, gutter)
+  margin = 0
+
+  if ratio != 0
+    if ratio < 0
+      ratio = ratio * -1
+      if col-or-span == column or col-or-span == col or col-or-span == c
+        ratio = jeet-get-column(ratio, column-widths[1])[0]
+        margin = ratio + column-widths[1] * 2
+      else
+        margin = jeet-get-span(ratio)
+    else
+      if col-or-span == column or col-or-span == col or col-or-span == c
+        ratio = jeet-get-column(ratio, column-widths[1])[0]
+        margin = ratio + column-widths[1]
+      else
+        ratio = ratio
+        margin = jeet-get-span(ratio)
+
+  margin-{side}: (margin)%
+
+/**
  * Reorder columns without altering the HTML.
  * @param {number} [ratios=0] - Specify how far along you want the element to move.
  * @param {string} [col-or-span=column] - Specify whether the element has a gutter or not.
