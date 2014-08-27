@@ -85,7 +85,7 @@
   }
 
   // Sass 3.3
-  @for $i from 1 through floor(length($list) / 2) {
+  @for $i from 1 through floor(length($list) / 2) + 1 {
     $tmp: nth($list, $i);
     $list: set-nth($list, $i, nth($list, -$i));
     $list: set-nth($list, -$i, $tmp);
