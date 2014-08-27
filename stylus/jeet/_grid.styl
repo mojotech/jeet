@@ -6,10 +6,10 @@
  * @param {number} [uncycle=0] - Undo a previous cycle vlue to allow for a new one.
  * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
  */
-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
-  side = -get_layout_direction()
+column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter, update = 0)
+  side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
-  column_widths = -get_column(ratios, gutter)
+  column_widths = jeet-get-column(ratios, gutter)
   margin_last = 0
   margin_l = margin_last
   margin_r = column_widths[1]
@@ -23,15 +23,18 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
       offset = jeet-get-column(offset, column_widths[1])[0]
       margin_l = offset + column_widths[1]
 
-  cf()
   float: side
-  clear: none
-  text-align: inherit
-  padding-left: 0
-  padding-right: 0
   width: (column_widths[0])%
   margin-{side}: (margin_l)%
   margin-{opposite-side}: (margin_r)%
+
+  // Only output the non-variable column styles if we are initializing a column
+  if update == 0
+    cf()
+    clear: none
+    text-align: inherit
+    padding-left: 0
+    padding-right: 0
 
   if uncycle != 0
     &:nth-child({uncycle}n)
@@ -54,6 +57,12 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
  * An alias for the column mixin.
  */
 col = column
+
+/**
+ * Alias to directly call a width update on an element.
+ */
+ucol(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet-gutter, update = 1)
+  column(ratios, offset, cycle = 0, uncycle = 0, gutter = jeet-gutter, update = 1)
 
 /**
  * Style an element as a column without any gutters for a seamless row.

@@ -5,14 +5,15 @@
  * @param {number} [$cycle=0] - Easily create an nth column grid where $cycle equals the number of columns.
  * @param {number} [$uncycle=0] - Undo a previous cycle vlue to allow for a new one.
  * @param {number} [$gutter=$jeet-gutter] - Specifiy the gutter width as a percentage of the containers width.
+ * @param {boolean} [$update=0] - Set to true to only output new width/offset styles
  */
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
-  $side: jeet-get-layout-direction();
+@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter, $update: 0) {
+  $side: jeet-get-layout_direction();
   $opposite-side: jeet-opposite-direction($side);
-  $column-widths: jeet-get-column($ratios, $gutter);
-  $margin-last: 0;
-  $margin-l: $margin-last;
-  $margin-r: nth($column-widths, 2);
+  $column_widths: jeet-get-column($ratios, $gutter);
+  $margin_last: 0;
+  $margin_l: $margin_last;
+  $margin_r: nth($column_widths, 2);
 
   @if $offset != 0 {
     @if $offset < 0 {
@@ -26,20 +27,23 @@
     }
   }
 
-  @include cf;
-  display: inline;
-  clear: none;
-  text-align: inherit;
   float: $side;
-  width: nth($column-widths, 1) * 1%;
-  padding: {
-    left:  0;
-    right: 0;
-  };
+  width: nth($column_widths, 1) * 1%;
   margin: {
     #{$side}: $margin-l * 1%;
     #{$opposite-side}: $margin-r * 1%;
   };
+
+  // Only output the non-variable column styles if we are initializing a column
+  @if $update == 0 {
+    @include cf();
+    clear: none;
+    text-align: inherit;
+    padding: {
+      left:  0;
+      right: 0;
+    };
+  }
 
   @if $uncycle != 0 {
     &:nth-child(#{$uncycle}n) {
@@ -72,6 +76,13 @@
  */
 @mixin col($args...) {
   @include column($args...);
+}
+
+/**
+ * Alias to directly call a width update on an element.
+ */
+@mixin ucol($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter, $update: 1) {
+  @include column($ratios, $offset, $cycle, $uncycle, $gutter, $update);
 }
 
 /**
