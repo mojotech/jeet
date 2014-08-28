@@ -7,9 +7,9 @@
  * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
  */
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
-  column_widths = -get_column(ratios, gutter)
+  column_widths = jeet-get-column(ratios, gutter)
   margin_last = 0
   margin_l = margin_last
   margin_r = column_widths[1]
@@ -61,9 +61,9 @@ col = column
  * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
  */
 span(ratio = 1, offset = 0)
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
-  span_width = -get_span(ratio)
+  span_width = jeet-get-span(ratio)
   margin_r = 0
   margin_l = margin_r
 
@@ -72,7 +72,7 @@ span(ratio = 1, offset = 0)
       offset *= -1
       margin_r = jeet-get-span(offset)
     else
-      margin_l = -get_span(offset)
+      margin_l = jeet-get-span(offset)
 
   cf()
   float: side
@@ -92,7 +92,7 @@ span(ratio = 1, offset = 0)
  */
 shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
   translate = ''
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
 
   if side == right
     ratios = -replace_nth(ratios, 0, ratios[0] * -1)
@@ -101,7 +101,7 @@ shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
     column_widths = jeet-get-column(ratios, gutter)
     translate = column_widths[0] + column_widths[1]
   else
-    translate = -get_span(ratios)
+    translate = jeet-get-span(ratios)
 
   position: relative
   left: (translate)%
@@ -119,7 +119,6 @@ unshift()
 edit()
   *
     background: rgba(#000, 5%)
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#10000000, endColorstr=#10000000)
 
 /**
  *  Alias for `edit()`
@@ -158,7 +157,7 @@ uncenter()
  * @param {bollean/string} [align=false] - Specify the text align for the element.
  */
 stack(pad = 0, align = false)
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
 
   display: unquote('block')
@@ -190,7 +189,7 @@ stack(pad = 0, align = false)
  * Unstack an element.
  */
 unstack()
-  side = -get_layout_direction()
+  side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
 
   text-align: side
