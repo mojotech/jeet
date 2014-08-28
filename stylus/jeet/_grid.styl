@@ -9,19 +9,19 @@
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
-  column_widths = jeet-get-column(ratios, gutter)
-  margin_last = 0
-  margin_l = margin_last
-  margin_r = column_widths[1]
+  column-widths = jeet-get-column(ratios, gutter)
+  margin-last = 0
+  margin-l = margin-last
+  margin-r = column-widths[1]
 
   unless offset == 0
     if offset < 0
       offset *= -1
-      offset = jeet-get-column(offset, column_widths[1])[0]
-      margin_r = margin_last = offset + column_widths[1] * 2
+      offset = jeet-get-column(offset, column-widths[1])[0]
+      margin-r = margin-last = offset + column-widths[1] * 2
     else
-      offset = jeet-get-column(offset, column_widths[1])[0]
-      margin_l = offset + column_widths[1]
+      offset = jeet-get-column(offset, column-widths[1])[0]
+      margin-l = offset + column-widths[1]
 
   cf()
   float: side
@@ -29,26 +29,26 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   text-align: inherit
   padding-left: 0
   padding-right: 0
-  width: (column_widths[0])%
-  margin-{side}: (margin_l)%
-  margin-{opposite-side}: (margin_r)%
+  width: (column-widths[0])%
+  margin-{side}: (margin-l)%
+  margin-{opposite-side}: (margin-r)%
 
   if uncycle != 0
     &:nth-child({uncycle}n)
-      margin-{opposite-side}: (margin_r)%
+      margin-{opposite-side}: (margin-r)%
       float: side
     &:nth-child({uncycle}n + 1)
       clear: none
 
   if cycle != 0
     &:nth-child({cycle}n)
-      margin-{opposite-side}: (margin_last)%
+      margin-{opposite-side}: (margin-last)%
       float: opposite-side
     &:nth-child({cycle}n + 1)
       clear: both
    else
     &:last-child
-      margin-{opposite-side}: (margin_last)%
+      margin-{opposite-side}: (margin-last)%
 
 /**
  * An alias for the column mixin.
@@ -63,16 +63,16 @@ col = column
 span(ratio = 1, offset = 0)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
-  span_width = jeet-get-span(ratio)
-  margin_r = 0
-  margin_l = margin_r
+  span-width = jeet-get-span(ratio)
+  margin-r = 0
+  margin-l = margin-r
 
   unless offset == 0
     if offset < 0
       offset *= -1
-      margin_r = jeet-get-span(offset)
+      margin-r = jeet-get-span(offset)
     else
-      margin_l = jeet-get-span(offset)
+      margin-l = jeet-get-span(offset)
 
   cf()
   float: side
@@ -80,26 +80,26 @@ span(ratio = 1, offset = 0)
   padding-left: 0
   padding-right: 0
   text-align: inherit
-  width: (span_width)%
-  margin-{side}: (margin_l)%
-  margin-{opposite-side}: (margin_r)%
+  width: (span-width)%
+  margin-{side}: (margin-l)%
+  margin-{opposite-side}: (margin-r)%
 
 /**
  * Reorder columns without altering the HTML.
  * @param {number} [ratios=0] - Specify how far along you want the element to move.
- * @param {string} [col_or_span=column] - Specify whether the element has a gutter or not.
+ * @param {string} [col-or-span=column] - Specify whether the element has a gutter or not.
  * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
  */
-shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
+shift(ratios = 0, col-or-span = column, gutter = jeet.gutter)
   translate = ''
   side = jeet-get-layout-direction()
 
   if side == right
     ratios = jeet-replace-nth(ratios, 0, ratios[0] * -1)
 
-  if col_or_span == column or col_or_span == col or col_or_span == c
-    column_widths = jeet-get-column(ratios, gutter)
-    translate = column_widths[0] + column_widths[1]
+  if col-or-span == column or col-or-span == col or col-or-span == c
+    column-widths = jeet-get-column(ratios, gutter)
+    translate = column-widths[0] + column-widths[1]
   else
     translate = jeet-get-span(ratios)
 
@@ -121,19 +121,19 @@ edit()
     background: rgba(#000, 5%)
 
 /**
- *  Alias for `edit()`
+ *  Alias for edit().
  */
 debug = edit
 
 /**
  * Horizontally center an element.
- * @param {number} [max_width=jeet.max-width] - The max width the element can be.
+ * @param {number} [max-width=jeet.max-width] - The max width the element can be.
  * @param {number} [pad=0] - Specify the element's left and right padding.
  */
-center(max_width = jeet.max-width, pad = 0)
+center(max-width = jeet.max-width, pad = 0)
   cf()
   width: auto
-  max-width: max_width
+  max-width: max-width
   float: none
   display: unquote('block')
   margin-right: auto
