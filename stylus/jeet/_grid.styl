@@ -95,7 +95,7 @@ shift(ratios = 0, col_or_span = column, gutter = jeet.gutter)
   side = jeet-get-layout-direction()
 
   if side == right
-    ratios = -replace_nth(ratios, 0, ratios[0] * -1)
+    ratios = jeet-replace-nth(ratios, 0, ratios[0] * -1)
 
   if col_or_span == column or col_or_span == col or col_or_span == c
     column_widths = jeet-get-column(ratios, gutter)
