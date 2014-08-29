@@ -153,7 +153,7 @@
 }
 
 /**
- *  Alias for `edit()`
+ *  Alias for edit().
  */
 @mixin debug() {
   @include edit;
