@@ -69,3 +69,24 @@ describe("shift", function() {
     });
   });
 });
+
+describe("unshift", function() {
+  it("should match", function() {
+    return cssDiff({
+      omit: [
+        "comment"
+      ],
+      files: [
+        path.join(basePath, "functions/unshift/unshift.scss"),
+        path.join(basePath, "functions/unshift/unshift.styl")
+      ],
+      visual: true
+    }).then(function(diff) {
+      if (diff.different) {
+        console.log(diff.visual)
+      }
+
+      return diff.different.should.be.false;
+    });
+  });
+});
