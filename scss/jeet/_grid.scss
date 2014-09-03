@@ -27,15 +27,14 @@
   }
 
   @include cf;
-  display: inline;
+  float: $side;
   clear: none;
   text-align: inherit;
-  float: $side;
-  width: nth($column-widths, 1) * 1%;
   padding: {
     left:  0;
     right: 0;
   };
+  width: nth($column-widths, 1) * 1%;
   margin: {
     #{$side}: $margin-l * 1%;
     #{$opposite-side}: $margin-r * 1%;

@@ -37,14 +37,14 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
     &:nth-child({uncycle}n)
       margin-{opposite-side}: (margin-r)%
       float: side
-    &:nth-child({uncycle}n + 1)
+    &:nth-child({uncycle}n+1)
       clear: none
 
   if cycle != 0
     &:nth-child({cycle}n)
       margin-{opposite-side}: (margin-last)%
       float: opposite-side
-    &:nth-child({cycle}n + 1)
+    &:nth-child({cycle}n+1)
       clear: both
    else
     &:last-child

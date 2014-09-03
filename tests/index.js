@@ -27,3 +27,24 @@ describe("span", function() {
     });
   });
 });
+
+describe("column", function() {
+  it("should match", function() {
+    return cssDiff({
+      omit: [
+        "comment"
+      ],
+      files: [
+        path.join(basePath, "functions/column/column.scss"),
+        path.join(basePath, "functions/column/column.styl")
+      ],
+      visual: true
+    }).then(function(diff) {
+      if (diff.different) {
+        console.log(diff.visual)
+      }
+
+      return diff.different.should.be.false;
+    });
+  });
+});
