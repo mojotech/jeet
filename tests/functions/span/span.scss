@@ -1,5 +1,5 @@
 @import 'scss/jeet/index';
 
 h1 {
-  @include span(1/5);
+  @include span(1/5, 1/5);
 }
