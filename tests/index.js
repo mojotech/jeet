@@ -48,3 +48,24 @@ describe("column", function() {
     });
   });
 });
+
+describe("shift", function() {
+  it("should match", function() {
+    return cssDiff({
+      omit: [
+        "comment"
+      ],
+      files: [
+        path.join(basePath, "functions/shift/shift.scss"),
+        path.join(basePath, "functions/shift/shift.styl")
+      ],
+      visual: true
+    }).then(function(diff) {
+      if (diff.different) {
+        console.log(diff.visual)
+      }
+
+      return diff.different.should.be.false;
+    });
+  });
+});
