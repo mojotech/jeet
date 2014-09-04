@@ -72,3 +72,15 @@ describe("center", function() {
     });
   });
 });
+
+describe("uncenter", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/uncenter/uncenter.scss",
+        "functions/uncenter/uncenter.styl"
+      ]
+    });
+  });
+});
