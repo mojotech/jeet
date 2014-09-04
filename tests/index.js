@@ -60,3 +60,15 @@ describe("edit", function() {
     });
   });
 });
+
+describe("center", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/center/center.scss",
+        "functions/center/center.styl"
+      ]
+    });
+  });
+});
