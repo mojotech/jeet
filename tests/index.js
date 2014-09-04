@@ -60,3 +60,75 @@ describe("edit", function() {
     });
   });
 });
+
+describe("center", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/center/center.scss",
+        "functions/center/center.styl"
+      ]
+    });
+  });
+});
+
+describe("uncenter", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/uncenter/uncenter.scss",
+        "functions/uncenter/uncenter.styl"
+      ]
+    });
+  });
+});
+
+describe("stack", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/stack/stack.scss",
+        "functions/stack/stack.styl"
+      ]
+    });
+  });
+});
+
+describe("unstack", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/unstack/unstack.scss",
+        "functions/unstack/unstack.styl"
+      ]
+    });
+  });
+});
+
+describe("align", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/align/align.scss",
+        "functions/align/align.styl"
+      ]
+    });
+  });
+});
+
+describe("cf", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/cf/cf.scss",
+        "functions/cf/cf.styl"
+      ]
+    });
+  });
+});
