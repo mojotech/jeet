@@ -108,3 +108,15 @@ describe("unstack", function() {
     });
   });
 });
+
+describe("align", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/align/align.scss",
+        "functions/align/align.styl"
+      ]
+    });
+  });
+});

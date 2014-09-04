@@ -268,15 +268,15 @@
   transform-style: preserve-3d;
 
   @if index("horizontal" "h", $direction) {
+    left: 50%;
     transform: translateX(-50%);
-    left: 50%;
   } @else if index("vertical" "v", $direction) {
-    transform: translateY(-50%);
     top: 50%;
+    transform: translateY(-50%);
   } @else {
-    transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
