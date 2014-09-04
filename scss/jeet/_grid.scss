@@ -30,10 +30,6 @@
   float: $side;
   clear: none;
   text-align: inherit;
-  padding: {
-    left:  0;
-    right: 0;
-  };
   width: nth($column-widths, 1) * 1%;
   margin: {
     #{$side}: $margin-l * 1%;
