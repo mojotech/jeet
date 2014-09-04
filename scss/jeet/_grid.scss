@@ -92,10 +92,6 @@
   @include cf;
   float: $side;
   clear: none;
-  padding: {
-    left:  0;
-    right: 0;
-  };
   text-align: inherit;
   width: $span-width * 1%;
   margin: {
