@@ -256,11 +256,6 @@
   &:last-child {
     margin-#{jeet-opposite-direction($side)}: 0;
   }
-  @if ($jeet-layout-direction == RTL) {
-    text-align: right;
-  } @else {
-    text-align: left;
-  }
 }
 
 /**

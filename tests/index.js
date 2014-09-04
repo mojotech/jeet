@@ -96,3 +96,15 @@ describe("stack", function() {
     });
   });
 });
+
+describe("unstack", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/unstack/unstack.scss",
+        "functions/unstack/unstack.styl"
+      ]
+    });
+  });
+});
