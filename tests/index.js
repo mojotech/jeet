@@ -84,3 +84,15 @@ describe("uncenter", function() {
     });
   });
 });
+
+describe("stack", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/stack/stack.scss",
+        "functions/stack/stack.styl"
+      ]
+    });
+  });
+});
