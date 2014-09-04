@@ -120,3 +120,15 @@ describe("align", function() {
     });
   });
 });
+
+describe("cf", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/cf/cf.scss",
+        "functions/cf/cf.styl"
+      ]
+    });
+  });
+});
