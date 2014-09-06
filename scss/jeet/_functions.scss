@@ -118,3 +118,23 @@
     @return false;
   }
 }
+@function column-width($ratios: 1, $g: $jeet-gutter) {
+  @if ($jeet-parent-first != 'true') {
+    $ratios: -reverse($ratios);
+  }
+  $w: 100;
+  @each $ratio in $ratios {
+    $w: 100 * $ratio - $g + $ratio * $g;
+  }
+  @return unquote($w + '%');
+}
+@function column-gutter($ratios: 1, $g: $jeet-gutter) {
+  @if ($jeet-parent-first != 'true') {
+    $ratios: -reverse($ratios);
+  }
+  $w: 100;
+  @each $ratio in $ratios {
+    $g: $g / $w * 100;
+  }
+  @return unquote($g + '%');
+}
