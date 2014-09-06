@@ -70,6 +70,60 @@
 }
 
 /**
+ * Get the width of a column and nothing else.
+ * @param {number} [$ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [$g=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+@function column-width($ratios: 1, $g: $jeet-gutter) {
+  @if ($jeet-parent-first != 'true') {
+    $ratios: jeet-reverse($ratios);
+  }
+
+  $w: 100;
+
+  @each $ratio in $ratios {
+    $w: 100 * $ratio - $g + $ratio * $g;
+  }
+
+  @return unquote($w + '%');
+}
+
+/**
+ * Get the gutter size of a column and nothing else.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+@function column-gutter($ratios: 1, $g: $jeet-gutter) {
+  @if ($jeet-parent-first != 'true') {
+    $ratios: jeet-reverse($ratios);
+  }
+
+  $w: 100;
+
+  @each $ratio in $ratios {
+    $g: $g / $w * 100;
+  }
+
+  @return unquote($g + '%');
+}
+
+/**
+ * An alias for the column-width function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+@function cw($args...) {
+  @return column-width($args...);
+}
+
+/**
+ * An alias for the column-gutter function.
+ * @param [$args...] - All arguments get passed through to column().
+ */
+@function cg($args...) {
+  @return column-gutter($args...);
+}
+
+/**
  * Style an element as a column without any gutters for a seamless row.
  * @param {number} [$ratios=1] - A width relative to its container as a fraction.
  * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).

@@ -132,3 +132,27 @@ describe("cf", function() {
     });
   });
 });
+
+describe("column-gutter", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/column-gutter/column-gutter.scss",
+        "functions/column-gutter/column-gutter.styl"
+      ]
+    });
+  });
+});
+
+describe("column-width", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/column-width/column-width.scss",
+        "functions/column-width/column-width.styl"
+      ]
+    });
+  });
+});

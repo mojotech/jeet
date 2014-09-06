@@ -54,6 +54,44 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
 col = column
 
 /**
+ * Get the width of a column and nothing else.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+column-width(ratios = 1, g = jeet.gutter)
+  ratios = jeet-reverse(ratios) unless jeet.parent-first is true
+  w = 100
+
+  for ratio in ratios
+    w = 100 * ratio - g + ratio * g
+
+  return w + '%'
+
+/**
+ * An alias for the column-width function.
+ */
+cw = column-width
+
+/**
+ * Get the gutter size of a column and nothing else.
+ * @param {number} [ratios=1] - A width relative to its container as a fraction.
+ * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ */
+column-gutter(ratios = 1, g = jeet.gutter)
+  ratios = jeet-reverse(ratios) unless jeet.parent-first is true
+  w = 100
+
+  for ratio in ratios
+    g = g / w * 100
+
+  return g + '%'
+
+/**
+ * An alias for the column-gutter function.
+ */
+cg = column-gutter
+
+/**
  * Style an element as a column without any gutters for a seamless row.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
