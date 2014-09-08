@@ -149,10 +149,11 @@ unshift()
 
 /**
  * View the grid and its layers for easy debugging.
+ * @param {string} [color=black] - The background tint applied.
  */
-edit()
+edit(color = black)
   *
-    background: rgba(#000, 5%)
+    background: rgba(color, 5%)
 
 /**
  *  Alias for edit().

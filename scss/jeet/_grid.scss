@@ -189,10 +189,11 @@
 
 /**
  * View the grid and its layers for easy debugging.
+ * @param {string} [$color=black] - The background tint applied.
  */
-@mixin edit() {
+@mixin edit($color: black) {
   * {
-    background: rgba(0, 0, 0, .05);
+    background: rgba($color, .05);
   }
 }
 
