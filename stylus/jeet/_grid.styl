@@ -3,8 +3,8 @@
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
  * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
- * @param {number} [uncycle=0] - Undo a previous cycle vlue to allow for a new one.
- * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
+ * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
 column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   side = jeet-get-layout-direction()
@@ -122,7 +122,7 @@ span(ratio = 1, offset = 0)
  * Reorder columns without altering the HTML.
  * @param {number} [ratios=0] - Specify how far along you want the element to move.
  * @param {string} [col-or-span=column] - Specify whether the element has a gutter or not.
- * @param {number} [gutter=jeet.gutter] - Specifiy the gutter width as a percentage of the containers width.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
 shift(ratios = 0, col-or-span = column, gutter = jeet.gutter)
   translate = ''
