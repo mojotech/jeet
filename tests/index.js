@@ -25,6 +25,18 @@ describe("column", function() {
   });
 });
 
+describe("offset", function() {
+  it("should match", function() {
+    return compare({
+      basePath: basePath,
+      files: [
+        "functions/offset/offset.scss",
+        "functions/offset/offset.styl"
+      ]
+    });
+  });
+});
+
 describe("shift", function() {
   it("should match", function() {
     return compare({
