@@ -1,3 +1,24 @@
+### 6.0.0
+- Enhancements
+  - Scss and Stylus version now output identical CSS
+  - Add fully comprehensive inline documentation
+  - All API functions namespaced with `jeet-`
+  - All settings variables are now `!default` values so they can be overidden
+  - Move `$width` to `_settings` for easier modification
+  - Add uncenter mixin
+  - Add alias for 'edit()' mixin (`debug()`) and add color parameter
+  - Add `column-width()` and `column-gutter()` functions
+  - Add tests for all API methods
+  - Add a 3.3 enhanced version of the 'jeet-reverse()' function
+  - Remove padding from `span()` and `column()` mixins
+- Fixes
+  - Algorithm for reversing list
+  - Spelling errors
+  - Remove the cycle and uncycle parameters from span
+- Breaking changes
+  - Remove IE7 support for edit
+  - Remove prefixing from jeet. Please use something like [autoprefixer](https://github.com/postcss/autoprefixer) for adding vendor prefixes
+
 ### 5.3.0
 - Enhancements
   - Drop support for IE6 to clean some bloat
