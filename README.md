@@ -13,7 +13,7 @@ Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5)
 - [Stylus](stylus)
 - [SCSS](scss)
 
-Want to sandbox it right this very second? Fork some examples on [CodePen](http://codepen.io/collection/eilAH/).
+Want to sandbox it right this very second? Fork an [SCSS](http://bit.ly/jeet6-scss) or [Stylus](http://bit.ly/jeet6-stylus) example on CodePen.
 
 Explore [Jeet Integrations](https://github.com/mojotech/jeet/wiki/Jeet-Integrations) to see some community-backed plugins to your favorite frameworks and libraries.
 
