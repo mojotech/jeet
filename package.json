@@ -10,6 +10,11 @@
       "name": "Sam Saccone",
       "email": "sam@mojotech.com",
       "web": "http://mojotech.com"
+    },
+    {
+      "name": "Jake Cleary",
+      "email": "shout@jakecleary.net",
+      "web": "http://jakecleary.net"
     }
   ],
   "main": "stylus/jeet.js",
