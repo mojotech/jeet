@@ -190,10 +190,17 @@
 /**
  * View the grid and its layers for easy debugging.
  * @param {string} [$color=black] - The background tint applied.
+ * @param {boolean} [$important=false] - Whether to apply the style as !important.
  */
-@mixin edit($color: black) {
-  * {
-    background: rgba($color, .05);
+@mixin edit($color: black, $important: false) {
+  @if $important {
+    * {
+      background: rgba($color, .05) !important;
+    }
+  } @else {
+    * {
+      background: rgba($color, .05);
+    }
   }
 }
 
