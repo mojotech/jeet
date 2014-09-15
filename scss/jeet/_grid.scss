@@ -127,8 +127,10 @@
  * Style an element as a column without any gutters for a seamless row.
  * @param {number} [$ratios=1] - A width relative to its container as a fraction.
  * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
+ * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
+ * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
  */
-@mixin span($ratio: 1, $offset: 0) {
+@mixin span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $span-width: jeet-get-span($ratio);
@@ -152,6 +154,25 @@
     #{$side}: $margin-l * 1%;
     #{$opposite-side}: $margin-r * 1%;
   };
+
+  @if $cycle != 0 {
+    &:nth-child(#{$cycle}n) {
+      float: $opposite-side;
+    }
+    &:nth-child(#{$cycle}n + 1) {
+      clear: both;
+    }
+  }
+
+  @if $uncycle != 0 {
+    &:nth-child(#{$uncycle}n) {
+      float: $side;
+    }
+    &:nth-child(#{$uncycle}n + 1) {
+      clear: none;
+    }
+  }
+
 }
 
 /**

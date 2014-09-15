@@ -1,3 +1,6 @@
+### 6.1.1
+- Fixes
+  - By adding `cycle`/`uncycle` to `span` we are now able to clear floated elements so unequal height columns display as expected.
 
 ### 6.1.0
 - Enhancements
