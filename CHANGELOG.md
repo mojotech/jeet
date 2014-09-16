@@ -1,8 +1,11 @@
+### 6.1.1
+- Fixes
+  - By adding `cycle`/`uncycle` to `span` we are now able to clear floated elements so unequal height columns display as expected.
 
 ### 6.1.0
 - Enhancements
  - Add `important` parameter to `edit()` mixin
-   - Defaults to `false`. When set to `true` it adds the `!important` flag to the CSS to force elements with backgrounds already set to show the debug grid. 
+   - Defaults to `false`. When set to `true` it adds the `!important` flag to the CSS to force elements with backgrounds already set to show the debug grid.
 
 ### 6.0.0
 - Enhancements
