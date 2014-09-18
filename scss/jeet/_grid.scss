@@ -75,17 +75,7 @@
  * @param {number} [$g=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
  */
 @function column-width($ratios: 1, $g: $jeet-gutter) {
-  @if ($jeet-parent-first != 'true') {
-    $ratios: jeet-reverse($ratios);
-  }
-
-  $w: 100;
-
-  @each $ratio in $ratios {
-    $w: 100 * $ratio - $g + $ratio * $g;
-  }
-
-  @return unquote($w + '%');
+  @return unquote(nth(jeet-get-column($ratios, $gutter), 1) + '%');
 }
 
 /**
@@ -94,17 +84,7 @@
  * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
 @function column-gutter($ratios: 1, $g: $jeet-gutter) {
-  @if ($jeet-parent-first != 'true') {
-    $ratios: jeet-reverse($ratios);
-  }
-
-  $w: 100;
-
-  @each $ratio in $ratios {
-    $g: $g / $w * 100;
-  }
-
-  @return unquote($g + '%');
+  @return unquote(nth(jeet-get-column($ratios, $gutter), 2) + '%');
 }
 
 /**
