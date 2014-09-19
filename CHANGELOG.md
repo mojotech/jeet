@@ -1,3 +1,8 @@
+### 6.1.2
+- Fixes
+  - Critical bug in Scss port that caused nested columns to have incorrect gutters.
+  - `column-width()` and `column-gutter()` no longer ignore column nesting.
+
 ### 6.1.1
 - Fixes
   - By adding `cycle`/`uncycle` to `span` we are now able to clear floated elements so unequal height columns display as expected.
