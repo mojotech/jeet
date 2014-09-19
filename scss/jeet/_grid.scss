@@ -72,19 +72,19 @@
 /**
  * Get the width of a column and nothing else.
  * @param {number} [$ratios=1] - A width relative to its container as a fraction.
- * @param {number} [$g=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
+ * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
  */
-@function column-width($ratios: 1, $g: $jeet-gutter) {
-  @return unquote(nth(jeet-get-column($ratios, $g), 1) + '%');
+@function column-width($ratios: 1, $gutter: $jeet-gutter) {
+  @return unquote(nth(jeet-get-column($ratios, $gutter), 1) + '%');
 }
 
 /**
  * Get the gutter size of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
- * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-@function column-gutter($ratios: 1, $g: $jeet-gutter) {
-  @return unquote(nth(jeet-get-column($ratios, $g), 2) + '%');
+@function column-gutter($ratios: 1, $gutter: $jeet-gutter) {
+  @return unquote(nth(jeet-get-column($ratios, $gutter), 2) + '%');
 }
 
 /**

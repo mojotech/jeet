@@ -56,10 +56,10 @@ col = column
 /**
  * Get the width of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
- * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-column-width(ratios = 1, g = jeet.gutter)
-  return jeet-get-column(ratios, g)[0] + '%'
+column-width(ratios = 1, gutter = jeet.gutter)
+  return jeet-get-column(ratios, gutter)[0] + '%'
 
 /**
  * An alias for the column-width function.
@@ -69,10 +69,10 @@ cw = column-width
 /**
  * Get the gutter size of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
- * @param {number} [g=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
+ * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-column-gutter(ratios = 1, g = jeet.gutter)
-  return jeet-get-column(ratios, g)[1] + '%'
+column-gutter(ratios = 1, gutter = jeet.gutter)
+  return jeet-get-column(ratios, gutter)[1] + '%'
 
 /**
  * An alias for the column-gutter function.
