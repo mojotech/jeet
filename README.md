@@ -8,7 +8,7 @@
 
 By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
 
-Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
+Check out [this presentation](http://corysimmons.github.io/presentations/the-rise-of-ratio-grids) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
 
 - [Stylus](stylus)
 - [SCSS](scss)
