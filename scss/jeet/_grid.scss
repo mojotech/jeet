@@ -37,21 +37,21 @@
   };
 
   @if $uncycle != 0 {
-    &:nth-child(#{$uncycle}n) {
+    &:nth-of-type(#{$uncycle}n) {
       margin-#{jeet-opposite-direction($side)}: $margin-r * 1%;
       float: $side;
     }
-    &:nth-child(#{$uncycle}n + 1) {
+    &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
   }
 
   @if $cycle != 0 {
-    &:nth-child(#{$cycle}n) {
+    &:nth-of-type(#{$cycle}n) {
       margin-#{jeet-opposite-direction($side)}: $margin-last * 1%;
       float: jeet-opposite-direction($side);
     }
-    &:nth-child(#{$cycle}n + 1) {
+    &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
   } @else {
@@ -136,19 +136,19 @@
   };
 
   @if $cycle != 0 {
-    &:nth-child(#{$cycle}n) {
+    &:nth-of-type(#{$cycle}n) {
       float: $opposite-side;
     }
-    &:nth-child(#{$cycle}n + 1) {
+    &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
   }
 
   @if $uncycle != 0 {
-    &:nth-child(#{$uncycle}n) {
+    &:nth-of-type(#{$uncycle}n) {
       float: $side;
     }
-    &:nth-child(#{$uncycle}n + 1) {
+    &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
   }

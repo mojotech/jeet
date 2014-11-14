@@ -32,17 +32,17 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   margin-{opposite-side}: (margin-r)%
 
   if uncycle != 0
-    &:nth-child({uncycle}n)
+    &:nth-of-type({uncycle}n)
       margin-{opposite-side}: (margin-r)%
       float: side
-    &:nth-child({uncycle}n+1)
+    &:nth-of-type({uncycle}n+1)
       clear: none
 
   if cycle != 0
-    &:nth-child({cycle}n)
+    &:nth-of-type({cycle}n)
       margin-{opposite-side}: (margin-last)%
       float: opposite-side
-    &:nth-child({cycle}n+1)
+    &:nth-of-type({cycle}n+1)
       clear: both
    else
     &:last-child
@@ -109,15 +109,15 @@ span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
   margin-{opposite-side}: (margin-r)%
 
   if cycle != 0
-    &:nth-child({cycle}n)
+    &:nth-of-type({cycle}n)
       float: opposite-side
-    &:nth-child({cycle}n + 1)
+    &:nth-of-type({cycle}n + 1)
       clear: both
 
   if uncycle != 0
-    &:nth-child({uncycle}n)
+    &:nth-of-type({uncycle}n)
       float: side
-    &:nth-child({uncycle}n + 1)
+    &:nth-of-type({uncycle}n + 1)
       clear: none
 
 /**
