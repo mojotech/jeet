@@ -20,6 +20,7 @@ Explore [Jeet Integrations](https://github.com/mojotech/jeet/wiki/Jeet-Integrati
 #### Browser Support
 - IE9+ and all major browsers without polyfills like Selectivizr
 - With a nice boilerplate like [Boy](http://github.com/corysimmons/boy), seamless and responsive in IE7+ ([gallery](http://imgur.com/a/Z0YPD))
+- If you would like to support older browsers, please use a tool like [autoprefixer](https://github.com/postcss/autoprefixer) to add the required browser prefixes.
 
 ---
 
