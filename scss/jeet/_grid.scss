@@ -328,6 +328,10 @@
   } @else if index("vertical" "v", $direction) {
     top: 50%;
     transform: translateY(-50%);
+  } @else if index("none", $direction) {
+    top: auto;
+    left: auto;
+    transform: translate(0, 0);
   } @else {
     top: 50%;
     left: 50%;
