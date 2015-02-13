@@ -29,7 +29,6 @@
   @include cf;
   float: $side;
   clear: none;
-  text-align: inherit;
   width: nth($column-widths, 1) * 1%;
   margin: {
     #{$side}: $margin-l * 1%;
@@ -128,7 +127,6 @@
   @include cf;
   float: $side;
   clear: none;
-  text-align: inherit;
   width: $span-width * 1%;
   margin: {
     #{$side}: $margin-l * 1%;
