@@ -130,8 +130,8 @@
 
 /**
  * Perform a value into a percentage value.
- * @param {number} value - The value which should be converted.
- * @returns {number} percentage
+ * @param {number} $value - The value which should be converted.
+ * @returns {number} $value - The percentage.
  */
 @function jeet-get-percentage($value) {
   @if $value == 0 {
