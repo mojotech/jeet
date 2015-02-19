@@ -3140,7 +3140,7 @@ strong {
   position: absolute;
   top: 145px;
   right: 0;
-  z-index: 999;
+  z-index: 99;
 }
 @media only screen and (max-width: 1024px) {
   .awwwards {
