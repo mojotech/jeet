@@ -2214,6 +2214,9 @@ strong {
   margin-top: 14px;
   margin-bottom: -10px;
   white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 @media only screen and (max-width: 635px) {
   .last-updated {
@@ -2417,7 +2420,7 @@ strong {
 }
 .cell {
   background: #fdfdfd;
-  min-height: 61px;
+  min-height: 62px;
   border-right: 1px solid #fff;
   border-top: 1px solid #fff;
   background-repeat: no-repeat;
@@ -3137,7 +3140,7 @@ strong {
   position: absolute;
   top: 145px;
   right: 0;
-  z-index: 999;
+  z-index: 99;
 }
 @media only screen and (max-width: 1024px) {
   .awwwards {
