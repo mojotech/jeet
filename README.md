@@ -19,7 +19,7 @@ Explore [Jeet Integrations](https://github.com/mojotech/jeet/wiki/Jeet-Integrati
 
 #### Browser Support
 - IE9+ and all major browsers without polyfills like Selectivizr
-- We've had reports that IE7 + IE8 can be supported, but please **use at your own risk**. You will need [Selectivizr](http://selectivizr.com/) along with [a required library](http://selectivizr.com/#how). You may also want [Html5 Shiv](https://github.com/aFarkas/html5shiv) & [Respond.js](https://github.com/scottjehl/Respond).
+- We've had reports that IE7 + 8 can be supported, but please **use at your own risk**. You will need [Selectivizr](http://selectivizr.com/) along with [a required library](http://selectivizr.com/#how). You may also want [Html5 Shiv](https://github.com/aFarkas/html5shiv) & [Respond.js](https://github.com/scottjehl/Respond).
 
 - If you would like to support older browsers, please use a tool like [Autoprefixer](https://github.com/postcss/autoprefixer) or [Nib](https://github.com/tj/nib) to add the required browser prefixes.
 
