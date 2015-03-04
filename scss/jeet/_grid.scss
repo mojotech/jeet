@@ -26,7 +26,6 @@
     }
   }
 
-  @include cf;
   float: $side;
   clear: none;
   width: nth($column-widths, 1) * 1%;
@@ -124,7 +123,6 @@
     }
   }
 
-  @include cf;
   float: $side;
   clear: none;
   width: $span-width * 1%;
@@ -216,7 +214,6 @@
  * @param {number} [$pad=0] - Specify the element's left and right padding.
  */
 @mixin center($max-width: $jeet-max-width, $pad: 0) {
-  @include cf;
   width: auto;
   max-width: $max-width;
   float: none;
