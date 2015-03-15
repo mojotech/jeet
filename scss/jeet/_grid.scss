@@ -28,15 +28,15 @@
 
   float: $side;
   clear: none;
-  width: nth($column-widths, 1) * 1%;
+  width: jeet-get-percentage(nth($column-widths, 1));
   margin: {
-    #{$side}: $margin-l * 1%;
-    #{$opposite-side}: $margin-r * 1%;
+    #{$side}: jeet-get-percentage($margin-l);
+    #{$opposite-side}: jeet-get-percentage($margin-r);
   };
 
   @if $uncycle != 0 {
     &:nth-of-type(#{$uncycle}n) {
-      margin-#{jeet-opposite-direction($side)}: $margin-r * 1%;
+      margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-r);
       float: $side;
     }
     &:nth-of-type(#{$uncycle}n + 1) {
@@ -46,7 +46,7 @@
 
   @if $cycle != 0 {
     &:nth-of-type(#{$cycle}n) {
-      margin-#{jeet-opposite-direction($side)}: $margin-last * 1%;
+      margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
       float: jeet-opposite-direction($side);
     }
     &:nth-of-type(#{$cycle}n + 1) {
@@ -54,7 +54,7 @@
     }
   } @else {
     &:last-child {
-      margin-#{jeet-opposite-direction($side)}: $margin-last * 1%;
+      margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
     }
   }
 }
@@ -73,7 +73,7 @@
  * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
  */
 @function column-width($ratios: 1, $gutter: $jeet-gutter) {
-  @return unquote(nth(jeet-get-column($ratios, $gutter), 1) + '%');
+  @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 1));
 }
 
 /**
@@ -82,7 +82,7 @@
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
 @function column-gutter($ratios: 1, $gutter: $jeet-gutter) {
-  @return unquote(nth(jeet-get-column($ratios, $gutter), 2) + '%');
+  @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 2));
 }
 
 /**
@@ -125,10 +125,10 @@
 
   float: $side;
   clear: none;
-  width: $span-width * 1%;
+  width: jeet-get-percentage($span-width);
   margin: {
-    #{$side}: $margin-l * 1%;
-    #{$opposite-side}: $margin-r * 1%;
+    #{$side}: jeet-get-percentage($margin-l);
+    #{$opposite-side}: jeet-get-percentage($margin-r);
   };
 
   @if $cycle != 0 {
@@ -173,7 +173,7 @@
   }
 
   position: relative;
-  left: $translate * 1%;
+  left: jeet-get-percentage($translate);
 }
 
 /**
