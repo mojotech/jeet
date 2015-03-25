@@ -18,7 +18,7 @@
     }
   ],
   "main": "stylus/jeet.js",
-  "version": "6.1.2",
+  "version": "7.0.0",
   "description": "A grid system for humans.",
   "keywords": [
     "stylus",

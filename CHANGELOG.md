@@ -1,3 +1,7 @@
+### 7.0.0
+- Enhancements
+  - Remove superfluous uncycle parameter
+
 ### 6.1.2
 - Fixes
   - Critical bug in Scss port that caused nested columns to have incorrect gutters.
@@ -9,8 +13,8 @@
 
 ### 6.1.0
 - Enhancements
- - Add `important` parameter to `edit()` mixin
-   - Defaults to `false`. When set to `true` it adds the `!important` flag to the CSS to force elements with backgrounds already set to show the debug grid.
+  - Add `important` parameter to `edit()` mixin
+    - Defaults to `false`. When set to `true` it adds the `!important` flag to the CSS to force elements with backgrounds already set to show the debug grid.
 
 ### 6.0.0
 - Enhancements
