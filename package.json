@@ -3,8 +3,8 @@
   "maintainers": [
     {
       "name": "Cory Simmons",
-      "email": "csimmonswork@gmail.com",
-      "web": "http://jeet.gs"
+      "email": "cory@launchboxhq.com",
+      "web": "http://launchboxhq.com"
     },
     {
       "name": "Sam Saccone",
@@ -18,7 +18,7 @@
     }
   ],
   "main": "stylus/jeet.js",
-  "version": "6.1.2",
+  "version": "7.0.0",
   "description": "A grid system for humans.",
   "keywords": [
     "stylus",

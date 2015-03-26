@@ -3,10 +3,9 @@
  * @param {number} [$ratios=1] - A width relative to its container as a fraction.
  * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
  * @param {number} [$cycle=0] - Easily create an nth column grid where $cycle equals the number of columns.
- * @param {number} [$uncycle=0] - Undo a previous cycle value to allow for a new one.
  * @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
  */
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
+@mixin column($ratios: 1, $offset: 0, $cycle: 0, $gutter: $jeet-gutter) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $column-widths: jeet-get-column($ratios, $gutter);
@@ -34,17 +33,12 @@
     #{$opposite-side}: jeet-get-percentage($margin-r);
   };
 
-  @if $uncycle != 0 {
-    &:nth-of-type(#{$uncycle}n) {
+  @if $cycle != 0 {
+    &:nth-of-type(n) {
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-r);
       float: $side;
-    }
-    &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
-  }
-
-  @if $cycle != 0 {
     &:nth-of-type(#{$cycle}n) {
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
       float: jeet-opposite-direction($side);
@@ -105,10 +99,9 @@
  * Style an element as a column without any gutters for a seamless row.
  * @param {number} [$ratios=1] - A width relative to its container as a fraction.
  * @param {number} [$offset=0] - A offset specified as a fraction (see $ratios).
- * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
- * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
+ * @param {number} [$cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
  */
-@mixin span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
+@mixin span($ratio: 1, $offset: 0, $cycle: 0) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $span-width: jeet-get-span($ratio);
@@ -132,20 +125,15 @@
   };
 
   @if $cycle != 0 {
+    &:nth-of-type(n) {
+      float: $side;
+      clear: none;
+    }
     &:nth-of-type(#{$cycle}n) {
       float: $opposite-side;
     }
     &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
-    }
-  }
-
-  @if $uncycle != 0 {
-    &:nth-of-type(#{$uncycle}n) {
-      float: $side;
-    }
-    &:nth-of-type(#{$uncycle}n + 1) {
-      clear: none;
     }
   }
 
