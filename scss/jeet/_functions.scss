@@ -16,7 +16,7 @@
 // Work out the column widths based on the ratio and gutter sizes.
 // @param {number} [$ratios=1] - The column ratio of the element.
 // @param {number} [$gutter=$jeet-gutter] - The gutter for the column.
-// @returnist}s {l $width $gutter - A list containing the with and gutter for the element.
+// @returns {list} $width $gutter - A list containing the with and gutter for the element.
 // =======================================================================================
 @function jeet-get-column($ratios: 1, $gutter: $jeet-gutter) {
   $ratios: if(not $jeet-parent-first, jeet-reverse($ratios), $ratios);
