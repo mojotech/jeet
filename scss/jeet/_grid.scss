@@ -29,6 +29,7 @@
   float: $side;
   clear: none;
   width: jeet-get-percentage(nth($column-widths, 1));
+
   margin: {
     #{$side}: jeet-get-percentage($margin-l);
     #{$opposite-side}: jeet-get-percentage($margin-r);
@@ -39,6 +40,7 @@
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-r);
       float: $side;
     }
+
     &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
@@ -49,6 +51,7 @@
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
       float: jeet-opposite-direction($side);
     }
+
     &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
@@ -126,6 +129,7 @@
   $span-width: jeet-get-span($ratio);
   $margin-r: 0;
   $margin-l: $margin-r;
+
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
@@ -138,6 +142,7 @@
   float: $side;
   clear: none;
   width: jeet-get-percentage($span-width);
+
   margin: {
     #{$side}: jeet-get-percentage($margin-l);
     #{$opposite-side}: jeet-get-percentage($margin-r);
@@ -147,6 +152,7 @@
     &:nth-of-type(#{$cycle}n) {
       float: $opposite-side;
     }
+
     &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
@@ -156,6 +162,7 @@
     &:nth-of-type(#{$uncycle}n) {
       float: $side;
     }
+
     &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
@@ -256,12 +263,14 @@
   max-width: $max-width;
   float: none;
   display: block;
+
   margin: {
     right: auto;
-    left:  auto;
+    left: auto;
   };
+
   padding: {
-    left:  $pad;
+    left: $pad;
     right: $pad;
   };
 }
@@ -278,10 +287,16 @@
  */
 @mixin j-uncenter() {
   max-width: none;
-  margin-right: 0;
-  margin-left: 0;
-  padding-left: 0;
-  padding-right: 0;
+
+  margin: {
+    right: 0;
+    left: 0;
+  };
+
+  padding: {
+    left: 0;
+    right: 0;
+  };
 }
 
 /**
@@ -304,8 +319,9 @@
   clear: both;
   float: none;
   width: 100%;
+
   margin: {
-    left:  auto;
+    left: auto;
     right: auto;
   };
 
@@ -319,7 +335,7 @@
 
   @if $pad != 0 {
     padding: {
-      left:  $pad;
+      left: $pad;
       right: $pad;
     }
   }
@@ -353,8 +369,9 @@
   display: inline;
   clear: none;
   width: auto;
+
   margin: {
-    left:  0;
+    left: 0;
     right: 0;
   };
 
