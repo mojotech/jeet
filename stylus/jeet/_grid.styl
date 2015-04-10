@@ -42,7 +42,7 @@ j-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
       float: opposite-side
     &:nth-of-type({cycle}n+1)
       clear: both
-   else
+  else
     &:last-child
       margin-{opposite-side}: jeet-get-percentage(margin-last)
 
@@ -123,7 +123,6 @@ j-span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
  * Alias for span.
  */
 span = j-span
-
 
 /**
  * Reorder columns without altering the HTML.
