@@ -6,7 +6,7 @@
 // @param {number} [$uncycle=0] - Undo a previous cycle value to allow for a new one.
 // @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
 // ==========================================================================================================
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
+@mixin j-column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $column-widths: jeet-get-column($ratios, $gutter);
@@ -29,6 +29,7 @@
   float: $side;
   clear: none;
   width: jeet-get-percentage(nth($column-widths, 1));
+
   margin: {
     #{$side}: jeet-get-percentage($margin-l);
     #{$opposite-side}: jeet-get-percentage($margin-r);
@@ -39,6 +40,7 @@
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-r);
       float: $side;
     }
+
     &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
@@ -49,6 +51,7 @@
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
       float: jeet-opposite-direction($side);
     }
+
     &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
@@ -59,12 +62,15 @@
   }
 }
 
-// =================================================================
-// An alias for the column mixin.
-// @param [$args...] - All arguments get passed through to column().
-// =================================================================
+// =======================
+// Aliases for j-column().
+// =======================
+@mixin column($args...) {
+  @include j-column($args...);
+}
+
 @mixin col($args...) {
-  @include column($args...);
+  @include j-column($args...);
 }
 
 // ==========================================================================================================
@@ -72,8 +78,19 @@
 // @param {number} [$ratios=1] - A width relative to its container as a fraction.
 // @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
 // ==========================================================================================================
-@function column-width($ratios: 1, $gutter: $jeet-gutter) {
+@function j-column-width($ratios: 1, $gutter: $jeet-gutter) {
   @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 1));
+}
+
+// =============================
+// Aliases for j-column-width().
+// =============================
+@function column-width($args...) {
+  @return j-column-width($args...);
+}
+
+@function cw($args...) {
+  @return j-column-width($args...);
 }
 
 // ========================================================================================================
@@ -81,24 +98,19 @@
 // @param {number} [ratios=1] - A width relative to its container as a fraction.
 // @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
 // ========================================================================================================
-@function column-gutter($ratios: 1, $gutter: $jeet-gutter) {
+@function j-column-gutter($ratios: 1, $gutter: $jeet-gutter) {
   @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 2));
 }
 
-// =================================================================
-// An alias for the column-width function.
-// @param [$args...] - All arguments get passed through to column().
-// =================================================================
-@function cw($args...) {
-  @return column-width($args...);
+// ============================
+// Alias for j-column-gutter().
+// ============================
+@function column-gutter($args...) {
+  @return j-column-gutter($args...);
 }
 
-// =================================================================
-// An alias for the column-gutter function.
-// @param [$args...] - All arguments get passed through to column().
-// =================================================================
 @function cg($args...) {
-  @return column-gutter($args...);
+  @return j-column-gutter($args...);
 }
 
 // ======================================================================================================
@@ -108,12 +120,13 @@
 // @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
 // @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
 // ======================================================================================================
-@mixin span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
+@mixin j-span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $span-width: jeet-get-span($ratio);
   $margin-r: 0;
   $margin-l: $margin-r;
+
   @if $offset != 0 {
     @if $offset < 0 {
       $offset: $offset * -1;
@@ -126,6 +139,7 @@
   float: $side;
   clear: none;
   width: jeet-get-percentage($span-width);
+
   margin: {
     #{$side}: jeet-get-percentage($margin-l);
     #{$opposite-side}: jeet-get-percentage($margin-r);
@@ -135,6 +149,7 @@
     &:nth-of-type(#{$cycle}n) {
       float: $opposite-side;
     }
+
     &:nth-of-type(#{$cycle}n + 1) {
       clear: both;
     }
@@ -144,6 +159,7 @@
     &:nth-of-type(#{$uncycle}n) {
       float: $side;
     }
+
     &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
@@ -151,13 +167,20 @@
 
 }
 
-// ==========================================================================================================
+// ===================
+// Alias for j-span().
+// ===================
+@mixin span($args...) {
+  @include j-span($args...);
+}
+
+// ============================================================
 // Reorder columns without altering the HTML.
 // @param {number} [$ratios=0] - Specify how far along you want the element to move.
 // @param {string} [$col-or-span=column] - Specify whether the element has a gutter or not.
 // @param {number} [$gutter=$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-// ==========================================================================================================
-@mixin shift($ratios: 0, $col-or-span: column, $gutter: $jeet-gutter) {
+// ============================================================
+@mixin j-shift($ratios: 0, $col-or-span: column, $gutter: $jeet-gutter) {
   $translate: '';
   $side: jeet-get-layout-direction();
 
@@ -176,12 +199,26 @@
   left: jeet-get-percentage($translate);
 }
 
+// ====================
+// Alias for j-shift().
+// ====================
+@mixin shift($args...) {
+  @include j-shift($args...);
+}
+
 // ====================================================
 // Reset an element that has had shift() applied to it.
 // ====================================================
-@mixin unshift() {
+@mixin j-unshift() {
   position: static;
   left: 0;
+}
+
+//
+// Alias for j-unshift().
+//
+@mixin unshift() {
+  @include j-unshift();
 }
 
 // ===============================================================================
@@ -189,7 +226,7 @@
 // @param {string} [$color=black] - The background tint applied.
 // @param {boolean} [$important=false] - Whether to apply the style as !important.
 // ===============================================================================
-@mixin edit($color: black, $important: false) {
+@mixin j-edit($color: black, $important: false) {
   @if $important {
     * {
       background: rgba($color, .05) !important;
@@ -201,11 +238,16 @@
   }
 }
 
-// =================
-// Alias for edit().
-// =================
-@mixin debug() {
-  @include edit;
+//
+// Aliases for j-edit().
+//
+
+@mixin edit($args...) {
+  @include j-edit($args...);
+}
+
+@mixin debug($args...) {
+  @include j-edit($args...);
 }
 
 // ========================================================================
@@ -213,30 +255,52 @@
 // @param {number} [$max-width=1410px] - The max width the element can be.
 // @param {number} [$pad=0] - Specify the element's left and right padding.
 // ========================================================================
-@mixin center($max-width: $jeet-max-width, $pad: 0) {
+@mixin j-center($max-width: $jeet-max-width, $pad: 0) {
   width: auto;
   max-width: $max-width;
   float: none;
   display: block;
+
   margin: {
     right: auto;
-    left:  auto;
+    left: auto;
   };
+
   padding: {
-    left:  $pad;
+    left: $pad;
     right: $pad;
   };
+}
+
+// =====================
+// Alias for j-center().
+// =====================
+@mixin center($args...) {
+  @include j-center($args...);
 }
 
 // ====================
 // Uncenter an element.
 // ====================
-@mixin uncenter() {
+@mixin j-uncenter() {
   max-width: none;
-  margin-right: 0;
-  margin-left: 0;
-  padding-left: 0;
-  padding-right: 0;
+
+  margin: {
+    right: 0;
+    left: 0;
+  };
+
+  padding: {
+    left: 0;
+    right: 0;
+  };
+}
+
+//
+// Alias for j-uncenter().
+//
+@mixin uncenter() {
+  @include j-uncenter;
 }
 
 // ================================================================================
@@ -244,7 +308,7 @@
 // @param {number} [$pad=0] - Specify the element's left and right padding.
 // @param {boolean/string} [$align=false] - Specify the text align for the element.
 // ================================================================================
-@mixin stack($pad: 0, $align: false) {
+@mixin j-stack($pad: 0, $align: false) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
 
@@ -252,8 +316,9 @@
   clear: both;
   float: none;
   width: 100%;
+
   margin: {
-    left:  auto;
+    left: auto;
     right: auto;
   };
 
@@ -267,7 +332,7 @@
 
   @if $pad != 0 {
     padding: {
-      left:  $pad;
+      left: $pad;
       right: $pad;
     }
   }
@@ -283,10 +348,17 @@
   }
 }
 
+// ====================
+// Alias for j-stack().
+// ====================
+@mixin stack($args...) {
+  @include j-stack($args...);
+}
+
 // ===================
 // Unstack an element.
 // ===================
-@mixin unstack() {
+@mixin j-unstack() {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
 
@@ -294,8 +366,9 @@
   display: inline;
   clear: none;
   width: auto;
+
   margin: {
-    left:  0;
+    left: 0;
     right: 0;
   };
 
@@ -308,12 +381,19 @@
   }
 }
 
+// ======================
+// Alias for j-unstack().
+// ======================
+@mixin unstack() {
+  @include j-unstack();
+}
+
 // ================================================================================
 // Center an element on either or both axes.
 // @requires A parent container with relative positioning.
 // @param {string} [$direction=both] - Specify which axes to center the element on.
 // ================================================================================
-@mixin align($direction: both) {
+@mixin j-align($direction: both) {
   position: absolute;
   transform-style: preserve-3d;
 
@@ -334,10 +414,17 @@
   }
 }
 
+// ====================
+// Alias for j-align().
+// ====================
+@mixin align($args...) {
+  @include j-align($args...);
+}
+
 // ===============================
 // Apply a clearfix to an element.
 // ===============================
-@mixin cf() {
+@mixin j-cf() {
   *zoom: 1;
 
   &:before, &:after {
@@ -348,4 +435,11 @@
   &:after {
     clear: both;
   }
+}
+
+// =================
+// Alias for j-cf().
+// =================
+@mixin cf() {
+  @include j-cf();
 }
