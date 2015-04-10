@@ -199,7 +199,7 @@
  * Alias for j-shift().
  */
 @mixin shift($args...) {
-  @include j-shit($args...);
+  @include j-shift($args...);
 }
 
 /**
@@ -214,7 +214,7 @@
  * Alias for j-unshift().
  */
 @mixin unshift() {
-  @include j-unshit();
+  @include j-unshift();
 }
 
 /**
