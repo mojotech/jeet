@@ -6,7 +6,7 @@
  * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
+j-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
   column-widths = jeet-get-column(ratios, gutter)
@@ -47,35 +47,38 @@ column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
       margin-{opposite-side}: jeet-get-percentage(margin-last)
 
 /**
- * An alias for the column mixin.
+ * Aliases for column.
  */
-col = column
+column = j-column
+col = j-column
 
 /**
  * Get the width of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-column-width(ratios = 1, gutter = jeet.gutter)
+j-column-width(ratios = 1, gutter = jeet.gutter)
   return jeet-get-percentage(jeet-get-column(ratios, gutter)[0])
 
 /**
- * An alias for the column-width function.
+ * Aliases for j-column-width.
  */
-cw = column-width
+column-width = j-column-width
+cw = j-column-width
 
 /**
  * Get the gutter size of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-column-gutter(ratios = 1, gutter = jeet.gutter)
+j-column-gutter(ratios = 1, gutter = jeet.gutter)
   return jeet-get-percentage(jeet-get-column(ratios, gutter)[1])
 
 /**
- * An alias for the column-gutter function.
+ * Aliases for j-column-gutter.
  */
-cg = column-gutter
+column-gutter = j-column-gutter
+cg = j-column-gutter
 
 /**
  * Style an element as a column without any gutters for a seamless row.
@@ -84,7 +87,7 @@ cg = column-gutter
  * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
  * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
  */
-span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
+j-span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
   span-width = jeet-get-span(ratio)
@@ -117,12 +120,18 @@ span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
       clear: none
 
 /**
+ * Alias for span.
+ */
+span = j-span
+
+
+/**
  * Reorder columns without altering the HTML.
  * @param {number} [ratios=0] - Specify how far along you want the element to move.
  * @param {string} [col-or-span=column] - Specify whether the element has a gutter or not.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-shift(ratios = 0, col-or-span = column, gutter = jeet.gutter)
+j-shift(ratios = 0, col-or-span = column, gutter = jeet.gutter)
   translate = ''
   side = jeet-get-layout-direction()
 
@@ -141,7 +150,7 @@ shift(ratios = 0, col-or-span = column, gutter = jeet.gutter)
 /**
  * Reset an element that has had shift() applied to it.
  */
-unshift()
+j-unshift()
   position: static
   left: 0
 
@@ -150,7 +159,7 @@ unshift()
  * @param {string} [color=black] - The background tint applied.
  * @param {boolean} [important=false] - Whether to apply the style as !important.
  */
-edit(color = black, important = false)
+j-edit(color = black, important = false)
   if important
     *
       background: rgba(color, 5%) !important
@@ -159,16 +168,17 @@ edit(color = black, important = false)
       background: rgba(color, 5%)
 
 /**
- *  Alias for edit().
+ * Aliases for j-edit.
  */
-debug = edit
+edit = j-edit
+debug = j-edit
 
 /**
  * Horizontally center an element.
  * @param {number} [max-width=jeet.max-width] - The max width the element can be.
  * @param {number} [pad=0] - Specify the element's left and right padding.
  */
-center(max-width = jeet.max-width, pad = 0)
+j-center(max-width = jeet.max-width, pad = 0)
   width: auto
   max-width: max-width
   float: none
@@ -179,9 +189,14 @@ center(max-width = jeet.max-width, pad = 0)
   padding-right: pad
 
 /**
+ * Alias for j-center.
+ */
+center = j-center
+
+/**
  * Uncenter an element.
  */
-uncenter()
+j-uncenter()
   max-width: none
   margin-right: 0
   margin-left: 0
@@ -189,11 +204,16 @@ uncenter()
   padding-right: 0
 
 /**
+ * Alias for j-uncenter.
+ */
+uncenter = j-uncenter
+
+/**
  * Stack an element so that nothing is either side of it.
  * @param {number} [pad=0] - Specify the element's left and right padding.
  * @param {bollean/string} [align=false] - Specify the text align for the element.
  */
-stack(pad = 0, align = false)
+j-stack(pad = 0, align = false)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
 
@@ -223,9 +243,14 @@ stack(pad = 0, align = false)
       text-align: right
 
 /**
+ * Alias for j-stack.
+ */
+stack = j-stack
+
+/**
  * Unstack an element.
  */
-unstack()
+j-unstack()
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
 
@@ -243,11 +268,16 @@ unstack()
     margin-{opposite-side}: 0
 
 /**
+ * Alias for unstack.
+ */
+unstack = j-unstack
+
+/**
  * Center an element on either or both axes.
  * @requires A parent container with relative positioning.
  * @param {string} [direction=both] - Specify which axes to center the element on.
  */
-align(direction = both)
+j-align(direction = both)
   position: absolute
   transform-style: preserve-3d
 
@@ -267,9 +297,14 @@ align(direction = both)
     transform: translate(-50%, -50%)
 
 /**
+ * Alias for j-align.
+ */
+align = j-align
+
+/**
  * Apply a clearfix to an element.
  */
-cf()
+j-cf()
   *zoom: 1
 
   &:before, &:after
@@ -278,3 +313,8 @@ cf()
 
   &:after
     clear: both
+
+/**
+ * Alias for j-cf.
+ */
+cf = j-cf
