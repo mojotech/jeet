@@ -214,9 +214,9 @@
   left: 0;
 }
 
-//
+// ======================
 // Alias for j-unshift().
-//
+// ======================
 @mixin unshift() {
   @include j-unshift();
 }
@@ -238,10 +238,9 @@
   }
 }
 
-//
+// =====================
 // Aliases for j-edit().
-//
-
+// =====================
 @mixin edit($args...) {
   @include j-edit($args...);
 }
@@ -296,9 +295,9 @@
   };
 }
 
-//
+// =======================
 // Alias for j-uncenter().
-//
+// =======================
 @mixin uncenter() {
   @include j-uncenter;
 }
