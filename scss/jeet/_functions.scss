@@ -137,6 +137,6 @@
   @if $value == 0 {
     @return 0;
   } @else {
-    @return $value * 1%,;
+    @return $value * 1%;
   }
 }
