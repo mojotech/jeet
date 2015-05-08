@@ -1,7 +1,20 @@
-/// Grid settings.
 /// All values are defaults and can therefore be easily overidden.
 
+/// Jeet's default gutter value
+/// @type Number
 $jeet-gutter:           3      !default;
+
+/// `Deactivated, by default.`
+///
+/// Jeet's variable for setting the calling order when using nested columns
+/// sizes, prioritizing the parent instead of the child.
+/// @type Bool
 $jeet-parent-first:     false  !default;
+
+/// Jeet's default layout direction
+/// @type String
 $jeet-layout-direction: "LTR"  !default;
+
+/// Jeet's default max-width value
+/// @type Number | Unit
 $jeet-max-width:        1410px !default;
