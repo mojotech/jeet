@@ -28,7 +28,6 @@ For more information on the many ways you can use Stylus plugins, please refer t
 </html>
 ```
 ```stylus
-@import 'jeet'
 edit()
 
 section
