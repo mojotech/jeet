@@ -1,6 +1,5 @@
 {
   "name": "jeet",
-  "version": "6.1.2",
   "homepage": "http://jeet.gs",
   "authors": [
     "Cory Simmons <csimmonswork@gmail.com>",
@@ -9,8 +8,17 @@
   ],
   "description": "A grid system for humans.",
   "main": [
-    "stylus/jeet/index.styl",
-    "scss/jeet/index.scss"
+	  "stylus/jeet/_grid.styl",
+	  "stylus/jeet/index.styl",
+	  "stylus/jeet/_functions.styl",
+	  "stylus/jeet/_settings.styl",
+	  "scss/jeet/_settings.scss",
+	  "scss/jeet/_functions.scss",
+	  "scss/jeet/_grid.scss",
+	  "scss/jeet/index.scss"
+  ],
+  "moduleType": [
+    "node"
   ],
   "keywords": [
     "grid",
