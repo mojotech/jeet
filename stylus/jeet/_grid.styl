@@ -47,12 +47,6 @@ j-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
       margin-{opposite-side}: jeet-get-percentage(margin-last)
 
 /**
- * Aliases for column.
- */
-column = j-column
-col = j-column
-
-/**
  * Get the width of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
@@ -61,24 +55,12 @@ j-column-width(ratios = 1, gutter = jeet.gutter)
   return jeet-get-percentage(jeet-get-column(ratios, gutter)[0])
 
 /**
- * Aliases for j-column-width.
- */
-column-width = j-column-width
-cw = j-column-width
-
-/**
  * Get the gutter size of a column and nothing else.
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
 j-column-gutter(ratios = 1, gutter = jeet.gutter)
   return jeet-get-percentage(jeet-get-column(ratios, gutter)[1])
-
-/**
- * Aliases for j-column-gutter.
- */
-column-gutter = j-column-gutter
-cg = j-column-gutter
 
 /**
  * Style an element as a column without any gutters for a seamless row.
@@ -118,11 +100,6 @@ j-span(ratio = 1, offset = 0, cycle = 0, uncycle = 0)
       float: side
     &:nth-of-type({uncycle}n + 1)
       clear: none
-
-/**
- * Alias for span.
- */
-span = j-span
 
 /**
  * Reorder columns without altering the HTML.
@@ -167,12 +144,6 @@ j-edit(color = black, important = false)
       background: rgba(color, 5%)
 
 /**
- * Aliases for j-edit.
- */
-edit = j-edit
-debug = j-edit
-
-/**
  * Horizontally center an element.
  * @param {number} [max-width=jeet.max-width] - The max width the element can be.
  * @param {number} [pad=0] - Specify the element's left and right padding.
@@ -188,11 +159,6 @@ j-center(max-width = jeet.max-width, pad = 0)
   padding-right: pad
 
 /**
- * Alias for j-center.
- */
-center = j-center
-
-/**
  * Uncenter an element.
  */
 j-uncenter()
@@ -201,11 +167,6 @@ j-uncenter()
   margin-left: 0
   padding-left: 0
   padding-right: 0
-
-/**
- * Alias for j-uncenter.
- */
-uncenter = j-uncenter
 
 /**
  * Stack an element so that nothing is either side of it.
@@ -242,11 +203,6 @@ j-stack(pad = 0, align = false)
       text-align: right
 
 /**
- * Alias for j-stack.
- */
-stack = j-stack
-
-/**
  * Unstack an element.
  */
 j-unstack()
@@ -265,11 +221,6 @@ j-unstack()
 
   &:last-child
     margin-{opposite-side}: 0
-
-/**
- * Alias for unstack.
- */
-unstack = j-unstack
 
 /**
  * Center an element on either or both axes.
@@ -296,11 +247,6 @@ j-align(direction = both)
     transform: translate(-50%, -50%)
 
 /**
- * Alias for j-align.
- */
-align = j-align
-
-/**
  * Apply a clearfix to an element.
  */
 j-cf()
@@ -312,8 +258,3 @@ j-cf()
 
   &:after
     clear: both
-
-/**
- * Alias for j-cf.
- */
-cf = j-cf
