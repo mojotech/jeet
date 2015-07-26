@@ -1,8 +1,12 @@
 <p align="center">
-<img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
+    <img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
 </p>
 
-[![Build Status](https://travis-ci.org/mojotech/jeet.svg?branch=master)](https://travis-ci.org/mojotech/jeet)
+<p align="center">
+    <img src="https://img.shields.io/npm/v/jeet.svg">
+    <img src="https://img.shields.io/bower/v/jeet.svg">
+    <img src="http://img.shields.io/npm/dm/jeet.svg">
+</p>
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
