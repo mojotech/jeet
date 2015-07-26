@@ -1,9 +1,9 @@
 @import 'scss/jeet/index';
 
 .test-1 {
-  @include column($ratios: 1/5, $offset: 1/5, $cycle: 5, $uncycle: 5, $gutter: 5);
+  @include column($ratios: 1/5, $offset: 1/5, $cycle: 5, $gutter: 5);
 }
 
 .test-2 {
-  @include column($ratios: 1/4 1/2, $offset: 1/4, $cycle: 4, $uncycle: 2, $gutter: 3);
+  @include column($ratios: 1/4 1/2, $offset: 1/4, $cycle: 4, $gutter: 3);
 }

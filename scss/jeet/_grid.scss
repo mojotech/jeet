@@ -2,9 +2,8 @@
 /// @param {Number} $ratios [1] - A width relative to its container as a fraction.
 /// @param {Number} $offset [0] - A offset specified as a fraction.
 /// @param {Number} $cycle [0] - Easily create an nth column grid where $cycle equals the number of columns.
-/// @param {Number} $uncycle [0] - Undo a previous cycle value to allow for a new one.
 /// @param {Number} $gutter [$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-@mixin j-column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter) {
+@mixin j-column($ratios: 1, $offset: 0, $cycle: 0, $gutter: $jeet-gutter) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $column-widths: jeet-get-column($ratios, $gutter);
@@ -33,18 +32,13 @@
     #{$opposite-side}: jeet-get-percentage($margin-r);
   };
 
-  @if $uncycle != 0 {
-    &:nth-of-type(#{$uncycle}n) {
+  @if $cycle != 0 {
+    &:nth-of-type(n) {
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-r);
       float: $side;
-    }
-
-    &:nth-of-type(#{$uncycle}n + 1) {
       clear: none;
     }
-  }
 
-  @if $cycle != 0 {
     &:nth-of-type(#{$cycle}n) {
       margin-#{jeet-opposite-direction($side)}: jeet-get-percentage($margin-last);
       float: jeet-opposite-direction($side);

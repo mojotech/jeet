@@ -3,10 +3,9 @@
  * @param {number} [ratios=1] - A width relative to its container as a fraction.
  * @param {number} [offset=0] - A offset specified as a fraction (see ratios).
  * @param {number} [cycle=0] - Easily create an nth column grid where cycle equals the number of columns.
- * @param {number} [uncycle=0] - Undo a previous cycle value to allow for a new one.
  * @param {number} [gutter=jeet.gutter] - Specify the gutter width as a percentage of the containers width.
  */
-j-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
+j-column(ratios = 1, offset = 0, cycle = 0, gutter = jeet.gutter)
   side = jeet-get-layout-direction()
   opposite-side = opposite-position(side)
   column-widths = jeet-get-column(ratios, gutter)
@@ -29,14 +28,11 @@ j-column(ratios = 1, offset = 0, cycle = 0, uncycle = 0, gutter = jeet.gutter)
   margin-{side}: jeet-get-percentage(margin-l)
   margin-{opposite-side}: jeet-get-percentage(margin-r)
 
-  if uncycle != 0
-    &:nth-of-type({uncycle}n)
+  if cycle != 0
+    &:nth-of-type(n)
       margin-{opposite-side}: jeet-get-percentage(margin-r)
       float: side
-    &:nth-of-type({uncycle}n+1)
       clear: none
-
-  if cycle != 0
     &:nth-of-type({cycle}n)
       margin-{opposite-side}: jeet-get-percentage(margin-last)
       float: opposite-side
