@@ -8,7 +8,7 @@
     <img src="http://img.shields.io/npm/dm/jeet.svg">
 </p>
 
-<p align="center">**Please use [the latest stable release](https://github.com/mojotech/jeet/releases/latest).<br> Master branch is in a constant state of BETA.**</p>
+<p align="center"><strong>Please use <a href="https://github.com/mojotech/jeet/releases/latest">the latest stable release</a>. Master branch is the BETA release.</strong></p>
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
