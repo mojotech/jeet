@@ -267,7 +267,7 @@
     margin-#{jeet-opposite-direction($side)}: 0;
   }
 }
-`
+
 /// Center an element on either or both axes. Requires a parent element with relative positioning.
 /// @param {String} $direction [both] - Specify which axes to center the element on.
 @mixin j-align($direction: both) {
