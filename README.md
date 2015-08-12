@@ -35,3 +35,8 @@ Explore [Jeet Integrations](https://github.com/mojotech/jeet/wiki/Jeet-Integrati
 <a href="http://mojotech.com"><img width="140px" src="https://mojotech.github.io/jeet/img/mojotech-logo.svg" title="MojoTech's Hiring"></a> <sup>(psst, [we're hiring](http://www.mojotech.com/jobs))</sup>
 
 ##### Thanks to all the [awesome contributors](https://github.com/mojotech/jeet/graphs/contributors)
+
+---
+#### License
+
+MIT © [Mojotech](https://github.com/mojotech)
