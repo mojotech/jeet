@@ -5,7 +5,7 @@
 - `gem install sass`
 - `cd ~/Project`
 - `svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet`
-- Put `@import 'jeet/index';` at the top of `~/Project/foo.scss`
+- Put `@import 'jeet/jeet';` at the top of `~/Project/foo.scss`
 
 #### Usage
 ```
