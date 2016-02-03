@@ -61,7 +61,7 @@ article {
 
 
 #### Global Settings
-- Create a `_settings.scss` file in your Jeet directory. `@import 'jeet/_settings.scss';` at the top (right above `@import 'jeet/index.scss';`) of whichever file Sass is watching (e.g. `sass -w css/style.scss`).
+- Create a `_settings.scss` file in your Jeet directory. `@import 'jeet/_settings.scss';` at the top (right above `@import 'jeet/jeet.scss';`) of whichever file Sass is watching (e.g. `sass -w css/style.scss`).
 - You can adjust the following variables:
   - **`gutter: 3`** - The percentage of the page the root-level gutters take up.
   - **`parent-first: false`** - When assigning multiple ratio contexts to a `j-column()`, do you want to reference the outer most container first? Example: Let's assume we have a column set to `j-column(1/4)` that is nested inside of another column that is `j-column(1/3)` which is nested inside of another column that is `j-column(1/2)`. By default, to maintain consistently sized gutters (even when nesting), our inner-most column would look like `j-column(1/4 1/3 1/2)`. If we adjust this global variable to be `true`, our inner-most column could be written from a top-down perspective like so: `j-column(1/2 1/3 1/4)`. This is entirely a preference thing. Do you like stepping up or down?
