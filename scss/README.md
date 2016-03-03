@@ -28,7 +28,7 @@ sass -w foo.scss
 ```
 
 ```scss
-@import 'jeet/index';
+@import 'jeet/jeet';
 @include edit;
 
 section {
@@ -45,7 +45,7 @@ article {
 #### Rails Installation
 - `cd ~/RailsApp`
 - `svn checkout https://github.com/mojotech/jeet/trunk/scss/jeet vendor/assets/stylesheets/jeet`
-- Add `@import 'jeet/index';` to your `application.css.scss`
+- Add `@import 'jeet/jeet';` to your `application.css.scss`
 
 #### API
 - **`column($ratios: 1, $offset: 0, $cycle: 0, $uncycle: 0, $gutter: $jeet-gutter)`** - `column` (also aliased as `col`) is perhaps the strongest feature of any grid system on the market. You specify an initial ratio, either as fractions or decimals, then pass the parent container's context ratio to maintain consistent gutters as you nest. Offsetting is made trivial as well. Just specify a ratio to make your offset have a margin-left. Make it negative to give it a margin-right instead. E.g. `column(1/4, $offset: 1/4)` would create a column the quarter of the size of it's container and push it to the right a quarter. `cycle` and `uncycle` are pretty awesome in their own right as well. Want to make a gallery but don't want to specify a row every 4 pictures? `column(1/4, $cycle: 4)` - done. Want to change it up when you get down to mobile? Maybe just show 2 images per row? `uncycle` your 4-item cycle then... `column(1/2, $uncycle: 4, $cycle: 2)` - done. Need to adjust column gutters for a specific container? `col(1/4, $gutter: .5)`
@@ -61,7 +61,7 @@ article {
 
 
 #### Global Settings
-- Create a `_settings.scss` file in your Jeet directory. `@import 'jeet/_settings.scss';` at the top (right above `@import 'jeet/index.scss';`) of whichever file Sass is watching (e.g. `sass -w css/style.scss`).
+- Create a `_settings.scss` file in your Jeet directory. `@import 'jeet/_settings.scss';` at the top (right above `@import 'jeet/_jeet.scss';`) of whichever file Sass is watching (e.g. `sass -w css/style.scss`).
 - You can adjust the following variables:
   - **`gutter: 3`** - The percentage of the page the root-level gutters take up.
   - **`parent-first: false`** - When assigning multiple ratio contexts to a `col()`, do you want to reference the outer most container first? Example: Let's assume we have a column set to `col(1/4)` that is nested inside of another column that is `col(1/3)` which is nested inside of another column that is `col(1/2)`. By default, to maintain consistently sized gutters (even when nesting), our inner-most column would look like `col(1/4 1/3 1/2)`. If we adjust this global variable to be `true`, our inner-most column could be written from a top-down perspective like so: `col(1/2 1/3 1/4)`. This is entirely a preference thing. Do you like stepping up or down?
