@@ -1,10 +1,21 @@
 .hero
-  padding xl-padding-block 0
+  padding xs-padding-block 0 xl-padding-block 0
   background green
   z-index 10
   @extend $cf
   +below(small-snap)
     padding (xl-padding-block + tiny-padding-block) 0 large-padding-block 0
+.announcement
+  max-width 500px
+  margin 0 auto large-padding-block auto
+  color white
+  padding tiny-padding-block
+  background #FFC800
+  font-weight bold
+  +below(xl-snap)
+    margin-top large-padding-block
+  +below(small-snap)
+    margin-top 0
 .headline
   font-size headline-font
   font-family helvetica-bold  
