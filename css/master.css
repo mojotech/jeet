@@ -2056,13 +2056,31 @@ strong {
   visibility: hidden;
 }
 .hero {
-  padding: 90px 0;
+  padding: 12px 0 90px 0;
   background: #48cfad;
   z-index: 10;
 }
 @media only screen and (max-width: 635px) {
   .hero {
     padding: 98px 0 54px 0;
+  }
+}
+.announcement {
+  max-width: 500px;
+  margin: 0 auto 54px auto;
+  color: #fff;
+  padding: 8px;
+  background: #ffc800;
+  font-weight: bold;
+}
+@media only screen and (max-width: 1024px) {
+  .announcement {
+    margin-top: 54px;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .announcement {
+    margin-top: 0;
   }
 }
 .headline {
@@ -3138,13 +3156,13 @@ strong {
 }
 .awwwards {
   position: absolute;
-  top: 145px;
+  top: 0;
   right: 0;
   z-index: 99;
 }
 @media only screen and (max-width: 1024px) {
   .awwwards {
-    top: 205px;
+    top: 60px;
   }
 }
 @media only screen and (max-width: 768px) {
