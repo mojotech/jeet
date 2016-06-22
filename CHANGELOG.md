@@ -1,3 +1,7 @@
+### 6.1.3
+- Update
+  - Update NPM dependencies
+
 ### 6.1.2
 - Fixes
   - Critical bug in Scss port that caused nested columns to have incorrect gutters.
