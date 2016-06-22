@@ -6,6 +6,7 @@
     <img src="https://img.shields.io/npm/v/jeet.svg">
     <img src="https://img.shields.io/bower/v/jeet.svg">
     <img src="http://img.shields.io/npm/dm/jeet.svg">
+    <a href="https://gitter.im/mojotech/jeet"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square"></a>
 </p>
 
 <p align="center"><strong>Please use <a href="https://github.com/mojotech/jeet/releases/latest">the latest stable release</a>. Master branch is the BETA release.</strong></p>
