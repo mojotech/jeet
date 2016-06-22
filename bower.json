@@ -4,7 +4,9 @@
   "authors": [
     "Cory Simmons <cory@launchboxhq.com>",
     "Sam Saccone <sam@mojotech.com>",
-    "Jake Cleary <shout@jakecleary.net>"
+    "Jake Cleary <shout@jakecleary.net>",
+    "Braxton Fair <hello@braxtonfair.xyz>",
+    "Andreas Nedbal <andy@pixelde.su>"
   ],
   "description": "A grid system for humans.",
   "main": [
