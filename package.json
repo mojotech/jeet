@@ -20,6 +20,11 @@
       "name": "Braxton Fair",
       "email": "hello@braxtonfair.xyz",
       "web": "http://braxtonfair.xyz"
+    },
+    {
+      "name": "Andreas Nedbal",
+      "email": "andy@pixelde.su",
+      "web": "http://pixelde.su"
     }
   ],
   "main": "stylus/jeet.js",
