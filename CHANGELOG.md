@@ -1,3 +1,7 @@
+### 6.1.3
+- Fixes
+  - Testing should now be working out of the box!
+
 ### 6.1.2
 - Fixes
   - Critical bug in Scss port that caused nested columns to have incorrect gutters.
