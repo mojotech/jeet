@@ -38,12 +38,12 @@
   ],
   "github": "http://github.com/mojotech/jeet",
   "devDependencies": {
-    "chai": "1.9.1",
-    "css-diff": "0.4.0",
-    "mocha": "1.21.4",
-    "node-sass": "0.9.3",
-    "should": "4.0.4",
-    "stylus": "0.48.1"
+    "chai": "3.5.0",
+    "css-diff": "0.4.1",
+    "mocha": "2.5.3",
+    "node-sass": "3.8.0",
+    "should": "9.0.2",
+    "stylus": "0.54.5"
   },
   "scripts": {
     "test": "mocha tests"
