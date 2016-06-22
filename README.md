@@ -10,8 +10,6 @@
 
 <p align="center"><strong>Please use <a href="https://github.com/mojotech/jeet/releases/latest">the latest stable release</a>. Master branch is the BETA release.</strong></p>
 
-Note: Jeet is currently **unmaintained**.  You are free to continue using it as-is, or to volunteer to take over maintenance yourself!
-
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
 
 By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
