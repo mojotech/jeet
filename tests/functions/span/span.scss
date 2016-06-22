@@ -1,4 +1,4 @@
-@import 'scss/jeet/index';
+@import 'scss/jeet/_jeet';
 
 .test {
   @include span($ratio: 1/5, $offset: 1/5, $cycle: 5);

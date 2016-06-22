@@ -1,4 +1,4 @@
-@import 'scss/jeet/index';
+@import 'scss/jeet/_jeet';
 
 .test {
   @include align($direction: both);

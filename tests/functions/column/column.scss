@@ -1,4 +1,4 @@
-@import 'scss/jeet/index';
+@import 'scss/jeet/_jeet';
 
 .test-1 {
   @include column($ratios: 1/5, $offset: 1/5, $cycle: 5, $gutter: 5);
