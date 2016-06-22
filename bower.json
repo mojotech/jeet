@@ -10,8 +10,8 @@
   ],
   "description": "A grid system for humans.",
   "main": [
-    "stylus/jeet/index.styl",
-    "scss/jeet/index.scss"
+    "stylus/jeet/_jeet.styl",
+    "scss/jeet/_jeet.scss"
   ],
   "keywords": [
     "grid",
