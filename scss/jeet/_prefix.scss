@@ -1,0 +1,51 @@
+@mixin j-column($args...) {
+  @include column($args...);
+}
+
+@mixin j-column-width($args...) {
+  @include column-width($args...);
+}
+
+@mixin j-column-gutter($args...) {
+  @include column-gutter($args...);
+}
+
+@mixin j-span($args...) {
+  @include span($args...);
+}
+
+@mixin j-shift($args...) {
+  @include shift($args...);
+}
+
+@mixin j-unshift($args...) {
+  @include shift($args...);
+}
+
+@mixin j-edit($args...) {
+  @include edit($args...);
+}
+
+@mixin j-center($args...) {
+  @include center($args...);
+}
+
+@mixin j-uncenter($args...) {
+  @include uncenter($args...);
+}
+
+@mixin j-stack($args...) {
+  @include stack($args...);
+}
+
+@mixin j-unstack($args...) {
+  @include unstack($args...);
+}
+
+@mixin j-align($args...) {
+  @include align($args...);
+}
+
+@mixin j-cf() {
+  @include cf();
+}
