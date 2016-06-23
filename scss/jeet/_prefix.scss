@@ -18,8 +18,8 @@
   @include shift($args...);
 }
 
-@mixin j-unshift($args...) {
-  @include shift($args...);
+@mixin j-unshift() {
+  @include shift();
 }
 
 @mixin j-edit($args...) {
@@ -30,16 +30,16 @@
   @include center($args...);
 }
 
-@mixin j-uncenter($args...) {
-  @include uncenter($args...);
+@mixin j-uncenter() {
+  @include uncenter();
 }
 
 @mixin j-stack($args...) {
   @include stack($args...);
 }
 
-@mixin j-unstack($args...) {
-  @include unstack($args...);
+@mixin j-unstack() {
+  @include unstack();
 }
 
 @mixin j-align($args...) {
