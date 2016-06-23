@@ -1,3 +1,7 @@
+### 6.1.4
+- Fixes
+  - Add fallback aliases to both SCSS and Stylus (due to the API changes in 6.1.3)
+
 ### 6.1.3
 - Update
   - Update NPM dependencies
