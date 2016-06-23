@@ -3,7 +3,7 @@
 /// @param {Number} $offset [0] - A offset specified as a fraction.
 /// @param {Number} $cycle [0] - Easily create an nth column grid where $cycle equals the number of columns.
 /// @param {Number} $gutter [$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-@mixin column($ratios: 1, $offset: 0, $cycle: 0, $gutter: $jeet-gutter) {
+@mixin j-column($ratios: 1, $offset: 0, $cycle: 0, $gutter: $jeet-gutter) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $column-widths: jeet-get-column($ratios, $gutter);
@@ -58,7 +58,7 @@
 /// @access private
 /// @param {Number} $ratios [1] - A width relative to its container as a fraction.
 /// @param {Number} $gutter [$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-@function column-width($ratios: 1, $gutter: $jeet-gutter) {
+@function j-column-width($ratios: 1, $gutter: $jeet-gutter) {
   @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 1));
 }
 
@@ -66,7 +66,7 @@
 /// @access private
 /// @param {Number} $ratios [1] - A width relative to its container as a fraction.
 /// @param {Number} $gutter [$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-@function column-gutter($ratios: 1, $gutter: $jeet-gutter) {
+@function j-column-gutter($ratios: 1, $gutter: $jeet-gutter) {
   @return jeet-get-percentage(nth(jeet-get-column($ratios, $gutter), 2));
 }
 
@@ -75,7 +75,7 @@
 /// @param {Number} $offset [0] - A offset specified as a fraction.
 /// @param {Number} $cycle [0] - Easily create an nth column grid where cycle equals the number of columns.
 /// @param {Number} $uncycle [0] - Undo a previous cycle value to allow for a new one.
-@mixin span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
+@mixin j-span($ratio: 1, $offset: 0, $cycle: 0, $uncycle: 0) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
   $span-width: jeet-get-span($ratio);
@@ -126,7 +126,7 @@
 /// @param {Number} $ratios [0] - Specify how far along you want the element to move.
 /// @param {String} $col-or-span [column] - Specify whether the element has a gutter or not.
 /// @param {Number} $gutter [$jeet-gutter] - Specify the gutter width as a percentage of the containers width.
-@mixin shift($ratios: 0, $col-or-span: column, $gutter: $jeet-gutter) {
+@mixin j-shift($ratios: 0, $col-or-span: column, $gutter: $jeet-gutter) {
   $translate: '';
   $side: jeet-get-layout-direction();
 
@@ -146,7 +146,7 @@
 }
 
 /// Reset an element that has had shift() applied to it.
-@mixin unshift() {
+@mixin j-unshift() {
   position: static;
   left: 0;
 }
@@ -154,7 +154,7 @@
 /// View the grid and its layers for easy debugging.
 /// @param {String} $color [black] - The background tint applied.
 /// @param {Bool} $important [false] - Whether to apply the style as !important.
-@mixin edit($color: black, $important: false) {
+@mixin j-edit($color: black, $important: false) {
   @if $important {
     * {
       background: rgba($color, .05) !important;
@@ -169,7 +169,7 @@
 /// Horizontally center an element.
 /// @param {Number} $max-width [1410px] - The max width the element can be.
 /// @param {Number} $pad [0] - Specify the element's left and right padding.
-@mixin center($max-width: $jeet-max-width, $pad: 0) {
+@mixin j-center($max-width: $jeet-max-width, $pad: 0) {
   width: auto;
   max-width: $max-width;
   float: none;
@@ -187,7 +187,7 @@
 }
 
 /// Uncenter an element.
-@mixin uncenter() {
+@mixin j-uncenter() {
   max-width: none;
 
   margin: {
@@ -204,7 +204,7 @@
 /// Stack an element so that nothing is either side of it.
 /// @param {Number} $pad [0] - Specify the element's left and right padding.
 /// @param {Bool | String} $align [false] - Specify the text align for the element.
-@mixin stack($pad: 0, $align: false) {
+@mixin j-stack($pad: 0, $align: false) {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
 
@@ -245,7 +245,7 @@
 }
 
 /// Unstack an element.
-@mixin unstack() {
+@mixin j-unstack() {
   $side: jeet-get-layout-direction();
   $opposite-side: jeet-opposite-direction($side);
 
@@ -269,7 +269,7 @@
 }
 /// Center an element on either or both axes. Requires a parent element with relative positioning.
 /// @param {String} $direction [both] - Specify which axes to center the element on.
-@mixin align($direction: both) {
+@mixin j-align($direction: both) {
   position: absolute;
   transform-style: preserve-3d;
 
@@ -291,7 +291,7 @@
 }
 
 /// Apply a clearfix to an element.
-@mixin cf() {
+@mixin j-cf() {
   *zoom: 1;
 
   &:before, &:after {
