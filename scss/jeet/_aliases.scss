@@ -1,0 +1,67 @@
+@mixin column($args...) {
+  @include j-column($args...);
+}
+
+@function column-width($args...) {
+  @return j-column-width($args...);
+}
+
+@function column-gutter($args...) {
+  @return j-column-gutter($args...);
+}
+
+@mixin span($args...) {
+  @include j-span($args...);
+}
+
+@mixin shift($args...) {
+  @include j-shift($args...);
+}
+
+@mixin unshift() {
+  @include j-unshift();
+}
+
+@mixin edit($args...) {
+  @include j-edit($args...);
+}
+
+@mixin center($args...) {
+  @include j-center($args...);
+}
+
+@mixin uncenter() {
+  @include j-uncenter();
+}
+
+@mixin stack($args...) {
+  @include j-stack($args...);
+}
+
+@mixin unstack() {
+  @include j-unstack();
+}
+
+@mixin align($args...) {
+  @include j-align($args...);
+}
+
+@mixin cf() {
+  @include j-cf();
+}
+
+@mixin col($args...) {
+  @include column($args...);
+}
+
+@mixin debug() {
+  @include edit;
+}
+
+@function cw($args...) {
+  @return column-width($args...);
+}
+
+@function cg($args...) {
+  @return column-gutter($args...);
+}
