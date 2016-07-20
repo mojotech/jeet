@@ -9,7 +9,7 @@
     <a href="https://gitter.im/mojotech/jeet"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square"></a>
 </p>
 
-<p align="center"><strong>Please use <a href="https://github.com/mojotech/jeet/releases/latest">the latest stable release</a>. Master branch is the BETA release.</strong></p>
+> **Please note**: `6.1.3` was accidentally released with breaking changes (new filenames). Please use `6.1.2` until patch is released. Thanks! 
 
 [Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today.
 
