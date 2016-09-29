@@ -62,3 +62,14 @@ jeet-reverse(list)
     prepend(result, item)
 
   return result
+
+/**
+ * Perform a value into a percentage value.
+ * @param {number} value - The value which should be converted.
+ * @returns {number} value - The percentage.
+ */
+jeet-get-percentage(value)
+  if value == 0
+    return 0
+  else
+    return (value)%

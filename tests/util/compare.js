@@ -16,9 +16,9 @@ module.exports = function(opts) {
     visual: true
   }).then(function(diff) {
     if (diff.different) {
-      console.log(diff.visual)
+      console.log(diff.visual);
     }
 
     return diff.different.should.be.false;
   });
-}
+};
