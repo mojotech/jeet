@@ -8,14 +8,14 @@ We welcome all contribution from the community, but we have a few guidelines to 
 
 ### Getting Jeet set up locally
 
-1. Fork jeet (use the button in the top right of the repo's page).
+1. [Fork Jeet](https://github.com/mojotech/jeet/fork).
 1. `git clone https://github.com/YOUR-USERNAME/jeet` to get a local copy of your fork.
 1. Run `git remote add upstream https://github.com/mojotech/jeet`. This will add another remote, named upstream, that points to the official Jeet repository. This will help with keeping your forks up to date with Jeet's master branch.
 
 ### Making changes
 
-1. `git checkout -b YourInitials/feature-branch-name` (e.g. `cs/improve-this-feature`, `ma/add-this-feature`). Make all your changes for the specific feature inside this branch.
-1. Separate edits into [clean](https://github.com/erlang/otp/wiki/Writing-good-commit-messages), non-breaking, commits.
+1. Create a new branch following [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/)
+1. Checkout your new branch and commit your changes. Separate edits into [clean](https://github.com/erlang/otp/wiki/Writing-good-commit-messages), non-breaking, commits.
 
 ### Tests
 

@@ -1,14 +1,27 @@
 <p align="center">
-<img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
+  <img width="190px" src="https://mojotech.github.io/jeet/img/jeet-logo-color.svg" title="Jeet Grid System">
 </p>
 
-[![Build Status](https://travis-ci.org/mojotech/jeet.svg?branch=master)](https://travis-ci.org/mojotech/jeet)
+<p align="center">
+  <img src="https://img.shields.io/npm/v/jeet.svg">
+  <img src="https://img.shields.io/bower/v/jeet.svg">
+  <img src="http://img.shields.io/npm/dm/jeet.svg">
+  <a href="https://gitter.im/mojotech/jeet"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square"></a>
+</p>
 
-[Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today. You can think of it like the spiritual successor to [Semantic.gs](http://semantic.gs/).
+---
+
+<p align="center">
+  **Active development will now partake in the [develop](https://github.com/mojotech/jeet/tree/develop)-branch, the master branch should always be in a working (release) state.**
+</p>
+
+---
+
+[Jeet](http://jeet.gs) is the most advanced, yet intuitive, grid system on the market today.
 
 By making use of the power of pre-processors, we can now pass real fractions (or float numbers) as context that generates a percentage based width and gutter for grids. We're able to do this while maintaining a consistently sized infinitely nestable gutter.
 
-Check out [this presentation](http://corysimmons.github.io/presentations/jeet-5) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
+Check out [this presentation](http://corysimmons.github.io/presentations/the-rise-of-ratio-grids) to learn more about what sets Jeet above other grid systems, then enjoy one of Jeet's many pre-processor flavors:
 
 - [Stylus](stylus)
 - [SCSS](scss)
