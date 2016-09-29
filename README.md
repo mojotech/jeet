@@ -12,7 +12,7 @@
 ---
 
 <p align="center">
-  <b>Active development will now partake in the [develop](https://github.com/mojotech/jeet/tree/develop)-branch, the master branch should always be in a working (release) state.</b>
+  <b>Active development will now partake in the <a href="https://github.com/mojotech/jeet/tree/develop">develop</a>-branch, the master branch should always be in a working (release) state.</b>
 </p>
 
 ---
