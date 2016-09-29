@@ -1,11 +1,12 @@
 {
   "name": "jeet",
-  "version": "6.1.2",
+  "version": "6.1.5",
   "homepage": "http://jeet.gs",
   "authors": [
     "Cory Simmons <csimmonswork@gmail.com>",
     "Sam Saccone <sam@mojotech.com>",
-    "Jake Cleary <shout@jakecleary.net>"
+    "Jake Cleary <shout@jakecleary.net>",
+    "Andreas Nedbal <andy@pixelde.su>"
   ],
   "description": "A grid system for humans.",
   "main": [
