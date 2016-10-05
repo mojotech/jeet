@@ -1,5 +1,0 @@
-@import 'scss/jeet/index';
-
-.test {
-  @include column($ratios: 1/5, $offset: 1/5, $cycle: 5, $uncycle: 5, $gutter: 5);
-}

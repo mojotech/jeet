@@ -1,5 +1,0 @@
-@import 'scss/jeet/index';
-
-.test {
-  @include shift($ratios: 1/5, $col-or-span: column, $gutter: 5);
-}

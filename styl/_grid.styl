@@ -1,0 +1,216 @@
+column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter)
+  side = _get-layout-direction()
+  opposite-side = opposite-position(side)
+  column-widths = _get-column($ratios, $gutter)
+  margin-last = 0
+  margin-l = margin-last
+  margin-r = column-widths[1]
+
+  unless $offset == 0
+    if $offset < 0
+      $offset *= -1
+      $offset = _get-column($offset, column-widths[1])[0]
+      margin-r = margin-last = $offset + column-widths[1] * 2
+    else
+      $offset = _get-column($offset, column-widths[1])[0]
+      margin-l = $offset + column-widths[1]
+
+  clearfix()
+  float: side
+  clear: none
+  text-align: inherit
+  width: (column-widths[0])%
+  margin-{side}: (margin-l)%
+  margin-{opposite-side}: (margin-r)%
+
+  if $cycle != 0
+    &:nth-child(n)
+      margin-{opposite-side}: (margin-r)%
+      float: side
+      clear: none
+
+    &:nth-child({$cycle}n)
+      margin-{opposite-side}: (margin-last)%
+      float: opposite-side
+
+    &:nth-child({$cycle}n + 1)
+      clear: both
+  else
+    &:last-child
+      margin-{opposite-side}: (margin-last)%
+
+
+column-width($ratios = 1, $gutter = $jeet.gutter)
+  $ratios = _reverse($ratios) unless $jeet.parent-first is true
+  w = 100
+
+  for ratio in $ratios
+    w = 100 * ratio - $gutter + ratio * $gutter
+
+  return w + '%'
+
+
+column-gutter($ratios = 1, $gutter = $jeet.gutter)
+  $ratios = _reverse($ratios) unless $jeet.parent-first is true
+  w = 100
+
+  for ratio in $ratios
+    $gutter = $gutter / w * 100
+
+  return $gutter + '%'
+
+
+span($ratio = 1, $offset = 0, $cycle = 0)
+  side = _get-layout-direction()
+  opposite-side = opposite-position(side)
+  span-width = _get-span($ratio)
+  margin-r = 0
+  margin-l = margin-r
+
+  unless $offset == 0
+    if $offset < 0
+      $offset *= -1
+      margin-r = _get-span($offset)
+    else
+      margin-l = _get-span($offset)
+
+  clearfix()
+  float: side
+  clear: none
+  text-align: inherit
+  width: (span-width)%
+  margin-{side}: (margin-l)%
+  margin-{opposite-side}: (margin-r)%
+
+  if $cycle != 0
+    &:nth-child(n)
+      float: side
+      clear: none
+
+    &:nth-child({$cycle}n)
+      float: opposite-side
+
+    &:nth-child({$cycle}n + 1)
+      clear: both
+
+
+move($ratios = 0, $col-or-span = column, $gutter = $jeet.gutter)
+  translate = ''
+  side = _get-layout-direction()
+
+  if side == right
+    $ratios = _replace-nth($ratios, 0, $ratios[0] * -1)
+
+  if $col-or-span == column or $col-or-span == col or $col-or-span == c
+    column-widths = _get-column($ratios, $gutter)
+    translate = column-widths[0] + column-widths[1]
+  else
+    translate = _get-span($ratios)
+
+  position: relative
+  left: (translate)%
+
+
+unmove()
+  position: static
+  left: 0
+
+
+debug($color = blue, $important = false)
+  if $important
+    *
+      background: rgba($color, 5%) !important
+  else
+    *
+      background: rgba($color, 5%)
+
+
+center($max-width = $jeet.max-width, $pad = 0)
+  clearfix()
+  width: auto
+  max-width: $max-width
+  float: none
+  display: unquote('block')
+  margin-right: auto
+  margin-left: auto
+  padding-left: $pad
+  padding-right: $pad
+
+
+uncenter()
+  max-width: none
+  margin-right: 0
+  margin-left: 0
+  padding-left: 0
+  padding-right: 0
+
+
+stack($pad = 0, $align = false)
+  side = _get-layout-direction()
+  opposite-side = opposite-position(side)
+
+  display: unquote('block')
+  clear: both
+  float: none
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+
+  &:first-child
+    margin-{side}: auto
+
+  &:last-child
+    margin-{opposite-side}: auto
+
+  if $pad != 0
+    padding-left: $pad
+    padding-right: $pad
+
+  if ($align is not false)
+    if ($align == center) or ($align == c)
+      text-align: center
+    if ($align == left) or ($align == l)
+      text-align: left
+    if ($align == right) or ($align == r)
+      text-align: right
+
+
+unstack()
+  side = _get-layout-direction()
+  opposite-side = opposite-position(side)
+
+  text-align: side
+  display: inline
+  clear: none
+  width: auto
+  margin-left: 0
+  margin-right: 0
+
+  &:first-child
+    margin-{side}: 0
+
+  &:last-child
+    margin-{opposite-side}: 0
+
+
+align($direction = both)
+  position: absolute
+  transform-style: preserve-3d
+
+  if ($direction == horizontal) or ($direction == h)
+    left: 50%
+    transform: translateX(-50%)
+  else if ($direction == vertical) or ($direction == v)
+    top: 50%
+    transform: translateY(-50%)
+  else
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+
+clearfix()
+  &::after
+    content: ''
+    display: table
+    clear: both
