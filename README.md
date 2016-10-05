@@ -30,7 +30,7 @@ Jeet functions accept fractions (or float numbers) and generates a percentage wi
 
 The API is documented in Sass, but we've worked hard to make the API *very* similar in both preprocessors. `@include column(1/2);` in SCSS would be `column(1/2)` in Stylus, ya dig?
 
-Explore [Jeet Integrations](wiki/Jeet-Integrations) to see some community-backed plugins to your favorite frameworks and libraries.
+Explore [Official Integrations](docs/integrations) to see some community-backed plugins to your favorite frameworks and libraries.
 
 #### Browser Support
 
