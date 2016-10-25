@@ -4,6 +4,10 @@
 <img src="https://img.shields.io/npm/v/jeet.svg">
 <img src="http://img.shields.io/npm/dm/jeet.svg">
 
+# Jeet 7.0.0 is here!
+
+> 7.0.0 breaks a lot of stuff. Be sure to read [the migration guide](https://github.com/mojotech/jeet/wiki/Migrating-from-6-to-7)!
+
 [Jeet](http://jeet.gs) is a simple fractional grid system for **[Sass](scss)** and **[Stylus](styl)**.
 
 Learn the [API](docs) in minutes and begin tossing together grids.
