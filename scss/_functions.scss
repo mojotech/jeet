@@ -1,0 +1,89 @@
+// List functions courtesy of Team Sass.
+
+// Get  percentage from a given ratio.
+@function _get-span($ratio: 1) {
+  @return $ratio * 100;
+}
+
+// Work out the column widths based on the ratio and gutter sizes.
+@function _get-column($ratios: 1, $gutter: map-get($jeet, 'gutter')) {
+  $ratios: if(not map-get($jeet, 'parent-first'), _reverse($ratios), $ratios);
+  $width: 100;
+
+  @each $ratio in $ratios {
+    $gutter: $gutter / $width * 100;
+    $width: 100 * $ratio - $gutter + $ratio * $gutter;
+  }
+
+  @return $width $gutter;
+}
+
+// Get the set layout direction for the project.
+@function _get-layout-direction() {
+  $direction: if(map-get($jeet, 'layout-direction') == 'RTL', right, left);
+
+  @return $direction;
+}
+
+// Replace a specified list value with a new value (uses built in set-nth() if available)
+@function _replace-nth($list, $index, $value) {
+  // Fallback for Sass 3.2
+  @if function-exists('set-nth') != true {
+    $result: ();
+    $index: if($index < 0, length($list) + $index + 1, $index);
+
+    @for $i from 1 through length($list) {
+      $result: append($result, if($i == $index, $value, nth($list, $i)));
+    }
+
+    @return $result;
+  }
+
+  // Sass 3.3
+  $result: set-nth($list, $index, $value);
+
+  @return $result;
+}
+
+// Reverse a list (progressively enhanced for Sass 3.3)
+@function _reverse($list) {
+  // Sass 3.2
+  @if function-exists('set-nth') != true {
+    $result: ();
+
+    @for $i from length($list) * -1 through -1 {
+      $result: append($result, nth($list, abs($i)));
+    }
+
+    @return $result;
+  }
+
+  // Sass 3.3
+  @for $i from 1 through floor(length($list) / 2) + 1 {
+    $tmp: nth($list, $i);
+    $list: set-nth($list, $i, nth($list, -$i));
+    $list: set-nth($list, -$i, $tmp);
+  }
+
+  @return $list;
+}
+
+// Get the opposite direction to a given value.
+@function _opposite-direction($direction) {
+  @if $direction == 'left' {
+    @return right;
+  } @else if $direction == 'right' {
+    @return left;
+  } @else if $direction == 'top' {
+    @return bottom;
+  } @else if $direction == 'bottom' {
+    @return top;
+  } @else if index('ltr' 'LTR', $direction) {
+    @return rtl;
+  } @else if index('rtl' 'RTL', $direction) {
+    @return ltr;
+  } @else {
+    @warn '`#{$direction}` is not a direction; please make sure your direction is all lowercase.';
+    @return false;
+  }
+}

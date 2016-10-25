@@ -1,0 +1,279 @@
+@mixin column($ratios: 1, $offset: 0, $cycle: 0, $gutter: map-get($jeet, 'gutter')) {
+  $side: _get-layout-direction();
+  $opposite-side: _opposite-direction($side);
+  $column-widths: _get-column($ratios, $gutter);
+  $margin-last: 0;
+  $margin-l: $margin-last;
+  $margin-r: nth($column-widths, 2);
+
+  @if $offset != 0 {
+    @if $offset < 0 {
+      $offset: $offset * -1;
+      $offset: nth(_get-column($offset, nth($column-widths, 2)), 1);
+      $margin-last: $offset + nth($column-widths, 2) * 2;
+      $margin-r: $margin-last;
+    } @else {
+      $offset: nth(_get-column($offset, nth($column-widths, 2)), 1);
+      $margin-l: $offset + nth($column-widths, 2);
+    }
+  }
+
+  @include clearfix;
+
+  float: $side;
+  clear: none;
+  text-align: inherit;
+  width: nth($column-widths, 1) * 1%;
+  margin: {
+    #{$side}: $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
+
+  @if $cycle != 0 {
+    &:nth-child(n) {
+      margin-#{_opposite-direction($side)}: $margin-r * 1%;
+      float: $side;
+      clear: none;
+    }
+
+    &:nth-child(#{$cycle}n) {
+      margin-#{_opposite-direction($side)}: $margin-last * 1%;
+      float: _opposite-direction($side);
+    }
+
+    &:nth-child(#{$cycle}n + 1) {
+      clear: both;
+    }
+  } @else {
+    &:last-child {
+      margin-#{_opposite-direction($side)}: $margin-last * 1%;
+    }
+  }
+}
+
+
+@function column-width($ratios: 1, $gutter: map-get($jeet, 'gutter')) {
+  @if (map-get($jeet, 'parent-first') != 'true') {
+    $ratios: _reverse($ratios);
+  }
+
+  $w: 100;
+
+  @each $ratio in $ratios {
+    $w: 100 * $ratio - $gutter + $ratio * $gutter;
+  }
+
+  @return unquote($w + '%');
+}
+
+
+@function column-gutter($ratios: 1, $gutter: map-get($jeet, 'gutter')) {
+  @if (map-get($jeet, 'parent-first') != 'true') {
+    $ratios: _reverse($ratios);
+  }
+
+  $w: 100;
+
+  @each $ratio in $ratios {
+    $gutter: $gutter / $w * 100;
+  }
+
+  @return unquote($gutter + '%');
+}
+
+
+@mixin span($ratio: 1, $offset: 0, $cycle: 0) {
+  $side: _get-layout-direction();
+  $opposite-side: _opposite-direction($side);
+  $span-width: _get-span($ratio);
+  $margin-r: 0;
+  $margin-l: $margin-r;
+  @if $offset != 0 {
+    @if $offset < 0 {
+      $offset: $offset * -1;
+      $margin-r: _get-span($offset);
+    } @else {
+      $margin-l: _get-span($offset);
+    }
+  }
+
+  @include clearfix;
+  float: $side;
+  clear: none;
+  text-align: inherit;
+  width: $span-width * 1%;
+  margin: {
+    #{$side}: $margin-l * 1%;
+    #{$opposite-side}: $margin-r * 1%;
+  };
+
+  @if $cycle != 0 {
+    &:nth-child(n) {
+      float: $side;
+      clear: none;
+    }
+
+    &:nth-child(#{$cycle}n) {
+      float: _opposite-direction($side);
+    }
+
+    &:nth-child(#{$cycle}n + 1) {
+      clear: both;
+    }
+  }
+}
+
+
+@mixin move($ratios: 0, $col-or-span: column, $gutter: map-get($jeet, 'gutter')) {
+  $translate: '';
+  $side: _get-layout-direction();
+
+  @if $side == right {
+    $ratios: _replace-nth($ratios, 0, nth($ratios, 1) * -1);
+  }
+
+  @if index("column" "col" "c", $col-or-span) {
+    $column-widths: _get-column($ratios, $gutter);
+    $translate: nth($column-widths, 1) + nth($column-widths, 2);
+  } @else {
+    $translate: _get-span($ratios);
+  }
+
+  position: relative;
+  left: $translate * 1%;
+}
+
+
+@mixin unmove() {
+  position: static;
+  left: 0;
+}
+
+
+@mixin debug($color: blue, $important: false) {
+  @if $important {
+    * {
+      background: rgba($color, .05) !important;
+    }
+  } @else {
+    * {
+      background: rgba($color, .05);
+    }
+  }
+}
+
+
+@mixin center($max-width: map-get($jeet, 'max-width'), $pad: 0) {
+  @include clearfix;
+  width: auto;
+  max-width: $max-width;
+  float: none;
+  display: block;
+  margin: {
+    right: auto;
+    left:  auto;
+  };
+  padding: {
+    left:  $pad;
+    right: $pad;
+  };
+}
+
+
+@mixin uncenter() {
+  max-width: none;
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+@mixin stack($pad: 0, $align: false) {
+  $side: _get-layout-direction();
+  $opposite-side: _opposite-direction($side);
+
+  display: block;
+  clear: both;
+  float: none;
+  width: 100%;
+  margin: {
+    left:  auto;
+    right: auto;
+  };
+
+  &:first-child {
+    margin-#{$side}: auto;
+  }
+
+  &:last-child {
+    margin-#{$opposite-side}: auto;
+  }
+
+  @if $pad != 0 {
+    padding: {
+      left:  $pad;
+      right: $pad;
+    }
+  }
+
+  @if ($align is not false) {
+    @if index("center" "c", $align) {
+      text-align: center;
+    } @else if index("left" "l", $align) {
+      text-align: left;
+    } @else if index("right" "r", $align) {
+      text-align: right;
+    }
+  }
+}
+
+
+@mixin unstack() {
+  $side: _get-layout-direction();
+  $opposite-side: _opposite-direction($side);
+
+  text-align: $side;
+  display: inline;
+  clear: none;
+  width: auto;
+  margin: {
+    left:  0;
+    right: 0;
+  };
+
+  &:first-child {
+    margin-#{$side}: 0;
+  }
+
+  &:last-child {
+    margin-#{_opposite-direction($side)}: 0;
+  }
+}
+
+
+@mixin align($direction: both) {
+  position: absolute;
+  transform-style: preserve-3d;
+
+  @if index("horizontal" "h", $direction) {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if index("vertical" "v", $direction) {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

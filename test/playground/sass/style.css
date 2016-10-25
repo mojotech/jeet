@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+:root {
+  font-family: sans-serif; }
+
+* {
+  background: rgba(0, 0, 255, 0.05); }
+
+body {
+  width: auto;
+  max-width: 960px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0; }
+  body::after {
+    content: '';
+    display: table;
+    clear: both; }
+
+div {
+  display: block;
+  clear: both;
+  float: none;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  div:first-child {
+    margin-left: auto; }
+  div:last-child {
+    margin-right: auto; }
+  @media (min-width: 700px) {
+    div {
+      float: left;
+      clear: none;
+      text-align: inherit;
+      width: 50%;
+      margin-left: 0%;
+      margin-right: 0%; }
+      div::after {
+        content: '';
+        display: table;
+        clear: both; }
+      div:nth-child(n) {
+        float: left;
+        clear: none; }
+      div:nth-child(2n) {
+        float: right; }
+      div:nth-child(2n + 1) {
+        clear: both; } }
+  @media (min-width: 900px) {
+    div {
+      float: left;
+      clear: none;
+      text-align: inherit;
+      width: 33.33333%;
+      margin-left: 0%;
+      margin-right: 0%; }
+      div::after {
+        content: '';
+        display: table;
+        clear: both; }
+      div:nth-child(n) {
+        float: left;
+        clear: none; }
+      div:nth-child(3n) {
+        float: right; }
+      div:nth-child(3n + 1) {
+        clear: both; } }
+
+/*# sourceMappingURL=style.css.map */

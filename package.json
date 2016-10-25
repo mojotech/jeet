@@ -1,62 +1,28 @@
 {
   "name": "jeet",
-  "maintainers": [
-    {
-      "name": "Cory Simmons",
-      "email": "csimmonswork@gmail.com",
-      "web": "http://jeet.gs"
-    },
-    {
-      "name": "Sam Saccone",
-      "email": "sam@mojotech.com",
-      "web": "http://mojotech.com"
-    },
-    {
-      "name": "Jake Cleary",
-      "email": "shout@jakecleary.net",
-      "web": "http://jakecleary.net"
-    },
-    {
-      "name": "Andreas Nedbal",
-      "email": "andy@pixelde.su",
-      "web": "http://pixelde.su"
-    }
+  "version": "7.0.0",
+  "description": "A simple Sass and Stylus grid system. Built for humans.",
+  "homepage": "https://jeet.gs",
+  "license": "MIT",
+  "main": "./index.js",
+  "author": "Cory Simmons <cory@launchboxhq.com>",
+  "contributors": [
+    "Jake Cleary <shout@jakecleary.net> (http://jakecleary.net)",
+    "Andreas Nedbal <andy@pixelde.su> (http://pixelde.su)",
+    "Sam Saccone"
   ],
-  "main": "stylus/jeet.js",
-  "version": "6.1.5",
-  "description": "A grid system for humans.",
   "keywords": [
+    "grid",
     "stylus",
-    "scss",
-    "css",
-    "framework",
-    "grid"
+    "scss"
   ],
-  "categories": [
-    "CSS",
-    "Frameworks"
-  ],
-  "github": "http://github.com/mojotech/jeet",
   "devDependencies": {
-    "chai": "3.5.0",
-    "css-diff": "0.4.1",
-    "mocha": "2.5.3",
-    "node-sass": "3.8.0",
-    "should": "9.0.2",
-    "stylus": "0.54.5"
+    "node-sass": "^3.8.0",
+    "stylus": "^0.54.5"
   },
   "scripts": {
-    "test": "mocha tests"
+    "test:node": "node test/node-stylus/node"
   },
-  "preferGlobal": true,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mojotech/jeet.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mojotech/jeet/issues",
-    "email": "cory@mojotech.com"
-  },
-  "license": "MIT",
-  "homepage": "https://jeet.gs"
+  "repository": "mojotech/jeet",
+  "bugs": "https://github.com/mojotech/jeet/issues"
 }
