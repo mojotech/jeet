@@ -52,7 +52,7 @@
 }
 
 
-@function column-width($ratios: 1, $g: map-get($jeet, 'gutter')) {
+@function column-width($ratios: 1, $gutter: map-get($jeet, 'gutter')) {
   @if (map-get($jeet, 'parent-first') != 'true') {
     $ratios: _reverse($ratios);
   }
@@ -60,14 +60,14 @@
   $w: 100;
 
   @each $ratio in $ratios {
-    $w: 100 * $ratio - $g + $ratio * $g;
+    $w: 100 * $ratio - $gutter + $ratio * $gutter;
   }
 
   @return unquote($w + '%');
 }
 
 
-@function column-gutter($ratios: 1, $g: map-get($jeet, 'gutter')) {
+@function column-gutter($ratios: 1, $gutter: map-get($jeet, 'gutter')) {
   @if (map-get($jeet, 'parent-first') != 'true') {
     $ratios: _reverse($ratios);
   }
@@ -75,10 +75,10 @@
   $w: 100;
 
   @each $ratio in $ratios {
-    $g: $g / $w * 100;
+    $gutter: $gutter / $w * 100;
   }
 
-  @return unquote($g + '%');
+  @return unquote($gutter + '%');
 }
 
 

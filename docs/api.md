@@ -12,11 +12,11 @@ Want to change it up when you get down to mobile? Maybe just show 2 images per r
 
 Need to adjust column gutters for a specific container? `col(1/4, $gutter: .5)`. Note the gutter isn't a fixed width.
 
-### column-width($ratios: 1, $g: map-get($jeet, 'gutter'))
+### column-width($ratios: 1, $gutter: map-get($jeet, 'gutter'))
 
 A function to return strictly the column width with none of the styles.
 
-### column-gutter($ratios: 1, $g: map-get($jeet, 'gutter'))
+### column-gutter($ratios: 1, $gutter: map-get($jeet, 'gutter'))
 
 A function that returns the gutter size.
 
