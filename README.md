@@ -9,11 +9,9 @@
   <a href="https://gitter.im/mojotech/jeet"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square"></a>
 </p>
 
----
+# This is a rollback to 6.1.2!
 
-<p align="center">
-  <b>Active development will now partake in the <a href="https://github.com/mojotech/jeet/tree/develop">develop</a>-branch, the master branch should always be in a working (release) state.</b>
-</p>
+> ❗️ Jeet 6.1.3 and 6.1.4 introduced breaking changes that have caused a lot of issues. This is a rollback to 6.1.2. Moving forward, we will strictly adhere to semver and apologize for any broken builds. 🤕 Thanks for sticking with us as we grow!
 
 ---
 
