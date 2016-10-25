@@ -1,0 +1,22 @@
+.installation.grid-container(data-scroll-index='3')
+  .contained
+    h1.headline.text-center.scrollReveal.fade-in Getting started is easy.
+    h2.text-center.scrollReveal.fade-in Jeet is available in 2 tasty flavors so it fits easily into any workflow.
+    .half.scss.stack-example.scrollReveal.slide-in-first
+      h3 SCSS Installation
+      ol
+        li
+          code.inline.to-copy npm install -D node-sass jeet
+        li
+          code.inline.to-copy @import 'node_modules/jeet/scss/index';
+    .half.stylus.scrollReveal.slide-in-second
+      h3 Stylus Installation
+      ol
+        li
+          code.inline.to-copy npm install -D stylus jeet
+        li
+          code.inline.to-copy @import 'node_modules/jeet/styl'
+      p.usage
+        | *Learn more about official integrations <a class="inline-link" href="https://github.com/mojotech/jeet/tree/master/docs">here</a>.
+  include _nav-orange
+  include _nav-full-color

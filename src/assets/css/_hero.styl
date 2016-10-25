@@ -2,10 +2,18 @@
   padding xs-padding-block 0 xl-padding-block 0
   background green
   z-index 10
-  @extend $cf
+  clearfix()
   +below(small-snap)
     padding (xl-padding-block + tiny-padding-block) 0 large-padding-block 0
+
+@keyframes slideDown
+  100%
+    transform: translateY(0)
+
 .announcement
+  transform: translateY(-300px)
+  animation: slideDown 1s ease forwards
+  animation-delay: 1.5s
   max-width 500px
   margin 0 auto large-padding-block auto
   color white
@@ -18,7 +26,7 @@
     margin-top 0
 .headline
   font-size headline-font
-  font-family helvetica-bold  
+  font-family helvetica-bold
   font-weight normal
   +below(small-snap)
     font-size 2.6rem

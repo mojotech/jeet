@@ -1,26 +1,10 @@
 .github-band
   column(1)
+  text-align: center
   position relative
   z-index 10
   background dark-green
   padding (small-padding-block - 3) 0
-.last-updated
-  margin-top: 14px
-  margin-bottom: (-(xs-padding-block - 2))
-  white-space nowrap
-  text-overflow ellipsis
-  overflow hidden
-  +below(small-snap)
-    column(1)
-    text-align center
-    margin (tiny-padding-block + 1) 0 xs-padding-block 0
-.latest-commit-link
-  font-weight bold
-  text-decoration none
-.right-half-wrap
-  min-width 350px
-  float right
-  hideAt(small-snap)
 .hero-ctas
   .btn
     float right
@@ -44,3 +28,7 @@
   display none
   +below(xl-snap)
     display block
+
+.view-api
+  &:hover
+    color: #21b291

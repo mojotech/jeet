@@ -1,7 +1,5 @@
 # jeet.gs
 
-#### Development
-- Install [NodeJS](http://nodejs.org)
-- `cd src`
-- `npm install`
-- `roots watch` or `roots compile`
+- `npm i`
+- `npm start`
+- `npm run imagemin` to minify/migrate images from `src/assets/img` to `dist/img`

@@ -3,7 +3,7 @@ $(function() {
       featuresOffset = $('.features-headline').offset(),
       bounceIcon     = 'bounceInLeftRepeat',
       apiIcon        = $('.side-nav-link.toggle-api');
-  
+
   hovered = false
 
   function bounceApiIcon() {

@@ -86,10 +86,10 @@ function FastClick(layer, options) {
    * @type Element
    */
   this.layer = layer;
-  
+
   /**
    * The minimum time between tap(touchstart and touchend) events
-   * 
+   *
    * @type number
    */
   this.tapDelay = options.tapDelay || 200;

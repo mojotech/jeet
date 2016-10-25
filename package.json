@@ -1,0 +1,28 @@
+{
+  "name": "jeet.gs",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.11.0",
+    "axis": "^0.6.1",
+    "browser-sync": "^2.17.5",
+    "chokidar-cli": "^1.2.0",
+    "cssnano-cli": "^1.0.5",
+    "imagemin-cli": "^3.0.0",
+    "jeet": "^7.0.0",
+    "jstransformer-markdown-it": "^2.0.0",
+    "jstransformer-marked": "^1.0.1",
+    "npm-run-all": "^3.1.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "rupture": "^0.6.2",
+    "stylus": "^0.54.5",
+    "uglify-js": "^2.7.4"
+  },
+  "scripts": {
+    "start": "npm-run-all -p stylus pug uglify browser-sync cssnano",
+    "stylus": "stylus -u axis -u jeet -u autoprefixer-stylus -u rupture -w src/assets/css/master.styl -o ./dist/css",
+    "cssnano": "chokidar dist/css/master.css -c 'cssnano dist/css/master.css dist/css/master.min.css'",
+    "uglify": "chokidar src/assets/js/*.js -c \"uglifyjs {path} -o dist/js/min.(echo {path} | cut -d '/' -f 4)\"",
+    "pug": "pug -O \"{ filters: [ require('jstransformer-marked') ] }\" -w src/views/index.pug -o ./",
+    "imagemin": "imagemin src/assets/img/*.* -o dist/img",
+    "browser-sync": "browser-sync start -s --no-open --no-notify --files=src/assets/**/*,index.html"
+  }
+}
