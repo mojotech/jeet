@@ -19,7 +19,7 @@ npm install -D jeet
 ```
 
 ```scss
-@import 'node_modules/jeet/scss/index';
+@import 'node_modules/jeet/jeet';
 
 .container {
   @include center();

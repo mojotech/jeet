@@ -39,7 +39,7 @@ $jeet: (
 );
 
 // style.scss
-@import 'node_modules/jeet/scss/index';
+@import 'node_modules/jeet/jeet';
 @import 'my-settings';
 
 .container {
