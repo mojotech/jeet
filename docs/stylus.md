@@ -13,7 +13,7 @@ $ stylus -w style.styl
 
 ```styl
 // style.styl
-@import 'node_modules/jeet/styl'
+@import 'node_modules/jeet/jeet'
 
 debug()
 

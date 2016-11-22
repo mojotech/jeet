@@ -14,7 +14,7 @@ $ sass -w style.scss
 
 ```scss
 // style.scss
-@import 'node_modules/jeet/scss/index';
+@import 'node_modules/jeet/jeet';
 
 @include debug;
 
