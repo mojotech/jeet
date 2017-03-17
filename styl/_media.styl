@@ -1,0 +1,24 @@
+media-row()
+  overflow: hidden
+  zoom: 1
+
+  &:first-child
+    margin-top: 0
+
+media($fill = false, $spacing-left = false, $spacing-right = false)
+  display: table-cell
+
+  if $fill
+    width: 1000000px
+
+  if $spacing-left
+    padding-left: $spacing-left
+
+  if $spacing-right
+    padding-right: $spacing-right
+
+unmedia()
+  display: block
+  padding-left: 0
+  padding-right: 0
+  width: auto
