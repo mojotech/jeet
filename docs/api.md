@@ -63,3 +63,15 @@ Aligning blocks relative to their container (so their parent container needs `po
 ### clearfix()
 
 A simple/kinda-modern clearfix. Use this to wrap any set of `column()`s or `span()`s. If you need super-old browser support, you can create your own clearfix mixin (use the `clearfix` namespace) with stuff like `:before` and `*zoom: 1` (look up an old clearfix).
+
+### media-row()
+
+A row for a simple media object. This is needed when a media object is going to be used and wraps all media elements together.
+
+### media($fill: false, $spacing-left: false, $spacing-right: false)
+
+Defines a media object column. `$fill` says that the media element should always take the whole, available space. `$spacing-left` or `$spacing-right` can be used to add inner paddings and add spacings to other media object columns.
+
+### unmedia($reset-fill: false)
+
+Resets a media object column and works similar to `stack()`.
