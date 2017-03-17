@@ -1,7 +1,7 @@
 var path = require('path');
 var pkg = require('./package.json');
 
-var jeetPath = path.join(__dirname, 'styl')
+var jeetPath = path.join(__dirname, 'styl');
 
 exports = module.exports = function (opts) {
   var implicit = (opts && opts.implicit == false) ? false : true;
@@ -12,8 +12,8 @@ exports = module.exports = function (opts) {
     if (implicit) {
       style.import(jeetPath);
     }
-  }
-}
+  };
+};
 
 exports.libname = pkg.name;
 exports.path = jeetPath;

@@ -1,4 +1,4 @@
-column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter)
+column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter, $clearfix = true)
   side = _get-layout-direction()
   opposite-side = opposite-position(side)
   column-widths = _get-column($ratios, $gutter)
@@ -15,7 +15,9 @@ column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter)
       $offset = _get-column($offset, column-widths[1])[0]
       margin-l = $offset + column-widths[1]
 
-  clearfix()
+  if $clearfix
+    clearfix()
+
   float: side
   clear: none
   text-align: inherit
@@ -60,7 +62,7 @@ column-gutter($ratios = 1, $gutter = $jeet.gutter)
   return $gutter + '%'
 
 
-span($ratio = 1, $offset = 0, $cycle = 0)
+span($ratio = 1, $offset = 0, $cycle = 0, $clearfix = true)
   side = _get-layout-direction()
   opposite-side = opposite-position(side)
   span-width = _get-span($ratio)
@@ -74,7 +76,9 @@ span($ratio = 1, $offset = 0, $cycle = 0)
     else
       margin-l = _get-span($offset)
 
-  clearfix()
+  if $clearfix
+    clearfix()
+
   float: side
   clear: none
   text-align: inherit
