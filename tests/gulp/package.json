@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "gulp": "^3.5.2",
+    "coffee-script": "^1.7.1",
+    "gulp-stylus": "0.0.13",
+    "jeet": "^5.1.3",
+    "gulp-connect": "^1.0.7"
+  }
+}

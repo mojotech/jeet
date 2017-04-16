@@ -1,0 +1,61 @@
+section,
+section aside,
+section article {
+  *zoom: 1;
+}
+section:before,
+section aside:before,
+section article:before,
+section:after,
+section aside:after,
+section article:after {
+  content: '';
+  display: table;
+}
+section:after,
+section aside:after,
+section article:after {
+  clear: both;
+}
+* {
+  background: #eee;
+  background: rgba(0,0,0,0.05);
+}
+section {
+  width: auto;
+  max-width: 600px;
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+section aside {
+  float: left;
+  display: inline;
+  clear: none;
+  text-align: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  width: 31.33333333333333%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+section aside:last-child {
+  margin-right: 0%;
+}
+section article {
+  float: left;
+  display: inline;
+  clear: none;
+  text-align: inherit;
+  padding-left: 0;
+  padding-right: 0;
+  width: 65.66666666666666%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+section article:last-child {
+  margin-right: 0%;
+}
