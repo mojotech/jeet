@@ -58,7 +58,7 @@ div {
       float: left;
       clear: none;
       text-align: inherit;
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0%;
       margin-right: 0%; }
       div::after {
@@ -72,5 +72,22 @@ div {
         float: right; }
       div:nth-child(3n + 1) {
         clear: both; } }
-
-/*# sourceMappingURL=style.css.map */
+  @media (min-width: 1440px) {
+    div {
+      float: left;
+      clear: none;
+      text-align: inherit;
+      width: 25%;
+      margin-left: 0%;
+      margin-right: 0%; }
+      div::after {
+        content: '';
+        display: table;
+        clear: both; }
+      div:nth-of-type(n) {
+        float: left;
+        clear: none; }
+      div:nth-of-type(4n) {
+        float: right; }
+      div:nth-of-type(4n + 1) {
+        clear: both; } }
