@@ -1,6 +1,6 @@
 # API
 
-### column($ratios: 1, $offset: 0, $cycle: 0, $gutter: map-get($jeet, 'gutter'))
+### column($ratios: 1, $offset: 0, $cycle: 0, $gutter: map-get($jeet, 'gutter'), $nth: map-get($jeet, 'nth'))
 
 Specify an initial ratio, either as fractions or decimals, then pass the parent container's context ratio to maintain consistent gutters as you nest.
 
@@ -12,6 +12,9 @@ Want to change it up when you get down to mobile? Maybe just show 2 images per r
 
 Need to adjust column gutters for a specific container? `col(1/4, $gutter: .5)`. Note the gutter isn't a fixed width.
 
+The `nth` parameter allow you to switch betweet `nth-child` and `nth-of-type` when building the
+grid. `nth-child` is the default rule. The accepted values are `child` or `type`.
+
 ### column-width($ratios: 1, $gutter: map-get($jeet, 'gutter'))
 
 A function to return strictly the column width with none of the styles.
@@ -20,7 +23,7 @@ A function to return strictly the column width with none of the styles.
 
 A function that returns the gutter size.
 
-### span($ratio: 1, $offset: 0, $cycle: 0)
+### span($ratio: 1, $offset: 0, $cycle: 0, $nth: map-get($jeet, 'nth'))
 
 Need a grid without the gutters? For instance, for a horizontal navigation where you want buttons touching. Do so with `span(1/5)`. No need to pass more than one ratio since we don't need to worry about the math involved with gutters and all that.
 

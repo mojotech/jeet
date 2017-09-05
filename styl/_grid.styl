@@ -1,10 +1,13 @@
-column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter, $clearfix = true)
+column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter, $clearfix = true, $nth = $jeet.nth)
   side = _get-layout-direction()
   opposite-side = opposite-position(side)
   column-widths = _get-column($ratios, $gutter)
   margin-last = 0
   margin-l = margin-last
   margin-r = column-widths[1]
+  $nth-selector = "nth-child"
+  if $nth is "type"
+    $nth-selector = "nth-of-type"
 
   unless $offset == 0
     if $offset < 0
@@ -26,16 +29,16 @@ column($ratios = 1, $offset = 0, $cycle = 0, $gutter = $jeet.gutter, $clearfix =
   margin-{opposite-side}: (margin-r)%
 
   if $cycle != 0
-    &:nth-child(n)
+    &:{$nth-selector}(n)
       margin-{opposite-side}: (margin-r)%
       float: side
       clear: none
 
-    &:nth-child({$cycle}n)
+    &:{$nth-selector}({$cycle}n)
       margin-{opposite-side}: (margin-last)%
       float: opposite-side
 
-    &:nth-child({$cycle}n + 1)
+    &:{$nth-selector}({$cycle}n + 1)
       clear: both
   else
     &:last-child
@@ -62,12 +65,16 @@ column-gutter($ratios = 1, $gutter = $jeet.gutter)
   return $gutter + '%'
 
 
-span($ratio = 1, $offset = 0, $cycle = 0, $clearfix = true)
+span($ratio = 1, $offset = 0, $cycle = 0, $clearfix = true, $nth = $jeet.nth)
   side = _get-layout-direction()
   opposite-side = opposite-position(side)
   span-width = _get-span($ratio)
   margin-r = 0
   margin-l = margin-r
+  $nth-selector = "nth-child"
+  if $nth is "type"
+    $nth-selector = "nth-of-type"
+
 
   unless $offset == 0
     if $offset < 0
@@ -87,14 +94,14 @@ span($ratio = 1, $offset = 0, $cycle = 0, $clearfix = true)
   margin-{opposite-side}: (margin-r)%
 
   if $cycle != 0
-    &:nth-child(n)
+    &:{$nth-selector}(n)
       float: side
       clear: none
 
-    &:nth-child({$cycle}n)
+    &:{$nth-selector}({$cycle}n)
       float: opposite-side
 
-    &:nth-child({$cycle}n + 1)
+    &:{$nth-selector}({$cycle}n + 1)
       clear: both
 
 

@@ -27,4 +27,8 @@ div {
   @media (min-width: 900px) {
     @include span(1/3, $cycle: 3);
   }
+
+  @media (min-width:1440px) {
+    @include span(1/4, $cycle: 4, $nth: "type");
+  }
 }
