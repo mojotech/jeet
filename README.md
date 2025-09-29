@@ -1,3 +1,9 @@
+# Jeet IS NO LONGER ACTIVELY MAINTAINED
+
+This repository is now in archived, read-only mode.
+
+---
+
 <img width="200px" src="http://jeet.gs/dist/img/jeet-logo-color.svg" title="Jeet Grid System">
 
 <a href="https://gitter.im/mojotech/jeet"><img src="https://img.shields.io/gitter/room/nwjs/nw.js.svg?maxAge=2592000?style=flat-square"></a>
